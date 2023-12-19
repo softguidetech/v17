@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="document_type_tree" model="ir.ui.view">
+        <field name="name">document.type.tree</field>
+        <field name="model">document.type</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name_en"/>
+                <field name="name_ar"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

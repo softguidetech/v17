@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="change_request_id" model="helpdesk.ticket.type">
+        <field name="name">field_value</field>
+        <field name="code">field_value</field>
+    </record>
+
+</odoo>

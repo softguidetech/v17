@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Template(s) separated to ensure data
+    consistency -->
+
+    <template id="basic_followup_update" name="Project Basic Data FollowUp Update">
+        <div id="basic_update_selector">
+            <!-- Client -->
+            <div class="row mb-4">
+                <div class="form-group col-12 s_website_form_field" data-name="Field">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                        <label class="col-form-label col-auto s_website_form_label" for="name">
+                            <strong class="col-lg-2">Client</strong>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="col-sm col-xs-12">
+                            <div class="row">
+                                <div class="col flex-grow-0 pr-3">
+                                    <img class="rounded-circle o_portal_contact_img"
+                                        t-attf-src="#{image_data_uri(project_project.partner_id.avatar_1024)}"
+                                        alt="Contact" />
+                                </div>
+                                <div class="col pl-sm-0">
+                                    <div t-field="project_project.partner_id"
+                                        t-options='{"widget": "contact", "fields": ["name", "email"], "no_marker": true}' />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Name (English) -->
+            <div class="row mb-4">
+                <div class="form-group col-12 s_website_form_field" data-name="Field">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                        <label class="col-form-label col-auto s_website_form_label" for="name">
+                            <strong class="col-lg-2">Name (English)</strong>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="col-sm col-xs-12">
+                            <input class="form-control basic_change_selector" name="name_update"
+                                t-att-value="project_project.name" type="text"
+                                placeholder="Enter the english name..." />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Name (Arabic) -->
+            <div class="row mb-4">
+                <div class="form-group col-12 s_website_form_field" data-name="Field">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                        <label class="col-form-label col-auto s_website_form_label"
+                            for="name_arabic">
+                            <strong class="col-lg-2">Name (Arabic)</strong>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="col-sm col-xs-12">
+                            <input class="form-control basic_change_selector"
+                                t-att-value="project_project.name_arabic" type="text"
+                                placeholder="Enter the arabic name..." name="name_arabic_update" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contract Type -->
+            <div class="row mb-4">
+                <div
+                    class="form-group col-12 s_website_form_field s_website_form_required s_website_form_model_required">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                        <label class="col-form-label col-auto s_website_form_label" for="partner_id">
+                            <strong class="col-lg-2">Contract Type</strong>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="col-sm col-xs-12">
+                            <select name="contract_type_id_update" required="1"
+                                data-placeholder="Select the contract type..."
+                                class="form-control o_website_form_input basic_change_selector">
+                                <option value="">Choose...</option>
+                                <t t-foreach="contract_types or []" t-as="contract_type">
+                                    <option t-att-value="contract_type.id"
+                                        t-att-selected="contract_type.id == project_project.contract_type_id.id">
+                                        <t t-esc="contract_type.name_en" />
+                                    </option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Start Date -->
+            <div class="row mb-4">
+                <div class="form-group col-12 s_website_form_field" data-name="Field">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                        <label class="col-form-label col-auto s_website_form_label" for="date_start">
+                            <strong class="col-lg-2">Start Date</strong>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="col-sm col-xs-12">
+                            <input name="basic_date_start_update" type="date"
+                                class="form-control s_website_form_input basic_change_selector" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- End Date -->
+            <div class="row mb-4">
+                <div class="form-group col-12 s_website_form_field" data-name="Field">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                        <label class="col-form-label col-auto s_website_form_label" for="date">
+                            <strong class="col-lg-2">End Date</strong>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="col-sm col-xs-12">
+                            <input name="basic_date_update" type="date"
+                                class="form-control s_website_form_input basic_date_update" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Value -->
+            <div class="row mb-4">
+                <div class="form-group col-12 s_website_form_field" data-name="Field">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                        <label class="col-form-label col-auto s_website_form_label"
+                            for="project_value">
+                            <strong class="col-lg-2">Project Value</strong>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="col-lg-6 col-sm-4 col-xs-4">
+                            <input name="project_value_update" type="number"
+                                t-att-value="project_project.project_value"
+                                class="form-control s_website_form_input basic_change_selector" />
+                            <!-- <div class="col-sm-3 currency_padding">
+                        </div> -->
+                        </div>
+                        <div class="col-lg-3 col-sm-3 col-xs-3 currency_padding">
+                            <t t-esc="currency" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Manager -->
+            <div class="row mb-4">
+                <div
+                    class="form-group col-12 s_website_form_field s_website_form_required s_website_form_model_required">
+                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                        <label class="col-form-label col-auto s_website_form_label"
+                            for="resource_department_id">
+                            <strong class="col-lg-2">Project Manager</strong>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="col-sm col-xs-12">
+                            <select name="user_id_update" required="1"
+                                data-placeholder="Select the project manager..."
+                                class="form-control o_website_form_input basic_change_selector">
+                                <option value="">Choose...</option>
+                                <t t-foreach="project_managers or []" t-as="project_manager">
+                                    <option t-att-value="project_manager.id"
+                                        t-att-selected="project_manager.id == project_project.user_id.id">
+                                        <t t-esc="project_manager.name" />
+                                    </option>
+                                </t>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" tabindex="-1" role="dialog" id="update_basic_modal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Update Basic Data</h5>
+                            <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you wish to proceed?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary basic_confirm_update">Confirm</button>
+                            <button class="btn btn-light" data-dismiss="modal">Discard</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div t-attf-class="clearfix oe_login_buttons text-center mb-1">
+                <a class="btn btn-primary btn-block update_basic_button"
+                    data-target="#update_basic_modal" data-toggle="modal">
+                    Update
+                </a>
+            </div>
+
+        </div>
+    </template>
+
+    <template id="summary_overall_update" name="Summary Overall Update">
+        <div class="row mb-4">
+            <strong class="col-lg-2">Start Date</strong>
+            <div t-if="mode == 'view' or is_done" class="col-lg-10">
+                <div t-field="project_project.date_start" t-if="project_project.date_start" />
+            </div>
+        </div>
+
+        <div class="summary_project text-center">
+            MP Actual Cost
+        </div>
+
+        <div class="row mb-4 spacing_project">
+            <div class="col-6">
+                <strong class="col-lg-2">Number Of Headcount</strong>
+                <t t-if="mode == 'view' or is_done" class="col-lg-10">
+                    <t t-esc="project_project.number_headcount"
+                        t-if="project_project.number_headcount" />
+                </t>
+            </div>
+
+            <div class="col-6">
+                <strong class="col-lg-2">Total Manpower Actual Cost</strong>
+                <t t-if="mode == 'view' or is_done" class="col-lg-10">
+                    <t t-esc="project_project.total_cost_mp" t-if="project_project.total_cost_mp" />
+                </t>
+            </div>
+
+            <div class="w-100"></div>
+
+            <div class="col">
+                <strong class="col-lg-2">Forecasted Cost (Project Expiration)</strong>
+                <t t-if="mode == 'view' or is_done" class="col-lg-10">
+                    <t t-esc="project_project.forecasted_cost"
+                        t-if="project_project.forecasted_cost" />
+                </t>
+            </div>
+
+
+            <div class="modal" tabindex="-1" role="dialog" id="update_overall_modal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Update Overall Summary</h5>
+                            <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you wish to proceed?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary">Confirm</button>
+                            <button class="btn btn-light" data-dismiss="modal">Discard</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div t-attf-class="clearfix oe_login_buttons text-center mb-1">
+                <a class="btn btn-primary btn-block update_basic_button"
+                    data-target="#update_overall_modal" data-toggle="modal">
+                    Update
+                </a>
+            </div>
+
+        </div>
+
+    </template>
+
+
+    <template id="project_followup_update" name="Project Update">
+        <t t-call="portal.portal_layout">
+            <t t-set="wrapwrap_classes" t-value="'o_portal_bg_dark'" />
+            <div class='col-12'>
+                <t t-call="thiqah_project.project_wizard_checkout"></t>
+                <t t-if="mode == 'change_status'" groups="project.group_project_manager"
+                    t-call="thiqah_project.projects_status_actions" />
+            </div>
+            <div class="container">
+                <div id="project_update_selector">
+                    <div class="row">
+                        <div class="col-lg-12 mx-auto">
+                            <div id="accordionUpdate" class="accordion shadow">
+                                <input type="text" name="project_id"
+                                    t-att-value="project_project.id" />
+
+                                <!-- Accordion item 1 -->
+                                <div class="card">
+                                    <div id="BasicUpdate"
+                                        class="card-header bg-white shadow-sm border-0">
+                                        <h6 class="mb-0 font-weight-bold">
+                                            <a href="#" data-toggle="collapse"
+                                                data-target="#collapseOneUpdate"
+                                                aria-expanded="true"
+                                                aria-controls="collapseOneUpdate"
+                                                class="d-block position-relative text-dark text-uppercase collapsible-link py-2">Basic
+                                                Data #1</a>
+                                        </h6>
+                                    </div>
+                                    <div id="collapseOneUpdate" aria-labelledby="BasicUpdate"
+                                        data-parent="#accordionUpdate" class="collapse show">
+                                        <div class="card-body p-5">
+                                            <t t-call="thiqah_project.basic_followup_update" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion item 2 -->
+                                <div class="card">
+                                    <div id="OveralUpdate"
+                                        class="card-header bg-white shadow-sm border-0">
+                                        <h6 class="mb-0 font-weight-bold">
+                                            <a href="#" data-toggle="collapse"
+                                                data-target="#collapseOveralUpdate"
+                                                aria-expanded="true"
+                                                aria-controls="collapseOveralUpdate"
+                                                class="d-block position-relative text-dark text-uppercase collapsible-link py-2">OVERALL
+                                                SUMMARY #2</a>
+                                        </h6>
+                                    </div>
+                                    <div id="collapseOveralUpdate" aria-labelledby="OveralUpdate"
+                                        data-parent="#accordionUpdate" class="collapse show">
+                                        <div class="card-body p-5">
+                                            <t t-call="thiqah_project.summary_overall_update" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion item 3 -->
+                                <div class="card">
+                                    <div id="ResourceUpdate"
+                                        class="card-header bg-white shadow-sm border-0">
+                                        <h6 class="mb-0 font-weight-bold">
+                                            <a href="#" data-toggle="collapse"
+                                                data-target="#collapseResourceUpdate"
+                                                aria-expanded="true"
+                                                aria-controls="collapseResourceUpdate"
+                                                class="d-block position-relative text-dark text-uppercase collapsible-link py-2">RESOURCES
+                                                #3</a>
+                                        </h6>
+                                    </div>
+                                    <div id="collapseResourceUpdate"
+                                        aria-labelledby="ResourceUpdate"
+                                        data-parent="#accordionUpdate" class="collapse show">
+                                        <div class="card-body p-5">
+                                            <t t-call="thiqah_project.resources_update" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion item 4 -->
+                                <div class="card">
+                                    <div id="RiskUpdate"
+                                        class="card-header bg-white shadow-sm border-0">
+                                        <h6 class="mb-0 font-weight-bold">
+                                            <a href="#" data-toggle="collapse"
+                                                data-target="#collapseRiskUpdate"
+                                                aria-expanded="true"
+                                                aria-controls="collapseRiskUpdate"
+                                                class="d-block position-relative text-dark text-uppercase collapsible-link py-2">Risks
+                                                and issues #4</a>
+                                        </h6>
+                                    </div>
+                                    <div id="collapseRiskUpdate" aria-labelledby="RiskUpdate"
+                                        data-parent="#accordionUpdate" class="collapse show">
+                                        <div class="card-body p-5">
+                                            <t t-call="thiqah_project.risks_issues_update" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion item 5 -->
+                                <div class="card">
+                                    <div id="RevenueUpdate"
+                                        class="card-header bg-white shadow-sm border-0">
+                                        <h6 class="mb-0 font-weight-bold">
+                                            <a href="#" data-toggle="collapse"
+                                                data-target="#collapseRevenueUpdate"
+                                                aria-expanded="true"
+                                                aria-controls="collapseRevenueUpdate"
+                                                class="d-block position-relative text-dark text-uppercase collapsible-link py-2">REVENUE
+                                                PLANS #5</a>
+                                        </h6>
+                                    </div>
+                                    <div id="collapseRevenueUpdate" aria-labelledby="RevenueUpdate"
+                                        data-parent="#accordionUpdate" class="collapse show">
+                                        <div class="card-body p-5">
+                                            <t t-call="thiqah_project.revenues_update" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion item 6 -->
+                                <div class="card">
+                                    <div id="DeliverableUpdate"
+                                        class="card-header bg-white shadow-sm border-0">
+                                        <h6 class="mb-0 font-weight-bold">
+                                            <a href="#" data-toggle="collapse"
+                                                data-target="#collapseDeliverableUpdate"
+                                                aria-expanded="true"
+                                                aria-controls="collapseDeliverableUpdate"
+                                                class="d-block position-relative text-dark text-uppercase collapsible-link py-2">DELIVERABLES
+                                                #6</a>
+                                        </h6>
+                                    </div>
+                                    <div id="collapseDeliverableUpdate"
+                                        aria-labelledby="DeliverableUpdate"
+                                        data-parent="#accordionUpdate" class="collapse show">
+                                        <div class="card-body p-5">
+                                            <t t-call="thiqah_project.deliverables_update" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion Submit -->
+                                <!-- <div class="card">
+                                        <div id="headingUpdate" class="card-header bg-white shadow-sm border-0">
+                                            <h6 class="mb-0 font-weight-bold">
+                                                <a href="#" data-toggle="collapse" data-target="#collapseUpdate" aria-expanded="true"
+                                aria-controls="collapseOne" class="d-block position-relative
+                                text-dark text-uppercase collapsible-link py-2">Updating</a>
+                                            </h6>
+                                        </div>
+                                        <div id="collapseUpdate" aria-labelledby="headingUpdate" data-parent="#accordionUpdate"
+                                class="collapse show">
+                                            <div class="card-body p-5">
+                                                Update Request Modal
+                                                <div class="modal" tabindex="-1" role="dialog" id="update_project_modal">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Update Project</h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Are you sure you wish to proceed?</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="submit" class="btn btn-primary">Confirm</button>
+                                                                <button type="button" class="btn btn-light" data-dismiss="modal">Discard</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div t-attf-class="clearfix oe_login_buttons text-center mb-1">
+                                                    <a class="btn btn-primary btn-block open_update_project_modal" data-target="#update_project_modal"
+                                data-toggle="modal">
+                                                        <span>Update This project</span>
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+
+</odoo>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="project_add_template" name="Project Add Template">
+
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="success-modal modal fade" id="projectAddSuccessModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content p-5">
+                        <div class="modal-header border-0">
+                            <h3 class="modal-title heading-3">Create New Project</h3>
+
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="/thiqah_portal/static/src/img/icon-check.svg" />
+                            <h3 class="heading-3">New project “<span class="proj-name"></span>” created</h3>
+                            <span class="body2 t-text-gray mt24">Your new project has been successfully added.</span>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <div class="mx-auto">
+                                <a href="/my/projects" type="button" class="btn btn-lg btn-secondary rounded-pill">
+                                    Go back to Project Managment </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <a href="/my/projects" class="back-top align-items-center button-text t-text-dark-gray d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" class="mr-2 with-arrow" height="9" fill="none">
+                        <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z" />
+                    </svg>
+                    Back</a>
+
+                <h1 class="add-project heading-1 mt72 mb92">Create New Project</h1>
+                <div class="wizard my-5 tabbed-form">
+                    <ul class="nav nav-tabs d-print-none justify-content-center" id="myTab" role="tablist">
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step1" aria-controls="#" class="nav-link active disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                                1
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Basic Data</span>
+                            </div>
+                        </li>
+
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step2" aria-controls="#" class="nav-link disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                                2
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Overall Summary</span>
+                            </div>
+                        </li>
+
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step3" aria-controls="#" class="nav-link disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                                3
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Project Details</span>
+                            </div>
+                        </li>
+
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step4" aria-controls="#" class="nav-link disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                                4
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Documents</span>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <section class="mt72">
+                        <form id="project_add_form" action="/project/form/add" method="post" novalidate="1" enctype="multipart/form-data" class="needs-validation">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" role="tabpanel" id="step1" aria-labelledby="step1-tab">
+                                    <t t-call="thiqah_project.basic_data_project">
+                                    </t>
+                                    <div class="d-flex mt56 justify-content-end">
+                                        <button type="submit" class="btn t-btn-outile-black rounded-pill btn-lg">
+                                            Create Project
+                                        </button>
+                                        <a class="ml-3 btn btn-secondary rounded-pill btn-lg text-white next disabled state_next_step">Next
+                                            Step
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" role="tabpanel" id="step2" aria-labelledby="step2-tab">
+
+                                    <t t-call="thiqah_project.overall_summary" />
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="#" class="previous t-text-dark-gray button-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" class="mr-2 with-arrow" height="9" fill="none">
+                                                <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z"></path>
+                                            </svg>
+                                            Previous Step</a>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="submit" class="btn t-btn-outile-black rounded-pill btn-lg">
+                                                Create Project
+                                            </button>
+                                            <a class="ml-3 btn btn-secondary rounded-pill btn-lg text-white next state_next_step">Next
+                                                Step
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane fade" role="tabpanel" id="step3" aria-labelledby="step3-tab">
+                                    <h4 class="heading-4 mb48">Project Details</h4>
+
+                                    <t t-call="thiqah_project.project_resources" />
+                                    <t t-call="thiqah_project.risk_issues" />
+                                    <t t-call="thiqah_project.revenue_plans" />
+                                    <t t-call="thiqah_project.project_deliverables" />
+                                    <t t-call="thiqah_project.project_utilizations" />
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="#" class="previous t-text-dark-gray button-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" class="mr-2 with-arrow" height="9" fill="none">
+                                                <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z"></path>
+                                            </svg>
+                                            Previous Step</a>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="submit" class="btn t-btn-outile-black rounded-pill btn-lg">
+                                                Create Project
+                                            </button>
+                                            <a class="ml-3 btn btn-secondary rounded-pill btn-lg text-white next state_next_step">Next
+                                                Step
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" role="tabpanel" id="step4" aria-labelledby="step4-tab">
+
+                                    <t t-call="thiqah_project.project_documents" />
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="#" class="previous t-text-dark-gray button-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" class="mr-2 with-arrow" height="9" fill="none">
+                                                <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z"></path>
+                                            </svg>
+                                            Previous Step</a>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="submit" class="btn t-btn-outile-black rounded-pill btn-lg">
+                                                Create Project
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+    <!-- Modal Close Button -->
+    <template id="close_button" name="Close Button Modal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+            <path fill="#798793" d="M.33 19.67c.442.429 1.173.429 1.602 0l8.07-8.07 8.07 8.07c.43.429 1.173.441 1.602 0a1.142 1.142 0 0 0 0-1.589l-8.07-8.083 8.07-8.07c.429-.43.442-1.16 0-1.59a1.134 1.134 0 0 0-1.601 0l-8.07 8.071L1.931.34C1.503-.103.759-.115.33.339a1.142 1.142 0 0 0 0 1.589l8.07 8.07-8.07 8.083c-.429.429-.441 1.16 0 1.589Z" />
+        </svg>
+    </template>
+</odoo>

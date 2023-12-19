@@ -1,0 +1,907 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* thiqah_inquiry
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20220210\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-10 12:26+0000\n"
+"PO-Revision-Date: 2023-10-10 12:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid ""
+"<span class=\"body2 t-text-gray mt24\">Your inquiry request has been added "
+"succesfully.</span>"
+msgstr ""
+"<span class=\"body2 t-text-gray mt24\">تمت إضافة طلب استفسارك بنجاح</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid "<span class=\"heading-5\">By Category</span>"
+msgstr "<span class=\"heading-5\">حسب الفئة</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid "<span class=\"heading-5\">By Client</span>"
+msgstr "<span class=\"heading-5\">حسب العميل</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid "<span class=\"heading-5\">By Creation Date</span>"
+msgstr "<span class=\"heading-5\">حسب تاريخ الإنشاء</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid ""
+"<span class=\"ml16 caption t-text-cyan text-uppercase\">\n"
+"                                                    Late <br/> Requests</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-cyan text-uppercase\">\n"
+"                                                    الطلبات <br/>المتأخرة </span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid ""
+"<span class=\"ml16 caption t-text-purple text-uppercase\">\n"
+"                                                    Active <br/> Requests</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-purple text-uppercase\">\n"
+"                                                    الطلبات <br/> النشطة</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid ""
+"<span class=\"ml16 caption t-text-turquoise text-uppercase\">\n"
+"                                                    Need action <br/> Today</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-turquoise text-uppercase\">\n"
+"                                                    تحتاج <br/> إجراء اليوم</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid ""
+"<span class=\"ml16 caption text-uppercase t-text-dark-blue\">\n"
+"                                                    SLA </span>"
+msgstr ""
+"<span class=\"ml16 caption text-uppercase t-text-dark-blue\">\n"
+"                                                    إس إل إي </span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Description\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        الوصف\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Partner\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        الشريك\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Partner Portfolio\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        محفظة الشريك\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Request Type\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        نوع الطلب\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Section\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        القسم\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Urgency\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        درجة الأهمية\n"
+"                                                    </span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    Upload Attachments</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    رفع مرفقات</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_requests_actions
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                            Assign To\n"
+"                                        </span>"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_requests_actions
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                            Note\n"
+"                                        </span>"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">Create Date</span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">تاريخ الإنشاء</span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">Department</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الإدارة</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">Due Date</span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">تاريخ الإستحقاق</span>\n"
+"                                                    <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "<span>)</span>"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_requests_actions
+msgid "<span>Assign User</span>"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "<span>Inquiry Request(#</span>"
+msgstr "<span>طلب إستفسار(#</span>"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "Actions"
+msgstr "الإجراء"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "Add"
+msgstr "إضافة"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "Assigned To"
+msgstr "تعيين إلى"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__user_id
+msgid "Assigned to"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid "By Department"
+msgstr "حسب الإدارة"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid "By Sla Indicator"
+msgstr "حسب مؤشر إس إل أي"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid "By Status"
+msgstr "حسب الحالة"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_requests_actions
+msgid "Choose..."
+msgstr "إختر..."
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_requests_actions
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__close_date
+msgid "Close Date"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request__request_type__complaint
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request_sla__request_type__complaint
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid "Complaint"
+msgstr "شكوى"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__concerned_user_ids
+msgid "Concerned User"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_view_form
+msgid "Concerned Users"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_requests_actions
+msgid "Confirm"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "Create Date"
+msgstr "تاريخ الإنشاء"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__create_uid
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request_sla__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__create_date
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request_sla__create_date
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid "Current Requests"
+msgstr "الطلبات الحالية"
+
+#. module: thiqah_inquiry
+#: model:ir.model,name:thiqah_inquiry.model_hr_department
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__department_id
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "Department"
+msgstr "الإدارة"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__description
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "Description"
+msgstr "الوصف"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__display_name
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request_sla__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "Documents"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid ""
+"Drag Drop or <span class=\"t-text-cyan\">Choose File</span> To\n"
+"                                                        Upload"
+msgstr ""
+"إسحب و أفلت أو<span class=\"t-text-cyan\">إختر\n"
+"                                                                            ملف</span> للتحميل"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__due_date
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "Due Date"
+msgstr "تاريخ الإستحقاق"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "Go back to all requests"
+msgstr "العودة إلى كل الطلبات"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request__urgency__heigh
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request_sla__urgency__heigh
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid "Heigh"
+msgstr "مرتفع"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__id
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request_sla__id
+msgid "ID"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__message_needaction
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__message_has_error
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.ui.menu,name:thiqah_inquiry.inquiry_menu_root
+msgid "Inquiries"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inherit_portal_dashboard_layout
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid "Inquiries Dashboard"
+msgstr "لوحة الاستفسارات"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid "Inquiries Details"
+msgstr "تفاصيل الاستفسارات"
+
+#. module: thiqah_inquiry
+#: model:ir.actions.act_window,name:thiqah_inquiry.inquiry_request_action
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inherit_portal_dashboard_layout
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "Inquiries Requests"
+msgstr "طلب استفسار"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request__request_type__inquiry
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request_sla__request_type__inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid "Inquiry"
+msgstr "إستفسار"
+
+#. module: thiqah_inquiry
+#: model:res.groups,name:thiqah_inquiry.group_inquiry_officer
+msgid "Inquiry Officer"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model,name:thiqah_inquiry.model_inquiry_request
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "Inquiry Request"
+msgstr "طلب إستفسار"
+
+#. module: thiqah_inquiry
+#: code:addons/thiqah_inquiry/models/workflow_transition.py:0
+#, python-format
+msgid "Inquiry Request APPROVED"
+msgstr "طلب إستفسار معمد"
+
+#. module: thiqah_inquiry
+#: code:addons/thiqah_inquiry/controllers/inquries_portal.py:0
+#, python-format
+msgid "Inquiry Request ASSIGNMENT"
+msgstr "تعيين طلب إستفسار"
+
+#. module: thiqah_inquiry
+#: code:addons/thiqah_inquiry/models/inquiry_request.py:0
+#, python-format
+msgid "Inquiry Request Assignment"
+msgstr "تعيين طلب إستفسار"
+
+#. module: thiqah_inquiry
+#: model:ir.actions.act_window,name:thiqah_inquiry.inquiry_request_sla_action
+msgid "Inquiry Request SLA"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.ui.menu,name:thiqah_inquiry.inquiry_request_menu_act
+msgid "Inquiry Requests"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.ui.menu,name:thiqah_inquiry.sla_config_menu
+msgid "Inquiry SLA"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:res.groups,name:thiqah_inquiry.group_inquiry_user
+msgid "Inquiry User"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_hr_department__irequest_user_id
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_thiqah_project_project_department__irequest_user_id
+msgid "Inquiry request Responsible"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__is_approved
+msgid "Is Approved"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__is_done
+msgid "Is Done"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__is_in_progress
+msgid "Is In Progress"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__is_visible
+msgid "Is Visible"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request____last_update
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request_sla____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__last_step_created_at
+msgid "Last Step Create At"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__last_step_created_by
+msgid "Last Step Created By"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__write_uid
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request_sla__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__write_date
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request_sla__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request__urgency__low
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request_sla__urgency__low
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid "Low"
+msgstr "منخفض"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request__urgency__medium
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request_sla__urgency__medium
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid "Medium"
+msgstr "متوسط"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "Message and communication history"
+msgstr "تاريخ الرسائل والاتصالات"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: code:addons/thiqah_inquiry/models/inquiry_request.py:0
+#: code:addons/thiqah_inquiry/models/inquiry_request.py:0
+#: code:addons/thiqah_inquiry/models/inquiry_request.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "New Inquiry Request"
+msgstr "طلب إستفسار جديد"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "No attachments have been added."
+msgstr "لم تتم إضافة أي مرفقات."
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request__request_type__other
+#: model:ir.model.fields.selection,name:thiqah_inquiry.selection__inquiry_request_sla__request_type__other
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid "Other"
+msgstr "آخر"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__partner_id
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__partner_portfolio
+msgid "Partner Portfolio"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "Partner portfolio"
+msgstr "محفظة الشريك"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "RM Name"
+msgstr "إسم مدير العلاقات"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__state
+msgid "Request Service Status"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__request_type
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request_sla__request_type
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "Request Type"
+msgstr "نوع الطلب"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiries_dashboard
+msgid "Requests analysis"
+msgstr "تحليل الطلبات"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__sla_id
+msgid "SLA"
+msgstr "إس إل أي"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request_sla__sla_days
+msgid "SLA Days"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__sla_due_date
+msgid "SLA Due Date"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__section
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "Section"
+msgstr "القسم"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid "Section..."
+msgstr "...القسم"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.ui.menu,name:thiqah_inquiry.settings_menu
+msgid "Settings"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+msgid "State"
+msgstr "الحالة"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: thiqah_inquiry
+#: code:addons/thiqah_inquiry/models/workflow_transition.py:0
+#, python-format
+msgid "Status changed from %s To %s"
+msgstr "تغير الحالة من %s إلى %s"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_request_template
+msgid "Submit"
+msgstr "إرسال"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "Thank You!"
+msgstr "شكرا!"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "There are currently no Requests for you."
+msgstr ""
+
+#. module: thiqah_inquiry
+#: code:addons/thiqah_inquiry/models/inquiry_request.py:0
+#, python-format
+msgid "This inquiry request is pending your action: sequence"
+msgstr "لا يوجد حاليا أي طلبات لك."
+
+#. module: thiqah_inquiry
+#: code:addons/thiqah_inquiry/models/workflow_transition.py:0
+#, python-format
+msgid "This inquiry request was approved: %s"
+msgstr "تمت الموافقة على طلب الاستفسار هذا: %s"
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__traceability_actors_ids
+msgid "Traceability Actors"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__urgency
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request_sla__urgency
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_details
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.portal_inquiries_list
+msgid "Urgency"
+msgstr "درجة الأهمية"
+
+#. module: thiqah_inquiry
+#: model_terms:ir.ui.view,arch_db:thiqah_inquiry.inquiry_requests_actions
+msgid "User Assignment"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:res.groups,comment:thiqah_inquiry.group_inquiry_officer
+msgid "User with this group access all data related inquiry requests"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:res.groups,comment:thiqah_inquiry.group_inquiry_user
+msgid "User with this group access only his inquiries requests"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,field_description:thiqah_inquiry.field_inquiry_request__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model.fields,help:thiqah_inquiry.field_inquiry_request__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model,name:thiqah_inquiry.model_workflow_transition
+msgid "Workflow Transition"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model,name:thiqah_inquiry.model_workflow_transition_validation
+msgid "Workflow Transition Validation"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: code:addons/thiqah_inquiry/controllers/inquries_portal.py:0
+#, python-format
+msgid "You are assigned to inquiry request number: %s"
+msgstr ""
+
+#. module: thiqah_inquiry
+#: model:ir.model,name:thiqah_inquiry.model_inquiry_request_sla
+msgid "inquiry.request.sla"
+msgstr ""

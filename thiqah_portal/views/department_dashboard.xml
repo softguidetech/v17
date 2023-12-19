@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="pager_custom" name="Pager">
+        <ul t-if="pager['page_count'] > 1" t-attf-class="#{ classname or '' } pagination m-0 #{_classes}" t-att-style="style or None">
+            <li t-attf-class="page-item #{'disabled' if pager['page']['num'] == 1 else ''}">
+                <a t-att-href=" pager['page_previous']['url'] if pager['page']['num'] != 1 else None" t-attf-class="page-link #{extraLinkClass}">Prev</a>
+            </li>
+            <t t-foreach="pager['pages']" t-as="page">
+                <li t-attf-class="page-item #{'active' if page['num'] == pager['page']['num'] else ''}">
+                    <a t-att-href="page['url']" t-attf-class="page-link #{extraLinkClass}" t-out="page['num']"/>
+                </li>
+            </t>
+            <li t-attf-class="page-item #{'disabled' if pager['page']['num'] == pager['page_count'] else ''}">
+                <a t-att-href="pager['page_next']['url'] if pager['page']['num'] != pager['page_count'] else None" t-attf-class="page-link #{extraLinkClass}">Next</a>
+            </li>
+        </ul>
+    </template>
+
+    <template id="portal_table_custom" name="My Portal Table Custom">
+        <div t-attf-class="table-responsive  border rounded border-top-0 #{classes if classes else ''}">
+            <table class="table rounded mb-0 bg-white o_portal_my_doc_table">
+                <t t-out="0"/>
+            </table>
+        </div>
+        <div t-if="pager" class="o_portal_pager text-center">
+            <t t-call="thiqah_portal.pager_custom"/>
+        </div>
+    </template>
+
+
+    <template id="my_requests_dashbaord" name="Requests Task Dashboard">
+        <div t-if="not grouped_requests" class="alert alert-info">
+                There are currently no Requests for your account.
+        </div>
+        <t t-else="">
+            <div class="table-responsive">
+                <table id="requests_task_department" class="table dt-responsive nowrap" cellspacing="0">
+                </table>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="requiring_actions_dashbaord" name="Requests Task Dashboard">
+        <div class="table-responsive">
+            <table id="requiring_actions_table" class="table dt-responsive nowrap" cellspacing="0">
+            </table>
+        </div>
+    </template>
+
+    <template id="draft_request_dashboard" name="Draft Requests Task Dashboard">
+        <div id="draft_request_error" class="alert alert-info d-none">
+                There are currently no draft requests for your account.
+        </div>
+
+        <div class="table-responsive">
+            <table id="draft_requests_table" class="table dt-responsive nowrap" cellspacing="0">
+            </table>
+        </div>
+    </template>
+
+    <template id="department_task_dashboard_id" name="Department Task Dashboard">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="container-fluid">
+                <div class="task_dashboard_selector" id="task_dashboard_id">
+                    <div class="content-header mb72">
+                        <h1 class="heading-1" style="line-height: 100%;">Task Dashboard
+                        </h1>
+                    </div>
+
+
+                    <div class="row global_data">
+                        <div class="card w-100 card-wrapper">
+                            <div class="card-header heading-4 d-flex align-items-center">
+                            Current requests
+                            </div>
+                            <div class="card-block">
+                                <div class="row">
+                                    <div class="col-xl-4 col-md-6" id="active_request_dashboard">
+                                        <!-- Draft Requests -->
+                                        <div class="card card-data request-active">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-fill d-flex align-items-center">
+                                                    <sapn class="mb-0 heading-2" id="draft_requests_count">
+                                                    </sapn>
+                                                    <span class="ml16 caption t-text-purple text-uppercase">
+                                                    Draft <br></br> Requests</span>
+                                                </div>
+                                                <a href="#" class="rounded-circle t-custom-bg-purple">
+                                                    <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6" id="late_request_dashboard">
+                                        <!-- Requiring actions -->
+                                        <div class="card card-data request-late">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-fill d-flex align-items-center">
+                                                    <sapn class="mb-0 heading-2" id="requiring_actions_count">
+                                                    </sapn>
+                                                    <span class="ml16 caption t-text-cyan text-uppercase">
+                                                    Requiring <br></br> actions</span>
+                                                    <input type="hidden" name="status_request" value="is_active" />
+                                                </div>
+                                                <a href="/my/requests?criteria=is_late" class="rounded-circle t-custom-bg-cyan">
+                                                    <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6" id="requests_today">
+                                        <!-- Service requests -->
+                                        <div class="card card-data request-today">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-fill d-flex align-items-center">
+                                                    <sapn class="mb-0 heading-2">
+                                                        <t t-esc="requests_count"/>
+                                                    </sapn>
+                                                    <span class="ml16 caption t-text-turquoise text-uppercase">
+                                                    Service <br></br> requests</span>
+                                                </div>
+                                                <a href="#" class="rounded-circle t-custom-bg-turquoise">
+                                                    <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="card card-wrapper w-100 mt48">
+                            <div class="card-header heading-4 d-flex align-items-center">
+                            Draft Requests
+                            </div>
+                            <div class="card-block">
+                                <div class="details_projects_requests" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,base.group_portal">
+                                    <t t-call="thiqah_portal.draft_request_dashboard"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="requests_task_department row">
+                        <div class="card card-wrapper w-100 mt48">
+                            <div class="card-header heading-4 d-flex align-items-center">
+                                Requiring Actions
+                            </div>
+                            <div class="card-block">
+                                <div class="details_projects_requests" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,base.group_portal">
+                                    <t t-call="thiqah_portal.requiring_actions_dashbaord"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="requests_task_department row">
+                        <div class="card card-wrapper w-100 mt48">
+                            <div class="card-header heading-4 d-flex align-items-center">
+                                Service Requests
+                            </div>
+                            <div class="card-block">
+                                <div class="details_projects_requests" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,base.group_portal">
+                                    <t t-call="thiqah_portal.my_requests_dashbaord"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

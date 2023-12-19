@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+	<record id="thiqah_opportunity_size_view_form"
+		model="ir.ui.view">
+		<field name="name">opportunity.size.form</field>
+		<field name="model">opportunity.size</field>
+		<field name="arch" type="xml">
+			<form class="o_opportunity_size_form" js_class="crm_form">
+
+				<sheet>
+					<div class="oe_title">
+						<label for="size_value" />
+						<h1>
+							<field class="o_text_overflow" name="size_value" />
+						</h1>
+					</div>
+					
+					
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+	<record id="thiqah_opportunity_size_view_tree"
+		model="ir.ui.view">
+		<field name="name">opportunity.size.tree</field>
+		<field name="model">opportunity.size</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="size_value" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="thiqah_opportunity_size_action"
+		model="ir.actions.act_window">
+		<field name="name">Opportunity size</field>
+		<field name="res_model">opportunity.size</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+
+
+
+</odoo>

@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<odoo>
+
+	<record id="thiqah_helpdesk_stage_view_form" model="ir.ui.view">
+		<field name="name">view.helpdesk.stage.form.inherited.thiqah</field>
+		<field name="model">helpdesk.stage</field>
+		<field name="inherit_id" ref="helpdesk.helpdesk_stage_view_form" />
+		<field name="arch" type="xml">
+
+			<xpath expr="//group" position="after">
+				<group>
+					<field name="show_in_dashbaord" />
+				</group>
+
+			</xpath>
+
+		</field>
+	</record>
+
+
+	<record id="thiqah_helpdesk_ticket_view_form" model="ir.ui.view">
+		<field name="name">helpdesk.ticket.form.thiqah</field>
+		<field name="model">helpdesk.ticket</field>
+		<field name="inherit_id"
+			ref="helpdesk.helpdesk_ticket_view_form" />
+		<field name="arch" type="xml">
+		
+			<field name="partner_phone" position="after">
+				<field name="category_portfolio_id" />
+				<field name="activate_notification" />
+				<field name="vb_account_id" invisible="1"/>
+				<field name="sp_manager_id" invisible="1" />
+			</field>
+		
+			<field name="description" position="after">
+				<group>
+					<group string="Last Change Stage Time">
+						<field name="create_date" />
+						<field name="date_last_stage_update" />
+
+					</group>
+					<group string="Close Stage Time"
+						invisible = "not  is_close">
+						<field name="is_close" invisible="1" />
+						<field name="close_date"
+							invisible = "not  is_close" />
+						<field name="close_hours"
+							invisible = "not  is_close" />
+					</group>
+				</group>
+				
+				
+			</field>
+		</field>
+	</record>
+	
+	
+	<record id="thiqah_helpdesk_sla_view_form" model="ir.ui.view">
+		<field name="name">helpdesk.sla.form.thiqah</field>
+		<field name="model">helpdesk.sla</field>
+		<field name="inherit_id"
+			ref="helpdesk.helpdesk_sla_view_form" />
+		<field name="arch" type="xml">
+		
+			<xpath expr="//group" position="after">
+				
+				
+				<group string="Escalation Level">
+					<field name="activate_notification"/>
+					<field name="notification_level" invisible = "not  activate_notification "  required = "activate_notification"/>
+					<field name="nbr_minutes_notif" invisible = "not  activate_notification "  required = "activate_notification"/>
+					<field name="email_template_id" invisible = "not  activate_notification "  required = "activate_notification"/>
+				</group>
+			</xpath>
+		</field>
+	</record>
+	<record id="thiqah_helpdesk_ticket_view_tree" model="ir.ui.view">
+		<field name="name">helpdesk.ticket.tree.thiqah</field>
+		<field name="model">helpdesk.ticket</field>
+		<field name="inherit_id"
+			ref="helpdesk.helpdesk_tickets_view_tree" />
+		<field name="arch" type="xml">
+			<xpath expr="//tree" position="inside">
+				<field name="create_date" optional="show" />
+				<field name="date_last_stage_update" optional="hide" />
+				<field name="close_date" optional="hide" />
+				<field name="close_hours" optional="hide" />
+			</xpath>
+
+		</field>
+	</record>
+
+</odoo>

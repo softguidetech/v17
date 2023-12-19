@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+	<!-- <template id="thiqah_web_login_page" inherit_id="web.login"
+		name="Login">
+	
+		<xpath expr="//div[hasclass('field-login')]"
+			position="attributes">
+			<attribute name="style">display:none;</attribute>
+		</xpath>
+		<xpath expr="//div[hasclass('field-password')]"
+			position="attributes">
+			<attribute name="style">display:none;</attribute>
+		</xpath>
+		<xpath expr="//button[@type='submit']" position="attributes">
+			<attribute name="style">display:none;</attribute>
+		</xpath>
+
+	</template> -->
+	<template id="thiqah_web_login_reset_password" inherit_id="auth_signup.login"
+		name="Login">
+		<xpath expr="//a[@t-if='reset_password_enabled']" position="attributes">
+			<attribute name="style">display:none;</attribute>
+		</xpath>
+	</template>
+</odoo>

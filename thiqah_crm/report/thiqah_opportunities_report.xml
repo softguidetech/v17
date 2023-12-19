@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<template id="report_thiqah_Opportunities_document">
+			<t t-call="web.basic_layout">
+					<t t-foreach="docs" t-as="o">
+						<t t-if="o.report_type == 'awarded_opportunity'" t-call="thiqah_crm.report_thiqah_awarded_Opportunities_document" />
+					
+						<t t-if="o.report_type == 'submitted_opportunity'"  t-call="thiqah_crm.report_thiqah_submitted_Opportunities_document" />
+
+						<t t-if="o.report_type == 'potential_opportunities'"  t-call="thiqah_crm.report_thiqah_potential_Opportunities_document" />
+					</t>
+			</t>
+		</template>
+		
+		<record id="thiqah_report_paperformat"
+			model="report.paperformat">
+			<field name="name">Thiqah PaperFormat</field>
+			<field name="default" eval="True" />
+			<field name="format">custom</field>
+			<field name="page_height">297</field>
+			<field name="page_width">210</field>
+			<field name="orientation">Landscape</field>
+			<field name="margin_top">5</field>
+			<field name="margin_bottom">5</field>
+			<field name="margin_left">5</field>
+			<field name="margin_right">5</field>
+			<field name="header_line" eval="False" />
+			<field name="header_spacing">5</field>
+			<field name="dpi">96</field>
+		</record>
+
+
+		<!-- QWeb Reports -->
+		<record id="thiqah_Opportunities_report" model="ir.actions.report">
+			<field name="name">Opportunities Status</field>
+			<field name="model">thiqah.crm.report</field>
+			<field name="report_type">qweb-pdf</field>
+			<field name="report_name">thiqah_crm.report_thiqah_Opportunities_document</field>
+			<field name="report_file">thiqah_crm.report_thiqah_Opportunities_document</field>
+			<field name="binding_model_id"
+				ref="thiqah_crm.model_thiqah_crm_report" />
+			<field name="binding_type">report</field>
+			<field name="paperformat_id"
+				ref="thiqah_crm.thiqah_report_paperformat" />
+			<field name="print_report_name">(object._get_report_base_filename())</field>
+
+		</record>
+
+	</data>
+</odoo>

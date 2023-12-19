@@ -1,0 +1,101 @@
+ 
+//   body {
+// 	min-height: 100vh;
+// 	min-width: 100vw;
+// 	background: #1b1b1b;
+// 	display: grid;
+// 	place-items: center;
+  
+// 	--size: 3rem;
+// 	--margin: 0.25rem;
+//   }
+  
+  .loader {
+	position:absolute;
+  	z-index:1;
+	display: grid;
+	place-items: center;
+    padding-top: 150px;
+    padding-left: 400px;
+
+  }
+  
+  .svg-container {
+	width: 45%;
+  }
+  
+  .hex {
+	position: relative;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-delay: var(--anim-delay);
+	transform-origin: 50% 50%;
+	animation-name: growIn;
+	padding: 10px;
+  }
+  
+  [data-index="1"] {
+	--anim-delay: 300ms;
+  }
+  
+  [data-index="2"] {
+	--anim-delay: 400ms;
+  }
+  
+  [data-index="3"] {
+	--anim-delay: 500ms;
+	
+  }
+  
+  [data-index="4"] {
+	--anim-delay: 600ms;
+  }
+  
+  [data-index="5"] {
+	--anim-delay: 700ms;
+  }
+  
+  [data-index="6"] {
+	--anim-delay: 800ms;
+  }
+  
+  [data-index="7"] {
+	--anim-delay: 900ms;
+  }
+  
+  @keyframes growIn {
+	0%,
+	100% {
+	  opacity: 0;
+	  transform: scale(0.1, 0.1);
+	}
+	20%,
+	70% {
+	  opacity: 1;
+	  transform: scale(1, 1);
+	}
+  }
+  
+// Spinner
+.spinner {
+    color: rgb(229, 231, 235);
+    height: 50px;
+    width: 50px;
+    fill: #1c64f2;
+}
+
+// Animation Spin
+.animation-spin {
+    -webkit-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}

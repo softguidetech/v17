@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Serice Management -->
+    <menuitem id="thiqah_service_menu" name="Service Management" parent="project.menu_project_config" sequence="98"/>
+    <menuitem id="thiqah_service_menu_main" name="Service Management" parent="project.menu_main_pm" sequence="98"/>
+
+    <menuitem name="My Requests" id="menu_request" parent="thiqah_service_menu_main" action="service_request_action"/>
+    <menuitem name="Service types" id="menu_service_type" parent="thiqah_service_menu" action="service_type_action"/>
+    <menuitem name="Service Catalog" id="menu_catalog_type" parent="thiqah_service_menu" action="service_catalog_action"/>
+
+
+    <!-- Thiqah Project Management -->
+    <menuitem id="thiqah_project_menu" name="Project Management" parent="project.menu_project_config" sequence="99"/>
+
+    <menuitem name="Contract types" id="menu_contract_type" parent="thiqah_project_menu" action="contract_type_action"/>
+    <menuitem name="Risk types" id="menu_risk_type" parent="thiqah_project_menu" action="risk_type_action"/>
+    <menuitem name="Action types" id="menu_action_type" parent="project.menu_project_config" action="action_type_action"/>
+
+    <!-- Resources -->
+    <menuitem name="Resources" id="menu_resources" parent="thiqah_project_menu" action="resources_action"/>
+
+    <!-- Risk And Issues -->
+    <menuitem name="Risk And Issues" id="menu_risk_and_issues" parent="thiqah_project_menu" action="risk_and_issues_action"/>
+
+    <!-- Revenue Plans -->
+    <menuitem name="Revenue Plans" id="menu_revenue_plans" parent="thiqah_project_menu" action="revenue_action"/>
+
+    <!-- Deliverables -->
+    <menuitem name="Deliverables" id="menu_deliverables" parent="thiqah_project_menu" action="deliverable_action"/>
+
+    <!-- Utilizations -->
+    <menuitem name="Utilizations" id="menu_utilizations" parent="thiqah_project_menu" action="utilization_action"/>
+
+    <!-- For Both -->
+    <menuitem name="Request Stages" id="menu_request_stages" parent="project.menu_project_config" action="request_stage_action"/>
+    <menuitem name="Departments" id="menu_request_stages" parent="project.menu_project_config" action="hr.hr_department_kanban_action"/>
+    <menuitem name="Document Types" id="menu_document_types" parent="thiqah_project_menu" action="document_type_action"/>
+
+    <!--Extension | Projects Menuitem(s)-->
+    <menuitem name="All Projects" id="menu_projects" parent="project.menu_projects" sequence="1" action="project.open_view_project_all"/>
+    <menuitem name="Pending Projects" id="menu_pending_projects" parent="project.menu_projects" action="open_view_project_pending"/>
+    <!-- 
+    
+    For the Legal Team 
+    <menuitem name="Legal Actions" id="leagal_team_menu" parent="project.menu_main_pm" sequence="1" action="thiqah_project.legal_team_action" groups="thiqah_project.legal_team_group" />-->
+</odoo> 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- <report id="user_analysis_xlsx" model="user.analysis.report" string="Print to XLSX" report_type="xlsx" name="report.thiqah_base.user_analysis" file="user_analysis_excel" attachment_use="False" /> -->
+
+    <record id="user_analysis_report_xlsx" model="ir.actions.report">
+        <field name="name">User Analysis Excel</field>
+        <field name="model">user.analysis.report</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">thiqah_base.user_analysis_report_xlsx</field>
+        <field name="report_file">thiqah_base.user_analysis_report_xlsx</field>
+        <field name="binding_model_id" ref="thiqah_base.model_user_analysis_report" />
+        <field name="binding_type">report</field>
+        <!-- <field name="print_report_name">(object._get_report_base_filename())</field> -->
+    </record>
+
+</odoo>

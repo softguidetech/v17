@@ -1,0 +1,2349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="freelancer_workforce_request" name="Freelancer Workforce Request">
+        <div class="freelancer_request">
+            <h4 class="heading-4 mb48">
+            Freelancer Workforce Request
+            </h4>
+            <div class="form-row mb-2">
+                <div class="form-group col-md-6">
+                    <!-- Entity -->
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="entity">
+                            <span class="s_website_form_label_content">Entity</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="">
+                            <input type="hidden" name="entity_id" />
+                            <select required="1" disabled="1" name="entity" id="entity" data-style="t-btn-outile-light-gray-secondary" class="selectpicker form-control o_website_form_input basic_change_selector">
+                                <option value="">Choose...</option>
+                                <t t-foreach="entities_obj or []" t-as="entity">
+                                    <option data-divider="true" class="m-0"></option>
+                                    <option t-att-value="entity.id" t-att-selected="user_entity.id == entity.id">
+                                        <t t-esc="entity.name" />
+                                    </option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <!-- Sector -->
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="sector">
+                            <span class="s_website_form_label_content">Sector</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="">
+                            <input required="1" id="sector" type="text" class="form-control basic_change_selector" placeholder="Sector..." name="sector" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row mb-2">
+                <div class="form-group col-md-6">
+                    <!-- Department -->
+                    <div class="  ">
+                        <label class="s_website_form_label heading-7" for="department_id">
+                            <span class="s_website_form_label_content">Department</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+
+                        <div class="">
+                            <select required="1" name="department_id" id="department_id" data-style="t-btn-outile-light-gray-secondary" data-live-search="true" data-size="10" data-placeholder="Select the client..." class="selectpicker form-control o_website_form_input basic_change_selector">
+                                <option value="">Choose...</option>
+                                <t t-foreach="department_obj or []" t-as="department">
+                                    <option data-divider="true" class="m-0"></option>
+                                    <option t-att-value="department.id">
+                                        <t t-esc="department.name" />
+                                    </option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <!-- Section -->
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="section">
+                            <span class="s_website_form_label_content">Section</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="">
+                            <input required="1" id="section" type="text" class="form-control basic_change_selector" placeholder="Section..." name="section" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row mb-2">
+                <div class="form-group col-md-4">
+                    <!-- Request Date -->
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="request_date">
+                            <span class="s_website_form_label_content">Request Date</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="input-group date">
+                            <input disabled="1" id="request_date" t-att-value="request_date" class="form-control" name="request_date" />
+                            <span class="input-group-addon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                                    <path fill="#798793" d="M2.243 13.417h9.522c1.457 0 2.181-.725 2.181-2.161V2.744c0-1.436-.724-2.16-2.181-2.16H2.243C.786.583.053 1.3.053 2.743v8.512c0 1.443.733 2.16 2.19 2.16Zm-.105-1.123c-.62 0-.962-.327-.962-.976V4.745c0-.641.342-.976.962-.976h9.717c.62 0 .97.335.97.976v6.574c0 .648-.35.975-.97.975H2.138Zm3.506-6.022h.412c.244 0 .32-.07.32-.314v-.411c0-.244-.076-.321-.32-.321h-.412c-.244 0-.327.077-.327.32v.412c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.314v-.411c0-.244-.083-.321-.327-.321h-.411c-.244 0-.328.077-.328.32v.412c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.314v-.411c0-.244-.084-.321-.328-.321h-.411c-.244 0-.32.077-.32.32v.412c0 .244.076.314.32.314ZM3.33 8.552h.404c.251 0 .328-.07.328-.315v-.41c0-.245-.077-.315-.328-.315H3.33c-.251 0-.328.07-.328.314v.411c0 .244.077.314.328.314Zm2.314 0h.412c.244 0 .32-.07.32-.315v-.41c0-.245-.076-.315-.32-.315h-.412c-.244 0-.327.07-.327.314v.411c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.315v-.41c0-.245-.083-.315-.327-.315h-.411c-.244 0-.328.07-.328.314v.411c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.315v-.41c0-.245-.084-.315-.328-.315h-.411c-.244 0-.32.07-.32.314v.411c0 .244.076.314.32.314ZM3.33 10.837h.404c.251 0 .328-.077.328-.321v-.411c0-.244-.077-.314-.328-.314H3.33c-.251 0-.328.07-.328.314v.41c0 .245.077.322.328.322Zm2.314 0h.412c.244 0 .32-.077.32-.321v-.411c0-.244-.076-.314-.32-.314h-.412c-.244 0-.327.07-.327.314v.41c0 .245.083.322.327.322Zm2.315 0h.41c.245 0 .328-.077.328-.321v-.411c0-.244-.083-.314-.327-.314h-.411c-.244 0-.328.07-.328.314v.41c0 .245.084.322.328.322Z"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <!-- Request Duration  -->
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="request_duration">
+                            <span class="s_website_form_label_content">Request Duration in Months</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="">
+                            <input required="1" id="request_duration" type="number" min="0" class="form-control basic_change_selector" placeholder="Request Duration" name="request_duration" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <!-- Expected Total Cost  -->
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="expected_total_cost">
+                            <span class="s_website_form_label_content">Expected Total Cost</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="">
+                            <input required="1" id="expected_total_cost" type="number" min="0" class="form-control basic_change_selector" placeholder="Expected Total Cost..." name="expected_total_cost" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row mb-2">
+
+                <div class="form-group col">
+                    <!-- Request description -->
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="request_description">
+                            <span class="s_website_form_label_content">Request description</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="">
+                            <textarea required="1" id="request_description" class="form-control basic_change_selector" placeholder="Request description..." name="request_description" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row mb-2">
+                <div class="form-group col-md-6">
+                    <!-- Project name -->
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="project_name">
+                            <span class="s_website_form_label_content">Project Name</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="">
+                            <input required="1" name="project_name" id="project_name" type="text" class="form-control basic_change_selector" placeholder="Project Name..." />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <!-- Request Type -->
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="request_type">
+                            <span class="s_website_form_label_content">Request Type</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="">
+                            <select required="1" name="request_type" id="request_type" data-style="t-btn-outile-light-gray-secondary" class="selectpicker form-control o_website_form_input basic_change_selector">
+                                <option value="">Choose...</option>
+                                <option data-divider="true" class="m-0"></option>
+                                <option value="new_project">
+                                        New Project
+                                </option>
+                                <option data-divider="true" class="m-0"></option>
+                                <option value="extend_project">
+                                        Extend Project
+                                </option>
+                                <option data-divider="true" class="m-0"></option>
+                                <option value="add_functions_tasks">
+                                        Additional functions/Tasks
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-row mb-2">
+                <div class="form-group col-md-6">
+                    <!-- Project Start Date -->
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="project_start_date">
+                            <span class="s_website_form_label_content">Project Start Date</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="input-group date">
+                            <input required="1" id="project_start_date" type="text" class="form-control basic_change_selector" name="project_start_date" />
+                            <span class="input-group-addon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                                    <path fill="#798793" d="M2.243 13.417h9.522c1.457 0 2.181-.725 2.181-2.161V2.744c0-1.436-.724-2.16-2.181-2.16H2.243C.786.583.053 1.3.053 2.743v8.512c0 1.443.733 2.16 2.19 2.16Zm-.105-1.123c-.62 0-.962-.327-.962-.976V4.745c0-.641.342-.976.962-.976h9.717c.62 0 .97.335.97.976v6.574c0 .648-.35.975-.97.975H2.138Zm3.506-6.022h.412c.244 0 .32-.07.32-.314v-.411c0-.244-.076-.321-.32-.321h-.412c-.244 0-.327.077-.327.32v.412c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.314v-.411c0-.244-.083-.321-.327-.321h-.411c-.244 0-.328.077-.328.32v.412c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.314v-.411c0-.244-.084-.321-.328-.321h-.411c-.244 0-.32.077-.32.32v.412c0 .244.076.314.32.314ZM3.33 8.552h.404c.251 0 .328-.07.328-.315v-.41c0-.245-.077-.315-.328-.315H3.33c-.251 0-.328.07-.328.314v.411c0 .244.077.314.328.314Zm2.314 0h.412c.244 0 .32-.07.32-.315v-.41c0-.245-.076-.315-.32-.315h-.412c-.244 0-.327.07-.327.314v.411c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.315v-.41c0-.245-.083-.315-.327-.315h-.411c-.244 0-.328.07-.328.314v.411c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.315v-.41c0-.245-.084-.315-.328-.315h-.411c-.244 0-.32.07-.32.314v.411c0 .244.076.314.32.314ZM3.33 10.837h.404c.251 0 .328-.077.328-.321v-.411c0-.244-.077-.314-.328-.314H3.33c-.251 0-.328.07-.328.314v.41c0 .245.077.322.328.322Zm2.314 0h.412c.244 0 .32-.077.32-.321v-.411c0-.244-.076-.314-.32-.314h-.412c-.244 0-.327.07-.327.314v.41c0 .245.083.322.327.322Zm2.315 0h.41c.245 0 .328-.077.328-.321v-.411c0-.244-.083-.314-.327-.314h-.411c-.244 0-.328.07-.328.314v.41c0 .245.084.322.328.322Z"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <!-- Project End Date -->
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="project_end_date">
+                            <span class="s_website_form_label_content">Project End Date</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <div class="input-group date">
+                            <input required="1" id="project_end_date" type="text" class="form-control basic_change_selector" name="project_end_date" />
+                            <span class="input-group-addon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                                    <path fill="#798793" d="M2.243 13.417h9.522c1.457 0 2.181-.725 2.181-2.161V2.744c0-1.436-.724-2.16-2.181-2.16H2.243C.786.583.053 1.3.053 2.743v8.512c0 1.443.733 2.16 2.19 2.16Zm-.105-1.123c-.62 0-.962-.327-.962-.976V4.745c0-.641.342-.976.962-.976h9.717c.62 0 .97.335.97.976v6.574c0 .648-.35.975-.97.975H2.138Zm3.506-6.022h.412c.244 0 .32-.07.32-.314v-.411c0-.244-.076-.321-.32-.321h-.412c-.244 0-.327.077-.327.32v.412c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.314v-.411c0-.244-.083-.321-.327-.321h-.411c-.244 0-.328.077-.328.32v.412c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.314v-.411c0-.244-.084-.321-.328-.321h-.411c-.244 0-.32.077-.32.32v.412c0 .244.076.314.32.314ZM3.33 8.552h.404c.251 0 .328-.07.328-.315v-.41c0-.245-.077-.315-.328-.315H3.33c-.251 0-.328.07-.328.314v.411c0 .244.077.314.328.314Zm2.314 0h.412c.244 0 .32-.07.32-.315v-.41c0-.245-.076-.315-.32-.315h-.412c-.244 0-.327.07-.327.314v.411c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.315v-.41c0-.245-.083-.315-.327-.315h-.411c-.244 0-.328.07-.328.314v.411c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.315v-.41c0-.245-.084-.315-.328-.315h-.411c-.244 0-.32.07-.32.314v.411c0 .244.076.314.32.314ZM3.33 10.837h.404c.251 0 .328-.077.328-.321v-.411c0-.244-.077-.314-.328-.314H3.33c-.251 0-.328.07-.328.314v.41c0 .245.077.322.328.322Zm2.314 0h.412c.244 0 .32-.077.32-.321v-.411c0-.244-.076-.314-.32-.314h-.412c-.244 0-.327.07-.327.314v.41c0 .245.083.322.327.322Zm2.315 0h.41c.245 0 .328-.077.328-.321v-.411c0-.244-.083-.314-.327-.314h-.411c-.244 0-.328.07-.328.314v.41c0 .245.084.322.328.322Z"></path>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div t-att-class="active" id="info_state" class="alert alert-success text-center" role="status">
+                <div id="details_info"></div>
+            </div>
+
+        </div>
+    </template>
+
+    <template id="freelance_request_justificaion" name="Request Justification">
+        <div class="justification_list">
+            <h4 class="heading-4 mb48">
+                Request Justification
+            </h4>
+            <div class="form-row mb-2">
+                <div class="form-group col">
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="company_strategy_justif">
+                            <span class="s_website_form_label_content">List the justification that this request is aligned with THIQAH strategy?</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <textarea required="1" id="company_strategy_justif" class="form-control basic_change_selector" placeholder="" name="company_strategy_justif" />
+                    </div>
+                    <p class="text-muted">*If the request is not aligned with the strategy plan, please fill the second one "the sector annual plan".</p>
+                </div>
+            </div>
+            <div class="form-row mb-2">
+                <div class="form-group col">
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="sector_goal_justif">
+                            <span class="s_website_form_label_content">List the justification that this request is aligned with the sector annual plan/goals ?</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <textarea required="1" id="sector_goal_justif" class="form-control basic_change_selector" placeholder="" name="sector_goal_justif" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mb-2">
+                <div class="form-group col">
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="request_achievement">
+                            <span class="s_website_form_label_content">List the objective that will be achieved through the requested ?</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <textarea required="1" id="request_achievement" class="form-control basic_change_selector" placeholder="" name="request_achievement" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="freelance_request_organizational_implications" name="Organizational Implications">
+        <div class="freelance_implications">
+
+            <div>
+                <div class="form-row mb-2">
+                    <div class="form-group col">
+                        <div class="">
+                            <label class="s_website_form_label heading-7" for="current_manpower_limit">
+                                <span class="s_website_form_label_content">Please explain why current Manpower, without this change/ addition request, is not capable of achieving the strategic initiatives in question:</span>
+                                <span class="s_website_form_mark">*</span>
+                            </label>
+                            <textarea required="1" id="current_manpower_limit" class="form-control basic_change_selector" placeholder="" name="current_manpower_limit" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-row mb-2">
+                    <div class="form-group col">
+                        <div class="">
+                            <label class="s_website_form_label heading-7" for="current_manpower_weakness">
+                                <span class="s_website_form_label_content">Please explain why the current manpower cant undertake the requested objective or roles &amp; responsibility:</span>
+                                <span class="s_website_form_mark">*</span>
+                            </label>
+                            <textarea required="1" id="current_manpower_weakness" class="form-control basic_change_selector" placeholder="" name="current_manpower_weakness" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add_project_box">
+                <h5 class="heading-5 mb24">
+                    Please Identity whose the department will be impact from new project/additional workload
+                </h5>
+
+                <div class="card placeholder-card">
+                    <div class="align-items-center card-body d-flex flex-column">
+                        <div class="btn-circle mb32 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none">
+                                <path fill="#117DBC" d="M7.328 25.078c.57 0 .967-.303 1.677-.932l4.018-3.575h7.476c3.47 0 5.334-1.921 5.334-5.334v-8.92c0-3.412-1.864-5.334-5.334-5.334h-15C2.03.983.167 2.893.167 6.317v8.92c0 3.424 1.863 5.334 5.334 5.334h.559V23.6c0 .897.454 1.479 1.269 1.479Zm.477-2.131V19.57c0-.63-.244-.874-.873-.874H5.5c-2.353 0-3.46-1.2-3.46-3.47V6.317c0-2.27 1.107-3.459 3.46-3.459h14.999c2.34 0 3.459 1.188 3.459 3.459v8.909c0 2.27-1.118 3.47-3.459 3.47h-7.546c-.652 0-.978.093-1.421.547l-3.727 3.704ZM13 12.873c.56 0 .885-.314.897-.92l.163-6.148c.012-.583-.454-1.037-1.071-1.037-.63 0-1.072.443-1.06 1.025l.151 6.16c.012.594.338.92.92.92Zm0 3.785c.676 0 1.258-.524 1.258-1.21 0-.676-.57-1.2-1.258-1.2-.687 0-1.257.535-1.257 1.2 0 .675.582 1.21 1.257 1.21Z" />
+                            </svg>
+                        </div>
+                        <h6 class="heading-6">Please Identity whose the department will be impact from new project/additional workload</h6>
+                        <h3 class="body3 t-text-gray">Use the button below to add new position to
+                            this section</h3>
+                        <button class="btn rounded-pill t-btn-outile-gray btn-lg mr-3 button-text" type="button" data-toggle="modal" data-target="#addImplicationModal"> Add 
+                            <svg class="ml-2"
+                                xmlns="http://www.w3.org/2000/svg" width="13" height="12" fill="none">
+                                <path fill="#0A0A0A" d="M.666 6c0 .346.29.63.63.63H5.87v4.574c0 .34.283.63.63.63.346 0 .636-.29.636-.63V6.629h4.567c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H7.136V.796c0-.34-.29-.63-.637-.63-.346 0-.629.29-.629.63v4.567H1.295c-.34 0-.629.29-.629.637Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="implications_table" id="implicationsDiv">
+                <div class="t-shadow mt40 overflow-hidden" style="border-radius:16px">
+                    <div class="table-responsive">
+                        <table class="table m-0" id="table_implications">
+                            <thead>
+                                <tr>
+                                    <th>Units</th>
+                                    <th>Functions will be preformed</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table_implications_body">
+                                <!-- To be filled dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button type="button" data-toggle="modal" data-target="#addImplicationModal" class="btn mt24 btn-secondary rounded-pill add_data_button">
+                    Add New 
+                    <svg class="ml-2"
+                        xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                        <path fill="#fff" d="M.166 6c0 .346.29.63.63.63H5.37v4.574c0 .34.283.63.63.63.346 0 .636-.29.636-.63V6.629h4.567c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H6.636V.796c0-.34-.29-.63-.637-.63-.346 0-.629.29-.629.63v4.567H.795c-.34 0-.629.29-.629.637Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <template id="freelance_function_breakdown" name="Function Breakdown">
+        <div class="function_breakdown">
+            <h4 class="heading-4 mb48">
+                Function Breakdown
+            </h4>
+            <div class="form-row mb-2">
+                <div class="form-group col">
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="function">
+                            <span class="s_website_form_label_content">Function</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <textarea required="1" id="function" class="form-control basic_change_selector" placeholder="" name="function" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-row mb-2">
+                <div class="form-group col">
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="unit_kpi">
+                            <span class="s_website_form_label_content">KPIs of unit</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <textarea required="1" id="unit_kpi" class="form-control basic_change_selector" placeholder="" name="unit_kpi" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mb-2">
+                <div class="form-group col">
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="deliverable">
+                            <span class="s_website_form_label_content">Deliverable</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <textarea required="1" id="deliverable" class="form-control basic_change_selector" placeholder="" name="deliverable" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="freelance_deliverable_outcome" name="Deliverable outcome">
+        <div class="deliverable_outcome">
+            <h4 class="heading-4 mb48">
+                Deliverable Outcome
+            </h4>
+            <div class="form-row mb-2">
+                <div class="form-group col">
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="deliverable_outcome">
+                            <span class="s_website_form_label_content">Deliverable Outcome</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                        <textarea required="1" id="deliverable_outcome" class="form-control basic_change_selector" placeholder="" name="deliverable_outcome" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="freelance_terms_conditions" name="Terms and Conditions">
+        <div class="terms_conditions">
+            <h4 class="heading-4 mb48">
+                Terms and Conditions
+            </h4>
+            <div class="form-row mb-2">
+                <div class="form-group col">
+                    <div class="">
+                        <label class="s_website_form_label heading-7" for="terms">
+                            <span class="s_website_form_label_content">Terms and Conditions</span>
+                        </label>
+                        <textarea id="terms" disabled="1" class="form-control" rows="5" name="terms">
+                            1-The contract has a maximum term of one year.
+                            2-The project scope needs to be within the mandates and duties of the department and unit.
+                            3-The project only has one "freelance" employee at a time.
+                            4-Ensure that the KPIs and scope of freelance and consulting services are different throughout the same "one-year" timeframe.
+                            5-Procurement rules apply to the freelance requirement for education, experience, and accreditation.
+                        </textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <div class="form-check d-flex align-items-center">
+                        <input type="checkbox" required="1" id="accept_terms" class="form-check-input mt-0" name="accept_terms" />
+                        <label class="form-check-label heading-6" for="accept_terms">
+                            <span class="s_website_form_label_content">I read and accpet the terms and conditions.</span>
+                            <span class="s_website_form_mark">*</span>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- Freelnace Workorder List -->
+    <template id="portal_freelance_workorder" name="Freelance Workorders Page">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="freelance-workoerder-payment-modal modal fade" id="workorderPayModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header border-0">
+                            <h3 class="modal-title heading-3">Workorder Payment</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <t t-call="thiqah_project.close_button" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h4 class="">Are you sure to proceed payment?</h4>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <div class="ml-auto">
+                                <button type="button" class="rounded-pill btn btn-lg t-btn-outile-gray btn-lg button-text" data-dismiss="modal">
+                                    Cancel</button>
+                                <button type="button" id="pay_orders" class="ml-3 btn btn-lg btn-secondary rounded-pill">
+                                    Proceed</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="freelance-oerkoerder-confirm-modal modal fade" id="workorderConfirmModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header border-0">
+                            <h3 class="modal-title heading-3">Workorder Confirm Payment</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <t t-call="thiqah_project.close_button" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h4 class="">Are you sure to confirm?</h4>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <div class="ml-auto">
+                                <button type="button" class="rounded-pill btn btn-lg t-btn-outile-gray btn-lg button-text" data-dismiss="modal">
+                                    Cancel</button>
+                                <button type="button" id="confirm_orders" class="ml-3 btn btn-lg btn-secondary rounded-pill">
+                                    Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row frequest_view_mode">
+                    <div class="content-header col d-flex align-items-center justify-content-between mb72">
+                        <h1 class="heading-1 m-0" style="line-height: 100%;">Freelance Payments</h1>
+
+                    </div>
+                </div>
+                <div class="card w-100 card-wrapper">
+                    <div class="card-header heading-4 d-flex align-items-center">
+                            Payments By Status
+                    </div>
+                    <div class="card-block">
+                        <div class="row mb-3">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card card-data request-active" t-att-style="'border-width: 2px !important;border-color: #4d4285 !important; background-color:#dbd4ff !important' if filterby == 'all' else ''">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-fill d-flex align-items-center">
+                                            <sapn class="mb-0 heading-2">
+                                                <t t-esc="freelance_workorder_all" />
+                                            </sapn>
+                                            <span class="ml16 caption t-text-purple text-uppercase">
+                                                    All</span>
+                                            <input type="hidden" name="status_request" value="is_active" />
+                                        </div>
+                                        <a href="/my/freelance_workorder?filterby=all" class="rounded-circle t-custom-bg-purple">
+                                            <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card card-data request-late" t-att-style="'border-width: 2px !important;border-color: #30b6e5 !important;background-color: #DAECF9 !important;' if filterby == 'draft' else ''">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-fill d-flex align-items-center">
+                                            <sapn class="mb-0 heading-2">
+                                                <t t-esc="freelance_workorder_draft" />
+                                            </sapn>
+                                            <span class="ml16 caption t-text-cyan text-uppercase">
+                                                    Draft</span>
+                                            <input type="hidden" name="status_request" value="is_active" />
+                                        </div>
+                                        <a href="/my/freelance_workorder?filterby=draft" class="rounded-circle t-custom-bg-cyan">
+                                            <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card card-data request-today" t-att-style="'border-width: 2px !important;border-color: #00bcb4 !important;background-color: #dffffd !important;' if filterby == 'confirmed' else ''">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-fill d-flex align-items-center">
+                                            <sapn class="mb-0 heading-2">
+                                                <t t-esc="freelance_workorder_confirmed" />
+                                            </sapn>
+                                            <span class="ml16 caption t-text-turquoise text-uppercase">
+                                                   Confirmed</span>
+                                            <input type="hidden" name="status_request" value="is_active" />
+                                        </div>
+                                        <a href="/my/freelance_workorder?filterby=confirmed" class="rounded-circle t-custom-bg-turquoise">
+                                            <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card card-data request-sla" t-att-style="'border-width: 2px !important;border-color: #117dbc !important;background-color: #c5e7ff !important;' if filterby == 'paid' else ''">
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-fill d-flex align-items-center">
+                                            <sapn class="mb-0 heading-2">
+                                                <t t-esc="freelance_workorder_paid" />
+                                            </sapn>
+                                            <span class="ml16 caption text-uppercase t-text-dark-blue">
+                                                    Paid </span>
+                                            <input type="hidden" name="status_request" value="is_active" />
+                                        </div>
+                                        <!-- <a href="/my/freelance_workorder?filterby=paid" class="rounded-circle t-custom-bg-dark-blue"> -->
+                                        <a href="#" class="rounded-circle t-custom-bg-dark-blue">
+                                            <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <t t-set="breadcrumbs_searchbar" t-value="False" />
+                        <t t-call="thiqah_portal.thiqah_portal_searchbar">
+                            <t t-set="download_excel" t-value="False" />
+                            <t t-set="searchbar_groupby" t-value="False" />
+                            <t t-set="pay_button" t-value="True" />
+                            <t t-set="confirm_button" t-value="True" />
+                        </t>
+                        <t t-if="not freelance_order">
+                            <div class="alert alert-warning mt8" role="alert">
+                                There are no freelance workorder.
+                            </div>
+                        </t>
+
+                        <t t-else="">
+                            <div class="t-shadow overflow-hidden mt-2" style="border-radius:16px">
+                                <t t-call="portal.portal_table">
+                                    <t t-set="classes" t-value="'border-0 rounded-0'" />
+                                    <thead>
+                                        <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                            <!-- <th t-if="not filterby == 'all' and not filterby == 'paid'" style="padding-left: 1rem !important"> -->
+                                            <th t-if="filterby == 'draft'" style="padding-left: 1rem !important">
+                                                <div >
+                                                    <input id="checkAll" type="checkbox" class="mx-auto form-control" style="width:1.25rem;height: 1.25rem;" />
+                                                </div>
+                                            </th>
+                                            <th class="text-left">Sequence</th>
+
+                                            <th class="">Date From</th>
+
+                                            <th class="">Date To</th>
+
+                                            <th class="">Duration</th>
+
+                                            <th class="">Freelancer</th>
+
+                                            <th class="">State</th>
+
+                                            <th class="text-right">Amount</th>
+
+                                            <th t-if="request.params['filterby'] == 'draft'" class="text-right"></th>
+                                        </tr>
+                                    </thead>
+
+                                    <t t-foreach="freelance_order" t-as="req">
+                                        <div t-if="req.state == 'draft'" class="adjust-amount-modal modal fade" t-attf-id="adjustAmountModal_{{req.id}}" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content p-5">
+                                                    <div class="modal-header border-0">
+                                                        <h3 class="modal-title heading-3">Adjust Amount</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="workorder_id" t-att-value="req.id"/>
+                                                        <div class="row mb-3">
+                                                            <div class="col">
+                                                                <label class="heading-7 s_website_form_label" for="od_duration">
+                                                                    <span class="s_website_form_label_content">
+                                                                        Amount
+                                                                    </span>
+                                                                </label>
+                                                                <input type="number" min="0" id="amount" class="form-control s_website_form_input" t-att-name="'amount_' + str(req.id)" t-att-value="req.amount" required="1"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col">
+                                                                <label class="heading-7 s_website_form_label" for="od_cost">
+                                                                    <span class="s_website_form_label_content">
+                                                                        Adjust Amount Justification
+                                                                    </span>
+                                                                </label>
+                                                                <textarea id="justification" class="form-control s_website_form_input" t-att-name="'adjust_amount_justif_' + str(req.id)" required="1"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer border-0">
+                                                        <button type="button" class="rounded-pill btn btn-lg t-btn-outile-gray btn-lg button-text" data-dismiss="modal">
+                                                            Cancel
+                                                        </button>
+                                                        <button t-att-workorderID="req.id" type="button" disabled="1" class="ml-3 btn btn-lg btn-secondary rounded-pill adjust_amount_button">
+                                                            Adjust
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <tr t-att-freelance_workorder_id="req.id">
+                                            <!-- <td t-if="not filterby == 'all' and not filterby == 'paid'" style="padding-left: 1rem !important"> -->
+                                            <td t-if="filterby == 'draft'" style="padding-left: 1rem !important">
+                                                <input type="checkbox" class="mx-auto form-control orderChk" style="width:1.25rem;height: 1.25rem;" />
+                                            </td>
+                                            <td class="text-left">
+                                                <small>#</small>
+                                                <t t-esc="req.sequence"/>
+                                            </td>
+
+                                            <td>
+                                                <span t-field="req.date_from"/>
+                                            </td>
+
+                                            <td>
+                                                <span t-field="req.date_to"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="req.duration"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="req.freelancer_id.full_name"/>
+                                            </td>
+                                            <td class="text-left">
+                                                <span t-if="req.state == 'paid'" class="badge badge-pill badge-approved" align="center" t-field="req.state" />
+                                                <span t-else="" class="badge badge-pill badge-submitted" align="center" t-field="req.state" />
+                                            </td>
+                                            <td class="text-right workOrderAmount">
+                                                <span t-att-data-amount="req.amount" t-field="req.amount" t-options='{"widget": "monetary", "display_currency": request.env.company.currency_id}' />
+                                            </td>
+                                            <td t-if="request.params['filterby'] == 'draft'" class="text-right">
+                                                <button type="button" data-toggle="modal" t-attf-data-target="#adjustAmountModal_{{req.id}}" class="btn btn-primary btn-secondary btn-sm rounded-pill">Adjust Amount</button>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </t>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Freelnace Requests List -->
+    <template id="portal_freelance_list" name="Freelance Workforce Page">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+
+            <div class="container-fluid">
+                <div class="row frequest_view_mode">
+                    <div class="content-header col d-flex align-items-center justify-content-between mb72">
+                        <h1 class="heading-1 m-0" style="line-height: 100%;">Freelance Requests</h1>
+                        <a t-if="request.env.user.check_service_access('freelance_request', 'create')" href="/freelance/form" role="button" class="btn btn-lg btn-secondary rounded-pill with-icon"> Add 
+                            <svg class="ml-2"
+                                xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                                <path fill="#fff" d="M.167 6c0 .346.29.63.629.63H5.37v4.574c0 .34.282.63.629.63.346 0 .636-.29.636-.63V6.629h4.568c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H6.636V.796c0-.34-.29-.63-.636-.63-.347 0-.63.29-.63.63v4.567H.797c-.34 0-.63.29-.63.637Z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <t t-set="breadcrumbs_searchbar" t-value="False" />
+                <t t-call="thiqah_portal.thiqah_portal_searchbar">
+                    <t t-set="download_excel" t-value="False" />
+                    <t t-set="searchbar_groupby" t-value="False" />
+                </t>
+                <t t-if="not freelance_req">
+                    <div class="alert alert-warning mt8" role="alert">
+                        There are no freelance requests.
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="t-shadow mt40 overflow-hidden" style="border-radius:16px">
+                        <t t-call="portal.portal_table">
+                            <t t-set="classes" t-value="'border-0 rounded-0'" />
+                            <thead>
+                                <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                    <th class="text-left">Sequence</th>
+
+                                    <th class="">Date</th>
+
+                                    <th class="">Entity</th>
+
+                                    <th class="" t-if="request.env.user.entity == 'thiqah'">Department</th>
+
+                                    <th class="">Requester</th>
+
+                                    <th class="text-left">State</th>
+
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <t t-foreach="freelance_req" t-as="req">
+                                <tr t-att-freelance_id="req.id">
+                                    <td class="text-left">
+                                        <small>#</small>
+                                        <t t-esc="req.sequence" />
+                                    </td>
+
+                                    <td>
+                                        <span t-field="req.request_date" />
+                                    </td>
+
+                                    <td>
+                                        <span t-field="req.entity_id" />
+                                    </td>
+                                    <td t-if="request.env.user.entity == 'thiqah'">
+                                        <span t-field="req.department_id.name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="req.create_uid" />
+                                    </td>
+                                    <td class="text-left">
+                                        <span t-if="req.state == 'approved'" class="badge badge-pill badge-approved" align="center" t-field="req.state" />
+                                        <span t-elif="req.state == 'reject'" class="badge badge-pill badge-rejected" align="center" t-field="req.state" />
+                                        <span t-else="" class="badge badge-pill badge-submitted" align="center" t-field="req.state" />
+                                    </td>
+
+                                    <td class="td-actions">
+                                        <a t-attf-href="/my/freelance/#{req.id}" class="btn btn-secondary rounded-pill btn-action align-items-center justify-content-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                                <path fill="#fff" d="M.67 3.609a.608.608 0 0 0 0 .907L4.157 7.93a.67.67 0 0 0 .447.196c.359 0 .603-.25.603-.602 0-.17-.061-.305-.176-.42L3.575 5.694l-1.26-1.09 1.564.068h9.047c.352 0 .602-.25.602-.61a.58.58 0 0 0-.602-.602H3.879l-1.564.061 1.26-1.083L5.03 1.022a.557.557 0 0 0 .176-.42c0-.351-.244-.595-.603-.595a.662.662 0 0 0-.447.19L.67 3.608Zm12.662 8.789a.62.62 0 0 0 0-.914L9.845 8.07a.698.698 0 0 0-.454-.19c-.359 0-.596.244-.596.596 0 .176.054.312.17.42l1.462 1.415 1.26 1.09-1.565-.067H1.076c-.352 0-.61.25-.61.602 0 .36.258.61.61.61h9.046l1.565-.068-1.26 1.09-1.462 1.409a.566.566 0 0 0-.17.426c0 .352.237.596.596.596a.698.698 0 0 0 .454-.19l3.487-3.412Z" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+
+    <!-- Add Freelance request form Thiqah -->
+    <template id="portal_freelance_form" name="Freelance Workforce Page">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <t t-call="thiqah_freelance.freelance_add_success_modal"/>
+            <div class="container-fluid">
+                <a href="/my/freelance" class="back-top align-items-center button-text t-text-dark-gray d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" class="with-arrow mr-2" height="9" fill="none">
+                        <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z" />
+                    </svg>
+                    Back</a>
+
+                <h1 class="add-project heading-1 mt72 mb92">New Freelance Request</h1>
+                <div class="wizard freelance_wizard my-5 tabbed-form">
+                    <ul class="nav nav-tabs d-print-none justify-content-center" id="myTab" role="tablist">
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step1" aria-controls="#" class="nav-link active disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                                1
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Freelancer Workforce Request</span>
+                            </div>
+                        </li>
+
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step2" aria-controls="#" class="nav-link disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                                2
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Request Justification</span>
+                            </div>
+                        </li>
+
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step3" aria-controls="#" class="nav-link disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                                3
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Organizational Implications</span>
+                            </div>
+                        </li>
+
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step4" aria-controls="#" class="nav-link disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                                4
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Function Breakdown</span>
+                            </div>
+                        </li>
+
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step5" aria-controls="#" class="nav-link disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                                5
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Deliverable Outcome</span>
+                            </div>
+                        </li>
+
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step6" aria-controls="#" class="nav-link disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                               6
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Terms and Conditions</span>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <section class="mt72">
+                        <!-- Implication Add Modal -->
+                        <div class="freelance-implication-modal modal fade" id="addImplicationModal" tabindex="-1" aria-labelledby="implicationModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header border-0">
+                                        <h3 class="modal-title heading-3">Impacting Department</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <t t-call="thiqah_project.close_button" />
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" style="overflow: initial;">
+                                        <div class="form-group">
+                                            <label class="heading-7" for="modal_department_id">Department</label>
+                                            <div class="">
+                                                <select required="1" name="modal_department_id" id="modal_department_id" data-style="t-btn-outile-light-gray-secondary" data-live-search="true" data-size="10" data-placeholder="Select the client..." class="selectpicker form-control o_website_form_input basic_change_selector">
+                                                    <option value="">Choose...</option>
+                                                    <t t-foreach="department_obj or []" t-as="department">
+                                                        <option data-divider="true" class="m-0"></option>
+                                                        <option t-att-value="department.id">
+                                                            <t t-esc="department.name" />
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="heading-7" for="modal_operation">Functions will be preformed</label>
+                                            <input required="1" id="modal_operation" type="text" class="form-control " name="modal_operation" />
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer border-0">
+                                        <div class="ml-auto">
+                                            <button type="button" class="rounded-pill btn btn-lg t-btn-outile-gray btn-lg button-text" data-dismiss="modal">
+                                    Cancel</button>
+                                            <button type="button" id="add_implication" class="ml-3 btn btn-lg btn-secondary rounded-pill add_data_button">
+                                    Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form id="freelance_add_form" action="/freelance/form/add" method="post" novalidate="1" enctype="multipart/form-data" class="needs-validation">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" role="tabpanel" id="step1" aria-labelledby="step1-tab">
+                                    <t t-call="thiqah_freelance.freelancer_workforce_request">
+                                    </t>
+                                    <div class="d-flex mt56 justify-content-end">
+
+                                        <a class="ml-3 btn btn-secondary rounded-pill btn-lg text-white next disabled state_next_step">Next
+                                            Step
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" role="tabpanel" id="step2" aria-labelledby="step2-tab">
+
+                                    <t t-call="thiqah_freelance.freelance_request_justificaion" />
+                                    <div class="d-flex mt56 justify-content-between align-items-center">
+                                        <a href="#" class="previous t-text-dark-gray button-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" class="with-arrow mr-2" height="9" fill="none">
+                                                <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z"></path>
+                                            </svg>
+                                            Previous Step</a>
+                                        <div class="d-flex justify-content-end">
+                                            <a class="ml-3 btn btn-secondary rounded-pill btn-lg text-white next disabled justif_next_step">Next
+                                                Step
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane fade" role="tabpanel" id="step3" aria-labelledby="step3-tab">
+                                    <h4 class="heading-4 mb48">Organizational Implications</h4>
+
+                                    <t t-call="thiqah_freelance.freelance_request_organizational_implications" />
+                                    <div class="d-flex mt56 justify-content-between align-items-center">
+                                        <a href="#" class="previous t-text-dark-gray button-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" class="with-arrow mr-2" height="9" fill="none">
+                                                <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z"></path>
+                                            </svg>
+                                            Previous Step</a>
+                                        <div class="d-flex justify-content-end">
+                                            <a class="ml-3 btn btn-secondary rounded-pill btn-lg text-white disabled implications_next_step next">Next
+                                                Step
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" role="tabpanel" id="step4" aria-labelledby="step4-tab">
+
+                                    <t t-call="thiqah_freelance.freelance_function_breakdown" />
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="#" class="previous t-text-dark-gray button-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" class="with-arrow mr-2" height="9" fill="none">
+                                                <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z"></path>
+                                            </svg>
+                                            Previous Step</a>
+                                        <div class="d-flex justify-content-end">
+                                            <a class="ml-3 btn btn-secondary rounded-pill btn-lg text-white disabled function_next_step next">Next
+                                                Step
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" role="tabpanel" id="step5" aria-labelledby="step5-tab">
+                                    <t t-call="thiqah_freelance.freelance_deliverable_outcome" />
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="#" class="previous t-text-dark-gray button-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" class="with-arrow mr-2" height="9" fill="none">
+                                                <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z"></path>
+                                            </svg>
+                                            Previous Step</a>
+                                        <div class="d-flex justify-content-end">
+                                            <a class="ml-3 btn btn-secondary rounded-pill btn-lg text-white disabled outcome_next_step next">Next
+                                                Step
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" role="tabpanel" id="step6" aria-labelledby="step6-tab">
+                                    <t t-call="thiqah_freelance.freelance_terms_conditions" />
+                                    <div class="request-error d-none alert alert-danger mt-3 heading-7"></div>
+                                    <div class="d-flex mt56  justify-content-between align-items-center">
+                                        <a href="#" class="previous t-text-dark-gray button-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" class="with-arrow mr-2" height="9" fill="none">
+                                                <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z"></path>
+                                            </svg>
+                                            Previous Step</a>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="submit" class="btn t-btn-outile-black rounded-pill btn-lg">
+                                                Create Request
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Add Freelance request form AAhad -->
+    <template id="portal_freelance_form_ahad" name="Freelance Workforce AAhd Page">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="container-fluid">
+                <a href="/my/freelance" class="back-top align-items-center button-text t-text-dark-gray d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" class="mr-2" height="9" fill="none">
+                        <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z" />
+                    </svg>
+                    Back</a>
+
+                <h1 class="add-project heading-1 mt72 mb92">New Ahad Freelance Request</h1>
+                <div class="wizard freelance_wizard my-5 tabbed-form">
+                    <ul class="nav nav-tabs d-print-none justify-content-center" id="myTab" role="tablist">
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step1" aria-controls="#" class="nav-link active disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                                1
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Freelancer Request</span>
+                            </div>
+                        </li>
+
+                        <li class="nav-item flex-fill" role="presentation">
+                            <a href="#step2" aria-controls="#" class="nav-link disabled rounded-circle  d-flex align-items-center justify-content-center" data-toggle="tab" role="tab" aria-selected="true">
+                              2
+                            </a>
+                            <div class="text-center">
+                                <span class="item_header">Terms and Conditions</span>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <section class="mt72 ahad_freelancer_request">
+
+                        <form id="ahad_freelance_add_form" action="/freelance/form/add" method="post" novalidate="1" enctype="multipart/form-data" class="needs-validation">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" role="tabpanel" id="step1" aria-labelledby="step1-tab">
+                                    <div class="">
+                                        <h4 class="heading-4 mb48">
+                                        Ahad Freelance Request
+                                        </h4>
+
+                                        <div class="form-row mb-2">
+                                            <div class="form-group col-md-6">
+                                                <!-- Entity -->
+                                                <div class="">
+                                                    <label class="s_website_form_label heading-7" for="entity">
+                                                        <span class="s_website_form_label_content">Entity</span>
+                                                        <span class="s_website_form_mark">*</span>
+                                                    </label>
+                                                    <div class="">
+                                                        <input type="hidden" name="entity_id" />
+                                                        <select required="1" disabled="1" name="entity" id="entity" data-style="t-btn-outile-light-gray-secondary" class="selectpicker form-control o_website_form_input basic_change_selector">
+                                                            <option value="">Choose...</option>
+                                                            <t t-foreach="entities_obj or []" t-as="entity">
+                                                                <option data-divider="true" class="m-0"></option>
+                                                                <option t-att-value="entity.id" t-att-selected="user_entity.id == entity.id">
+                                                                    <t t-esc="entity.name" />
+                                                                </option>
+                                                            </t>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <!-- Client name -->
+                                                <div class="">
+                                                    <label class="s_website_form_label heading-7" for="ahad_client_name">
+                                                        <span class="s_website_form_label_content">Client Name</span>
+                                                        <span class="s_website_form_mark">*</span>
+                                                    </label>
+                                                    <div class="">
+                                                        <input required="1" name="ahad_client_name" id="ahad_client_name" type="text" class="form-control basic_change_selector" placeholder="Client Name..." />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row mb-2">
+
+                                            <div class="form-group col-md-6">
+                                                <!-- Project number -->
+                                                <div class="">
+                                                    <label class="s_website_form_label heading-7" for="ahad_project_name">
+                                                        <span class="s_website_form_label_content">Project Number</span>
+                                                        <span class="s_website_form_mark">*</span>
+                                                    </label>
+                                                    <div class="">
+                                                        <input required="1" name="ahad_project_name" id="ahad_project_name" type="text" class="form-control basic_change_selector" placeholder="Project Number..." />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <!-- Project name -->
+                                                <div class="">
+                                                    <label class="s_website_form_label heading-7" for="ahad_project_number">
+                                                        <span class="s_website_form_label_content">Project Name</span>
+                                                        <span class="s_website_form_mark">*</span>
+                                                    </label>
+                                                    <div class="">
+                                                        <input required="1" name="ahad_project_number" id="ahad_project_number" type="text" class="form-control basic_change_selector" placeholder="Project Name..." />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row mb-2">
+
+                                            <div class="form-group col">
+                                                <!-- Request description -->
+                                                <div class="">
+                                                    <label class="s_website_form_label heading-7" for="request_description">
+                                                        <span class="s_website_form_label_content">Request description</span>
+                                                        <span class="s_website_form_mark">*</span>
+                                                    </label>
+                                                    <div class="">
+                                                        <textarea required="1" id="request_description" class="form-control basic_change_selector" placeholder="Request description..." name="request_description" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mt56 justify-content-end">
+
+                                        <a class="ml-3 btn btn-secondary rounded-pill btn-lg text-white next disabled state_next_step">Next
+                                            Step
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" role="tabpanel" id="step2" aria-labelledby="step2-tab">
+                                    <t t-call="thiqah_freelance.freelance_terms_conditions" />
+                                    <div class="request-error d-none alert alert-danger mt-3 heading-7"></div>
+                                    <div class="d-flex mt56  justify-content-between align-items-center">
+                                        <a href="#" class="previous t-text-dark-gray button-text">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="10" class="mr-2" height="9" fill="none">
+                                                <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z"></path>
+                                            </svg>
+                                            Previous Step</a>
+                                        <div class="d-flex justify-content-end">
+                                            <button type="submit" class="btn t-btn-outile-black rounded-pill btn-lg">
+                                                Send
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_freelancers_form_ahad" name="Ahad Freelancers Form">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <t t-call="thiqah_freelance.portal_freelancer_details_modal"/>
+            <div class="container-fluid">
+                <div class="row mb32">
+                    <div class="col-lg-9 d-flex align-items-center justify-content-between service-request-actionsl">
+                        <h1 class="heading-2 m-0">
+                            <span>Freelance Request(#</span>
+                            <span t-field="freelance_req.sequence" />
+                            <span>)</span>
+
+                        </h1>
+                    </div>
+                    <div class="col-lg-3">
+                        <t t-call="thiqah_freelance.freelance_requests_actions"/>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                Ahad Freelancer Request
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Client Name</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.ahad_client_name">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Project Name</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.ahad_project_name">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Project Number</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.ahad_project_number">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Description</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.request_description">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                State
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">State</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.state">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                Freelancer Details List
+                            </div>
+                            <div class="card-body">
+                                <div t-if="completed_application_ids" class="freelancer_applications_table" id="freelancerAppDiv">
+                                    <div class="row accordion mx-1" id="freelancerDetailsAccordion">
+                                        <t t-foreach="completed_application_ids" t-as="app">
+                                            <div class="card border-0 mb24 w-100">
+                                                <div class="card-header heading-5 border-0" data-toggle="collapse" t-att-data-target="'#collapse%s' % app.id" aria-expanded="true">
+                                                    <span class="title">
+                                                        <t t-esc="app.full_name"/>
+                                                    </span>
+                                                    <span class="accicon float-right">
+                                                        <svg class="rotate-icon"
+                                                            xmlns="http://www.w3.org/2000/svg" width="14" height="8" fill="none">
+                                                            <path fill="#0A0A0A" d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                                    <div class="btn-group  flex-grow-1 mr-1 mb-1">
+                                                        <a class="btn btn-secondary btn-block o_download_btn" t-attf-href="/freelance/print_contract/{{app.id}}" title="Download"><i class="fa fa-download"/> Download</a>
+                                                    </div>
+                                                    <!-- <div class="btn-group flex-grow-1 mb-1">
+                                                        <a class="btn btn-secondary btn-block o_print_btn o_portal_invoice_print" t-att-href="invoice.get_portal_url(report_type='pdf')" id="print_invoice_report" title="Print" target="_blank"><i class="fa fa-print"/> Print</a>
+                                                    </div> -->
+                                                </div>
+                                                <div t-att-id="'collapse%s' % app.id" data-parent="#freelancerDetailsAccordion" class="mt32 collapse">
+                                                    <div class="card-body">
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">First Name</label>
+                                                                <h4 class="body2 t-text-dark-gray firstName" t-field="app.first_name">
+                                                                </h4>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Last Name</label>
+                                                                <h4 class="body2 t-text-dark-gray lastName" t-field="app.last_name">
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">ID type</label>
+                                                                <h4 class="body2 t-text-dark-gray idType" t-field="app.id_type">
+                                                                </h4>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">ID Number</label>
+                                                                <h4 class="body2 t-text-dark-gray idNumber" t-field="app.id_number">
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-4">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Mobile Number</label>
+                                                                <h4 class="body2 t-text-dark-gray mobileNumber" t-field="app.mobile_number">
+                                                                </h4>
+                                                            </div>
+                                                            <div class="form-group col-md-4">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">E-mail</label>
+                                                                <h4 class="body2 t-text-dark-gray email" t-field="app.email">
+                                                                </h4>
+                                                            </div>
+                                                            <div class="form-group col-md-4">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Nationality</label>
+                                                                <h4 class="body2 t-text-dark-gray nationality" t-field="app.nationality_id">
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-12">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Address</label>
+                                                                <h4 class="body2 t-text-dark-gray salary" t-field="app.address" >
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-4">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Salary</label>
+                                                                <h4 class="body2 t-text-dark-gray salary" t-field="app.salary" t-options='{"widget": "monetary", "display_currency": request.env.company.currency_id}'>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="form-group col-md-4">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Start Date</label>
+                                                                <h4 class="body2 t-text-dark-gray startDate" t-field="app.start_date">
+                                                                </h4>
+                                                            </div>
+                                                            <div class="form-group col-md-4">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">End Date</label>
+                                                                <h4 class="body2 t-text-dark-gray endDate" t-field="app.end_date">
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Bank</label>
+                                                                <h4 class="body2 t-text-dark-gray bank" t-field="app.bank_name">
+                                                                </h4>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Branch</label>
+                                                                <h4 class="body2 t-text-dark-gray branch" t-field="app.branch_name">
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Account</label>
+                                                                <h4 class="body2 t-text-dark-gray account" t-field="app.account">
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="form-group col-md-6">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Beneficiary Name</label>
+                                                                <h4 class="body2 t-text-dark-gray beneficiary" t-field="app.beneficiary_name">
+                                                                </h4>
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">IBAN</label>
+                                                                <h4 class="body2 t-text-dark-gray iban" t-field="app.iban">
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row" t-if="app._get_attchments()">
+                                                            <div class="form-group col-md">
+                                                                <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Attachments</label>
+                                                                <t t-foreach="app._get_attchments()" t-as="attchment">
+                                                                    <a class="mt-4 d-flex align-items-center oe_attachments" t-attf-href="/web/content/#{attchment.id}?download=true" target="_blank" data-no-post-process="">
+                                                                        <div class='oe_attachment_embedded o_image o_image_small mr-lg-3' t-att-title="attchment.mimetype" t-att-data-mimetype="attchment.mimetype" />
+                                                                        <div class='oe_attachment_name text-truncate body2 t-text-dark-gray'>
+                                                                            <t t-esc='attchment.name' />
+                                                                        </div>
+                                                                        <div class="ml-3" t-att-title="attchment.name" t-att-data-mimetype="attchment.mimetype" style="background-image:url('/thiqah_portal/static/src/img/button-download.svg');width: 32px;height: 32px;"/>
+                                                                    </a>
+                                                                </t>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </t>
+                                    </div>
+                                    <button t-if="active_state_technical == 'draft'" type="button" data-toggle="modal" data-target="#addFreelancerDetailsModal" class="btn mt24 btn-secondary rounded-pill add_data_button">
+                                        Add New 
+                                        <svg class="ml-2"
+                                            xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                                            <path fill="#fff" d="M.166 6c0 .346.29.63.63.63H5.37v4.574c0 .34.283.63.63.63.346 0 .636-.29.636-.63V6.629h4.567c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H6.636V.796c0-.34-.29-.63-.637-.63-.346 0-.629.29-.629.63v4.567H.795c-.34 0-.629.29-.629.637Z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="add_project_box" t-if="not completed_application_ids">
+                                    <div class="card placeholder-card">
+                                        <div class="align-items-center card-body d-flex flex-column">
+                                            <div class="btn-circle mb32 rounded-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none">
+                                                    <path fill="#117DBC" d="M7.328 25.078c.57 0 .967-.303 1.677-.932l4.018-3.575h7.476c3.47 0 5.334-1.921 5.334-5.334v-8.92c0-3.412-1.864-5.334-5.334-5.334h-15C2.03.983.167 2.893.167 6.317v8.92c0 3.424 1.863 5.334 5.334 5.334h.559V23.6c0 .897.454 1.479 1.269 1.479Zm.477-2.131V19.57c0-.63-.244-.874-.873-.874H5.5c-2.353 0-3.46-1.2-3.46-3.47V6.317c0-2.27 1.107-3.459 3.46-3.459h14.999c2.34 0 3.459 1.188 3.459 3.459v8.909c0 2.27-1.118 3.47-3.459 3.47h-7.546c-.652 0-.978.093-1.421.547l-3.727 3.704ZM13 12.873c.56 0 .885-.314.897-.92l.163-6.148c.012-.583-.454-1.037-1.071-1.037-.63 0-1.072.443-1.06 1.025l.151 6.16c.012.594.338.92.92.92Zm0 3.785c.676 0 1.258-.524 1.258-1.21 0-.676-.57-1.2-1.258-1.2-.687 0-1.257.535-1.257 1.2 0 .675.582 1.21 1.257 1.21Z" />
+                                                </svg>
+                                            </div>
+                                            <h6 class="heading-6">Please Identity the freelancer to be added.</h6>
+                                            <h3 class="body3 t-text-gray">Use the button below to add new freelancer application</h3>
+                                            <button class="btn rounded-pill t-btn-outile-gray btn-lg mr-3 button-text" type="button" data-toggle="modal" data-target="#addFreelancerDetailsModal"> Add 
+                                                <svg class="ml-2"
+                                                    xmlns="http://www.w3.org/2000/svg" width="13" height="12" fill="none">
+                                                    <path fill="#0A0A0A" d="M.666 6c0 .346.29.63.63.63H5.87v4.574c0 .34.283.63.63.63.346 0 .636-.29.636-.63V6.629h4.567c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H7.136V.796c0-.34-.29-.63-.637-.63-.346 0-.629.29-.629.63v4.567H1.295c-.34 0-.629.29-.629.637Z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="freelance_add_success_modal" name="Add freelance success Modal">
+        <div class="success-modal modal fade" id="freelanceAddSuccessModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content p-5">
+                    <div class="modal-header border-0">
+                        <h3 class="modal-title heading-3">New Freelance Request</h3>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="/thiqah_portal/static/src/img/icon-check.svg" />
+                        <h3 class="heading-3">Thank You!</h3>
+                        <span class="body2 t-text-gray mt24">Your freelance request has been added succesfully.</span>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <div class="mx-auto">
+                            <a href="/my/freelance" type="button" class="btn btn-lg btn-secondary rounded-pill">
+                                    Go back to all requests </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Freelancer details modal -->
+    <template id="portal_freelancer_details_modal" name="Freelancer Details Modal ">
+        <div class="modal" id="addFreelancerDetailsModal">
+            <div class="modal-dialog">
+                <div class="modal-content" style="padding: 72px;padding-bottom: 56px;">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                    <input type="hidden" name="frequest_id" t-if="request.env.user.entity == 'thiqah'" t-att-value="freelance_req.id" />
+                    <!-- Modal Header -->
+                    <div class="modal-header border-0">
+                        <h2 class="heading-3">Freelancer Details</h2>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                                <path fill="#798793" d="M.33 19.67c.442.43 1.173.43 1.602 0l8.07-8.07 8.07 8.07c.43.43 1.173.442 1.602 0a1.142 1.142 0 0 0 0-1.588l-8.07-8.083 8.07-8.07c.429-.43.442-1.161 0-1.59a1.134 1.134 0 0 0-1.601 0l-8.07 8.07L1.931.34C1.503-.102.759-.115.33.34a1.142 1.142 0 0 0 0 1.59l8.07 8.07-8.07 8.083c-.429.428-.441 1.16 0 1.588Z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form id="create_freelancer_form" class="needs-validation" action="" enctype="multipart/form-data" novalidate="1">
+                            <fieldset t-attf-class="form-group frequest_creation {{'d-none ' if incompleted_application else ''}}">
+                                <legend class="body1">Personal Info</legend>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label class="s_website_form_label heading-7" for="first_name">
+                                                <span class="s_website_form_label_content">
+                                                            First Name</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" id="first_name" type="text" class="form-control" placeholder="First Name..." name="first_name" />
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="s_website_form_label heading-7" for="last_name">
+                                                <span class="s_website_form_label_content">Last Name</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" id="last_name" type="text" class="form-control" placeholder="Last Name..." name="last_name" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label class="s_website_form_label heading-7" for="id_type">
+                                                <span class="s_website_form_label_content">ID type</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <select name="id_type" data-style="t-btn-outile-light-gray-secondary" id="id_type" required="1" data-placeholder="Select the department..." class="selectpicker form-control o_website_form_input">
+                                                <option value="">Choose...</option>
+                                                <option data-divider="true" class="m-0"></option>
+                                                <option value="national_id">
+                                                    National ID
+                                                </option>
+                                                <option data-divider="true" class="m-0"></option>
+                                                <option value="passport">
+                                                    Passport
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="s_website_form_label heading-7" for="id_number">
+                                                <span class="s_website_form_label_content">ID Number</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" id="id_number" type="text" class="form-control" placeholder="ID Number..." name="id_number" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="s_website_form_label heading-7" for="mobile_number">
+                                                <span class="s_website_form_label_content">Mobile Number</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" id="mobile_number" type="text" class="form-control" placeholder="Mobile Number..." name="mobile_number" />
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="s_website_form_label heading-7" for="email">
+                                                <span class="s_website_form_label_content">E-mail</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" id="email" type="email" class="form-control" placeholder="E-mail..." name="email" />
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="s_website_form_label heading-7" for="nationality_id">
+                                                <span class="s_website_form_label_content">Nationality</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <select name="nationality_id" data-style="t-btn-outile-light-gray-secondary" id="nationality" required="1" data-live-search="true" data-size="10" data-placeholder="Select Nationality..." class="selectpicker form-control o_website_form_input">
+                                                <option value="">Choose...</option>
+                                                <t t-foreach="countries or []" t-as="country">
+                                                    <option data-divider="true" class="m-0"></option>
+                                                    <option t-att-value="country.id">
+                                                        <t t-esc="country.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="heading-7 s_website_form_label" for="address">
+                                                <span class="s_website_form_label_content">
+                                                    Address
+                                                </span>
+                                            </label>
+                                            <textarea id="address" required="1" class="form-control s_website_form_input" name="address"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset t-attf-class="form-group frequest_creation {{'d-none ' if incompleted_application else ''}}">
+                                <legend class="body1">Contract Information</legend>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label class="s_website_form_label heading-7" for="salary">
+                                                <span class="s_website_form_label_content">Salary</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" id="salary" type="number" min="0" class="form-control" placeholder="Salary..." name="salary" />
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="s_website_form_label heading-7" for="start_date">
+                                                <span class="s_website_form_label_content">Start Date</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <div class="input-group date">
+                                                <input id="start_date" required="1" t-att-value="start_date" class="form-control s_website_form_input" name="start_date" />
+                                                <span class="input-group-addon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                                                        <path fill="#798793" d="M2.243 13.417h9.522c1.457 0 2.181-.725 2.181-2.161V2.744c0-1.436-.724-2.16-2.181-2.16H2.243C.786.583.053 1.3.053 2.743v8.512c0 1.443.733 2.16 2.19 2.16Zm-.105-1.123c-.62 0-.962-.327-.962-.976V4.745c0-.641.342-.976.962-.976h9.717c.62 0 .97.335.97.976v6.574c0 .648-.35.975-.97.975H2.138Zm3.506-6.022h.412c.244 0 .32-.07.32-.314v-.411c0-.244-.076-.321-.32-.321h-.412c-.244 0-.327.077-.327.32v.412c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.314v-.411c0-.244-.083-.321-.327-.321h-.411c-.244 0-.328.077-.328.32v.412c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.314v-.411c0-.244-.084-.321-.328-.321h-.411c-.244 0-.32.077-.32.32v.412c0 .244.076.314.32.314ZM3.33 8.552h.404c.251 0 .328-.07.328-.315v-.41c0-.245-.077-.315-.328-.315H3.33c-.251 0-.328.07-.328.314v.411c0 .244.077.314.328.314Zm2.314 0h.412c.244 0 .32-.07.32-.315v-.41c0-.245-.076-.315-.32-.315h-.412c-.244 0-.327.07-.327.314v.411c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.315v-.41c0-.245-.083-.315-.327-.315h-.411c-.244 0-.328.07-.328.314v.411c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.315v-.41c0-.245-.084-.315-.328-.315h-.411c-.244 0-.32.07-.32.314v.411c0 .244.076.314.32.314ZM3.33 10.837h.404c.251 0 .328-.077.328-.321v-.411c0-.244-.077-.314-.328-.314H3.33c-.251 0-.328.07-.328.314v.41c0 .245.077.322.328.322Zm2.314 0h.412c.244 0 .32-.077.32-.321v-.411c0-.244-.076-.314-.32-.314h-.412c-.244 0-.327.07-.327.314v.41c0 .245.083.322.327.322Zm2.315 0h.41c.245 0 .328-.077.328-.321v-.411c0-.244-.083-.314-.327-.314h-.411c-.244 0-.328.07-.328.314v.41c0 .245.084.322.328.322Z"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="s_website_form_label heading-7" for="end_date">
+                                                <span class="s_website_form_label_content">End Date</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <div class="input-group date">
+                                                <input id="end_date" required="1" t-att-value="end_date" class="form-control s_website_form_input" name="end_date" />
+                                                <span class="input-group-addon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                                                        <path fill="#798793" d="M2.243 13.417h9.522c1.457 0 2.181-.725 2.181-2.161V2.744c0-1.436-.724-2.16-2.181-2.16H2.243C.786.583.053 1.3.053 2.743v8.512c0 1.443.733 2.16 2.19 2.16Zm-.105-1.123c-.62 0-.962-.327-.962-.976V4.745c0-.641.342-.976.962-.976h9.717c.62 0 .97.335.97.976v6.574c0 .648-.35.975-.97.975H2.138Zm3.506-6.022h.412c.244 0 .32-.07.32-.314v-.411c0-.244-.076-.321-.32-.321h-.412c-.244 0-.327.077-.327.32v.412c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.314v-.411c0-.244-.083-.321-.327-.321h-.411c-.244 0-.328.077-.328.32v.412c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.314v-.411c0-.244-.084-.321-.328-.321h-.411c-.244 0-.32.077-.32.32v.412c0 .244.076.314.32.314ZM3.33 8.552h.404c.251 0 .328-.07.328-.315v-.41c0-.245-.077-.315-.328-.315H3.33c-.251 0-.328.07-.328.314v.411c0 .244.077.314.328.314Zm2.314 0h.412c.244 0 .32-.07.32-.315v-.41c0-.245-.076-.315-.32-.315h-.412c-.244 0-.327.07-.327.314v.411c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.315v-.41c0-.245-.083-.315-.327-.315h-.411c-.244 0-.328.07-.328.314v.411c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.315v-.41c0-.245-.084-.315-.328-.315h-.411c-.244 0-.32.07-.32.314v.411c0 .244.076.314.32.314ZM3.33 10.837h.404c.251 0 .328-.077.328-.321v-.411c0-.244-.077-.314-.328-.314H3.33c-.251 0-.328.07-.328.314v.41c0 .245.077.322.328.322Zm2.314 0h.412c.244 0 .32-.077.32-.321v-.411c0-.244-.076-.314-.32-.314h-.412c-.244 0-.327.07-.327.314v.41c0 .245.083.322.327.322Zm2.315 0h.41c.245 0 .328-.077.328-.321v-.411c0-.244-.083-.314-.327-.314h-.411c-.244 0-.328.07-.328.314v.41c0 .245.084.322.328.322Z"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div t-att-class="active" id="info_state" class="alert alert-success text-center" role="status">
+                                        <div id="details_info"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3" t-if="freelance_req.entity_code == 'ahad'">
+                                    <div class="row">
+                                        <input type="hidden" name="withholding_tax_val"/>
+                                        <div class="col">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" name="withholding_tax" id="withholding_tax" />
+                                                <label class="custom-control-label heading-7" for="withholding_tax">Withholding Tax Included</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3 d-none withholding-tax-comment" t-if="freelance_req.entity_code == 'ahad'">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label class="heading-7 s_website_form_label" for="withholding_tax_comment">
+                                                <span class="s_website_form_label_content">
+                                                    Withholding Tax Comment
+                                                </span>
+                                            </label>
+                                            <textarea id="withholding_tax_comment" class="form-control s_website_form_input" name="withholding_tax_comment"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form id="create_bank_form" class="needs-validation" action="" enctype="multipart/form-data" novalidate="1">
+                            <input type='hidden' id='freelancer_id' name='freelancer_id' t-att-value="incompleted_application.id if incompleted_application else ''"/>
+                            <fieldset t-attf-class="form-group bank_creation {{'d-none ' if not incompleted_application else ''}}">
+                                <legend class="body1">Bank Information</legend>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label class="s_website_form_label heading-7" for="bank_country">
+                                                <span class="s_website_form_label_content">Bank Country</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <select name="bank_country" data-style="t-btn-outile-light-gray-secondary" id="bank_country" required="1" data-live-search="true" data-size="10" data-placeholder="Select the branch..." class="selectpicker form-control o_website_form_input">
+                                                <option value="">Choose...</option>
+                                                <t t-foreach="countries or []" t-as="country">
+                                                    <option data-divider="true" class="m-0"></option>
+                                                    <option t-att-value="country.id">
+                                                        <t t-esc="country.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                            <p class="text-danger d-none invalid-code">Invalid Or Not Exist Country Code</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="s_website_form_label heading-7" for="bank">
+                                                <span class="s_website_form_label_content">Bank</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <select name="bank" disabled="1" data-style="t-btn-outile-light-gray-secondary" id="bank" required="1" data-placeholder="Select the bank..." class="selectpicker form-control o_website_form_input">
+                                                <option value="">Choose...</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label class="s_website_form_label heading-7" for="branch">
+                                                <span class="s_website_form_label_content">Branch</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <select name="branch" disabled="1" data-style="t-btn-outile-light-gray-secondary" id="branch" required="1" data-placeholder="Select the branch..." class="selectpicker form-control o_website_form_input">
+                                                <option value="">Choose...</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="s_website_form_label heading-7" for="account">
+                                                <span class="s_website_form_label_content">Account</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" id="account" type="text" class="form-control" placeholder="Account..." name="account" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label class="s_website_form_label heading-7" for="beneficiary_name">
+                                                <span class="s_website_form_label_content">Beneficiary Name</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" id="beneficiary_name" type="text" class="form-control" placeholder="Beneficiary Name..." name="beneficiary_name" />
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="s_website_form_label heading-7" for="iban">
+                                                <span class="s_website_form_label_content">IBAN</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" id="iban" type="text" class="form-control" placeholder="IBAN..." name="iban" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset t-attf-class="form-group bank_creation {{'d-none ' if not incompleted_application else ''}}">
+                                <legend class="body1">Attachments</legend>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="s_website_form_label heading-7" for="attachments">
+                                            <span class="s_website_form_label_content">
+                                                        Upload Attachments</span>
+                                        </label>
+                                        <div class="custom-input-file">
+                                            <div class="btn-circle t-custom-bg-cyan" style="width:40px;height:40px">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" fill="none">
+                                                    <path fill="#fff" d="m18.366 11.991-4.618-4.338c-.35-.311-.754-.482-1.174-.482-.427 0-.808.148-1.166.466l-3.514 3.141L6.455 9.48c-.326-.295-.684-.443-1.05-.443-.35 0-.676.14-1.002.435L1.44 12.147c.047 1.407.622 2.122 1.78 2.122h13.032c1.407 0 2.114-.785 2.114-2.278Zm-11.74-4.26a1.837 1.837 0 0 0 1.827-1.835A1.842 1.842 0 0 0 6.626 4.06c-1.01 0-1.835.832-1.835 1.835 0 1.01.825 1.835 1.835 1.835Zm-3.35 7.083h13.45c1.633 0 2.441-.801 2.441-2.403v-9.5C19.167 1.308 18.36.5 16.726.5H3.276C1.65.5.833 1.309.833 2.91v9.501c0 1.602.816 2.403 2.441 2.403Zm.015-1.252c-.778 0-1.205-.412-1.205-1.22V2.98c0-.808.427-1.228 1.205-1.228h13.42c.77 0 1.205.42 1.205 1.228v9.361c0 .809-.436 1.22-1.206 1.22H3.29Z" />
+                                                </svg>
+                                            </div>
+                                            <p class="body2 m-0 ml-3"> Drag Drop or <span class="t-text-cyan">Choose File</span> To
+                                                        Upload </p>
+                                            <input id="freelancer_attachments" type="file" name="attachments" class="form-control s_website_form_input" multiple="true" accept="image/*,application/pdf,video/*,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" />
+                                        </div>
+                                        <p id="attach_error" class="my-2 text-danger d-none"></p>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                        </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer d-flex align-items-center justify-content-between border-0">
+                        <div t-attf-class="frequest_creation {{'d-none ' if incompleted_application else ''}}">
+                            <p class="text-danger heading-6 m-0 create_freelancer_error"></p>
+                        </div>
+                        <div t-attf-class="bank_creation {{'d-none ' if not incompleted_application else ''}}">
+                            <p class="text-danger heading-6 m-0 create_bank_error"></p>
+                        </div>
+                        <div class="ml-auto">
+                            <div t-attf-class="bank_creation {{'d-none ' if not incompleted_application else ''}}">
+                                <button type="button" class="btn rounded-pill t-btn-outile-gray btn-lg mr-3 button-text" data-dismiss="modal">Close</button>
+                                <button type="button" style="color: #ffffff !important" t-att-frequest="freelance_req.id" class="btn btn-secondary button-text rounded-pill btn-lg create_bank">Finish</button>
+                            </div>
+                            <div t-attf-class="frequest_creation {{'d-none ' if incompleted_application else ''}}">
+                                <button type="button" class="btn rounded-pill t-btn-outile-gray btn-lg mr-3 button-text" data-dismiss="modal">Close</button>
+                                <button type="button" style="color: #ffffff !important" t-att-frequest="freelance_req.id" class="btn btn-secondary button-text rounded-pill btn-lg create_freelancer">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="success-modal modal fade" id="freelancerAddSuccessModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content p-5">
+                    <div class="modal-header border-0">
+                        <h3 class="modal-title heading-3">New Freelancer Request</h3>
+
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="/thiqah_portal/static/src/img/icon-check.svg" />
+                        <h3 class="heading-3">Thank You!</h3>
+                        <span class="body2 t-text-gray mt24">Your freelancer request has been added succesfully.</span>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <div class="mx-auto">
+                            <a href="/my/freelance" type="button" class="btn btn-lg btn-secondary rounded-pill">
+                                    Go back to all freelance requests </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <!-- Freelance request details -->
+    <template id="portal_freelance_request_details" name="Freelance request details">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <t t-call="thiqah_freelance.portal_freelancer_details_modal"/>
+            <div class="container-fluid">
+                <div class="row mb32">
+                    <div class="col-lg-9 d-flex align-items-center justify-content-between service-request-actionsl">
+                        <h1 class="heading-2 m-0">
+                            <span>Freelance Request(#</span>
+                            <span t-field="freelance_req.sequence" />
+                            <span>)</span>
+
+                        </h1>
+                    </div>
+                    <div class="col-lg-3">
+                        <t t-call="thiqah_freelance.freelance_requests_actions"/>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                Freelancer Workforce Request
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Request Date</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.request_date" t-="{'format':'MMM d, yyyy'}">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Request Duration in Months</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.request_duration">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Request Expected Total Cost</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.expected_total_cost" t-options='{"widget": "monetary", "display_currency": request.env.company.currency_id}'>
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Entity</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.entity_id">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Sector</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.sector">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Department</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.department_id.name">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Section</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.section">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Request description</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.request_description">
+                                        </h4>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                Request Justification
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Company Strategy justification</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.company_strategy_justif">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Sector Goals Justification</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.sector_goal_justif">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Requset Objective Acheivement</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.request_achievement">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                Organizational Implications
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Current Manpower Limit</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.current_manpower_limit">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Current Manpower Weakness</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.current_manpower_weakness">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="t-shadow mt40 w-100 overflow-hidden" style="border-radius:16px">
+                                    <div class="table-responsive">
+                                        <table class="table m-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Department</th>
+                                                    <th>Function will be preformed</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="table_implications_body">
+                                                <t t-foreach="freelance_req.impacted_unit_ids" t-as="imp_id">
+                                                    <tr>
+                                                        <td>
+                                                            <t t-esc="imp_id.department_id.name"/>
+                                                        </td>
+                                                        <td>
+                                                            <t t-esc="imp_id.operation"/>
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                Function Breakdown
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Functions</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.function">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Unit KPIs</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.unit_kpi">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Deliverable</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.deliverable">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                Deliverable Outcome
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Deliverable Outcome</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.deliverable_outcome" t-if="freelance_req.deliverable_outcome">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                State
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">State</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.state">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div t-if="freelance_req.od_recommendation" class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                OD Recommendation
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">OD Recommendation</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.od_recommendation">
+                                        </h4>
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">OD Duration In Months</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.od_duration">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">OD Expected Total Cost</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="freelance_req.od_cost" t-options='{"widget": "monetary", "display_currency": request.env.company.currency_id}'>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="freelancerDetailsDiv" t-if="completed_application_ids">
+                    <t t-set="completed_application_ids" t-value="completed_application_ids[0]"/>
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                Freelancer Details
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">First Name</label>
+                                        <h4 class="body2 t-text-dark-gray firstName" t-field="completed_application_ids.first_name">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Last Name</label>
+                                        <h4 class="body2 t-text-dark-gray lastName" t-field="completed_application_ids.last_name">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">ID type</label>
+                                        <h4 class="body2 t-text-dark-gray idType" t-field="completed_application_ids.id_type">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">ID Number</label>
+                                        <h4 class="body2 t-text-dark-gray idNumber" t-field="completed_application_ids.id_number">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Mobile Number</label>
+                                        <h4 class="body2 t-text-dark-gray mobileNumber" t-field="completed_application_ids.mobile_number">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">E-mail</label>
+                                        <h4 class="body2 t-text-dark-gray email" t-field="completed_application_ids.email">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Nationality</label>
+                                        <h4 class="body2 t-text-dark-gray nationality" t-field="completed_application_ids.nationality_id">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Salary</label>
+                                        <h4 class="body2 t-text-dark-gray salary" t-field="completed_application_ids.salary" t-options='{"widget": "monetary", "display_currency": request.env.company.currency_id}'>
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Start Date</label>
+                                        <h4 class="body2 t-text-dark-gray startDate" t-field="completed_application_ids.start_date">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">End Date</label>
+                                        <h4 class="body2 t-text-dark-gray endDate" t-field="completed_application_ids.end_date">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Bank</label>
+                                        <h4 class="body2 t-text-dark-gray bank" t-field="completed_application_ids.bank_name">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Branch</label>
+                                        <h4 class="body2 t-text-dark-gray branch" t-field="completed_application_ids.branch_name">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Account</label>
+                                        <h4 class="body2 t-text-dark-gray account" t-field="completed_application_ids.account">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Beneficiary Name</label>
+                                        <h4 class="body2 t-text-dark-gray beneficiary" t-field="completed_application_ids.beneficiary_name">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">IBAN</label>
+                                        <h4 class="body2 t-text-dark-gray iban" t-field="completed_application_ids.iban">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row" t-if="attachments">
+                                    <div class="form-group col-md">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Attachments</label>
+                                        <t t-foreach="attachments" t-as="attchment">
+                                            <a class="mt-4 d-flex align-items-center oe_attachments" t-attf-href="/web/content/#{attchment.id}?download=true" target="_blank" data-no-post-process="">
+                                                <div class='oe_attachment_embedded o_image o_image_small mr-lg-3' t-att-title="attchment.mimetype" t-att-data-mimetype="attchment.mimetype" />
+                                                <div class='oe_attachment_name text-truncate body2 t-text-dark-gray'>
+                                                    <t t-esc='attchment.name' />
+                                                </div>
+                                                <div class="ml-3" t-att-title="attchment.name" t-att-data-mimetype="attchment.mimetype" style="background-image:url('/thiqah_portal/static/src/img/button-download.svg');width: 32px;height: 32px;"/>
+                                            </a>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">Documents</div>
+                            <div class="card-body">
+                                <span class="body2 t-text-dark-gray no_attachments" t-if="len(freelance_document_ids) == 0">
+                                    No attachments have been added.
+                                </span>
+                                <div t-else="">
+                                    <div class="row">
+                                        <div class="col-12 mt-2">
+                                            <t t-foreach="freelance_document_ids" t-as="fdocument">
+                                                <a class="mt-4 d-flex align-items-center oe_attachments" t-attf-href="/web/content/#{fdocument.id}?download=true" target="_blank" data-no-post-process="">
+                                                    <div class='oe_attachment_embedded o_image o_image_small mr-lg-3' t-att-title="fdocument.mimetype" t-att-data-mimetype="fdocument.mimetype" />
+                                                    <div class='oe_attachment_name text-truncate body2 t-text-dark-gray'>
+                                                        <t t-esc='fdocument.name' />
+                                                    </div>
+                                                    <div class="ml-3" t-att-title="fdocument.name" t-att-data-mimetype="fdocument.mimetype" style="background-image:url('/thiqah_portal/static/src/img/button-download.svg');width: 32px;height: 32px;"/>
+                                                </a>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+    <template id="freelance_requests_actions" name="Freelance Requests Actions">
+        <div class="frequest_action_selector">
+            <t t-foreach="actions" t-as="action">
+                <t t-if="action[2] == active_state_technical and request.env.user.id in action[3]">
+                    <!-- Modals -->
+                    <div class="modal fade" id="ODapprovalModalID" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title heading-5" id="approveModalLabel">
+                                        OD Recommendation
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                                            <path fill="#798793" d="M.33 19.67c.442.43 1.173.43 1.602 0l8.07-8.07 8.07 8.07c.43.43 1.173.442 1.602 0a1.142 1.142 0 0 0 0-1.588l-8.07-8.083 8.07-8.07c.429-.43.442-1.161 0-1.59a1.134 1.134 0 0 0-1.601 0l-8.07 8.07L1.931.34C1.503-.102.759-.115.33.34a1.142 1.142 0 0 0 0 1.59l8.07 8.07-8.07 8.083c-.429.428-.441 1.16 0 1.588Z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <label class="heading-7 s_website_form_label" for="od_duration">
+                                                <span class="s_website_form_label_content">
+                                                    OD Duration Recommendation
+                                                </span>
+                                            </label>
+                                            <input type="number" min="0" id="od_duration" class="form-control s_website_form_input" name="od_duration" t-att-value="freelance_req.request_duration" required="1"/>
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="heading-7 s_website_form_label" for="od_cost">
+                                                <span class="s_website_form_label_content">
+                                                    OD Expected Total Cost Recommendation
+                                                </span>
+                                            </label>
+                                            <input type="number" min="0" id="od_cost" class="form-control s_website_form_input" name="od_cost" t-att-value="freelance_req.expected_total_cost" required="1"/>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <label class="heading-7 s_website_form_label" for="od_recommendation">
+                                                <span class="s_website_form_label_content">
+                                                    Recommendation
+                                                </span>
+                                            </label>
+                                            <textarea id="od_recommendation" class="form-control s_website_form_input" name="od_recommendation" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-lg rounded-pill t-btn-outile-black" data-dismiss="modal">Close</button>
+                                    <button type="button" t-att-id="action[1]" t-att-frequest_id="freelance_req.id" t-att-state_name="freelance_req.state" class="btn btn-lg btn-secondary frequest_approve_action disabled rounded-pill" disabled="1">
+                                        Confirm
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="HROpsContractUploadModal" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title heading-5" id="approveModalLabel">
+                                        Upload Contract
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                                            <path fill="#798793" d="M.33 19.67c.442.43 1.173.43 1.602 0l8.07-8.07 8.07 8.07c.43.43 1.173.442 1.602 0a1.142 1.142 0 0 0 0-1.588l-8.07-8.083 8.07-8.07c.429-.43.442-1.161 0-1.59a1.134 1.134 0 0 0-1.601 0l-8.07 8.07L1.931.34C1.503-.102.759-.115.33.34a1.142 1.142 0 0 0 0 1.59l8.07 8.07-8.07 8.083c-.429.428-.441 1.16 0 1.588Z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row mb">
+                                        <div class="col-12">
+                                            <label class="s_website_form_label heading-7" for="attachments">
+                                                <span class="s_website_form_label_content">
+                                                                    Attachment(s)</span>
+                                            </label>
+                                            <div class="custom-input-file">
+                                                <div class="btn-circle t-custom-bg-cyan" style="width:40px;height:40px">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" fill="none">
+                                                        <path fill="#fff" d="m18.366 11.991-4.618-4.338c-.35-.311-.754-.482-1.174-.482-.427 0-.808.148-1.166.466l-3.514 3.141L6.455 9.48c-.326-.295-.684-.443-1.05-.443-.35 0-.676.14-1.002.435L1.44 12.147c.047 1.407.622 2.122 1.78 2.122h13.032c1.407 0 2.114-.785 2.114-2.278Zm-11.74-4.26a1.837 1.837 0 0 0 1.827-1.835A1.842 1.842 0 0 0 6.626 4.06c-1.01 0-1.835.832-1.835 1.835 0 1.01.825 1.835 1.835 1.835Zm-3.35 7.083h13.45c1.633 0 2.441-.801 2.441-2.403v-9.5C19.167 1.308 18.36.5 16.726.5H3.276C1.65.5.833 1.309.833 2.91v9.501c0 1.602.816 2.403 2.441 2.403Zm.015-1.252c-.778 0-1.205-.412-1.205-1.22V2.98c0-.808.427-1.228 1.205-1.228h13.42c.77 0 1.205.42 1.205 1.228v9.361c0 .809-.436 1.22-1.206 1.22H3.29Z"></path>
+                                                    </svg>
+                                                </div>
+                                                <p class="body2 m-0 ml-3"> Drag Drop
+                                                                    or <span class="t-text-cyan">Choose
+                                                                    File</span> To Upload </p>
+                                                <input type="file" id="contract_document_input" name="contract_document" class="form-control s_website_form_input" accept="image/*,application/pdf" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-lg rounded-pill t-btn-outile-black" data-dismiss="modal">Close</button>
+                                    <button type="button" t-att-id="action[1]" t-att-frequest_id="freelance_req.id" t-att-state_name="freelance_req.state" class="btn btn-lg btn-secondary frequest_approve_action change_status_modal rounded-pill" disabled="1">
+                                        Confirm
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="rejecteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title heading-5">
+                                        Reject Justification
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                                            <path fill="#798793" d="M.33 19.67c.442.43 1.173.43 1.602 0l8.07-8.07 8.07 8.07c.43.43 1.173.442 1.602 0a1.142 1.142 0 0 0 0-1.588l-8.07-8.083 8.07-8.07c.429-.43.442-1.161 0-1.59a1.134 1.134 0 0 0-1.601 0l-8.07 8.07L1.931.34C1.503-.102.759-.115.33.34a1.142 1.142 0 0 0 0 1.59l8.07 8.07-8.07 8.083c-.429.428-.441 1.16 0 1.588Z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <label class="heading-7 s_website_form_label" for="reject_description">
+                                                <span class="s_website_form_label_content">
+                                                    Description
+                                                </span>
+                                            </label>
+                                            <textarea id="reject_description" class="form-control s_website_form_input" name="reject_description" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-lg rounded-pill t-btn-outile-black" data-dismiss="modal">Close</button>
+                                    <button type="button" t-att-id="action[1]" t-att-frequest_id="freelance_req.id" class="btn btn-lg btn-secondary rounded-pill frequest_reject_modal">
+                                        Confirm
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-lg-column flex-row">
+                        <a t-attf-href="#" t-if="not active_state in ('Rejected','Approved', 'Draft')" class="t-btn-outile-dark-gray justify-content-center btn rounded-pill" data-toggle="modal" data-target="#rejectModal">
+                            Reject
+                        </a>
+                        <t t-if="active_state_technical == 'od_approval'">
+                            <button type="button" t-attf-class="ml-3 mt-lg-3 ml-lg-0 btn rounded-pill justify-content-center t-custom-bg-dark-blue text-white" t-att-active_state="active_state_technical" t-att-id="action[1]" data-toggle="modal" data-target="#ODapprovalModalID">
+                                <t t-esc="action[0]" />
+                            </button>
+                        </t>
+                        <t t-elif="active_state_technical == 'requester_approval' and not completed_application_ids">
+                            <button type="button" data-toggle="modal" data-target="#addFreelancerDetailsModal" class="ml-3 mt-lg-3 ml-lg-0 btn rounded-pill justify-content-center t-custom-bg-dark-blue text-white">
+                                    Add Freelancer Details
+                            </button>
+                        </t>
+                        <t t-elif="active_state_technical == 'hr_ops_approval'">
+                            <button type="button" data-toggle="modal" data-target="#HROpsContractUploadModal" class="ml-3 mt-lg-3 ml-lg-0 btn rounded-pill justify-content-center t-custom-bg-dark-blue text-white">
+                                <t t-esc="action[0]" />
+                            </button>
+                        </t>
+                        <t t-elif="active_state_technical != 'draft' or completed_application_ids">
+                            <button type="button" t-attf-class="ml-3 mt-lg-3 ml-lg-0 btn rounded-pill justify-content-center t-custom-bg-dark-blue text-white frequest_approve_action" state_name="freelance_req.state" t-att-frequest_id="freelance_req.id" t-att-active_state="active_state_technical" t-att-id="action[1]">
+                                <t t-esc="action[0]" />
+                            </button>
+                        </t>
+                    </div>
+                </t>
+            </t>
+
+        </div>
+    </template>
+
+</odoo>

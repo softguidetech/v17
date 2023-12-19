@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+	<t t-name="thiqah_crm_dashboard_all">
+		<div class="o_action o_thiqah_dashboard">
+			<div class="o_content pb72 CRM_dashboardAll"></div>
+		</div>
+	</t>
+
+	<t t-name="thiqah_crm_dashboard_document_all">
+		<div class="container-fluid">
+			<div class="align-items-center mb72 mt72 row o_content_header">
+				<!-- <div class="col d-flex mt72 mb72 w-100 justify-content-between align-items-center"> -->
+				<div class="col-8">
+					<h1 class="heading-1">SP Dashboard</h1>
+				</div>
+				<div class="col-4">
+					<div class="align-items-center d-flex justify-content-xl-end">
+						<ul class="nav nav-tabs border-0 justify-content-end w-100" id="spDashboardViews" role="tablist">
+							<li class="nav-item" role="presentation">
+								<button data-filter=".financial-cards" id="cardView" data-toggle="tab" data-target="#viewList" type="button" role="tab" aria-controls="viewList" aria-selected="false" class="bg-white p-0 btn-circle t-btn-outile-light-gray-secondary s-40 ml-2">
+									<svg width="14" height="11" viewBox="0 0 14 11" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path d="M3.9464 1.43126H13.4372C13.7499 1.43126 14 1.18809 14 0.875434C14 0.555831 13.7499 0.312655 13.4372 0.312655H3.9464C3.6268 0.312655 3.38362 0.555831 3.38362 0.875434C3.38362 1.18809 3.6268 1.43126 3.9464 1.43126ZM3.9464 5.63473H13.4372C13.7499 5.63473 14 5.38461 14 5.07195C14 4.7593 13.7499 4.51612 13.4372 4.51612H3.9464C3.6268 4.51612 3.38362 4.7593 3.38362 5.07195C3.38362 5.38461 3.6268 5.63473 3.9464 5.63473ZM3.9464 9.83128H13.4372C13.7499 9.83128 14 9.58807 14 9.27545C14 8.95582 13.7499 8.71268 13.4372 8.71268H3.9464C3.6268 8.71268 3.38362 8.95582 3.38362 9.27545C3.38362 9.58807 3.6268 9.83128 3.9464 9.83128ZM0.875432 1.74392C1.36179 1.74392 1.75086 1.35484 1.75086 0.875434C1.75086 0.389082 1.36179 0 0.875432 0C0.389082 0 0 0.389082 0 0.875434C0 1.35484 0.389082 1.74392 0.875432 1.74392ZM0.875432 5.9474C1.36179 5.9474 1.75086 5.55831 1.75086 5.07195C1.75086 4.5856 1.36179 4.19652 0.875432 4.19652C0.389082 4.19652 0 4.5856 0 5.07195C0 5.55831 0.389082 5.9474 0.875432 5.9474ZM0.875432 10.1508C1.36179 10.1508 1.75086 9.75485 1.75086 9.27545C1.75086 8.7891 1.36179 8.39999 0.875432 8.39999C0.389082 8.39999 0 8.7891 0 9.27545C0 9.75485 0.389082 10.1508 0.875432 10.1508Z" fill="#0A0A0A" />
+									</svg>
+								</button>
+							</li>
+							<li class="nav-item" role="presentation">
+								<button data-filter=".financial-cards" id="cardView" data-toggle="tab" data-target="#viewChart" type="button" role="tab" aria-controls="viewChart" aria-selected="false" class="bg-white p-0 btn-circle t-btn-outile-light-gray-secondary s-40 ml-2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+										<path fill="#0A0A0A" d="m12.336 12.982.726-.676L8.964 8.26l4.917-2.826L13.4 4.6 8.56 7.374V1.608h-.963v6.493a.52.52 0 0 0 .172.417l4.566 4.464ZM8 15.333c4.012 0 7.334-3.329 7.334-7.333 0-4.012-3.33-7.333-7.34-7.333C3.988.667.666 3.988.666 8c0 4.005 3.329 7.333 7.333 7.333Zm0-1.222A6.082 6.082 0 0 1 1.896 8a6.076 6.076 0 0 1 6.097-6.111 6.094 6.094 0 0 1 6.118 6.11 6.088 6.088 0 0 1-6.11 6.112Z" />
+									</svg>
+								</button>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+				<!-- </div> -->
+
+			</div>
+		</div>
+		<!-- <div class="row mt-5">
+			<form class="form-group col-4">
+				<select id="choose_partner" class="form-control">
+					<option id="" value="">Choose Customer</option>
+
+					<t t-foreach="widget.list_partners" t-as="partner">
+						<option t-att-id="partner[0]" t-att-value="partner[0]">
+							<t t-esc="partner[1]" />
+						</option>
+					</t>
+				</select>
+			</form>
+
+			<form class="form-group col-4">
+				<select id="choose_product" class="form-control">
+					<option id="" value="">Choose Service</option>
+					<t t-if="widget.list_products" t-foreach="widget.list_products" t-as="product">
+						<option t-att-id="product[0]" t-att-value="product[0]">
+							<t t-esc="product[1]" />
+						</option>
+					</t>
+				</select>
+			</form>
+
+			<form class="form-group col-4">
+				<select id="choose_account_manager" class="form-control">
+					<option id="" value="">Choose Account Manager</option>
+					<t t-if="widget.list_account_managers" t-foreach="widget.list_account_managers" t-as="account_manager">
+						<option t-att-id="account_manager[0]" t-att-value="account_manager[0]">
+							<t t-esc="account_manager[1]" />
+						</option>
+					</t>
+				</select>
+			</form>
+		</div> -->
+		<div class="container-fluid">
+			<div class="tab-content w-100" id="spDashboardViewsWrapper">
+				<div class="tab-pane fade show active" id="viewList" role="tabpanel" aria-labelledby="viewList-tab">
+					<div class="row mt-5">
+						<div class="col-lg-4 mt-4 mt-lg-0">
+							<div class="card h-100">
+								<div class="align-items-center card-header d-flex justify-content-between">
+									<h4 class="heading-4">Total Opportunities</h4>
+									<div class="heading-5 wathq-badge" id="all_opportunities" t-esc="widget.all_opportunities" />
+								</div>
+								<div class="card-body">
+									<div class="my-3 align-items-center all_bd_opportunities d-flex justify-content-between">
+										<span class="font-weight-700 body2 clrbd">
+						                  Thiqah
+										</span>
+										<div class="txt_serif stats_item_number ">
+											<span class="bgbd" id="all_opportunities_bd" t-esc="widget.all_opportunities_bd" />
+										</div>
+									</div>
+									<div class="my-3 align-items-center all_bd_opportunities d-flex justify-content-between all_aahd_opportunities">
+										<span class="font-weight-700 body2 clraahd">
+						                  Aahd
+										</span>
+										<div class="txt_serif stats_item_number txt_error">
+											<span class="bgaahd" id="all_opportunities_aahd" t-esc="widget.all_opportunities_aahd" />
+										</div>
+									</div>
+									<div class="align-items-center d-flex justify-content-between my-3">
+										<span class="body2 font-weight-700">  Expected Revenue  </span>
+										<div class="heading-4 d-flex align-items-center">
+											<t t-esc="widget.currency"/>
+											<![CDATA[&nbsp;]]>
+											<div class="txt_serif" id="total_opp_expected_revenue" t-esc="widget.total_opp_expected_revenue" />
+										</div>
+									</div>
+									<div class="align-items-center d-flex justify-content-between my-3">
+										<span class="body2 font-weight-700">  Actual Revenue  </span>
+										<div class="heading-4 d-flex align-items-center">
+											<t t-esc="widget.currency"/>
+											<![CDATA[&nbsp;]]>
+											<div class="txt_serif" id="total_opp_revenue" t-esc="widget.total_opp_revenue" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 mt-4 mt-lg-0">
+							<div class="card h-100">
+								<div class="align-items-center card-header d-flex justify-content-between">
+									<h4 class="heading-4">Total Won Opportunities</h4>
+									<div class="heading-5 wathq-badge" id="all_opportunities_won" t-esc="widget.all_opportunities_won" />
+								</div>
+								<div class="card-body">
+									<div class="my-3 align-items-center all_bd_opportunities d-flex justify-content-between">
+										<span class="font-weight-700 body2 clrbd">
+						                  Thiqah
+										</span>
+										<div class="txt_serif stats_item_number ">
+											<span class="bgbd" id="all_opportunities_bd" t-esc="widget.all_opportunities_bd" />
+										</div>
+									</div>
+									<div class="my-3 align-items-center all_bd_opportunities d-flex justify-content-between all_aahd_opportunities">
+										<span class="font-weight-700 body2 clraahd">
+						                  Aahd
+										</span>
+										<div class="txt_serif stats_item_number txt_error">
+											<span class="bgaahd" id="all_opportunities_aahd" t-esc="widget.all_opportunities_aahd" />
+										</div>
+									</div>
+									<div class="align-items-center d-flex justify-content-between my-3">
+										<span class="body2 font-weight-700">  Total Revenue  </span>
+										<div class="heading-4 d-flex align-items-center">
+											<t t-esc="widget.currency"/>
+											<![CDATA[&nbsp;]]>
+											<div class="txt_serif" id="all_opportunities_won" t-esc="widget.total_won_revenue" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 mt-4 mt-lg-0">
+							<div class="h-100 card">
+								<div class="align-items-center card-header d-flex justify-content-between">
+									<h4 class="heading-4">Total Lost Opportunities</h4>
+									<div class="heading-5 wathq-badge" id="all_opportunities_lost" t-esc="widget.all_opportunities_lost" />
+								</div>
+								<div class="card-body">
+									<div class="my-3 align-items-center lost_bd_opportunities d-flex justify-content-between">
+										<span class="font-weight-700 body2 clrbd">
+						                  Thiqah
+										</span>
+										<div class="txt_serif stats_item_number ">
+											<span class="bgbd" id="all_opportunities_lost_bd" t-esc="widget.all_opportunities_lost_bd" />
+										</div>
+									</div>
+									<div class="my-3 align-items-center lost_aahd_opportunities d-flex justify-content-between all_aahd_opportunities">
+										<span class="font-weight-700 body2 clraahd">
+						                  Aahd
+										</span>
+										<div class="txt_serif stats_item_number txt_error">
+											<span class="bgaahd" id="all_opportunities_lost_aahd" t-esc="widget.all_opportunities_lost_aahd" />
+										</div>
+									</div>
+									<div class="align-items-center d-flex justify-content-between my-3">
+										<span class="body2 font-weight-700">  Total Revenue  </span>
+										<div class="heading-4 d-flex align-items-center">
+											<t t-esc="widget.currency"/>
+											<![CDATA[&nbsp;]]>
+											<div class="txt_serif" id="total_lost_revenue" t-esc="widget.total_lost_revenue" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="viewChart" role="tabpanel" aria-labelledby="viewChart-tab">
+					<div class="row mt-5">
+						<div class="col-lg-4 mt-4 mt-lg-0">
+							<div class="card h-100">
+								<div class="align-items-center card-header d-flex justify-content-between">
+									<h4 class="heading-4">Total Opportunities</h4>
+									<div class="heading-5 wathq-badge" id="all_opportunities" t-esc="widget.all_opportunities" />
+								</div>
+								<div class="card-body">
+									<div class="align-items-center d-flex justify-content-between my-3">
+										<span class="body2 font-weight-700">  Expected Revenue  </span>
+										<div class="body2 d-flex align-items-center">
+											<t t-esc="widget.currency"/>
+											<![CDATA[&nbsp;]]>
+											<div class="txt_serif" id="total_opp_expected_revenue" t-esc="widget.total_opp_expected_revenue" />
+										</div>
+									</div>
+									<div class="align-items-center d-flex justify-content-between my-3">
+										<span class="body2 font-weight-700">  Actual Revenue  </span>
+										<div class="body2 d-flex align-items-center">
+											<t t-esc="widget.currency"/>
+											<![CDATA[&nbsp;]]>
+											<div class="txt_serif" id="total_opp_revenue" t-esc="widget.total_won_revenue" />
+										</div>
+									</div>
+									<div class="spTotalOpp">
+										<canvas id="spTotalOpp" width="340px" height="280px" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 mt-4 mt-lg-0">
+							<div class="card h-100">
+								<div class="align-items-center card-header d-flex justify-content-between">
+									<h4 class="heading-4">Total Won Opportunities</h4>
+									<div class="heading-5 wathq-badge" id="all_opportunities_won" t-esc="widget.all_opportunities_won" />
+								</div>
+								<div class="card-body">
+									<div class="align-items-center d-flex justify-content-between my-3">
+										<span class="body2 font-weight-700">  Expected Revenue  </span>
+										<div class="body2 d-flex align-items-center">
+											<t t-esc="widget.currency"/>
+											<![CDATA[&nbsp;]]>
+											<div class="txt_serif" id="total_opp_expected_revenue" t-esc="widget.total_opp_expected_revenue" />
+										</div>
+									</div>
+									<div class="align-items-center d-flex justify-content-between my-3">
+										<span class="body2 font-weight-700">  Actual Revenue  </span>
+										<div class="body2 d-flex align-items-center">
+											<t t-esc="widget.currency"/>
+											<![CDATA[&nbsp;]]>
+											<div class="txt_serif" id="total_opp_revenue" t-esc="widget.total_won_revenue" />
+										</div>
+									</div>
+									<div class="spTotalWonOpp">
+										<canvas id="spTotalWonOpp" width="340px" height="280px" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 mt-4 mt-lg-0">
+							<div class="h-100 card">
+								<div class="align-items-center card-header d-flex justify-content-between">
+									<h4 class="heading-4">Total Lost Opportunities</h4>
+									<div class="heading-5 wathq-badge" id="all_opportunities_lost" t-esc="widget.all_opportunities_lost" />
+								</div>
+								<div class="card-body">
+									<div class="align-items-center d-flex justify-content-between my-3">
+										<span class="body2 font-weight-700">  Expected Revenue  </span>
+										<div class="body2 d-flex align-items-center">
+											<t t-esc="widget.currency"/>
+											<![CDATA[&nbsp;]]>
+											<div class="txt_serif" id="total_opp_expected_revenue" t-esc="widget.total_opp_expected_revenue" />
+										</div>
+									</div>
+									<div class="align-items-center d-flex justify-content-between my-3">
+										<span class="body2 font-weight-700">  Actual Revenue  </span>
+										<div class="body2 d-flex align-items-center">
+											<t t-esc="widget.currency"/>
+											<![CDATA[&nbsp;]]>
+											<div class="txt_serif" id="total_opp_revenue" t-esc="widget.total_won_revenue" />
+										</div>
+									</div>
+									<div class="spTotalLostOpp">
+										<canvas id="spTotalLostOpp" width="340px" height="280px" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="row mt-5">
+				<div class="col-lg-4">
+					<div class="card h-100">
+						<div class="align-items-center card-header d-flex justify-content-between">
+							<h4 class="heading-4">Total Tickets</h4>
+							<div class="heading-5 wathq-badge" id="all_tickets" t-esc="widget.all_tickets" />
+						</div>
+						<div class="card-body">
+							<div class="spAllTickets">
+								<canvas id="spAllTickets" width="340px" height="280px" />
+							</div>
+						</div>
+						<!-- <section class="card_more  mt-2 mb-2">
+							<a class="fa fa-caret-down icon_after card_more_button"></a>
+						</section>
+						<section class="row">
+							<t t-foreach="widget.stages_tickets" t-as="stage">
+								<div class="col-md-5 tickets_stages" t-att-id="stage[0]">
+									<div class="clrbd">
+										<h2 class="txt_label space_n_b">
+											<span class="text-left" t-esc="stage[1]" />
+
+											<span class="text-right ml-2 badgenbr1 " t-att-id="'tickets_nbr_stage_'+stage[0]" t-esc="stage[2]" />
+										</h2>
+
+									</div>
+								</div>
+
+							</t>
+						</section> -->
+					</div>
+				</div>
+
+				<div class="mt-4 mt-lg-0 col-lg-8">
+					<div class="card h-100">
+						<div class="align-items-center card-header d-flex justify-content-between">
+							<h4 class="heading-4">SLA Policies</h4>
+							<div class="heading-5 wathq-badge" id="total_sla" t-esc="widget.total_sla" />
+						</div>
+						<div class="card-body">
+						</div>
+						<!-- 
+						<section class="card_more  mt-2 mb-2">
+							<a class="fa fa-caret-down icon_after card_more_button"></a>
+						</section>
+						<section class="row">
+							<t t-foreach="widget.all_sla" t-as="sla">
+
+
+								<div class="col-md-5 tickets_sla" t-att-id="sla[0]">
+									<div class="clrbd">
+										<h2 class="txt_label space_n_b">
+											<span class="text-left" t-esc="sla[1]" />
+										</h2>
+
+										<span class="text-right ml-2 badge badge-success " t-att-id="'sla_success_'+sla[0]" t-esc="sla[2]" />
+
+										<span class="text-left mr-2 badge badge-danger  " t-att-id="'sla_failed'+sla[0]" t-esc="sla[3]" />
+									</div>
+								</div>
+
+							</t>
+						</section> -->
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</t>
+
+</templates>

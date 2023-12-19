@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Client Payments List View -->
+    <template id="client_registration_list" name="Client Payments List View">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+        <div class="container-fluid">
+            <div class="modal" id="registerClientInfoModal" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog">
+                    <div class="modal-content overflow-hidden position-relative" style="padding: 72px;padding-bottom: 56px;">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                        <input type="hidden" name="client_payment_category" id="client_payment_category" />
+                        <input type="hidden" name="client_reg_id" />
+                        <div t-if="not user_registration_id" class="align-items-center bg-white categ flex-wrap d-flex h-100 justify-content-center position-absolute w-100">
+                            <div class="form-check-inline">
+                                <label class="form-check-label custom-radio">
+                                    <input type="radio" class="form-check-input" value="saso" name="pay_category" />
+                                    <span class="radio-btn d-flex align-items-center justify-content-center">SASO</span>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label custom-radio">
+                                    <input type="radio" class="form-check-input" value="emazad_company" name="pay_category" />
+                                    <span class="radio-btn d-flex align-items-center justify-content-center">Emazad Company</span>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label custom-radio">
+                                    <!-- To Re-activate emazad-individual uncomment the below line and remove style from span tag -->
+                                    <!-- <input type="radio" class="form-check-input" value="emazad_individual" name="pay_category" /> -->
+                                    <span class="radio-btn d-flex align-items-center justify-content-center" style="background-color: #d8d8d8 !important;color: #979797 !important;cursor: not-allowed;">Emazad Individual</span>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Modal Header -->
+                        <div class="modal-header border-0">
+                            <h2 class="heading-3">Client Registration Details</h2>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <form id="create_client_form" t-attf-class="needs-validation {{'d-none ' if (user_registration_id and not user_registration_id.is_bank_added) else ''}}" action="" enctype="multipart/form-data" novalidate="1">
+                                <fieldset class="form-group">
+                                    <legend class="body1">Client Info</legend>
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-sm-4 to-be-modif">
+                                                <label class="s_website_form_label heading-7" for="client_name">
+                                                    <span class="s_website_form_label_content client_name">
+                                                                Client Name</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <input required="1" id="client_name" type="text" maxlength="15" t-att-disabled="len(user_registration_id) > 0" t-att-value="user_registration_id.client_name or ''" class="form-control" placeholder="Client Name..." name="client_name" />
+                                                <small id="clientNameLength" class="form-text text-muted" style="font-size: 17px !important;">Client name must be less than 15 chars!</small>
+                                            </div>
+                                            <div class="col-sm-4 to-be-modif legal">
+                                                <label class="s_website_form_label heading-7" for="legal_representative">
+                                                    <span class="s_website_form_label_content">Legal representative</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <input id="legal_representative" type="text" class="form-control" placeholder="Legal representative..." name="legal_representative" />
+                                            </div>
+                                            <!-- <div class="col-sm-4 to-be-modif emazad-company d-none">
+                                                <label class="s_website_form_label heading-7" for="mazad_number">
+                                                    <span class="s_website_form_label_content">Mazad number</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <input required="1" id="mazad_number" type="text" class="form-control" placeholder="Mazad number (125+532425+2574)..." name="mazad_number" />
+                                            </div> -->
+                                        </div>
+                                        <div class="row emazad-individual mt-3 d-none">
+                                            <div class="col-sm-4">
+                                                <label class="s_website_form_label heading-7" for="id_number">
+                                                    <span class="s_website_form_label_content">
+                                                                ID Number</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <input required="1" id="id_number" type="text" class="form-control" placeholder="ID Number..." name="id_number" />
+
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <label class="s_website_form_label heading-7" for="phone_number">
+                                                    <span class="s_website_form_label_content">Phone Number</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <input required="1" id="phone_number" type="text" class="form-control" placeholder="Phone Number..." name="phone_number" />
+                                            </div>
+
+                                            <div class="col-sm-4">
+                                                <label class="s_website_form_label heading-7" for="email">
+                                                    <span class="s_website_form_label_content">Email</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <input required="1" id="email" type="email" class="form-control" placeholder="Email..." name="email" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <legend class="body1">Attachments</legend>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label class="s_website_form_label heading-7" for="attachments">
+                                                <span class="s_website_form_label_content">
+                                                            Upload Attachments</span>
+                                            </label>
+                                            <div class="custom-input-file">
+                                                <div class="btn-circle t-custom-bg-cyan" style="width:40px;height:40px">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" fill="none">
+                                                        <path fill="#fff" d="m18.366 11.991-4.618-4.338c-.35-.311-.754-.482-1.174-.482-.427 0-.808.148-1.166.466l-3.514 3.141L6.455 9.48c-.326-.295-.684-.443-1.05-.443-.35 0-.676.14-1.002.435L1.44 12.147c.047 1.407.622 2.122 1.78 2.122h13.032c1.407 0 2.114-.785 2.114-2.278Zm-11.74-4.26a1.837 1.837 0 0 0 1.827-1.835A1.842 1.842 0 0 0 6.626 4.06c-1.01 0-1.835.832-1.835 1.835 0 1.01.825 1.835 1.835 1.835Zm-3.35 7.083h13.45c1.633 0 2.441-.801 2.441-2.403v-9.5C19.167 1.308 18.36.5 16.726.5H3.276C1.65.5.833 1.309.833 2.91v9.501c0 1.602.816 2.403 2.441 2.403Zm.015-1.252c-.778 0-1.205-.412-1.205-1.22V2.98c0-.808.427-1.228 1.205-1.228h13.42c.77 0 1.205.42 1.205 1.228v9.361c0 .809-.436 1.22-1.206 1.22H3.29Z" />
+                                                    </svg>
+                                                </div>
+                                                <p class="body2 m-0 ml-3"> Drag Drop or <span class="t-text-cyan">Choose File</span> To
+                                                            Upload </p>
+                                                <input id="client_register_attachments" type="file" required="1" name="client_register_attachments" class="form-control s_website_form_input" multiple="true" accept="image/*,application/pdf,video/*,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" />
+                                            </div>
+                                            <div id="client_register_attach_error" class="my-2 d-none text-danger">
+                                            </div>
+                                            <div id="client_register_attach_list" class="my-2 text-muted">
+                                                <h4 class="mb-2 font-weight-700">Required attachments:
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="modal-footer d-flex align-items-center justify-content-between border-0">
+                                    <div class="frequest_creation">
+                                        <p class="text-danger heading-6 m-0 create_client_error"></p>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="client-info">
+                                            <button type="button" class="btn rounded-pill t-btn-outile-gray btn-lg mr-3 button-text" data-dismiss="modal">Close</button>
+                                            <button type="button" style="color: #ffffff !important" class="btn btn-secondary button-text rounded-pill btn-lg create_client">
+                                                    Next
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <form id="create_bank_form" t-attf-class="needs-validation bank_creation {{'' if len(user_registration_id) > 0 else 'd-none' }}" action="" enctype="multipart/form-data" novalidate="1">
+                                <fieldset class="form-group">
+                                    <legend class="body1">Bank Information</legend>
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="s_website_form_label heading-7" for="bank_country">
+                                                    <span class="s_website_form_label_content">Bank Country</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <select name="bank_country" t-att-disabled="len(user_registration_id) > 0 and user_registration_id.is_bank_added" data-style="t-btn-outile-light-gray-secondary" id="bank_country" required="1" data-live-search="true" data-size="10" data-placeholder="Select the branch..." class="selectpicker form-control o_website_form_input">
+                                                    <option value="">Choose...</option>
+                                                    <t t-foreach="countries or []" t-as="country">
+                                                        <option data-divider="true" class="m-0"></option>
+                                                        <option t-att-value="country.id" t-att-selected="country.id == user_registration_id.bank_country.id">
+                                                            <t t-esc="country.name" />
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                                <p class="text-danger d-none invalid-code">Invalid Or Not Exist Country Code</p>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="s_website_form_label heading-7" for="bank">
+                                                    <span class="s_website_form_label_content">Bank</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <select t-if="len(user_registration_id) == 0 or (len(user_registration_id) > 0 and user_registration_id.is_bank_added == False)" name="bank" disabled="1" data-style="t-btn-outile-light-gray-secondary" id="bank" required="1" data-placeholder="Select the bank..." class="selectpicker form-control o_website_form_input">
+                                                    <option value="">Choose...</option>
+                                                </select>
+                                                <input t-else="" type="text" t-att-value="user_registration_id.bank_name" disabled="1" class="form-control"/>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label class="s_website_form_label heading-7" for="branch">
+                                                    <span class="s_website_form_label_content">Branch</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <select t-if="len(user_registration_id) == 0 or (len(user_registration_id) > 0 and user_registration_id.is_bank_added == False)" name="branch" disabled="1" data-style="t-btn-outile-light-gray-secondary" id="branch" required="1" data-placeholder="Select the branch..." class="selectpicker form-control o_website_form_input">
+                                                    <option value="">Choose...</option>
+                                                </select>
+                                                <input t-else="" type="text" t-att-value="user_registration_id.branch_name" disabled="1" class="form-control"/>
+                                            </div>
+                                            <div class="col-6">
+                                                <label class="s_website_form_label heading-7" for="account">
+                                                    <span class="s_website_form_label_content">Account</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <input t-att-value="user_registration_id.account" t-att-disabled="len(user_registration_id) > 0 and user_registration_id.is_bank_added" required="1" id="account" type="text" class="form-control" placeholder="Account..." name="account" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="s_website_form_label heading-7" for="account_holder_name">
+                                                    <span class="s_website_form_label_content">Account Holder Name</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <input t-att-value="user_registration_id.account_holder_name" t-att-disabled="len(user_registration_id) > 0 and user_registration_id.is_bank_added" required="1" id="account_holder_name" type="text" class="form-control" placeholder="Account Holder Name..." name="account_holder_name" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="s_website_form_label heading-7" for="iban">
+                                                    <span class="s_website_form_label_content">IBAN</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <input t-att-value="user_registration_id.iban" t-att-disabled="len(user_registration_id) > 0 and user_registration_id.is_bank_added" required="1" id="iban" type="text" class="form-control" placeholder="IBAN..." name="iban" />
+                                                <p class="text-danger d-none invalid-ibancode">Invalid IBAN code</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <!-- Modal footer -->
+                                <div class="modal-footer d-flex align-items-center justify-content-between border-0">
+                                    <div class="bank_creation">
+                                        <p class="text-danger heading-6 m-0 create_bank_error"></p>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="client-info">
+                                            <button type="button" class="btn rounded-pill t-btn-outile-gray btn-lg mr-3 button-text" data-dismiss="modal">Close</button>
+                                            <button type="button" style="color: #ffffff !important" class="btn btn-secondary button-text rounded-pill btn-lg create_client_bank">Finish</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="content-header col d-flex align-items-center justify-content-between mb72">
+                    <h1 class="heading-1 m-0" style="line-height: 100%;">Clients Registration</h1>
+                    <button t-if="request.env.user.check_service_access('client_registration','create') and (not user_registration_id or not user_registration_id.is_bank_added)" type="button" data-toggle="modal" data-target="#registerClientInfoModal" class="btn btn-lg btn-secondary rounded-pill with-icon"> Register
+                        <svg class="ml-2"
+                            xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                            <path fill="#fff" d="M.167 6c0 .346.29.63.629.63H5.37v4.574c0 .34.282.63.629.63.346 0 .636-.29.636-.63V6.629h4.568c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H6.636V.796c0-.34-.29-.63-.636-.63-.347 0-.63.29-.63.63v4.567H.797c-.34 0-.63.29-.63.637Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <t t-set="breadcrumbs_searchbar" t-value="False" />
+            <t t-set="record_pager" t-value="True" />
+            <t t-if="not client_registration_ids and (not user_registration_id or not user_registration_id.is_bank_added)">
+                <div class="alert alert-warning mt8" role="alert">
+                    There are no clients registration.
+                </div>
+            </t>
+            <t t-else="">
+                <t t-set="pager" t-value="False"/>
+                <div class="t-shadow mt40 overflow-hidden" style="border-radius:16px">
+                    <t t-call="portal.portal_table">
+                        <t t-set="classes" t-value="'border-0 rounded-0'" />
+                        <thead>
+                            <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <th class="">Client Name</th>
+                                <th class="">Bank</th>
+                                <th class="">Branch</th>
+                                <th class="">IBAN</th>
+                                <th class="">Account Holder Name</th>
+                                <th class="text-center">State</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <t t-foreach="client_registration_ids + user_registration_id" t-as="req">
+                            <tr t-att-freelance_id="req.id">
+                                <td class="">
+                                    <t t-esc="req.client_name" />
+                                </td>
+                                <td>
+                                    <span t-esc="req.bank_name or ''" />
+                                </td>
+                                <td>
+                                    <span t-esc="req.branch_name or ''" />
+                                </td>
+                                <td>
+                                    <span t-esc="req.iban or ''" />
+                                </td>
+                                <td>
+                                    <span t-esc="req.account_holder_name or ''" />
+                                </td>
+                                <td class="text-center">
+                                    <span t-if="req.state == 'approved'" class="badge badge-pill badge-approved" align="center" t-field="req.state" />
+                                    <span t-else="" class="badge badge-pill badge-submitted" align="center" t-field="req.state" />
+                                </td>
+                                <td class="td-actions">
+                                    <a t-attf-href="/my/client_registration/#{req.id}" class="btn btn-secondary rounded-pill btn-action align-items-center justify-content-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                            <path fill="#fff" d="M.67 3.609a.608.608 0 0 0 0 .907L4.157 7.93a.67.67 0 0 0 .447.196c.359 0 .603-.25.603-.602 0-.17-.061-.305-.176-.42L3.575 5.694l-1.26-1.09 1.564.068h9.047c.352 0 .602-.25.602-.61a.58.58 0 0 0-.602-.602H3.879l-1.564.061 1.26-1.083L5.03 1.022a.557.557 0 0 0 .176-.42c0-.351-.244-.595-.603-.595a.662.662 0 0 0-.447.19L.67 3.608Zm12.662 8.789a.62.62 0 0 0 0-.914L9.845 8.07a.698.698 0 0 0-.454-.19c-.359 0-.596.244-.596.596 0 .176.054.312.17.42l1.462 1.415 1.26 1.09-1.565-.067H1.076c-.352 0-.61.25-.61.602 0 .36.258.61.61.61h9.046l1.565-.068-1.26 1.09-1.462 1.409a.566.566 0 0 0-.17.426c0 .352.237.596.596.596a.698.698 0 0 0 .454-.19l3.487-3.412Z" />
+                                        </svg>
+                                    </a>
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </div>
+        </t>
+    </template>
+
+    <template id="client_payment_list" name="Client Payments List View">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+        <t t-call="client_registration.new_client_payment_modal"/>
+            <div class="container-fluid">
+                <div class="row frequest_view_mode">
+                    <div class="content-header col d-flex align-items-center justify-content-between mb72">
+                        <h1 class="heading-1 m-0" style="line-height: 100%;">Clients Payments</h1>
+                        <button t-if="request.env.user.check_service_access('client_payment','create')" type="button" data-toggle="modal" data-target="#addClientPaymentModal" class="btn btn-lg btn-secondary rounded-pill with-icon"> Add New
+                            <svg class="ml-2"
+                                xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                                <path fill="#fff" d="M.167 6c0 .346.29.63.629.63H5.37v4.574c0 .34.282.63.629.63.346 0 .636-.29.636-.63V6.629h4.568c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H6.636V.796c0-.34-.29-.63-.636-.63-.347 0-.63.29-.63.63v4.567H.797c-.34 0-.63.29-.63.637Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <t t-set="breadcrumbs_searchbar" t-value="False" />
+                <t t-set="record_pager" t-value="True" />
+                <t t-if="not client_payment_req">
+                    <div class="alert alert-warning mt8" role="alert">
+                        There are no clients payments.
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="t-shadow mt40 overflow-hidden" style="border-radius:16px">
+                        <t t-call="portal.portal_table">
+                            <t t-set="classes" t-value="'border-0 rounded-0'" />
+                            <thead>
+                                <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                    <th class="text-left">Sequence</th>
+                                    <th class="">
+                                            Client/CB Name
+                                    </th>
+                                    <th class="">Legal representative</th>
+                                    <th class="">Bank</th>
+                                    <th class="">IBAN</th>
+                                    <th class="">Account holder name</th>
+                                    <th class="text-center">State</th>
+                                    <th class="text-right">Total amount</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <t t-foreach="client_payment_req" t-as="req">
+                                <tr t-att-freelance_id="req.id">
+                                    <td class="text-left">
+                                        <t t-esc="req.sequence" />
+                                    </td>
+                                    <td>
+                                        <span t-field="req.client_name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="req.legal_representative" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="req.client_registration_id.bank_name or ''" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="req.client_registration_id.iban or ''" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="req.client_registration_id.account_holder_name or ''" />
+                                    </td>
+                                    <td class="text-center">
+                                        <span t-if="req.state == 'approved'" class="badge badge-pill badge-approved" align="center" t-field="req.state" />
+                                        <span t-elif="req.state == 'reject'" class="badge badge-pill badge-rejected" align="center" t-field="req.state" />
+                                        <span t-else="" class="badge badge-pill badge-submitted" align="center" t-field="req.state" />
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="req.total_amount" />
+                                    </td>
+                                    <td class="td-actions">
+                                        <a t-attf-href="/my/client_payment/#{req.id}" class="btn btn-secondary rounded-pill btn-action align-items-center justify-content-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                                <path fill="#fff" d="M.67 3.609a.608.608 0 0 0 0 .907L4.157 7.93a.67.67 0 0 0 .447.196c.359 0 .603-.25.603-.602 0-.17-.061-.305-.176-.42L3.575 5.694l-1.26-1.09 1.564.068h9.047c.352 0 .602-.25.602-.61a.58.58 0 0 0-.602-.602H3.879l-1.564.061 1.26-1.083L5.03 1.022a.557.557 0 0 0 .176-.42c0-.351-.244-.595-.603-.595a.662.662 0 0 0-.447.19L.67 3.608Zm12.662 8.789a.62.62 0 0 0 0-.914L9.845 8.07a.698.698 0 0 0-.454-.19c-.359 0-.596.244-.596.596 0 .176.054.312.17.42l1.462 1.415 1.26 1.09-1.565-.067H1.076c-.352 0-.61.25-.61.602 0 .36.258.61.61.61h9.046l1.565-.068-1.26 1.09-1.462 1.409a.566.566 0 0 0-.17.426c0 .352.237.596.596.596a.698.698 0 0 0 .454-.19l3.487-3.412Z" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <!-- Add New Client Registartion Form  -->
+    <template id="new_client_payment_modal" name="New Client Registartion Form">
+        <!-- Modal Add Client Payment -->
+        <div class="modal" id="addClientPaymentModal" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content overflow-hidden position-relative" style="padding: 72px;padding-bottom: 56px;">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                    <input type="hidden" name="client_payment_category" t-att-value="user_registration_id and user_registration_id.client_product_id.code or ''" />
+                    <t t-set="product_code" t-value="user_registration_id.client_product_id.code" />
+                    <!-- Modal Header -->
+                    <div class="modal-header border-0">
+                        <h2 class="heading-3">Client Payment Details</h2>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div t-if="not user_registration_id or user_registration_id.state != 'approved'"  class="row">
+                            <div class="col-12">
+                                <div class="alert alert-warning mt8" role="alert">
+                                    Please complete the client registration process first.
+                                </div>
+                            </div>
+                        </div>
+                        <form t-else="" id="create_client_payment_form" class="needs-validation" action="" enctype="multipart/form-data" novalidate="1">
+                            <fieldset class="form-group">
+                                <legend class="body1">Client Info</legend>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div t-attf-class="{{'col-sm-4' if product_code in ['saso', 'emazad_individual'] else 'col-sm-6' }} to-be-modif">
+                                            <label class="s_website_form_label heading-7" for="client_name">
+                                                <span t-if="product_code == 'saso'"  class="s_website_form_label_content">
+                                                            CB Name</span>
+                                                <span t-else="" class="s_website_form_label_content">
+                                                                Client Name</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input type="text" disabled="1" t-att-value="user_registration_id.client_name or ''" class="form-control" name="client_name" />
+                                        </div>
+                                        <div t-attf-class="{{'col-sm-4' if product_code in ['saso', 'emazad_individual'] else 'col-sm-6' }} legal">
+                                            <label class="s_website_form_label heading-7" for="legal_representative">
+                                                <span class="s_website_form_label_content">Legal representative</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input type="text" class="form-control" placeholder="Legal representative..." name="legal_representative" />
+                                        </div>
+                                        <div t-if="product_code == 'emazad_company'" t-attf-class="{{'col-sm-4' if product_code in ['saso', 'emazad_individual'] else 'col-sm-6' }}">
+                                            <label class="s_website_form_label heading-7" for="mazad_number">
+                                                <span class="s_website_form_label_content">Mazad number</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" type="text" class="form-control" placeholder="Mazad number (125+532425+2574)..." name="mazad_number" />
+                                        </div>
+                                        <div t-attf-class="{{'col-sm-4' if product_code in ['saso', 'emazad_individual'] else 'col-sm-6' }} to-be-modif">
+                                            <label class="s_website_form_label heading-7" for="total_amount">
+                                                <span class="s_website_form_label_content">Total Amount(SAR)</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" type="number" min="0" class="form-control" placeholder="Total Amount..." name="total_amount" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <legend class="body1">Attachments</legend>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="s_website_form_label heading-7" for="attachments">
+                                            <span class="s_website_form_label_content">
+                                                        Upload Attachments</span>
+                                        </label>
+                                        <div class="custom-input-file">
+                                            <div class="btn-circle t-custom-bg-cyan" style="width:40px;height:40px">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" fill="none">
+                                                    <path fill="#fff" d="m18.366 11.991-4.618-4.338c-.35-.311-.754-.482-1.174-.482-.427 0-.808.148-1.166.466l-3.514 3.141L6.455 9.48c-.326-.295-.684-.443-1.05-.443-.35 0-.676.14-1.002.435L1.44 12.147c.047 1.407.622 2.122 1.78 2.122h13.032c1.407 0 2.114-.785 2.114-2.278Zm-11.74-4.26a1.837 1.837 0 0 0 1.827-1.835A1.842 1.842 0 0 0 6.626 4.06c-1.01 0-1.835.832-1.835 1.835 0 1.01.825 1.835 1.835 1.835Zm-3.35 7.083h13.45c1.633 0 2.441-.801 2.441-2.403v-9.5C19.167 1.308 18.36.5 16.726.5H3.276C1.65.5.833 1.309.833 2.91v9.501c0 1.602.816 2.403 2.441 2.403Zm.015-1.252c-.778 0-1.205-.412-1.205-1.22V2.98c0-.808.427-1.228 1.205-1.228h13.42c.77 0 1.205.42 1.205 1.228v9.361c0 .809-.436 1.22-1.206 1.22H3.29Z" />
+                                                </svg>
+                                            </div>
+                                            <p class="body2 m-0 ml-3"> Drag Drop or <span class="t-text-cyan">Choose File</span> To
+                                                        Upload </p>
+                                            <input type="file" required="1" name="client_payment_attachments" class="form-control s_website_form_input" multiple="true" accept="image/*,application/pdf,video/*,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" />
+                                        </div>
+                                        <div id="attach_error" class="my-2 d-none text-danger">
+                                        </div>
+                                        <div t-if="user_registration_id.client_product_id.code in ['saso', 'emazad_company']" id="attach_list" class="my-2 text-muted">
+                                            <h4 class="mb-2 font-weight-700">Required attachments:</h4>
+                                            <t t-if="user_registration_id.client_product_id.code == 'saso'">
+                                                <div class="float-left mr-2" style="list-style:auto;font-size:22px">
+                                                    <span>1</span>. Invoices
+                                                </div>
+                                                <div class="float-left mr-2" style="list-style:auto;font-size:22px">
+                                                    <span>2</span>. The Excel file for operations
+                                                </div>
+                                            </t>
+                                            <t t-if="user_registration_id.client_product_id.code == 'emazad_company'">
+                                                <div class="float-left mr-2" style="list-style:auto;font-size:22px">
+                                                    <span>1</span>. Invoice
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer d-flex align-items-center justify-content-between border-0">
+                        <div class="frequest_creation">
+                            <p class="text-danger heading-6 m-0 create_client_payment_error"></p>
+                        </div>
+                        <div class="ml-auto">
+                            <div class="client-info">
+                                <button type="button" class="btn rounded-pill t-btn-outile-gray btn-lg mr-3 button-text" data-dismiss="modal">Close</button>
+                                <button t-if="user_registration_id and user_registration_id.state == 'approved'" type="button" style="color: #ffffff !important" class="btn btn-secondary button-text rounded-pill btn-lg create_client_payment">Finish</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="success-modal modal fade" id="clientregAddSuccessModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content p-5">
+                    <div class="modal-header border-0">
+                        <h3 class="modal-title heading-3">New Client Payment Request</h3>
+                    </div>
+                    <div class="modal-body text-center">
+                        <img src="/thiqah_portal/static/src/img/icon-check.svg" />
+                        <h3 class="heading-3">Thank You!</h3>
+                        <span class="body2 t-text-gray mt24">Your client payment request has been added succesfully.</span>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <div class="mx-auto">
+                            <a href="/my/freelance" type="button" class="btn btn-lg btn-secondary rounded-pill">
+                                    Go back to all requests </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Client Payment Request Details -->
+    <template id="client_payment_details" name="Client Payment Request Details">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="container-fluid">
+                <div class="row mb32">
+                    <div class="col-lg-9 d-flex align-items-center justify-content-between service-request-actionsl">
+                        <h1 class="heading-2 m-0">
+                            <span>Client Payment Request(#</span>
+                            <span t-field="client_payment_obj.sequence" />
+                            <span>)</span>
+                        </h1>
+                    </div>
+                    <div class="col-lg-3">
+                        <t t-call="client_registration.client_payment_actions"/>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                Client Payment Request
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div t-attf-class="form-group #{'col-md-6' if client_payment_obj.client_product_id.code == 'emazad_individual' else 'col-md-4'}">
+                                        <span class="body2 mb-3 t-text-dark-gray font-weight-bold">
+                                        <t t-if="client_payment_obj.client_product_id.code == 'saso'">CB Name</t>
+                                        <t t-else="">Client Name</t>    
+                                        </span>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_payment_obj.client_name">
+                                        </h4>
+                                    </div>
+                                    <div t-if="client_payment_obj.client_product_id.code == 'saso'" class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Legal representative</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_payment_obj.legal_representative">
+                                        </h4>
+                                    </div>
+                                    <div t-if="client_payment_obj.client_product_id.code == 'emazad_company'" class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Mazad number</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_payment_obj.mazad_number">
+                                        </h4>
+                                    </div>
+                                    <div t-attf-class="form-group #{'col-md-6' if client_payment_obj.client_product_id.code == 'emazad_individual' else 'col-md-4'}">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Total amount</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_payment_obj.total_amount">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row" t-if="client_payment_obj.client_product_id.code == 'emazad_individual'">
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">ID Number</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_payment_obj.id_number">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Phone Number</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_payment_obj.phone_number">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Email</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_payment_obj.email">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Bank Name</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_payment_obj.client_registration_id.bank_name">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">IBAN</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_payment_obj.client_registration_id.iban">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Account holder name</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_payment_obj.client_registration_id.account_holder_name">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">Documents</div>
+                            <div class="card-body">
+                                <span class="body2 t-text-dark-gray no_attachments" t-if="not has_documents">
+                                    No attachments have been added.
+                                </span>
+                                <input name="client_payment_id" type="hidden" t-att-value="client_payment_obj.id" />
+                                <div t-if="has_documents" id="request_attachment_css">
+                                    <div class="row">
+                                        <div class="documents_list">
+                                            <div class="document-delete-confirm-modal modal fade" id="docDeleteConfirmModal" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <input name="doc_id" type="hidden" />
+                                                        <div class="modal-header border-0">
+                                                            <h3 class="modal-title heading-3">Delete Document</h3>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <t t-call="thiqah_project.close_button" />
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h4 class="">Are you sure to delete the document?</h4>
+                                                        </div>
+                                                        <div class="modal-footer border-0">
+                                                            <div class="ml-auto">
+                                                                <button type="button" class="rounded-pill btn btn-lg t-btn-outile-gray btn-lg button-text" data-dismiss="modal">
+                                                                    Cancel</button>
+                                                                <button type="button" id="confirm_delete" class="ml-3 btn btn-lg btn-secondary rounded-pill">
+                                                                    Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <t t-foreach="document_ids" t-as="document">
+                                                <div class="mt-4 align-items-center d-flex justify-content-between cr_attachment" t-att-data-id="document.id">
+                                                    <a class="d-flex align-items-center oe_attachments" t-attf-href="/web/content/#{document.id}?download=true" target="_blank" data-no-post-process="">
+                                                        <div class='oe_attachment_embedded o_image o_image_small mr-lg-3' t-att-title="document.mimetype" t-att-data-mimetype="document.mimetype" />
+                                                        <div class='oe_attachment_name text-truncate body2 t-text-dark-gray'>
+                                                            <t t-esc='document.name' />
+                                                        </div>
+                                                        <div class="ml-3" t-att-title="document.name" t-att-data-mimetype="document.mimetype" style="background-image:url('/thiqah_portal/static/src/img/button-download.svg');width: 32px;height: 32px;"/>
+
+                                                    </a>
+                                                    <button t-if="active_state_technical == 'client_draft' and client_payment_obj.create_uid.id == request.env.uid" class="o_portal_attachment_delete btn-icon btn-circle btn ml-4" title="Delete">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                                                            <path fill="#E72F33" d="M3.853 3.04H4.91V1.617c0-.38.267-.626.666-.626h2.381c.4 0 .666.246.666.626V3.04H9.68V1.55C9.68.585 9.055 0 8.03 0H5.504c-1.025 0-1.65.585-1.65 1.55v1.49Zm-3.02.533H12.72a.503.503 0 0 0 0-1.005H.832a.507.507 0 0 0-.499.499c0 .28.233.506.5.506Zm2.893 11.243h6.1c.952 0 1.59-.619 1.637-1.57l.466-9.8h-1.07l-.447 9.687c-.013.399-.299.678-.692.678h-5.9c-.38 0-.666-.286-.686-.678l-.472-9.687H1.617l.473 9.806c.046.952.672 1.564 1.636 1.564Zm1.078-2.142c.253 0 .42-.16.412-.393L5.01 5.163c-.006-.233-.173-.386-.412-.386-.253 0-.42.16-.413.392l.2 7.112c.007.24.173.393.419.393Zm1.97 0c.252 0 .432-.16.432-.393V5.17c0-.233-.18-.392-.433-.392s-.426.16-.426.392v7.112c0 .233.173.393.426.393Zm1.975 0c.24 0 .406-.153.413-.393l.2-7.112c.006-.233-.16-.392-.413-.392-.24 0-.406.153-.413.392l-.2 7.112c-.006.233.16.393.413.393Z"/>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                State
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">State</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_payment_obj.state">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="o_portal_messages_container container-fluid mt32">
+                <h4 class="heading-4 mb40">Message and communication history</h4>
+                <t t-call="portal.message_thread">
+                    <t t-set="object" t-value="client_payment_obj"/>
+                    <t t-set="pid" t-value="pid"/>
+                    <t t-set="hash" t-value="hash"/>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="client_payment_actions" name="Client Payment Actions">
+        <div class="cpayment_action_selector">
+            <t t-foreach="actions" t-as="action">
+                <t t-if="action[2] == active_state_technical and request.env.user.id in action[3]">
+                    <div class="d-flex flex-lg-column flex-row">
+                        <t>
+                            <button type="button" t-attf-class="ml-3 mt-lg-3 ml-lg-0 btn rounded-pill justify-content-center t-custom-bg-dark-blue text-white cpayment_approve_action" t-att-cpayment_id="client_payment_obj.id" t-att-id="action[1]">
+                                <t t-esc="action[0]" />
+                            </button>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </div>
+        <div class="request-error d-none text-danger mt-3 heading-7"></div>
+    </template>
+
+    <!-- Client Registration -->
+    <template id="client_registration_details" name="Client Registration Request Details">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="container-fluid creg_view_mode_page_selector">
+                <div class="row mb32">
+                    <div class="col-lg-9 d-flex align-items-center justify-content-between service-request-actionsl">
+                        <h1 class="heading-2 m-0">
+                            <span>Client Registration Request</span>
+                        </h1>
+                    </div>
+                    <div class="col-lg-3">
+                        <t t-call="client_registration.client_registration_actions"/>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                Client Payment Request
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">
+                                        <t t-if="client_reg_id.client_product_id.code == 'saso'">CB Name</t>
+                                        <t t-else="">Client Name</t>
+                                        </label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_reg_id.client_name">
+                                        </h4>
+                                    </div>
+                                    <div t-if="client_reg_id.client_product_id.code == 'saso'" class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Legal representative</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_reg_id.legal_representative">
+                                        </h4>
+                                    </div>
+                                    <!-- <div t-if="client_reg_id.client_product_id.code == 'emazad_company'" class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Mazad number</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_reg_id.mazad_number">
+                                        </h4>
+                                    </div> -->
+                                </div>
+                                <div class="form-row" t-if="client_reg_id.client_product_id.code == 'emazad_individual'">
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">ID Number</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_reg_id.id_number">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Phone Number</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_reg_id.phone_number">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Email</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_reg_id.email">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Bank Name</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_reg_id.bank_name">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">IBAN</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_reg_id.iban">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Account holder name</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_reg_id.account_holder_name">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">Documents</div>
+                            <div class="card-body">
+                                <span class="body2 t-text-dark-gray no_attachments" t-if="not has_documents">
+                                    No attachments have been added.
+                                </span>
+                                <!-- <input name="client_payment_id" type="hidden" t-att-value="client_reg_id.id" /> -->
+                                <div t-if="has_documents" id="request_attachment_css">
+                                    <div class="row">
+                                        <div class="documents_list">
+                                            <div class="document-delete-confirm-modal modal fade" id="docDeleteConfirmModal" tabindex="-1" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <input name="doc_id" type="hidden" />
+                                                        <div class="modal-header border-0">
+                                                            <h3 class="modal-title heading-3">Delete Document</h3>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <t t-call="thiqah_project.close_button" />
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h4 class="">Are you sure to delete the document?</h4>
+                                                        </div>
+                                                        <div class="modal-footer border-0">
+                                                            <div class="ml-auto">
+                                                                <button type="button" class="rounded-pill btn btn-lg t-btn-outile-gray btn-lg button-text" data-dismiss="modal">
+                                                                    Cancel</button>
+                                                                <button type="button" id="confirm_delete" class="ml-3 btn btn-lg btn-secondary rounded-pill">
+                                                                    Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <t t-foreach="document_ids" t-as="document">
+                                                <div class="mt-4 align-items-center d-flex justify-content-between cr_attachment" t-att-data-id="document.id">
+                                                    <a class="d-flex align-items-center oe_attachments" t-attf-href="/web/content/#{document.id}?download=true" target="_blank" data-no-post-process="">
+                                                        <div class='oe_attachment_embedded o_image o_image_small mr-lg-3' t-att-title="document.mimetype" t-att-data-mimetype="document.mimetype" />
+                                                        <div class='oe_attachment_name text-truncate body2 t-text-dark-gray'>
+                                                            <t t-esc='document.name' />
+                                                        </div>
+                                                        <div class="ml-3" t-att-title="document.name" t-att-data-mimetype="document.mimetype" style="background-image:url('/thiqah_portal/static/src/img/button-download.svg');width: 32px;height: 32px;"/>
+
+                                                    </a>
+                                                    <button t-if="client_reg_id.state == 'draft' and client_reg_id.create_uid.id == request.env.uid" class="o_portal_attachment_delete btn-icon btn-circle btn ml-4" title="Delete">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                                                            <path fill="#E72F33" d="M3.853 3.04H4.91V1.617c0-.38.267-.626.666-.626h2.381c.4 0 .666.246.666.626V3.04H9.68V1.55C9.68.585 9.055 0 8.03 0H5.504c-1.025 0-1.65.585-1.65 1.55v1.49Zm-3.02.533H12.72a.503.503 0 0 0 0-1.005H.832a.507.507 0 0 0-.499.499c0 .28.233.506.5.506Zm2.893 11.243h6.1c.952 0 1.59-.619 1.637-1.57l.466-9.8h-1.07l-.447 9.687c-.013.399-.299.678-.692.678h-5.9c-.38 0-.666-.286-.686-.678l-.472-9.687H1.617l.473 9.806c.046.952.672 1.564 1.636 1.564Zm1.078-2.142c.253 0 .42-.16.412-.393L5.01 5.163c-.006-.233-.173-.386-.412-.386-.253 0-.42.16-.413.392l.2 7.112c.007.24.173.393.419.393Zm1.97 0c.252 0 .432-.16.432-.393V5.17c0-.233-.18-.392-.433-.392s-.426.16-.426.392v7.112c0 .233.173.393.426.393Zm1.975 0c.24 0 .406-.153.413-.393l.2-7.112c.006-.233-.16-.392-.413-.392-.24 0-.406.153-.413.392l-.2 7.112c-.006.233.16.393.413.393Z"/>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                State
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">State</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="client_reg_id.state">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="o_portal_messages_container container-fluid mt32">
+                <h4 class="heading-4 mb40">Message and communication history</h4>
+                <t t-call="portal.message_thread">
+                    <t t-set="object" t-value="client_reg_id"/>
+                    <t t-set="pid" t-value="pid"/>
+                    <t t-set="hash" t-value="hash"/>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="client_registration_actions" name="Client Registration Actions">
+        <div class="modal" id="editRegisterClientInfoModal" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content overflow-hidden position-relative" style="padding: 72px;padding-bottom: 56px;">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                    <input type="hidden" name="client_payment_category" t-att-value="client_reg_id.client_product_id.code or ''" />
+                    <!-- Modal Header -->
+                    <div class="modal-header border-0">
+                        <h2 class="heading-3">Update Client Registration Details</h2>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form id="update_client_registration_form" t-attf-class="needs-validation" action="" enctype="multipart/form-data" novalidate="1">
+                            <fieldset class="form-group">
+                                <legend class="body1">Client Info</legend>
+                                <div class="mb-3">
+                                    <div class="row">
+                                        <div t-attf-class="{{'col-sm-6' if client_reg_id.client_product_id.code in ['saso', 'emazad_individual'] else 'col-sm-6' }} to-be-modif">
+                                            <label class="s_website_form_label heading-7" for="client_name">
+                                                <span class="s_website_form_label_content">
+                                                            Client Name</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" type="text" maxlength="15" t-att-value="client_reg_id.client_name or ''" class="form-control" placeholder="Client Name..." name="client_name" />
+                                            <small id="clientNameLength" class="form-text text-muted" style="font-size: 17px !important;">Client name must be less than 15 chars!</small>
+                                        </div>
+                                        <div t-if="client_reg_id.client_product_id.code == 'saso'" class="col-sm-6 to-be-modif legal">
+                                            <label class="s_website_form_label heading-7" for="legal_representative">
+                                                <span class="s_website_form_label_content">Legal representative</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input type="text" class="form-control" placeholder="Legal representative..." name="legal_representative" t-att-value="client_reg_id.legal_representative or ''"/>
+                                        </div>
+                                    </div>
+                                        <div t-if="client_reg_id.client_product_id.code == 'emazad_individual'" class="col-sm-6">
+                                            <label class="s_website_form_label heading-7" for="id_number">
+                                                <span class="s_website_form_label_content">
+                                                            ID Number</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" type="text" class="form-control" placeholder="ID Number..." name="id_number" t-att-value="client_reg_id.id_number or ''"/>
+
+                                        </div>
+                                        <div t-if="client_reg_id.client_product_id.code == 'emazad_individual'" class="col-sm-6">
+                                            <label class="s_website_form_label heading-7" for="phone_number">
+                                                <span class="s_website_form_label_content">Phone Number</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" type="text" class="form-control" placeholder="Phone Number..." name="phone_number" t-att-value="client_reg_id.phone_number or ''"/>
+                                        </div>
+
+                                        <div t-if="client_reg_id.client_product_id.code == 'emazad_individual'" class="col-sm-6">
+                                            <label class="s_website_form_label heading-7" for="email">
+                                                <span class="s_website_form_label_content">Email</span>
+                                                <span class="s_website_form_mark">*</span>
+                                            </label>
+                                            <input required="1" id="email" type="email" class="form-control" placeholder="Email..." name="email" t-att-value="client_reg_id.email or ''"/>
+                                        </div>
+                                </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                <legend class="body1">Attachments (If necessary)</legend>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="s_website_form_label heading-7" for="attachments">
+                                            <span class="s_website_form_label_content">
+                                                        Upload Attachments</span>
+                                        </label>
+                                        <div class="custom-input-file">
+                                            <div class="btn-circle t-custom-bg-cyan" style="width:40px;height:40px">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" fill="none">
+                                                    <path fill="#fff" d="m18.366 11.991-4.618-4.338c-.35-.311-.754-.482-1.174-.482-.427 0-.808.148-1.166.466l-3.514 3.141L6.455 9.48c-.326-.295-.684-.443-1.05-.443-.35 0-.676.14-1.002.435L1.44 12.147c.047 1.407.622 2.122 1.78 2.122h13.032c1.407 0 2.114-.785 2.114-2.278Zm-11.74-4.26a1.837 1.837 0 0 0 1.827-1.835A1.842 1.842 0 0 0 6.626 4.06c-1.01 0-1.835.832-1.835 1.835 0 1.01.825 1.835 1.835 1.835Zm-3.35 7.083h13.45c1.633 0 2.441-.801 2.441-2.403v-9.5C19.167 1.308 18.36.5 16.726.5H3.276C1.65.5.833 1.309.833 2.91v9.501c0 1.602.816 2.403 2.441 2.403Zm.015-1.252c-.778 0-1.205-.412-1.205-1.22V2.98c0-.808.427-1.228 1.205-1.228h13.42c.77 0 1.205.42 1.205 1.228v9.361c0 .809-.436 1.22-1.206 1.22H3.29Z" />
+                                                </svg>
+                                            </div>
+                                            <p class="body2 m-0 ml-3"> Drag Drop or <span class="t-text-cyan">Choose File</span> To
+                                                        Upload </p>
+                                            <input type="file" name="client_register_attachments" class="form-control s_website_form_input" multiple="true" accept="image/*,application/pdf,video/*,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" />
+                                        </div>
+                                        <div id="client_register_attach_error" class="my-2 d-none text-danger">
+                                        </div>
+                                        <div t-if="client_reg_id.client_product_id.code in ['saso', 'emazad_company']" class="my-2 text-muted">
+                                            <h4 class="mb-2 font-weight-700">Required attachments:</h4>
+                                            <t t-if="client_reg_id.client_product_id.code == 'saso'">
+                                                <div class="float-left mr-2" style="list-style:auto;font-size:22px">
+                                                    <span>1</span>. Acknowledgement
+                                                </div>
+                                                <div class="float-left mr-2" style="list-style:auto;font-size:22px">
+                                                    <span>2</span>. Tax certificate or tax exemption
+                                                </div>
+                                                <div class="float-left mr-2" style="list-style:auto;font-size:22px">
+                                                    <span>3</span>. Commercial registration
+                                                </div>
+                                                <div class="float-left mr-2" style="list-style:auto;font-size:22px">
+                                                    <span>4</span>. A copy of the bank account information form
+                                                </div>
+                                            </t>
+                                            <t t-if="client_reg_id.client_product_id.code in ['emazad_company', 'emazad_individual']">
+                                                <div class="float-left mr-2" style="list-style:auto;font-size:22px">
+                                                    <span>1</span>. Iban certificate
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="modal-footer d-flex align-items-center justify-content-between border-0">
+                                <div class="frequest_creation">
+                                    <p class="text-danger heading-6 m-0 update_client_reg_error"></p>
+                                </div>
+                                <div class="ml-auto">
+                                    <div class="client-info">
+                                        <button type="button" class="btn rounded-pill t-btn-outile-gray btn-lg mr-3 button-text" data-dismiss="modal">Close</button>
+                                        <button type="button" style="color: #ffffff !important" class="btn btn-secondary button-text rounded-pill btn-lg update_client_registration">
+                                                Finish
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="creg_action_selector">
+            <t t-if="client_reg_id.state == 'draft' and client_reg_id.create_uid.id == request.env.uid and client_reg_id.is_bank_added">
+                <button type="button" t-attf-class="ml-3 mt-lg-3 ml-lg-0 btn rounded-pill justify-content-center t-custom-bg-dark-blue text-white creg_action_change_state" direction="next" t-att-current_state="client_reg_id.state" t-att-creg_id="client_reg_id.id">
+                    Submit
+                </button>
+                <button type="button" data-toggle="modal" data-target="#editRegisterClientInfoModal" class="btn mt-lg-3 btn-secondary rounded-pill">Edit</button>
+            </t>
+            <t t-elif="client_reg_id.state in ['product_manager', 'business_operation'] and request.env.uid in client_reg_id.concerned_user_ids.ids">
+                <button type="button" t-attf-class="ml-3 mt-lg-3 ml-lg-0 btn rounded-pill justify-content-center t-custom-bg-dark-blue text-white creg_action_change_state" direction="next" t-att-current_state="client_reg_id.state" t-att-creg_id="client_reg_id.id">
+                    Approve
+                </button>
+                <button type="button" t-attf-class="ml-3 mt-lg-3 ml-lg-0 btn rounded-pill justify-content-center t-custom-bg-dark-blue text-white creg_action_change_state" direction="previous" t-att-current_state="client_reg_id.state" t-att-creg_id="client_reg_id.id">
+                    Return To Customer
+                </button>
+            </t>
+        </div>
+        <div class="request-error d-none text-danger mt-3 heading-7"></div>
+    </template>
+
+</odoo>

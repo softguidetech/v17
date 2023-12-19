@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- For aahd -->
+    <record id="aahd_crm_inherit" model="ir.ui.view">
+        <field name="name">aahd.view.form.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="thiqah_crm.thiqah_aahd_crm_lead_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet" position="inside">
+                <field name="is_won" invisible="1" />
+                <field name="is_converted" invisible="1" />
+                <field name="legal_state" invisible="1" />
+            </xpath>
+
+            <xpath expr="//header" position="inside">
+                <!-- Duplicate call to ensure the confirm action -->
+<!--                <button name="convert_to_project" string="Convert To Project" type="object" title="Convert To Project" class="btn btn-secondary" groups="project.group_project_manager" attrs="{'invisible': ['|',('is_won', '=', False),('legal_state', '!=', 'no_need_contract')]}" />-->
+                <button name="convert_to_project" string="Convert To Project" type="object" title="Convert To Project" class="btn btn-secondary" groups="project.group_project_manager" invisible="not is_won or legal_state != 'no_need_contract'" />
+<!--                <button name="convert_to_project" string="Convert To Project" type="object" title="Convert To Project" confirm="Please verify the contract before you confirm!" class="btn btn-secondary" groups="project.group_project_manager" attrs="{'invisible': ['|',('is_won', '=', False),('legal_state', '!=', 'need_contract')]}" />-->
+                <button name="convert_to_project" string="Convert To Project" type="object" title="Convert To Project" confirm="Please verify the contract before you confirm!" class="btn btn-secondary" groups="project.group_project_manager" invisible="not is_won or legal_state != 'need_contract'" />
+<!--                <button name="mapping_lead_project" string="Mapping Lead Project" type="object" title="Mapping Lead Project" class="btn btn-secondary" groups="project.group_project_manager" attrs="{'invisible': [('is_converted', '!=', True)]}" />-->
+                <button name="mapping_lead_project" string="Mapping Lead Project" type="object" title="Mapping Lead Project" class="btn btn-secondary" groups="project.group_project_manager" invisible="not is_converted" />
+
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- For BD -->
+    <record id="bd_crm_inherit" model="ir.ui.view">
+        <field name="name">bd.view.form.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="thiqah_crm.thiqah_bd_crm_lead_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet" position="inside">
+                <field name="is_won" invisible="1" />
+                <field name="is_converted" invisible="1" />
+            </xpath>
+
+            <xpath expr="//header" position="inside">
+<!--                <button name="convert_to_project" string="Convert To Project" type="object" title="Convert To Project" class="btn btn-secondary" groups="project.group_project_manager" attrs="{'invisible': ['|',('is_won', '=', False),('is_converted','=',True)]}" />-->
+                <button name="convert_to_project" string="Convert To Project" type="object" title="Convert To Project" class="btn btn-secondary" groups="project.group_project_manager" invisible="not is_won or is_converted" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

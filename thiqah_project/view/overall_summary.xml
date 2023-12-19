@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="overall_summary" name="Project Overall Summary">
+        <t t-set="currency" t-value="currency" />
+        <!-- MP Actual Cost -->
+        <h4 class="heading-4 mb48">Overall Summary</h4>
+        <div class="accordion" id="accordionOverallSummary">
+            <div class="card mb32 border-0">
+                <div class="card-header t-custom-bg-light-gray heading-5 border-0"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="true">
+                    <span class="title">Main Information</span>
+                    <span class="accicon float-right">
+                        <svg class="rotate-icon" xmlns="http://www.w3.org/2000/svg" width="14"
+                            height="8" fill="none">
+                            <path fill="#0A0A0A"
+                                d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                        </svg>
+                    </span>
+                </div>
+                <div id="collapseOne" class="mt32 collapse show"
+                    data-parent="#accordionOverallSummary">
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="rev_plan_na">
+                                    <span class="s_website_form_label_content">Rev plan NA</span>
+
+                                </label>
+                                <input class="form-control" type="number" name="rev_plan_na" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="contract_liability">
+                                    <span class="s_website_form_label_content">Contract liability</span>
+
+                                </label>
+                                <div class="">
+                                    <input class="form-control" type="number"
+                                        name="contract_liability" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="total_commitments">
+                                    <span class="s_website_form_label_content">Total commitments</span>
+
+                                </label>
+                                <input class="form-control" type="number" name="total_commitments" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="vat">
+                                    <span class="s_website_form_label_content">VAT</span>
+
+                                </label>
+                                <div class="">
+                                    <input class="form-control" type="text" name="vat" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card mb32 border-0">
+                <div class="card-header t-custom-bg-light-gray heading-5 border-0"
+                    data-toggle="collapse"
+                    data-target="#collapseTow"
+                    aria-expanded="true">
+                    <span class="title">MP Actual Cost</span>
+                    <span class="accicon float-right">
+                        <svg class="rotate-icon" xmlns="http://www.w3.org/2000/svg" width="14"
+                            height="8" fill="none">
+                            <path fill="#0A0A0A"
+                                d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                        </svg>
+                    </span>
+                </div>
+                <div id="collapseTow" class="mt32 collapse"
+                    data-parent="#accordionOverallSummary">
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="number_headcount">
+                                    <span class="s_website_form_label_content">Total of HC</span>
+
+                                </label>
+                                <input id="number_headcount" type="number" min="0"
+                                    class="form-control "
+                                    name="number_headcount" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="total_cost_mp">
+                                    <span class="s_website_form_label_content">Actual cost (MP)</span>
+
+                                </label>
+
+                                <div class="input-group">
+                                    <input id="total_cost_mp" type="number" min="0"
+                                        class="form-control "
+                                        name="total_cost_mp"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-6">
+                            <label class="s_website_form_label"
+                                for="commitments_mp">
+                                <span class="s_website_form_label_content">Commitments “MP”</span>
+
+                            </label>
+                            <div class="input-group">
+                                <input id="commitments_mp" type="number" min="0"
+                                    class="form-control "
+                                    name="commitments_mp"
+                                     />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <t t-esc="currency" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Project and Supply Actual Cost -->
+            <div class="card mb32 border-0">
+                <div class="card-header t-custom-bg-light-gray heading-5 border-0"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    aria-expanded="true">
+                    <span class="title">Project and Supply Actual Cost</span>
+                    <span class="accicon float-right">
+                        <svg class="rotate-icon" xmlns="http://www.w3.org/2000/svg" width="14"
+                            height="8" fill="none">
+                            <path fill="#0A0A0A"
+                                d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                        </svg>
+                    </span>
+                </div>
+                <div id="collapseThree" class="mt32 collapse"
+                    data-parent="#accordionOverallSummary">
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="number_of_pos">
+                                    <span class="s_website_form_label_content">Total Pos</span>
+
+                                </label>
+                                <input class="form-control" type="number" min="0"
+                                    name="number_of_pos" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="actual_cost_pos">
+                                    <span class="s_website_form_label_content">Actual Cost “Pos”</span>
+
+                                </label>
+
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="actual_cost_pos"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-6">
+                            <label class="s_website_form_label"
+                                for="commitments_pos">
+                                <span class="s_website_form_label_content">Commitments “Pos”</span>
+
+                            </label>
+                            <div class="input-group">
+                                <input type="number" min="0"
+                                    class="form-control "
+                                    name="commitments_pos"
+                                     />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <t t-esc="currency" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="s_website_form_label"
+                                for="cost_spending_limit">
+                                <span class="s_website_form_label_content">Cost plan “spending
+                                    limit”</span>
+
+                            </label>
+                            <div class="input-group">
+                                <input type="number" min="0"
+                                    class="form-control "
+                                    name="cost_spending_limit"
+                                     />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <t t-esc="currency" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  Miscellaneous Actual Cost -->
+            <div class="card mb32 border-0">
+                <div class="card-header t-custom-bg-light-gray heading-5 border-0"
+                    data-toggle="collapse"
+                    data-target="#collapseFour"
+                    aria-expanded="true">
+                    <span class="title">Miscellaneous Actual Cost</span>
+                    <span class="accicon float-right">
+                        <svg class="rotate-icon" xmlns="http://www.w3.org/2000/svg" width="14"
+                            height="8" fill="none">
+                            <path fill="#0A0A0A"
+                                d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                        </svg>
+                    </span>
+                </div>
+                <div id="collapseFour" class="mt32 collapse"
+                    data-parent="#accordionOverallSummary">
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="actual_total_miscellaneous">
+                                    <span class="s_website_form_label_content">Actual Cost
+                                        Miscellaneous</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="actual_total_miscellaneous"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="commitments_miscellaneous">
+                                    <span class="s_website_form_label_content">Commitments
+                                        Miscellaneous</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="commitments_miscellaneous"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Total utilization and Remaining balance -->
+            <div class="card mb32 border-0">
+                <div class="card-header t-custom-bg-light-gray heading-5 border-0"
+                    data-toggle="collapse"
+                    data-target="#collapseFive"
+                    aria-expanded="true">
+                    <span class="title">Total utilization and Remaining balance</span>
+                    <span class="accicon float-right">
+                        <svg class="rotate-icon" xmlns="http://www.w3.org/2000/svg" width="14"
+                            height="8" fill="none">
+                            <path fill="#0A0A0A"
+                                d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                        </svg>
+                    </span>
+                </div>
+                <div id="collapseFive" class="mt32 collapse"
+                    data-parent="#accordionOverallSummary">
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="available_budget">
+                                    <span class="s_website_form_label_content">Balance after
+                                        Commitment</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="available_budget"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="remaining_balance">
+                                    <span class="s_website_form_label_content">Actual Available
+                                        Balance</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="remaining_balance"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Invoices -->
+            <div class="card mb32 border-0">
+                <div class="card-header t-custom-bg-light-gray heading-5 border-0"
+                    data-toggle="collapse"
+                    data-target="#collapseSix"
+                    aria-expanded="true">
+                    <span class="title">Invoices</span>
+                    <span class="accicon float-right">
+                        <svg class="rotate-icon" xmlns="http://www.w3.org/2000/svg" width="14"
+                            height="8" fill="none">
+                            <path fill="#0A0A0A"
+                                d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                        </svg>
+                    </span>
+                </div>
+                <div id="collapseSix" class="mt32 collapse"
+                    data-parent="#accordionOverallSummary">
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="billed_amount">
+                                    <span class="s_website_form_label_content">Billed Amount</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="billed_amount"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="collected_amount">
+                                    <span class="s_website_form_label_content">Collected Amount</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="collected_amount"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-4">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="billed_amount_no_vat">
+                                    <span class="s_website_form_label_content">Billed amount
+                                        “without VAT”</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="billed_amount_no_vat"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="due_amount">
+                                    <span class="s_website_form_label_content">Due Amount</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="due_amount"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="contract_unbilled_revenues">
+                                    <span class="s_website_form_label_content">Contract as “unbilled
+                                        revenues”</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="contract_unbilled_revenues"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Acutal Cost -->
+            <div class="card mb32 border-0">
+                <div class="card-header t-custom-bg-light-gray heading-5 border-0"
+                    data-toggle="collapse"
+                    data-target="#collapseSeven"
+                    aria-expanded="true">
+                    <span class="title"> Acutal Cost</span>
+                    <span class="accicon float-right">
+                        <svg class="rotate-icon" xmlns="http://www.w3.org/2000/svg" width="14"
+                            height="8" fill="none">
+                            <path fill="#0A0A0A"
+                                d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                        </svg>
+                    </span>
+                </div>
+                <div id="collapseSeven" class="mt32 collapse"
+                    data-parent="#accordionOverallSummary">
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="margin_percent">
+                                    <span class="s_website_form_label_content">Margin %</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="margin_percent"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            %
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="actual_cost">
+                                    <span class="s_website_form_label_content">Total Actual Cost</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="actual_cost"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-2">
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="actual_margin_amount">
+                                    <span class="s_website_form_label_content">Margin</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="actual_margin_amount"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class="s_website_form_label"
+                                    for="actual_revenue">
+                                    <span class="s_website_form_label_content">Actual Revenue</span>
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" min="0"
+                                        class="form-control "
+                                        name="actual_revenue"
+                                         />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">
+                                            <t t-esc="currency" />
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+</odoo>

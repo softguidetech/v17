@@ -1,0 +1,175 @@
+.wizard ul.nav-tabs {
+  border-bottom: none !important;
+}
+.wizard,
+.wizard .nav-tabs,
+.wizard .nav-tabs .nav-item {
+  position: relative;
+}
+.wizard .nav-tabs li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.wizard .nav-tabs li:after {
+  right: 0;
+}
+.wizard .nav-tabs li::before {
+  left: 0;
+}
+.wizard .nav-tabs li:first-child::before,
+.wizard .nav-tabs li:last-child::after {
+  content: none;
+}
+.wizard .nav-tabs li:after,
+.wizard .nav-tabs li:before {
+  content: "";
+  width: 20%;
+  border-bottom: solid 2px #e0e4e7;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 33%;
+  z-index: -1;
+}
+// .wizard .nav-tabs li:first-of-type:before,
+// .wizard .nav-tabs li:last-of-type:after {
+//   display: none;
+// }
+.wizard .nav-tabs .nav-item .nav-link {
+  width: 64px;
+  height: 64px;
+  font-size: 32px;
+  margin-bottom: 12px;
+  background: #e0e4e7;
+  color: #0a0a0a;
+  z-index: 10;
+}
+.wizard .nav-tabs .nav-item.done .nav-link {
+  background-color: #117dbc !important;
+  content: "1212" !important;
+  color: #ffffff !important;
+}
+.wizard .nav-tabs .nav-item .nav-link:hover {
+  color: #0a0a0a;
+  border: 2px solid #e0e4e7;
+  background-color: transparent !important;
+}
+.wizard .nav-tabs .nav-item .nav-link:hover svg path {
+  fill: #0a0a0a !important;
+}
+.wizard .nav-tabs .nav-item .nav-link.active {
+  background: #fff;
+  border: 2px solid #117dbc;
+  color: #0a0a0a;
+}
+.wizard .nav-tabs .nav-item .nav-link.active + div .item_header {
+  color: #0a0a0a;
+  font-weight: 700;
+}
+.item_header {
+  color: #798793;
+  font-size: 24px;
+}
+#project_add_form {
+  label {
+    font-size: 20px;
+    .s_website_form_mark {
+      color: #e80c0c;
+    }
+  }
+}
+// Accordion
+.accordion {
+  .card-header {
+    border-radius: 8px !important;
+  }
+  .rotate-icon {
+    transform: rotate(-180deg);
+  }
+  .card-header:not(.collapsed) .rotate-icon {
+    transform: rotate(0deg);
+  }
+}
+// Project Breadcrumb
+.breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  color: #6c757d;
+  content: ">";
+}
+
+///// Project Resource
+
+.add_project_box .card {
+  border-style: dashed;
+  border-radius: 8px;
+  .card-body {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    > div {
+      background-color: #f2f3f5;
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
+
+#deliverableValueOutput {
+  margin-left: 400px;
+}
+a.text-white:hover,
+a.text-white:focus {
+  color: #ffffff !important;
+}
+.bootstrap-select.is-invalid .dropdown-toggle,
+.error .bootstrap-select .dropdown-toggle,
+.has-error .bootstrap-select .dropdown-toggle,
+.was-validated .bootstrap-select select:invalid + .dropdown-toggle,
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  border-color: #e72f33 !important;
+}
+.was-validated .form-control:valid,
+.form-control.is-valid,
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  background-image: none !important;
+}
+.was-validated .form-check-input:invalid ~ .form-check-label,
+.form-check-input.is-invalid ~ .form-check-label {
+  color: #dc3545 !important;
+}
+// Modal
+.project-details-modal {
+  .modal-content {
+    padding: 56px 40px;
+
+    .modal-header {
+      padding-bottom: 48px !important;
+      align-items: center;
+      .close {
+        padding: 0;
+        margin: 0;
+        float: none;
+        opacity: 1;
+      }
+    }
+    .modal-footer {
+      padding-top: 56px !important;
+      justify-content: space-between !important;
+      .btn-secondary {
+        width: 120px;
+        justify-content: center;
+      }
+    }
+  }
+}
+._o_table_thiqah_project {
+  .accordion {
+    .card-header {
+      cursor: pointer;
+    }
+  }
+}

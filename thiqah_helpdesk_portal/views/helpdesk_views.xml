@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<odoo>
+
+	<record id="helpdesk.helpdesk_ticket_type_view_tree" model="ir.ui.view">
+		<field name="name">helpdesk.ticket.type.tree</field>
+		<field name="model">helpdesk.ticket.type</field>
+		<field name="arch" type="xml">
+			<tree string="Tag">
+				<field name="sequence" widget="handle" groups="base.group_no_one" />
+				<field name="name" />
+				<field name="team_id" />
+				<field name="assigned_to_user_id" />
+				<field name="required_attachment" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="helpdesk_ticket_type_view_form" model="ir.ui.view">
+		<field name="name">helpdesk.ticket.type.form</field>
+		<field name="model">helpdesk.ticket.type</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<group>
+							<field name="name" />
+							<field name="team_id" />
+							<field name="for_sp_manager" />
+						</group>
+						<group>
+							<field name="assigned_to_user_id" />
+						</group>
+					</group>
+					<group>
+						<field name="required_attachment" />
+						<field name="description" />
+					</group>
+					<!-- <group> <field name="attachment_ticket_url" widget="url"/> </group> -->
+
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+
+
+
+	<record id="thiqah_helpdesk_stage_view_form" model="ir.ui.view">
+		<field name="name">helpdesk.stage.form.inherited.thiqah</field>
+		<field name="model">helpdesk.stage</field>
+		<field name="inherit_id" ref="helpdesk.helpdesk_stage_view_form" />
+		<field name="arch" type="xml">
+			<field name="team_ids" position="after">
+				<field name="icon"/>
+				<field name="show_in_portal"/>
+			</field>
+		</field>
+	</record>
+
+	<record id="thiqah_helpdesk_ticket_view_form" model="ir.ui.view">
+		<field name="name">helpdesk.ticket.form.inherited.thiqah</field>
+		<field name="model">helpdesk.ticket</field>
+		<field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form" />
+		<field name="arch" type="xml">
+			<field name="partner_phone" position="after">
+
+				<field name="partner_position" />
+				<field name="responsible_name" />
+				<field name="responsible_mobile" />
+				<field name="sector_id" string="Portfolio"/>
+				<field name="sales_team_id" string="Sales Team"/>
+			</field>
+		</field>
+
+
+	</record>
+
+</odoo>

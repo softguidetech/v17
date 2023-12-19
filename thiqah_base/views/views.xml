@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+
+    <function name="write" model="ir.model.data">
+      <function name="search" model="ir.model.data">
+        <value eval="[('module', '=', 'thiqah_portal'), ('name', '=', 'menu_dashboard')]"/>
+      </function>
+      <value eval="{'noupdate': False}"/>
+    </function>
+<!-- 
+    <record id="thiqah_portal.menu_dashboard" model="website.menu">
+      <field name="group_ids" eval="[(6, 0, [ref('thiqah_project.project_manager_group') ])]"/>
+    </record> -->
+
+
+  </data>
+</odoo>

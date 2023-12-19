@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="report_service_request_document" name="Service Request Document">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context(lang=lang)" />
+
+            <div class="page">
+                <div id="informations" class="row mt32 mb32">
+                    <div class="col-auto col-3 mw-100 mb-2" t-if="o.project_id" name="project_id">
+                        <strong>Project:</strong>
+                        <p class="m-0" t-field="o.project_id.name"/>
+                    </div>
+                    <div class="col-auto col-3 mw-100 mb-2" t-if="o.client_id " name="client_id">
+                        <strong>Client:</strong>
+                        <p class="m-0" t-field="o.client_id.name"/>
+                    </div>
+                    <div class="col-auto col-3 mw-100 mb-2" t-if="o.department_id" name="department_id">
+                        <strong>Department:</strong>
+                        <p class="m-0" t-field="o.department_id.name"/>
+                    </div>
+                    <div class="col-auto col-3 mw-100 mb-2" t-if="o.catalog_id" name="catalog_id">
+                        <strong>Service catalog:</strong>
+                        <p class="m-0" t-field="o.catalog_id.name_en"/>
+                    </div>
+                    <div class="col-auto col-3 mw-100 mb-2" t-if="o.user_id" name="user_id">
+                        <strong>By:</strong>
+                        <p class="m-0" t-field="o.user_id.name"/>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+
+    <template id="report_service_request">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.partner_id.lang"/>
+                <t t-if="o._get_name_request_report() == 'thiqah_project.report_service_request_document'" t-call="thiqah_project.report_service_request_document" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>

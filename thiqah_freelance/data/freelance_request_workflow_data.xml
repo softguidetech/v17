@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+    
+    <!-- THIQAH FREELANCE REQUEST WORKFLOW DATA -->
+        <!-- STATES -->
+        <record id="thq_freelance_request_state_line_mngr" model="workflow.state">
+            <field name="name">Line manager</field>
+            <field name="technical_name">line_mngr_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="thq_freelance_request_state_od_approval" model="workflow.state">
+            <field name="name">OD</field>
+            <field name="technical_name">od_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="thq_freelance_request_state_requester_approval" model="workflow.state">
+            <field name="name">Requester</field>
+            <field name="technical_name">requester_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="thq_freelance_request_state_hr_ops_approval" model="workflow.state">
+            <field name="name">HR Operations</field>
+            <field name="technical_name">hr_ops_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="thq_freelance_request_state_finance_approval" model="workflow.state">
+            <field name="name">Finance</field>
+            <field name="technical_name">finance_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="thq_freelance_request_state_approved" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">True</field>
+        </record>
+
+        <!-- Workflow Actions -->
+        <record id="thq_freelance_request_action_line_mngr" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">Line Manager Approval</field>
+            <field name="state_id" ref="thiqah_freelance.thq_freelance_request_state_line_mngr"/>
+            <field name="state_to" ref="thiqah_freelance.thq_freelance_request_state_od_approval"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="thq_freelance_request_action_od" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">OD Approval</field>
+            <field name="state_id" ref="thiqah_freelance.thq_freelance_request_state_od_approval"/>
+            <field name="state_to" ref="thiqah_freelance.thq_freelance_request_state_requester_approval"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="thq_freelance_request_action_requester" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">Requester Approval</field>
+            <field name="state_id" ref="thiqah_freelance.thq_freelance_request_state_requester_approval"/>
+            <field name="state_to" ref="thiqah_freelance.thq_freelance_request_state_hr_ops_approval"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="thq_freelance_request_action_hr_ops" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HR OPs Approval</field>
+            <field name="state_id" ref="thiqah_freelance.thq_freelance_request_state_hr_ops_approval"/>
+            <field name="state_to" ref="thiqah_freelance.thq_freelance_request_state_finance_approval"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="thq_freelance_request_action_finance" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">Finance Approval</field>
+            <field name="state_id" ref="thiqah_freelance.thq_freelance_request_state_finance_approval"/>
+            <field name="state_to" ref="thiqah_freelance.thq_freelance_request_state_approved"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+        <record id="thq_freelance_request_transition_validation_action_line_mngr" model="workflow.transition.validation">
+            <field name="name">Line Manager Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">True</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="thq_freelance_request_transition_validation_action_od" model="workflow.transition.validation">
+            <field name="name">OD Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_freelance.group_freelance_od'))]"/>
+        </record>
+
+        <record id="thq_freelance_request_transition_validation_action_requester" model="workflow.transition.validation">
+            <field name="name">Requester Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">True</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="thq_freelance_request_transition_validation_action_hr_ops" model="workflow.transition.validation">
+            <field name="name">HR OPs Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_freelance.group_freelance_hr_operations'))]"/>
+        </record>
+
+        <record id="thq_freelance_request_transition_validation_action_finance" model="workflow.transition.validation">
+            <field name="name">Finance Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">Fasle</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_freelance.group_freelance_finance'))]"/>
+        </record>
+
+        <!-- Workflow Transition -->
+        <record id="thq_freelance_request_transition_action_line_mngr" model="workflow.transition">
+            <field name="name">Line manager -> OD</field>
+            <field name="action_id" ref="thiqah_freelance.thq_freelance_request_action_line_mngr"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_freelance.thq_freelance_request_transition_validation_action_line_mngr')])]"/>
+        </record>
+
+        <record id="thq_freelance_request_transition_action_od" model="workflow.transition">
+            <field name="name">OD -> Requester</field>
+            <field name="action_id" ref="thiqah_freelance.thq_freelance_request_action_od"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">1</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_freelance.thq_freelance_request_transition_validation_action_od')])]"/>
+        </record>
+
+        <record id="thq_freelance_request_transition_action_requester" model="workflow.transition">
+            <field name="name">Requester -> HR Operations</field>
+            <field name="action_id" ref="thiqah_freelance.thq_freelance_request_action_requester"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">2</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_freelance.thq_freelance_request_transition_validation_action_requester')])]"/>
+        </record>
+
+        <record id="thq_freelance_request_transition_action_hr_ops" model="workflow.transition">
+            <field name="name">HR Operations -> Finance</field>
+            <field name="action_id" ref="thiqah_freelance.thq_freelance_request_action_hr_ops"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">3</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_freelance.thq_freelance_request_transition_validation_action_hr_ops')])]"/>
+        </record>
+
+        <record id="thq_freelance_request_transition_action_approve" model="workflow.transition">
+            <field name="name">Finance -> Approved</field>
+            <field name="action_id" ref="thiqah_freelance.thq_freelance_request_action_finance"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">4</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_freelance.thq_freelance_request_transition_validation_action_finance')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_freelance_request_workflow" model="workflow.workflow">-->
+<!--            <field name="name">Freelance Request Workflow (THIQAH)</field>-->
+<!--            <field name="model_id" ref="thiqah_freelance.model_freelance_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_freelance.model_res_entity')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_freelance.thq_freelance_request_state_line_mngr'), ref('thiqah_freelance.thq_freelance_request_state_od_approval'), ref('thiqah_freelance.thq_freelance_request_state_requester_approval'), ref('thiqah_freelance.thq_freelance_request_state_hr_ops_approval'), ref('thiqah_freelance.thq_freelance_request_state_finance_approval'), ref('thiqah_freelance.thq_freelance_request_state_approved')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_freelance.thq_freelance_request_action_line_mngr'), ref('thiqah_freelance.thq_freelance_request_action_od'), ref('thiqah_freelance.thq_freelance_request_action_requester'), ref('thiqah_freelance.thq_freelance_request_action_hr_ops'), ref('thiqah_freelance.thq_freelance_request_action_finance')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_freelance.thq_freelance_request_transition_action_line_mngr'), ref('thiqah_freelance.thq_freelance_request_transition_action_od'), ref('thiqah_freelance.thq_freelance_request_transition_action_requester'), ref('thiqah_freelance.thq_freelance_request_transition_action_hr_ops'), ref('thiqah_freelance.thq_freelance_request_transition_action_approve')])]"/>-->
+<!--        </record>-->
+
+
+    <!-- AHAD FREELANCE REQUEST WORKFLOW DATA -->
+        <!-- STATES -->
+        <record id="ahad_freelance_request_state_draft" model="workflow.state">
+            <field name="name">Draft</field>
+            <field name="technical_name">draft</field>
+            <field name="flow_start">False</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="ahad_freelance_request_state_fbp" model="workflow.state">
+            <field name="name">Finance Business Partner</field>
+            <field name="technical_name">fbp_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="ahad_freelance_request_state_finance_approval" model="workflow.state">
+            <field name="name">Finance</field>
+            <field name="technical_name">finance_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="ahad_freelance_request_state_approved" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">True</field>
+        </record>
+
+        <!-- Workflow Actions -->
+        <record id="ahad_freelance_request_action_draft" model="workflow.action">
+            <field name="name">Confirm</field>
+            <field name="description">Confirm Request</field>
+            <field name="state_id" ref="thiqah_freelance.ahad_freelance_request_state_draft"/>
+            <field name="state_to" ref="thiqah_freelance.ahad_freelance_request_state_fbp"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="ahad_freelance_request_action_fbp" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">FBP Approval</field>
+            <field name="state_id" ref="thiqah_freelance.ahad_freelance_request_state_fbp"/>
+            <field name="state_to" ref="thiqah_freelance.ahad_freelance_request_state_finance_approval"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="ahad_freelance_request_action_finance" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">Finance Approval</field>
+            <field name="state_id" ref="thiqah_freelance.ahad_freelance_request_state_finance_approval"/>
+            <field name="state_to" ref="thiqah_freelance.ahad_freelance_request_state_approved"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+        <record id="ahad_freelance_request_transition_validation_action_draft" model="workflow.transition.validation">
+            <field name="name">Requester Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">True</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="ahad_freelance_request_transition_validation_action_fbp" model="workflow.transition.validation">
+            <field name="name">FBP Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_freelance.group_freelance_finance_business_partner'))]"/>
+        </record>
+
+        <record id="ahad_freelance_request_transition_validation_action_finance" model="workflow.transition.validation">
+            <field name="name">Finance Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_freelance.group_freelance_finance'))]"/>
+        </record>
+
+        <!-- Workflow Transition -->
+        <record id="ahad_freelance_request_transition_action_draft" model="workflow.transition">
+            <field name="name">Draft -> Finance Business Partner</field>
+            <field name="action_id" ref="thiqah_freelance.ahad_freelance_request_action_draft"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_freelance.ahad_freelance_request_transition_validation_action_draft')])]"/>
+        </record>
+
+        <record id="ahad_freelance_request_transition_action_fbp" model="workflow.transition">
+            <field name="name">Finance Business Partner -> Finance</field>
+            <field name="action_id" ref="thiqah_freelance.ahad_freelance_request_action_fbp"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">1</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_freelance.ahad_freelance_request_transition_validation_action_fbp')])]"/>
+        </record>
+
+        <record id="ahad_freelance_request_transition_action_finance" model="workflow.transition">
+            <field name="name">Finance -> Approved</field>
+            <field name="action_id" ref="thiqah_freelance.ahad_freelance_request_action_finance"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">2</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_freelance.ahad_freelance_request_transition_validation_action_finance')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="ahad_freelance_request_workflow" model="workflow.workflow">-->
+<!--            <field name="name">Freelance Request Workflow (AHAD)</field>-->
+<!--            <field name="model_id" ref="thiqah_freelance.model_freelance_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_freelance.model_res_entity')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_freelance.ahad_freelance_request_state_draft'), ref('thiqah_freelance.ahad_freelance_request_state_fbp'), ref('thiqah_freelance.ahad_freelance_request_state_finance_approval'), ref('thiqah_freelance.ahad_freelance_request_state_approved')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_freelance.ahad_freelance_request_action_draft'), ref('thiqah_freelance.ahad_freelance_request_action_fbp'), ref('thiqah_freelance.ahad_freelance_request_action_finance')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_freelance.ahad_freelance_request_transition_action_draft'), ref('thiqah_freelance.ahad_freelance_request_transition_action_fbp'), ref('thiqah_freelance.ahad_freelance_request_transition_action_finance')])]"/>-->
+<!--        </record>-->
+
+    </data>
+</odoo>

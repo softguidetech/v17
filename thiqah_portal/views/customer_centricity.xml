@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- For the credibility : Inspiration and customization (from) https://codepen.io/riyad-mohammed/pen/OJRjVoz && https://codepen.io/rickyeckhardt/full/oNgRoZw -->
+    <template id="customer_centricity" name="Customer Centricity">
+
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div id="customer_centricity_class">
+                <div class="modal" id="by_client_modal" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document" style="max-width: 600px">
+                        <div class="modal-content" style="padding: 56px 40px">
+                            <a href="#" class="back-top align-items-center button-text t-text-dark-gray d-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" class="mr-2" height="9" fill="none">
+                                    <path fill="#434345" d="M0 4.52c0 .134.06.258.167.36l3.576 3.57a.49.49 0 0 0 .35.151.459.459 0 0 0 .474-.463.471.471 0 0 0-.135-.34L3.226 6.572 1.093 4.627l-.113.264 1.734.108h6.812c.28 0 .474-.2.474-.48 0-.28-.194-.479-.474-.479H2.714L.98 4.148l.113.269 2.133-1.95L4.432 1.24A.48.48 0 0 0 4.567.9c0-.269-.21-.463-.474-.463A.482.482 0 0 0 3.732.6L.167 4.16a.494.494 0 0 0-.167.36Z" />
+                                </svg>
+                    Back</a>
+                            <div class="modal-header border-0 p-0">
+                                <h2 class="heading-3 m-0">By Client Filter</h2>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                                        <path fill="#798793" d="M.553 13.447a.772.772 0 0 0 1.068 0l5.38-5.38 5.38 5.38a.764.764 0 0 0 1.068 0 .761.761 0 0 0 0-1.06L8.07 7l5.38-5.38a.753.753 0 0 0 0-1.06.756.756 0 0 0-1.067 0l-5.38 5.38L1.621.56a.748.748 0 0 0-1.069 0 .761.761 0 0 0 0 1.06l5.38 5.38-5.38 5.389a.753.753 0 0 0 0 1.059Z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="modal-body p-0 pt48">
+                                <div class="projects-list">
+                                    <input type="text" style="padding: 14px 24px 14px 53px !important" class=" rounded-pill t-btn-outile-light-gray-secondary w-100 form-control o_website_form_input" />
+                                    <!-- <select class="form-select select_client" name="client_id" size="3">
+                                            <t t-foreach="customers or []" t-as="customer">
+                                                <option t-att-value="customer.id">
+                                                    <t t-esc="customer.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+
+                                        <select name="project_id" id="project_id" data-placeholder="Select the project..." class="form-control o_website_form_input">
+                                            <option value="">Choose...</option>
+                                            <t t-foreach="projects or []" t-as="project">
+                                                <option t-att-value="project.id" t-att-data-partner_id="project.partner_id.id">
+                                                    <t t-esc="project.name" />
+                                                </option>
+                                            </t>
+                                        </select> -->
+                                    <div class="list-group list-group-flush select_project button-text mt-5">
+                                        <!-- <t t-foreach="customers or []" t-as="customer"> -->
+                                        <!-- <a t-attf-href="/my/financial/dashboard?filter_by_id={{customer.id}}_and_0" class="list-group-item">
+                                                    <t t-esc="customer.name" />
+                                                </a> -->
+
+                                        <!-- </t> -->
+                                        <a href="#" data-id="1" class="align-items-center d-flex justify-content-between list-group-item list-group-item-action">
+                                            <span class="client-name">Project One</span>
+                                            <div class="client-action">Choose Project 
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="16" height="16" fill="none">
+                                                    <g clip-path="url(#a)">
+                                                        <path fill="#0A0A0A" d="M16 7.922a.78.78 0 0 0-.258-.578L10.029 1.65c-.19-.19-.37-.258-.577-.258-.422 0-.75.31-.75.74 0 .207.07.406.207.543l1.93 1.965 3.42 3.119.173-.43-2.774-.173H.758c-.448 0-.758.319-.758.767s.31.766.758.766h10.9l2.774-.172-.173-.422-3.42 3.11-1.93 1.965c-.138.129-.207.336-.207.543 0 .43.328.74.75.74a.785.785 0 0 0 .56-.24l5.73-5.713A.78.78 0 0 0 16 7.922Z"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="a">
+                                                            <path fill="#fff" d="M0 0h16v16H0z"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                        <a href="#" data-id="2" class="align-items-center d-flex justify-content-between list-group-item list-group-item-action">
+                                            <span class="client-name">Project Tow</span>
+                                            <div class="client-action">Choose Project 
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="16" height="16" fill="none">
+                                                    <g clip-path="url(#a)">
+                                                        <path fill="#0A0A0A" d="M16 7.922a.78.78 0 0 0-.258-.578L10.029 1.65c-.19-.19-.37-.258-.577-.258-.422 0-.75.31-.75.74 0 .207.07.406.207.543l1.93 1.965 3.42 3.119.173-.43-2.774-.173H.758c-.448 0-.758.319-.758.767s.31.766.758.766h10.9l2.774-.172-.173-.422-3.42 3.11-1.93 1.965c-.138.129-.207.336-.207.543 0 .43.328.74.75.74a.785.785 0 0 0 .56-.24l5.73-5.713A.78.78 0 0 0 16 7.922Z"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="a">
+                                                            <path fill="#fff" d="M0 0h16v16H0z"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                        <a href="#" data-id="3" class="align-items-center d-flex justify-content-between list-group-item list-group-item-action">
+                                            <span class="client-name">Project Three</span>
+                                            <div class="client-action">Choose Project 
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="16" height="16" fill="none">
+                                                    <g clip-path="url(#a)">
+                                                        <path fill="#0A0A0A" d="M16 7.922a.78.78 0 0 0-.258-.578L10.029 1.65c-.19-.19-.37-.258-.577-.258-.422 0-.75.31-.75.74 0 .207.07.406.207.543l1.93 1.965 3.42 3.119.173-.43-2.774-.173H.758c-.448 0-.758.319-.758.767s.31.766.758.766h10.9l2.774-.172-.173-.422-3.42 3.11-1.93 1.965c-.138.129-.207.336-.207.543 0 .43.328.74.75.74a.785.785 0 0 0 .56-.24l5.73-5.713A.78.78 0 0 0 16 7.922Z"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="a">
+                                                            <path fill="#fff" d="M0 0h16v16H0z"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                        <a href="#" data-id="4" class="align-items-center d-flex justify-content-between list-group-item list-group-item-action">
+                                            <span class="client-name">Project Four</span>
+                                            <div class="client-action">Choose Project 
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="16" height="16" fill="none">
+                                                    <g clip-path="url(#a)">
+                                                        <path fill="#0A0A0A" d="M16 7.922a.78.78 0 0 0-.258-.578L10.029 1.65c-.19-.19-.37-.258-.577-.258-.422 0-.75.31-.75.74 0 .207.07.406.207.543l1.93 1.965 3.42 3.119.173-.43-2.774-.173H.758c-.448 0-.758.319-.758.767s.31.766.758.766h10.9l2.774-.172-.173-.422-3.42 3.11-1.93 1.965c-.138.129-.207.336-.207.543 0 .43.328.74.75.74a.785.785 0 0 0 .56-.24l5.73-5.713A.78.78 0 0 0 16 7.922Z"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="a">
+                                                            <path fill="#fff" d="M0 0h16v16H0z"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="clients-list">
+                                    <input type="text" style="padding: 14px 24px 14px 53px !important" class="clients_input rounded-pill t-btn-outile-light-gray-secondary w-100 form-control o_website_form_input" />
+                                    <!-- <select class="form-select select_client" name="client_id" size="3">
+                                            <t t-foreach="customers or []" t-as="customer">
+                                                <option t-att-value="customer.id">
+                                                    <t t-esc="customer.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+
+                                        <select name="project_id" id="project_id" data-placeholder="Select the project..." class="form-control o_website_form_input">
+                                            <option value="">Choose...</option>
+                                            <t t-foreach="projects or []" t-as="project">
+                                                <option t-att-value="project.id" t-att-data-partner_id="project.partner_id.id">
+                                                    <t t-esc="project.name" />
+                                                </option>
+                                            </t>
+                                        </select> -->
+                                    <div class="list-group list-group-flush select_client button-text mt-5">
+                                        <!-- <t t-foreach="customers or []" t-as="customer"> -->
+                                        <!-- <a t-attf-href="/my/financial/dashboard?filter_by_id={{customer.id}}_and_0" class="list-group-item">
+                                                    <t t-esc="customer.name" />
+                                                </a> -->
+
+                                        <!-- </t> -->
+                                        <a href="#" data-id="1" style="display:flex" class="align-items-center justify-content-between list-group-item list-group-item-action choose-projects">
+                                            <span class="client-name">Client One</span>
+                                            <div class="client-action">Choose Project 
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="16" height="16" fill="none">
+                                                    <g clip-path="url(#a)">
+                                                        <path fill="#0A0A0A" d="M16 7.922a.78.78 0 0 0-.258-.578L10.029 1.65c-.19-.19-.37-.258-.577-.258-.422 0-.75.31-.75.74 0 .207.07.406.207.543l1.93 1.965 3.42 3.119.173-.43-2.774-.173H.758c-.448 0-.758.319-.758.767s.31.766.758.766h10.9l2.774-.172-.173-.422-3.42 3.11-1.93 1.965c-.138.129-.207.336-.207.543 0 .43.328.74.75.74a.785.785 0 0 0 .56-.24l5.73-5.713A.78.78 0 0 0 16 7.922Z"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="a">
+                                                            <path fill="#fff" d="M0 0h16v16H0z"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                        <a href="#" data-id="2" style="display:flex" class="align-items-center justify-content-between list-group-item list-group-item-action choose-projects">
+                                            <span class="client-name">Client Tow</span>
+                                            <div class="client-action">Choose Project 
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="16" height="16" fill="none">
+                                                    <g clip-path="url(#a)">
+                                                        <path fill="#0A0A0A" d="M16 7.922a.78.78 0 0 0-.258-.578L10.029 1.65c-.19-.19-.37-.258-.577-.258-.422 0-.75.31-.75.74 0 .207.07.406.207.543l1.93 1.965 3.42 3.119.173-.43-2.774-.173H.758c-.448 0-.758.319-.758.767s.31.766.758.766h10.9l2.774-.172-.173-.422-3.42 3.11-1.93 1.965c-.138.129-.207.336-.207.543 0 .43.328.74.75.74a.785.785 0 0 0 .56-.24l5.73-5.713A.78.78 0 0 0 16 7.922Z"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="a">
+                                                            <path fill="#fff" d="M0 0h16v16H0z"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                        <a href="#" data-id="3" style="display:flex" class="align-items-center justify-content-between list-group-item list-group-item-action choose-projects">
+                                            <span class="client-name">Client Three</span>
+                                            <div class="client-action">Choose Project 
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="16" height="16" fill="none">
+                                                    <g clip-path="url(#a)">
+                                                        <path fill="#0A0A0A" d="M16 7.922a.78.78 0 0 0-.258-.578L10.029 1.65c-.19-.19-.37-.258-.577-.258-.422 0-.75.31-.75.74 0 .207.07.406.207.543l1.93 1.965 3.42 3.119.173-.43-2.774-.173H.758c-.448 0-.758.319-.758.767s.31.766.758.766h10.9l2.774-.172-.173-.422-3.42 3.11-1.93 1.965c-.138.129-.207.336-.207.543 0 .43.328.74.75.74a.785.785 0 0 0 .56-.24l5.73-5.713A.78.78 0 0 0 16 7.922Z"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="a">
+                                                            <path fill="#fff" d="M0 0h16v16H0z"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                        <a href="#" data-id="4" style="display:flex" class="align-items-center justify-content-between list-group-item list-group-item-action choose-projects">
+                                            <span class="client-name">Client Four</span>
+                                            <div class="client-action">Choose Project 
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="16" height="16" fill="none">
+                                                    <g clip-path="url(#a)">
+                                                        <path fill="#0A0A0A" d="M16 7.922a.78.78 0 0 0-.258-.578L10.029 1.65c-.19-.19-.37-.258-.577-.258-.422 0-.75.31-.75.74 0 .207.07.406.207.543l1.93 1.965 3.42 3.119.173-.43-2.774-.173H.758c-.448 0-.758.319-.758.767s.31.766.758.766h10.9l2.774-.172-.173-.422-3.42 3.11-1.93 1.965c-.138.129-.207.336-.207.543 0 .43.328.74.75.74a.785.785 0 0 0 .56-.24l5.73-5.713A.78.78 0 0 0 16 7.922Z"/>
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="a">
+                                                            <path fill="#fff" d="M0 0h16v16H0z"/>
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row dashboard_title">
+
+                        <div class="align-items-center col content-header d-flex flex-column flex-sm-row justify-content-between mb72">
+                            <h1 class="heading-1 m-0">Customer Centricity Analytics</h1>
+                            <div class="dropdown custom_dropdown">
+                                <button style="width:135px" class="btn btn-sm dropdown-toggle rounded-pill t-btn-outile-light-gray-secondary t-text-gray" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    Filter
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item button-text border-bottom" href="/customer/centricity">AllClients</a>
+                                    <a class="dropdown-item button-text" data-toggle="modal" data-target="#by_client_modal" href="#by_client_modal">By Client</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-4 mt-lg-0 mt-3">
+                            <div class="card card-wrapper h-100">
+                                <div class="card-header heading-4 d-flex align-items-center">
+                                    <img class="mr-2" src="/thiqah_portal/static/src/img/users.svg"/>
+                                        All Clients
+                                </div>
+                                <div class="card-body">
+                                    <div class="account-wrapper" style="--delay: .8s">
+                                        <!-- <div class="account-profile">
+                                            <img src="https://wwbridge-cert.com/system/images/W1siZiIsIjIwMjIvMDUvMTYvOHlrbWNjZG4xel9zYXNvX2xvZ29fZTE1ODYyNjEwODk1MTguanBnIl0sWyJwIiwidGh1bWIiLCI2MDB4NjAwIyJdXQ/saso-logo-e1586261089518.jpg?sha=e4e746adddeafa6c"/>
+                                            <div class="blob-wrap">
+                                                <div class="blob"></div>
+                                                <div class="blob"></div>
+                                                <div class="blob"></div>
+                                            </div>
+                                            <div class="account-name">Saudi Standards, Metrology</div>
+                                            <div class="account-name">And Quality Organization</div>
+                                        </div> -->
+                                        <span class="body2">The data below shows the data of all clients.</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Financials for Smart Product -->
+                        <div class="col-lg-4 mt-lg-0 mt-3">
+                            <div class="card card-wrapper h-100">
+                                <div class="card-header heading-4 d-flex align-items-center">
+                                        Financials for Smart Product
+                                </div>
+                                <div class="card-body body2">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="font-weight-bold"> Overall </span>
+                                        <span>SAR 320,000,000 </span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="font-weight-bold"> Thiqah 
+                                        </span>
+                                        <span>SAR 160,000,000 (50%)</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Financials for Business Services -->
+                        <div class="col-lg-4 mt-lg-0 mt-3">
+                            <div class="card card-wrapper h-100">
+                                <div class="card-header heading-4 d-flex align-items-center">
+                                        Financials for Business Services
+                                </div>
+                                <!-- <div class="info-box">
+                                    <svg width="126" height="96" viewBox="0 0 126 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M47.1375 50.071C18.479 50.071 16.343 3.07825 0.678741 3.07825V95.2837H123.679V15.0044C123.679 15.0044 118.161 8.24033 105.522 8.24033C79.89 8.24033 75.796 50.071 47.1375 50.071Z" fill="#F1F3FF" />
+                                        <path d="M0.678741 3.07825C16.343 3.07825 18.479 50.071 47.1375 50.071C75.796 50.071 79.89 8.24033 105.522 8.24033C118.161 8.24033 123.679 15.0044 123.679 15.0044" stroke="#3326AE" stroke-width="5" />
+                                    </svg>
+
+                                    <div class="info-content">
+                                        <span class="header_">Financials for Business Services</span>
+                                    </div>
+                                </div> -->
+                                <div class="card-body body2">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="font-weight-bold">Values</span>
+                                        <span>SAR 255,177,127</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="font-weight-bold"> PTD Margin</span>
+                                        <span >SAR 29,424,439 (11.5%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt32">
+                        <!-- Escalation Tickets (Executive CRM) -->
+                        <div class="col-lg-6">
+                            <div class="card card-wrapper">
+                                <div class="card-header heading-4 d-flex align-items-center">
+                                Escalation Tickets (Executive CRM)
+                                </div>
+                                <div class="card-body analysis-chart" style="height: 300px">
+                                    <canvas id="escalation"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End Users Operational indicators (Ivanti) -->
+                        <div class="col-lg-6 mt-lg-0 mt-4">
+                            <div class="card card-wrapper">
+                                <div class="card-header heading-4 d-flex align-items-center">
+                                End Users Operational indicators (Ivanti)
+                                </div>
+                                <div class="card-body analysis-chart" style="height: 300px">
+                                    <canvas id="end_users"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt32">
+
+                        <!-- KDM Satisfaction  -->
+                        <div class="col-lg-7">
+                            <div class="card card-wrapper">
+                                <div class="card-header heading-4 d-flex align-items-center">
+                                    KDM Satisfaction (Marketing Research)
+                                </div>
+
+                                <div class="row card-body">
+                                    <div class="col-xl-7">
+                                        <div class="card border-0 radius-16 t-shadow mb32">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="btn-circle t-custom-bg-cyan s-56">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                                            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m23 6-9.5 9.5-5-5L1 18M23 6h-6m6 0v6"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="flex-fill ml-3">
+                                                        <span class="caption t-text-gray text-uppercase">Highest Score:</span>
+                                                        <h3 class="heading-3 m-0 ">Transparency</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-5">
+                                        <div class="card border-0 radius-16 t-shadow mb32">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="btn-circle t-custom-bg-turquoise s-56">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                                            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="flex-fill ml-3">
+                                                        <span class="caption t-text-gray text-uppercase">Overall CSAT</span>
+                                                        <h3 class="heading-3 m-0">3,7/5</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-9">
+                                        <div class="card border-0 radius-16 t-shadow mb32">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="btn-circle t-custom-bg-purple s-56">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                                                            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m23 18-9.5-9.5-5 5L1 6"/>
+                                                            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 18h6v-6"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="flex-fill ml-3">
+                                                        <span class="caption t-text-gray text-uppercase">LOWest Score:</span>
+                                                        <h3 class="heading-3 m-0">Project Management</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3">
+                                        <div class="card border-0 radius-16 t-shadow mb32">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="btn-circle t-custom-bg-dark-blue s-56">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+
+                                                    </div>
+                                                    <div class="flex-fill ml-3">
+                                                        <span class="caption t-text-gray text-uppercase">NPS</span>
+                                                        <h3 class="heading-3 m-0 ">8</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-5 mt-lg-0 mt-4">
+                            <div class="card card-wrapper">
+                                <div class="card-header heading-4 d-flex align-items-center">
+                                Opportunities Business Cases (CRM)
+                                </div>
+                                <div class="card-body" style="height: 300px">
+                                    <canvas id="opportunities-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="end_user row mt32">
+                        <!-- End Users CSAT -->
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="card card-wrapper">
+                                <div class="align-items-center card-header d-flex heading-4 justify-content-between">
+                                    <span>End Users CSAT</span>
+                                    <div class="align-items-center badge-approved d-flex goal_span p-2">
+                                        <img class="" src="/thiqah_crm/static/src/img/arrow-up.svg" />
+                                        <span class="heading-7">4%</span>
+                                    </div>
+                                </div>
+                                <span class="heading-1 text-right" style="width:100%">
+                                    65%
+                                </span>
+                                <div class="chart-wrap">
+                                    <canvas id="csat-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="card card-wrapper">
+                                <div class="align-items-center card-header d-flex heading-4 justify-content-between">
+                                    <span>End Users NPS</span>
+                                    <div class="align-items-center badge-approved d-flex goal_span p-2">
+                                        <img class="" src="/thiqah_crm/static/src/img/arrow-up.svg" />
+                                        <span class="heading-7">4%</span>
+                                    </div>
+                                </div>
+                                <span class="heading-1 text-right">
+                                    87%
+                                </span>
+                                <div class="chart-wrap">
+                                    <canvas id="nps-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="card card-wrapper">
+                                <div class="align-items-center card-header d-flex heading-4 justify-content-between">
+                                    <span>End User CES</span>
+                                    <div class="align-items-center badge-approved d-flex goal_span p-2">
+                                        <img class="" src="/thiqah_crm/static/src/img/arrow-up.svg" />
+                                        <span class="heading-7">12%</span>
+                                    </div>
+                                </div>
+                                <span class="heading-1 text-right">
+                                    65%
+                                </span>
+                                <div class="chart-wrap">
+                                    <canvas id="ces-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="final_section row mt32">
+                        <!-- Business Services Project (PA) (ERP) -->
+                        <div class="col-lg-6">
+                            <div class="card card-wrapper">
+                                <div class="card-header heading-4">
+                                    Business Services Project (PA)
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="analysis-chart" style="height: 300px">
+                                        <canvas id="business-pa"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Marketing Activities (CRM) -->
+                        <div class="col-lg-6 mt-4 mt-lg-0 mt-4">
+                            <div class="card card-wrapper">
+                                <div class="card-header heading-4">
+                                    Marketing Activities (CRM)
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="analysis-chart" style="height: 300px">
+                                        <canvas id="marketing-crm"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Product Debt (azure) -->
+                        <div class="col-lg-6 mt-4">
+                            <div class="card card-wrapper">
+                                <div class="card-header heading-4">
+                                    Product Debt
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="analysis-chart" style="height: 300px">
+                                        <canvas id="product-debt"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Product Project Status (EPMO )-->
+                        <div class="col-lg-6 mt-4">
+                            <div class="card card-wrapper">
+                                <div class="card-header heading-4">
+                                    Product Project Status (EPMO)
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="analysis-chart" style="height: 300px">
+                                        <canvas id="empo"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+
+    </template>
+
+</odoo>

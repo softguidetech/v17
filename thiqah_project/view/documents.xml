@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="project_documents" name="Project Deliverables">
+        <div class="project_documents mb56">
+            <!-- Add Documents Modal -->
+            <div class="project-details-modal modal fade" id="addDocumentsModal" tabindex="-1" aria-labelledby="documentsModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header border-0">
+                            <h3 class="modal-title heading-3" id="documentsModalLabel">Add New
+                                Document</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <t t-call="thiqah_project.close_button" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <t t-call="thiqah_project.documents_modal_form" />
+                        </div>
+                        <div class="modal-footer border-0">
+                            <div t-att-class="active" id="info_state" class="alert alert-success text-center m-0" role="status">
+                                <div id="details_info"></div>
+                            </div>
+                            <div class="ml-auto">
+                                <button type="button" class="rounded-pill btn btn-lg t-btn-outile-gray button-text" data-dismiss="modal">
+                                    Cancel</button>
+                                <button type="button" id="add_project_document" class="ml-3 btn btn-lg btn-secondary rounded-pill add_data_button">
+                                    Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add_project_box">
+                <input type="hidden" name="documents_ids" value="0" />
+                <h5 class="heading-5 mb24">
+                    Documents
+                </h5>
+                <p class="body2 t-text-gray w-75">
+                    There are many variations of passages of Lorem Ipsum available, but the majority
+                    have suffered alteration in some form, by injected humour, or randomised words
+                    which don't look even slightly believable. If you are going to use a passage of
+                    Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
+                    middle of text.
+                </p>
+                <div class="card placeholder-card mt48">
+                    <div class="align-items-center card-body d-flex flex-column">
+                        <div class="btn-circle mb32 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none">
+                                <path fill="#117DBC" d="M7.678 26.833H20.39c2.479 0 3.712-1.257 3.712-3.747v-10.87c0-1.544-.18-2.215-1.138-3.196L16.37 2.304c-.91-.934-1.664-1.137-3.005-1.137H7.678c-2.466 0-3.711 1.268-3.711 3.759v18.16c0 2.502 1.233 3.747 3.71 3.747Zm.084-1.927c-1.233 0-1.868-.659-1.868-1.856V4.961c0-1.185.635-1.867 1.88-1.867H13.1v6.955c0 1.509.754 2.25 2.25 2.25h6.824V23.05c0 1.197-.634 1.856-1.88 1.856H7.763Zm7.805-14.414c-.479 0-.658-.191-.658-.67V3.465l6.895 7.027h-6.237Z" />
+                            </svg>
+                        </div>
+                        <h6 class="heading-6">No documents has been added yet</h6>
+                        <h3 class="body3 t-text-gray">Use the button below to add new position to
+                            this section</h3>
+                        <button class="btn rounded-pill t-btn-outile-gray button-text" type="button" data-toggle="modal" data-target="#addDocumentsModal"> Add <svg class="ml-2"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="12" fill="none">
+                            <path fill="#0A0A0A" d="M.666 6c0 .346.29.63.63.63H5.87v4.574c0 .34.283.63.63.63.346 0 .636-.29.636-.63V6.629h4.567c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H7.136V.796c0-.34-.29-.63-.637-.63-.346 0-.629.29-.629.63v4.567H1.295c-.34 0-.629.29-.629.637Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="project_details_table" id="documentsDiv">
+                <div class="t-shadow mt40 overflow-hidden" style="border-radius:16px">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="table_projects">
+                            <thead>
+                                <tr>
+                                    <th>Document Name</th>
+                                    <th>Document Type</th>
+                                    <th>Description</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table_documents_body">
+                                <!-- To be filled dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button type="button" data-toggle="modal" data-target="#addDocumentsModal" class="btn mt24 btn-secondary rounded-pill add_data_button">Add Next <svg class="ml-2"
+                    xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                    <path fill="#fff" d="M.166 6c0 .346.29.63.63.63H5.37v4.574c0 .34.283.63.63.63.346 0 .636-.29.636-.63V6.629h4.567c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H6.636V.796c0-.34-.29-.63-.637-.63-.346 0-.629.29-.629.63v4.567H.795c-.34 0-.629.29-.629.637Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+</template>
+<template id="documents_modal_form" name="Documents Modal Form">
+
+<!-- Document Type -->
+<div class="form-group">
+    <label class="" for="document_type_id">Document Type
+    </label>
+    <select name="document_type_id" id="document_type_id" data-style="t-btn-outile-light-gray-secondary" class="form-control selectpicker">
+        <option value="">Choose...</option>
+        <t t-foreach="document_types or []" t-as="document_type">
+            <option data-divider="true" class="m-0"></option>
+            <option t-att-value="document_type.id">
+                <t t-esc="document_type.name_en" />
+            </option>
+        </t>
+    </select>
+</div>
+<!-- Description -->
+<div class="form-group">
+    <label class="" for="document_description">Description
+    </label>
+    <textarea id="document_description" class="form-control" name="document_description" />
+</div>
+<!-- Upload Attachments -->
+<div class="form-group position-relative">
+    <label class="" for="document_name">Upload Attachments
+    </label>
+    <div class="custom-input-file">
+        <div class="btn-circle t-custom-bg-cyan" style="width:40px;height:40px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" fill="none">
+                <path fill="#fff" d="m18.366 11.991-4.618-4.338c-.35-.311-.754-.482-1.174-.482-.427 0-.808.148-1.166.466l-3.514 3.141L6.455 9.48c-.326-.295-.684-.443-1.05-.443-.35 0-.676.14-1.002.435L1.44 12.147c.047 1.407.622 2.122 1.78 2.122h13.032c1.407 0 2.114-.785 2.114-2.278Zm-11.74-4.26a1.837 1.837 0 0 0 1.827-1.835A1.842 1.842 0 0 0 6.626 4.06c-1.01 0-1.835.832-1.835 1.835 0 1.01.825 1.835 1.835 1.835Zm-3.35 7.083h13.45c1.633 0 2.441-.801 2.441-2.403v-9.5C19.167 1.308 18.36.5 16.726.5H3.276C1.65.5.833 1.309.833 2.91v9.501c0 1.602.816 2.403 2.441 2.403Zm.015-1.252c-.778 0-1.205-.412-1.205-1.22V2.98c0-.808.427-1.228 1.205-1.228h13.42c.77 0 1.205.42 1.205 1.228v9.361c0 .809-.436 1.22-1.206 1.22H3.29Z" />
+            </svg>
+        </div>
+        <p class="body2 m-0 ml-3"> Drag Drop or <span class="t-text-cyan">Choose File</span> To Upload </p>
+        <input type="file" name="document_name" class="form-control o_portal_file_input" multiple="true" accept="image/*,application/pdf,video/*,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" />
+    </div>
+    <!-- <input type="file" class="form-control" name="document_name" /> -->
+</div>
+
+
+</template>
+
+</odoo>

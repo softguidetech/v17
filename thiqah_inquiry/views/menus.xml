@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="inquiry_menu_root" name="Inquiries" sequence="50" web_icon="thiqah_inquiry,static/src/img/inquiry_icon.png"/>
+   
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="inquiry_request_menu_act" name="Inquiry Requests" parent="inquiry_menu_root" action="inquiry_request_action" sequence="1"/>
+    
+    <!-- Settings Menu -->
+    <menuitem id="settings_menu" name="Settings" parent="inquiry_menu_root" sequence="99"/>
+    
+    <!-- SLA Config -->
+    <menuitem id="sla_config_menu" name="Inquiry SLA" parent="settings_menu" action="inquiry_request_sla_action" groups="base.group_system" sequence="99"/>
+
+</odoo>

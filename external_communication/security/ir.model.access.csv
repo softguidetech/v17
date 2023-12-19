@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_external_agent_acquirer,external_agent_acquirer.external_agent_acquirer,model_external_agent_acquirer,base.group_user,1,1,1,1
+access_external_agent_endpoint,external_agent_endpoint.external_agent_endpoint,model_external_agent_endpoint,base.group_user,1,1,1,1
+
+access_external_query_params,external_query_params.external_query_params,model_external_query_params,base.group_user,1,1,1,1
+

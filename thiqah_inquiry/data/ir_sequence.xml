@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inquiry_sequence" model="ir.sequence">
+        <field name="name">Inquiry Request</field>
+        <field name="code">inquiry.request</field>
+        <field name="prefix">IR-</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</odoo>

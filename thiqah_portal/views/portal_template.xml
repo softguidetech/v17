@@ -1,0 +1,1260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="service_request_wizard_checkout" name="Wizard Checkout">
+        <div class="col-xl">
+            <div t-if="has_states and active_state == 'Rejected'" class="service-request-wizard">
+                <div class="rejected_ text-center">
+                    <span t-if="active_state=='Rejected'" style="color:white;font-weight:900;">
+                        <t t-esc="active_state" />
+                            by <t t-if="service_request.last_step_created_by.id != env.user.id" t-esc="service_request.last_step_created_by.name" />
+                    <t t-if="service_request.last_step_created_by.id == env.user.id">You</t>
+                </span>
+            </div>
+        </div>
+        <div t-if="has_states and active_state == 'Approved'" class="service-request-wizard">
+            <div class="approved_ text-center">
+                <span t-if="active_state=='Approved'" style="color:white;font-weight:900;">
+                    <t t-esc="active_state" />
+by <t t-if="service_request.last_step_created_by.id != env.user.id" t-esc="service_request.last_step_created_by.name" />
+                <t t-if="service_request.last_step_created_by.id == env.user.id">You</t>
+            </span>
+        </div>
+    </div>
+    <div t-if="has_states and len(states) == 1 and active_state not in ('Rejected','Approved')" class="service-request-wizard">
+        <div class="_need_approved_ text-center">
+            <span style="color:white;font-weight:900;">
+                        Need HR APPROVAL
+            </span>
+        </div>
+    </div>
+    <div t-if="has_states and active_state not in ('Rejected','Approved') and len(states) != 1 " class="service-request-wizard">
+        <!-- <div t-if="has_states and active_state != 'Rejected'" class="service-request-wizard"> -->
+        <div class="service-request-progress-wizard">
+            <ul class="status-line">
+                <t t-foreach="states" t-as="state">
+                    <li t-attf-class="te_highlighted_menu #{'active ' if state == active_state else ''}">
+                        <span class="te_highlighted_menu_span" t-esc="state" />
+                    </li>
+                </t>
+            </ul>
+        </div>
+    </div>
+</div>
+</template>
+
+<template id="service_request_actions" name="Service Request Actions">
+<div class="service_request_action_selector" t-if="has_states">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <div t-att-class="active" id="info_status" class="alert alert-success text-center" role="status">
+                    <div id="change_status_info">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col d-flex align-items-center justify-content-between mb72 service-request-actions">
+                <h1 class="heading-1 m-0">
+                        Request 
+                    <span t-field="service_request.sequence" />
+                            (#                    
+                    <span t-field="service_request.id" />
+                                )
+                </h1>
+                <div t-if="mode == 'change_status' and active_state not in ('Rejected','Approved')" class="d-flex justify-content-end align-items-center" t-att-request_id="service_request.id" t-att-user_id="service_request.user_id.id">
+                    <t t-foreach="actions" t-as="action">
+                        <t t-if="action[2] == active_state_technical and request.env.user.id in action[3]">
+                            <!-- Modals -->
+                            <div class="modal fade" id="approveModalId" tabindex="-1" role="dialog" aria-labelledby="approveModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title heading-5" id="approveModalLabel">Approve
+                                                                Justification</h5>
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                                                    <path fill="#798793" d="M.33 19.67c.442.43 1.173.43 1.602 0l8.07-8.07 8.07 8.07c.43.43 1.173.442 1.602 0a1.142 1.142 0 0 0 0-1.588l-8.07-8.083 8.07-8.07c.429-.43.442-1.161 0-1.59a1.134 1.134 0 0 0-1.601 0l-8.07 8.07L1.931.34C1.503-.102.759-.115.33.34a1.142 1.142 0 0 0 0 1.59l8.07 8.07-8.07 8.083c-.429.428-.441 1.16 0 1.588Z"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Description -->
+                                            <div class="row mb-3">
+                                                <div class="col-12">
+                                                    <label class="heading-7 s_website_form_label" for="approve_description">
+                                                        <span class="s_website_form_label_content">
+                                                                            Description</span>
+                                                    </label>
+                                                    <textarea id="approve_description" class="form-control s_website_form_input" name="approve_description" />
+                                                </div>
+                                            </div>
+                                            <!-- Binary Field-->
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <label class="s_website_form_label heading-7" for="attachments">
+                                                        <span class="s_website_form_label_content">
+                                                                            Attachment(s)</span>
+                                                    </label>
+                                                    <div class="custom-input-file">
+                                                        <div class="btn-circle t-custom-bg-cyan" style="width:40px;height:40px">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" fill="none">
+                                                                <path fill="#fff" d="m18.366 11.991-4.618-4.338c-.35-.311-.754-.482-1.174-.482-.427 0-.808.148-1.166.466l-3.514 3.141L6.455 9.48c-.326-.295-.684-.443-1.05-.443-.35 0-.676.14-1.002.435L1.44 12.147c.047 1.407.622 2.122 1.78 2.122h13.032c1.407 0 2.114-.785 2.114-2.278Zm-11.74-4.26a1.837 1.837 0 0 0 1.827-1.835A1.842 1.842 0 0 0 6.626 4.06c-1.01 0-1.835.832-1.835 1.835 0 1.01.825 1.835 1.835 1.835Zm-3.35 7.083h13.45c1.633 0 2.441-.801 2.441-2.403v-9.5C19.167 1.308 18.36.5 16.726.5H3.276C1.65.5.833 1.309.833 2.91v9.501c0 1.602.816 2.403 2.441 2.403Zm.015-1.252c-.778 0-1.205-.412-1.205-1.22V2.98c0-.808.427-1.228 1.205-1.228h13.42c.77 0 1.205.42 1.205 1.228v9.361c0 .809-.436 1.22-1.206 1.22H3.29Z"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <p class="body2 m-0 ml-3"> Drag Drop
+                                                                            or <span class="t-text-cyan">Choose
+                                                                            File</span> To Upload </p>
+                                                        <input id="approve_attachments" type="file" name="approve_attachments" class="form-control s_website_form_input" multiple="true" accept="image/*,application/pdf,video/*,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer" t-att-user_id="service_request.user_id.id" t-att-request_id="service_request.id">
+                                            <button type="button" class="btn btn-lg rounded-pill t-btn-outile-black" data-dismiss="modal">Close</button>
+                                            <button type="button" t-att-id="action[1]" class="btn btn-lg btn-secondary change_status_modal rounded-pill">
+                                                                Confirm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="rejectModal" tabindex="-1" role="dialog" aria-labelledby="rejecteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title heading-5" id="rejecteModalLabel">Reject
+                                                            Justification</h5>
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                                                    <path fill="#798793" d="M.33 19.67c.442.43 1.173.43 1.602 0l8.07-8.07 8.07 8.07c.43.43 1.173.442 1.602 0a1.142 1.142 0 0 0 0-1.588l-8.07-8.083 8.07-8.07c.429-.43.442-1.161 0-1.59a1.134 1.134 0 0 0-1.601 0l-8.07 8.07L1.931.34C1.503-.102.759-.115.33.34a1.142 1.142 0 0 0 0 1.59l8.07 8.07-8.07 8.083c-.429.428-.441 1.16 0 1.588Z"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row mb-3">
+                                                <div class="col-12">
+                                                    <label class="heading-7 s_website_form_label" for="reject_description">
+                                                        <span class="s_website_form_label_content">
+                                                                        Description</span>
+                                                    </label>
+                                                    <textarea id="reject_description" class="form-control s_website_form_input" name="reject_description" />
+                                                </div>
+                                            </div>
+
+                                            <!-- Binary Field-->
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <label class="s_website_form_label heading-7" for="reject_attachments">
+                                                        <span class="s_website_form_label_content">
+                                                                        Attachment(s)</span>
+                                                    </label>
+                                                    <div class="custom-input-file">
+                                                        <div class="btn-circle t-custom-bg-cyan" style="width:40px;height:40px">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" fill="none">
+                                                                <path fill="#fff" d="m18.366 11.991-4.618-4.338c-.35-.311-.754-.482-1.174-.482-.427 0-.808.148-1.166.466l-3.514 3.141L6.455 9.48c-.326-.295-.684-.443-1.05-.443-.35 0-.676.14-1.002.435L1.44 12.147c.047 1.407.622 2.122 1.78 2.122h13.032c1.407 0 2.114-.785 2.114-2.278Zm-11.74-4.26a1.837 1.837 0 0 0 1.827-1.835A1.842 1.842 0 0 0 6.626 4.06c-1.01 0-1.835.832-1.835 1.835 0 1.01.825 1.835 1.835 1.835Zm-3.35 7.083h13.45c1.633 0 2.441-.801 2.441-2.403v-9.5C19.167 1.308 18.36.5 16.726.5H3.276C1.65.5.833 1.309.833 2.91v9.501c0 1.602.816 2.403 2.441 2.403Zm.015-1.252c-.778 0-1.205-.412-1.205-1.22V2.98c0-.808.427-1.228 1.205-1.228h13.42c.77 0 1.205.42 1.205 1.228v9.361c0 .809-.436 1.22-1.206 1.22H3.29Z"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <p class="body2 m-0 ml-3"> Drag Drop or <span class="t-text-cyan">Choose
+                                                                            File</span> To Upload </p>
+                                                        <input id="reject_attachments" type="file" name="reject_attachments" class="form-control s_website_form_input" multiple="true" accept="image/*,application/pdf,video/*,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer" t-att-user_id="service_request.user_id.id" t-att-request_id="service_request.id">
+                                            <button type="button" class="btn btn-lg rounded-pill t-btn-outile-black" data-dismiss="modal">Close</button>
+                                            <button type="button" t-att-id="action[1]" class="btn btn-lg btn-secondary rounded-pill display_always_modal">
+                                                Confirm
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a t-attf-href="#" t-if="not active_state in ('Rejected','Approved')" class="t-btn-outile-dark-gray btn rounded-pill display_always_" groups="thiqah_base.group_reject_service_request" data-toggle="modal" data-target="#rejectModal">
+                                Reject
+                            </a>
+                            <t t-if="not action[4]">
+                                <button type="button" t-attf-class="ml-3 btn rounded-pill t-custom-bg-dark-blue text-white button_change_status change_status" t-att-active_state="active_state_technical" t-att-id="action[1]">
+                                    <t t-esc="action[0]" />
+                                </button>
+                            </t>
+
+                            <t t-else="">
+                                <button type="button" t-attf-class="ml-3 btn rounded-pill t-custom-bg-dark-blue text-white button_change_status justification_change_status" t-att-active_state="active_state_technical" t-att-id="action[1]" data-toggle="modal" data-target="#approveModalId">
+                                    <t t-esc="action[0]" />
+                                </button>
+                            </t>
+                        </t>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+
+<template id="request_actions" name="Show Request Actions">
+<div class="request_action_buttons">
+    <button class="btn btn-primary btn-circle btn-circle-sm m-1 read_request">
+        <i class="fa fa-eye"></i>
+    </button>
+
+    <button class="btn btn-success btn-circle btn-circle-sm m-1 update_request">
+        <i class="fa fa-edit"></i>
+    </button>
+
+    <button class="btn btn-danger btn-circle btn-circle-sm m-1 delete_request">
+        <i class="fa fa-trash-o"></i>
+    </button>
+</div>
+</template>
+
+<template id="web.login" name="Thiqah Login">
+<t t-set="no_header" t-value="True" />
+<t t-set="no_footer" t-value="True" />
+<t t-call="web.login_layout">
+    <style>
+                .oe_website_login_container{
+                height:100%;
+                }
+    </style>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="bg-white col-lg-4 d-flex justify-content-center align-items-center">
+                <div class="align-items-center auth-page bg-white d-flex flex-column justify-content-center py-5" style="width: 400px">
+                    <div class="login_logo mb32 d-flex justify-content-center">
+                        <a href="/" class="logo logo-admin">
+                            <img src="/thiqah_portal/static/src/img/logo_2.svg" height="150" alt="logo" class="" />
+                        </a>
+                    </div>
+                    <div>
+                        <h2 class="text-center m-0" style="font-weight: 700;font-size: 80px;color: #424146;">
+                            Welcome Back
+                        </h2>
+                        <p class="text-muted mb64 mt24 text-center body2">Experience the featured customer experience platform.</p>
+                        <form class="text-left" role="form" t-attf-action="/web/login" method="post" onsubmit="this.action = '/web/login' + location.hash">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+
+                            <div class="form-group field-db" t-if="databases and len(databases) &gt; 1">
+                                <label for="db" class="col-form-label">Database</label>
+                                <div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">
+                                    <input type="text" name="db" t-att-value="request.db" id="db" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" readonly="readonly" />
+                                    <span class="input-group-append">
+                                        <a role="button" href="/web/database/selector" class="btn btn-secondary">Select <i class="fa fa-database" role="img" aria-label="Database" title="Database"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group field-login">
+                                <label for="login" class="heading-7 font-weight-normal">Email
+                                            Address</label>
+                                <input type="text" placeholder="Email" name="login" t-att-value="login" id="login" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autofocus="autofocus" autocapitalize="off" />
+                            </div>
+
+                            <div class="form-group field-password">
+                                <label for="password" class="heading-7 font-weight-normal">
+                                            Password</label>
+                                <input type="password" placeholder="Password" name="password" id="password" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" autocomplete="current-password" t-att-autofocus="'autofocus' if login else None" maxlength="4096" />
+                            </div>
+
+                            <p class="alert alert-danger" t-if="error" role="alert">
+                                <t t-esc="error" />
+                            </p>
+                            <p class="alert alert-success" t-if="message" role="status">
+                                <t t-esc="message" />
+                            </p>
+
+                            <div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">
+                                <button type="submit" class="btn rounded-pill btn-lg btn-secondary btn-block">Log
+                                            In</button>
+                                <t t-if="debug">
+                                    <button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm btn-block">Log in as
+                                                superuser</button>
+                                </t>
+                                <div class="o_login_auth">
+                                    <!-- <t t-call="thiqah_portal.providers_inherit" /> -->
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="redirect" t-att-value="redirect" />
+                        </form>
+                    </div>
+                    <t t-set="language_selector_visible" t-value="len(languages) &gt; 1"/>
+                    <div t-if="language_selector_visible" class="d-flex align-items-center d-flex justify-content-center w-50 pb24 pt24">
+                        <t t-set="active_lang" t-value="list(filter(lambda lg : lg[0] == lang, languages))[0]"/>
+                        <t t-if="active_lang[0] == 'en_US'">
+                            <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code='ar_001')" role="menuitem" data-url_code="ar" class="btn js_change_lang nav-link log-lang-link">
+                                <span>العربية</span>
+                            </a>
+                        </t>
+                        <t t-else="active_lang[0] == 'ar_001'">
+                            <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code='en_US')" role="menuitem" data-url_code="en" class="btn js_change_lang nav-link log-lang-link">
+                                <span>English</span>
+                            </a>
+                        </t>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7 d-none d-lg-flex justify-content-center t-custom-bg-dark-blue" style="background:url('/thiqah_portal/static/src/img/thiqah-shadow.png') no-repeat 100% 100%;">
+                <div class="accountbg d-flex align-items-center w-100 position-relative" style="background: url('/thiqah_portal/static/src/img/login-bg-v2.png') no-repeat 100% 50%; margin-right: -27px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</t>
+
+
+</template>
+<template id="providers_inherit" inherit_id="auth_oauth.providers" name="Thiqah OAuth Providers">
+<xpath expr="//t[@t-if='len(providers) &gt; 0']" position="replace">
+    <t t-if="len(providers) &gt; 0">
+        <span t-attf-class="body2">
+                    or</span>
+        <div class="o_auth_oauth_providers mt-1 mb-1 text-center">
+            <a t-foreach="providers" t-as="p" t-att-class="p['css_class']" t-att-href="p['auth_link']">
+                <img t-if="p['name'] == 'Microsoft OAuth2'" src="/thiqah_portal/static/src/img/microsoft.svg" class="mr-3" />
+                <t t-esc="p['body']" />
+            </a>
+        </div>
+    </t>
+</xpath>
+</template>
+<template id="auth_signup.reset_password" name="Reset password">
+<t t-set="no_header" t-value="True" />
+<t t-set="no_footer" t-value="True" />
+<t t-call="web.login_layout">
+    <style>
+            .oe_website_login_container{
+            height:100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            }
+            .oe_reset_password_form{
+                width:400px;
+                max-width: 355px !important;
+            } 
+            .oe_reset_password_form .btn{
+                width:400px;
+                max-width: 355px !important;
+            }  
+            .oe_reset_password_form .form-group label{
+                font-size: 20px;
+    line-height: 1 !important;
+            }  
+
+    </style>
+    <div t-if="message" class="oe_login_form clearfix">
+        <p class="alert alert-success" t-if="message" role="status">
+            <t t-esc="message"/>
+        </p>
+        <a href="/web/login" class="btn btn-link btn-sm float-right" role="button">Back to Login</a>
+    </div>
+    <img src="/thiqah_portal/static/src/img/logo_2.svg" height="120" alt="logo" class="mb48" />
+    <form class="oe_reset_password_form m-0" role="form" method="post" t-if="not message">
+        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+        <t t-if="token and not invalid_token">
+            <t t-call="auth_signup.fields">
+                <t t-set="only_passwords" t-value="1"/>
+            </t>
+        </t>
+
+        <t t-if="not token">
+            <div class="form-group field-login">
+                <label for="login" class="col-form-label">Your Email</label>
+                <input type="text" name="login" t-att-value="login" id="login" class="form-control" autofocus="autofocus" required="required" autocapitalize="off"/>
+            </div>
+        </t>
+
+        <p class="alert alert-danger" t-if="error" role="alert">
+            <t t-esc="error"/>
+        </p>
+        <input type="hidden" name="redirect" t-att-value="redirect"/>
+        <input type="hidden" name="token" t-att-value="token"/>
+        <div class="d-none alert alert-danger text-danger password-check font-weight-bold">
+            Password must contain:
+            <ul class="list-group">
+                <li class="list-group-item border-0 text-danger bg-transparent p-0 pb-1">8-25 characters</li>
+                <li class="list-group-item border-0 text-danger bg-transparent p-0 pb-1">Small and Capital letters</li>
+                <li class="list-group-item border-0 text-danger bg-transparent p-0 pb-1">One special character at least</li>
+                <li class="list-group-item border-0 text-danger bg-transparent p-0 pb-1">One letter a least</li>
+                <li class="list-group-item border-0 text-danger bg-transparent p-0 pb-1">One number at least</li>
+            </ul>
+        </div>
+        <div class="clearfix oe_login_buttons">
+            <button type="submit" class="btn rounded-pill btn-lg btn-secondary btn-block" style="display:block">Confirm</button>
+            <div class="d-flex justify-content-between align-items-center small mt-2">
+                <a t-if="not token" t-attf-href="/web/login?{{ keep_query() }}">Back to Login</a>
+                <a t-if="invalid_token" href="/web/login">Back to Login</a>
+            </div>
+            <div class="o_login_auth"/>
+        </div>
+
+    </form>
+
+</t>
+</template>
+
+<template id="portal_my_requests" name="My Service Requests">
+<t t-call="thiqah_portal.portal_dashboard_layout">
+    <div class="success-modal modal fade" id="requestAddSuccessModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-5">
+                <div class="modal-header border-0">
+                    <h3 class="modal-title heading-3">New Service Requests</h3>
+
+                </div>
+                <div class="modal-body text-center">
+                    <img src="/thiqah_portal/static/src/img/icon-check.svg" />
+                    <h3 class="heading-3">Thank You!</h3>
+                    <span class="body2 t-text-gray mt24">Your service request has been added succesfully.</span>
+                </div>
+                <div class="modal-footer border-0">
+                    <div class="mx-auto">
+                        <a href="/my/requests" type="button" class="btn btn-lg btn-secondary rounded-pill">
+                                    Go back to all requests </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <t t-call="thiqah_portal.service_request_template" />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col d-flex align-items-center justify-content-between mb72">
+                <h1 class="heading-1 m-0" style="line-height: 100%;">Service Requests</h1>
+                <button t-if="request.env.user.check_service_access('service_request', 'create')" class="btn btn-lg btn-secondary rounded-pill with-icon" data-toggle="modal" data-target="#createServiceRequest"> Add <svg class="ml-2"
+                    xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                    <path fill="#fff" d="M.167 6c0 .346.29.63.629.63H5.37v4.574c0 .34.282.63.629.63.346 0 .636-.29.636-.63V6.629h4.568c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H6.636V.796c0-.34-.29-.63-.636-.63-.347 0-.63.29-.63.63v4.567H.797c-.34 0-.63.29-.63.637Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <t t-set="breadcrumbs_searchbar" t-value="False" />
+    <t t-set="record_pager" t-value="True" />
+
+    <t t-call="thiqah_portal.thiqah_portal_searchbar">
+        <t t-set="download_excel" t-value="True" />
+        <t t-set="searchbar_groupby" t-value="False" />
+    </t>
+
+    <div t-att-class="active" id="info_state" class="alert alert-success text-center" role="status">
+        <div id="details_info"></div>
+    </div>
+
+    <div t-if="not grouped_requests" class="alert alert-info">
+                    There are currently no Requests for your account.
+    </div>
+
+    <t t-else="">
+        <div class="t-shadow mt40 overflow-hidden" style="border-radius:16px">
+            <t t-call="portal.portal_table">
+                <t t-set="classes" t-value="'border-0 rounded-0'" />
+                <t t-foreach="grouped_requests" t-as="s_requests">
+                    <thead>
+                        <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                            <th style="padding-left: 40px !important;">Project</th>
+                            <th class="text-left">Request ID</th>
+                            <t t-if="not env.user.has_group('base.group_portal')">
+                                <th t-if="groupby != 'state'">
+                                                Requester</th>
+
+                                <th t-if="groupby != 'state'">
+                                                SLA</th>
+
+                                <th t-if="groupby != 'state'">SLA
+                                                Indicator</th>
+                            </t>
+
+                            <th t-if="groupby != 'state'">
+                                            Department</th>
+
+                            <th t-if="groupby != 'state'">Service
+                                            Catalog</th>
+
+                            <th t-if="groupby != 'state'">Status</th>
+
+                            <th t-else="groupby == 'state'">
+                                <em class="font-weight-normal text-muted">Requests
+                                                in
+                                                Status:</em>
+                                <span t-field="s_requests[0].state" />
+                            </th>
+
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <t t-foreach="s_requests" t-as="rsqt">
+
+                        <tr t-att-request_id="rsqt.id" t-att-state="rsqt.state if rsqt.state else ''" t-att-user_id="rsqt.user_id.id">
+                            <td style="padding-left: 40px !important;">
+                                <a>
+                                    <span t-field="rsqt.project_id" />
+                                </a>
+                            </td>
+                            <td class="text-left">
+                                <a class="body2">
+                                    <small>#</small>
+                                    <t t-esc="rsqt.sequence" />
+                                </a>
+                            </td>
+
+                            <t t-if="not env.user.has_group('base.group_portal')">
+                                <td t-if="groupby != 'state'">
+                                    <span class="" t-field="rsqt.user_id.name" />
+                                </td>
+
+                                <td t-if="groupby != 'state'">
+                                    <span class="" t-field="rsqt.sla" />
+                                </td>
+
+                                <td t-if="groupby != 'state'">
+                                    <span class="" t-field="rsqt.sla_indicator" />
+                                </td>
+                            </t>
+
+                            <td t-if="groupby != 'state'">
+                                <span class="" t-field="rsqt.department_id.name" />
+                            </td>
+
+                            <td t-if="groupby != 'state'">
+                                <span class="" t-field="rsqt.catalog_id.name_en" />
+                            </td>
+                            <td t-if="request.env.user.partner_id.is_customer" class="td-status">
+                                <t t-if="rsqt.state">
+                                    <span t-attf-class="badge badge-pill #{rsqt.request_status in ['submitted','pending','rejected'] and 'badge-submitted' or 'badge-approved'}" t-field="rsqt.request_status" />
+                                    <!-- <span class="badge badge-pill badge-info" t-field="rsqt.state"/> -->
+                                </t>
+                            </td>
+                            <td t-else="" class="td-status">
+                                <t t-if="rsqt.state">
+                                    <span t-attf-class="badge badge-pill badge-info" t-field="rsqt.state" />
+                                    <!-- <span class="badge badge-pill badge-info" t-field="rsqt.state"/> -->
+                                </t>
+                            </td>
+
+                            <td>
+                                <!-- <t t-call="thiqah_portal.request_actions"/> -->
+                                <div class="request_action_buttons d-flex align-items-center">
+                                    <!-- Commented for now until we discuss business-->
+                                    <!-- <button t-if="not rsqt.request_status == 'submitted'" groups="thiqah_base.group_update_service_request" style="height:32px;width:32px" class="btn btn-secondary rounded-pill btn-icon align-items-center justify-content-center update_request">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                                <path fill="#fff" d="M2.455 15.443h9.178c1.408 0 2.22-.813 2.22-2.424V4.661l-1.258 1.26v7.035c0 .814-.438 1.228-.977 1.228h-9.14c-.781 0-1.22-.414-1.22-1.228V4.083c0-.813.439-1.235 1.22-1.235h7.123l1.258-1.259H2.455C.829 1.589 0 2.402 0 4.013v9.006c0 1.618.829 2.424 2.455 2.424ZM5.3 10.377l1.524-.665 7.302-7.294-1.07-1.056-7.295 7.294-.704 1.47c-.062.133.094.313.243.25Zm9.405-8.53.563-.579c.265-.281.265-.656 0-.914l-.18-.188c-.242-.242-.626-.211-.884.04l-.57.562 1.07 1.079Z" />
+                                            </svg>
+                                        </button> -->
+                                    <button t-if="env.user.has_external_group('thiqah_base.group_change_status_service_request') or env.user.has_group('thiqah_base.group_change_status_service_request') or env.user.id == rsqt.create_uid.id" class="btn btn-secondary rounded-pill btn-action align-items-center justify-content-center _change_status">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                            <path fill="#fff" d="M.67 3.609a.608.608 0 0 0 0 .907L4.157 7.93a.67.67 0 0 0 .447.196c.359 0 .603-.25.603-.602 0-.17-.061-.305-.176-.42L3.575 5.694l-1.26-1.09 1.564.068h9.047c.352 0 .602-.25.602-.61a.58.58 0 0 0-.602-.602H3.879l-1.564.061 1.26-1.083L5.03 1.022a.557.557 0 0 0 .176-.42c0-.351-.244-.595-.603-.595a.662.662 0 0 0-.447.19L.67 3.608Zm12.662 8.789a.62.62 0 0 0 0-.914L9.845 8.07a.698.698 0 0 0-.454-.19c-.359 0-.596.244-.596.596 0 .176.054.312.17.42l1.462 1.415 1.26 1.09-1.565-.067H1.076c-.352 0-.61.25-.61.602 0 .36.258.61.61.61h9.046l1.565-.068-1.26 1.09-1.462 1.409a.566.566 0 0 0-.17.426c0 .352.237.596.596.596a.698.698 0 0 0 .454-.19l3.487-3.412Z" />
+                                        </svg>
+                                    </button>
+                                    <button t-else="" class="btn btn-secondary rounded-pill btn-action align-items-center justify-content-center" disabled="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                            <path fill="#fff" d="M.67 3.609a.608.608 0 0 0 0 .907L4.157 7.93a.67.67 0 0 0 .447.196c.359 0 .603-.25.603-.602 0-.17-.061-.305-.176-.42L3.575 5.694l-1.26-1.09 1.564.068h9.047c.352 0 .602-.25.602-.61a.58.58 0 0 0-.602-.602H3.879l-1.564.061 1.26-1.083L5.03 1.022a.557.557 0 0 0 .176-.42c0-.351-.244-.595-.603-.595a.662.662 0 0 0-.447.19L.67 3.608Zm12.662 8.789a.62.62 0 0 0 0-.914L9.845 8.07a.698.698 0 0 0-.454-.19c-.359 0-.596.244-.596.596 0 .176.054.312.17.42l1.462 1.415 1.26 1.09-1.565-.067H1.076c-.352 0-.61.25-.61.602 0 .36.258.61.61.61h9.046l1.565-.068-1.26 1.09-1.462 1.409a.566.566 0 0 0-.17.426c0 .352.237.596.596.596a.698.698 0 0 0 .454-.19l3.487-3.412Z" />
+                                        </svg>
+                                    </button>
+                                    <!-- <div class="dropdown ml-3">
+                                        <button class="dropdown-toggle t-actions o-no-caret btn p-1" type="button" data-toggle="dropdown" aria-expanded="false">
+                                            <svg width="4" height="16" viewBox="0 0 4 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="2" cy="2" r="2" fill="#0A0A0A" />
+                                                <circle cx="2" cy="8" r="2" fill="#0A0A0A" />
+                                                <circle cx="2" cy="14" r="2" fill="#0A0A0A" />
+                                            </svg>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <button t-if="env.user.has_external_group('thiqah_base.group_change_status_service_request') or env.user.has_group('thiqah_base.group_change_status_service_request') or env.user.id == rsqt.create_uid.id" class="dropdown-item border-bottom button-text justify-content-between d-flex align-items-center _change_status">
+                                                            Switch<svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" fill="none">
+                                                <path fill="#0A0A0A" d="M.67 3.609a.608.608 0 0 0 0 .907L4.157 7.93a.67.67 0 0 0 .447.196c.359 0 .603-.25.603-.602 0-.17-.061-.305-.176-.42L3.575 5.694l-1.26-1.09 1.564.068h9.047c.352 0 .602-.25.602-.61a.58.58 0 0 0-.602-.602H3.879l-1.564.061 1.26-1.083L5.03 1.022a.557.557 0 0 0 .176-.42c0-.351-.244-.595-.603-.595a.662.662 0 0 0-.447.19L.67 3.608Zm12.662 8.789a.62.62 0 0 0 0-.914L9.845 8.07a.698.698 0 0 0-.454-.19c-.359 0-.596.244-.596.596 0 .176.054.312.17.42l1.462 1.415 1.26 1.09-1.565-.067H1.076c-.352 0-.61.25-.61.602 0 .36.258.61.61.61h9.046l1.565-.068-1.26 1.09-1.462 1.409a.566.566 0 0 0-.17.426c0 .352.237.596.596.596a.698.698 0 0 0 .454-.19l3.487-3.412Z" />
+                                            </svg>
+                                        </button>
+                                        <button t-if="not rsqt.request_status == 'submitted'" groups="thiqah_base.group_update_service_request" class="dropdown-item border-bottom button-text justify-content-between d-flex align-items-center update_request" type="button">Review <svg xmlns="http://www.w3.org/2000/svg" width="16" height="11" fill="none">
+                                            <path fill="#0A0A0A" d="M8.003 10.053c4.73 0 7.997-3.823 7.997-5.018 0-1.2-3.273-5.017-7.997-5.017C3.337.018 0 3.835 0 5.035c0 1.195 3.331 5.018 8.003 5.018Zm0-.925c-3.858 0-6.978-3.267-6.978-4.093 0-.696 3.12-4.092 6.978-4.092 3.84 0 6.973 3.396 6.973 4.092 0 .826-3.133 4.093-6.973 4.093Zm0-.814a3.293 3.293 0 0 0 3.284-3.279 3.263 3.263 0 0 0-3.284-3.278c-1.832 0-3.302 1.446-3.296 3.278a3.303 3.303 0 0 0 3.296 3.279Zm0-2.19c-.609 0-1.1-.491-1.1-1.089 0-.603.491-1.089 1.1-1.089.603 0 1.095.486 1.095 1.09 0 .597-.492 1.088-1.095 1.088Z" />
+                                        </svg>
+                                        </button>
+                                        <button t-if="not rsqt.request_status == 'submitted'" groups="project.group_project_manager" class="dropdown-item  button-text justify-content-between d-flex align-items-center open_modal" data-target="#delete_confirm_modal" data-toggle="modal" type="button">Delete <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" fill="none">
+                                            <path fill="#0A0A0A" d="M3.853 3.04H4.91V1.617c0-.38.267-.626.666-.626h2.381c.4 0 .666.246.666.626V3.04H9.68V1.55C9.68.585 9.055 0 8.03 0H5.504c-1.025 0-1.65.585-1.65 1.55v1.49Zm-3.02.533H12.72a.503.503 0 0 0 0-1.005H.832a.507.507 0 0 0-.499.499c0 .28.233.506.5.506Zm2.893 11.243h6.1c.952 0 1.59-.619 1.637-1.57l.466-9.8h-1.07l-.447 9.687c-.013.399-.299.678-.692.678h-5.9c-.38 0-.666-.286-.686-.678l-.472-9.687H1.617l.473 9.806c.046.952.672 1.564 1.636 1.564Zm1.078-2.142c.253 0 .42-.16.412-.393L5.01 5.163c-.006-.233-.173-.386-.412-.386-.253 0-.42.16-.413.392l.2 7.112c.007.24.173.393.419.393Zm1.97 0c.252 0 .432-.16.432-.393V5.17c0-.233-.18-.392-.433-.392s-.426.16-.426.392v7.112c0 .233.173.393.426.393Zm1.975 0c.24 0 .406-.153.413-.393l.2-7.112c.006-.233-.16-.392-.413-.392-.24 0-.406.153-.413.392l-.2 7.112c-.006.233.16.393.413.393Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div> -->
+                                </div>
+                            </td>
+                        </tr>
+                    </t>
+                </t>
+            </t>
+        </div>
+    </t>
+</div>
+</t>
+</template>
+
+
+<template id="tracking_section" name="Tracking Section">
+<div class="container tracking_section_class" t-if="mode in ('view','edit','change_status') ">
+
+<!-- <div t-if="mode == 'view'" class="text-center mt-5">
+                <span class="badge-custom badge-pill-custom badge-info text-center">Tracking Section</span>
+            </div> -->
+
+<div class="card-header text_header">
+                Tracking Section
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col">
+            <!-- Sla -->
+            <div class="row mt-3 mb-4">
+                <strong class="col-lg-6 spacing">SLA</strong>
+                <div class="col-lg-10 spacing">
+                    <span t-field="service_request.sla" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col">
+            <!-- Sla end date -->
+            <div class="row mt-3 mb-4">
+                <strong class="col-lg-6 spacing">SLA End Date</strong>
+                <div class="col-lg-10 spacing">
+                    <time>
+                        <b t-field="service_request.sla_end_date" t-options="{'format':'MMM d, yyyy'}" />
+                    </time>
+                    <!-- <span t-field="service_request.sla_end_date"/> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col">
+
+            <!-- Remaining Day -->
+            <div class="row mt-3 mb-4">
+                <strong class="col-lg-6 spacing">Remaining Day</strong>
+                <div class="col-lg-10 spacing">
+                    <span t-field="service_request.remaining_day" />
+                </div>
+            </div>
+
+
+        </div>
+        <div class="col">
+            <!-- Actual Working Date -->
+            <div class="row mt-3 mb-4">
+                <strong class="col-lg-6 spacing">Actual Working Date</strong>
+                <div class="col-lg-10 spacing">
+                    <span t-field="service_request.sla_end_date" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row mt-3">
+                <div class="col">
+                    sla
+                    <div class="row mb-4" name="sla">
+                        <strong class="col-lg-2 spacing">SLA</strong>
+                        <span class="spacing" t-field="service_request.sla"/>
+                    </div>
+                </div>
+
+                <div class="col">
+                    sla end date
+                    <div class="mb-4" name="sla_end_date">
+                        <strong class="col-lg-2 spacing">SLA END DATE</strong>
+                        <span class="col-lg-10" t-field="service_request.sla_end_date"/>
+                    </div>
+                </div>
+            </div> -->
+<!-- 
+            <div class="row">
+                <div class="col">
+                    sla end date
+                    <div class="row mb-4" name="remaining_day">
+                        <strong class="col-lg-4 spacing">Remaining Day</strong>
+                        <span t-field="service_request.remaining_day"/>
+                    </div>
+                </div>
+                <div class="col">
+                    Actual Working Date t-if="mode == 'view' or mode=='change_status'"
+                    <div class="mb-4" name="actual_working_date">
+                        <strong class="col-lg-2 spacing">Actual Working Date</strong>
+                        <span t-field="service_request.actual_working_date"/>
+                    </div>
+                </div>
+            </div> -->
+
+</div>
+</template>
+
+
+<template id="notes_request" name="Notes service request">
+<div class="container-fluid">
+<div class="row">
+    <div class="col">
+        <div class="card border-0  notes_request_class">
+            <t t-set="is_done" t-value="service_request.state == latest_status" />
+            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+            Notes
+            </div>
+            <div class="card-body">
+                <div t-if="mode == 'view' or mode=='change_status'" class="row mb-4 body2 t-text-dark-gray" name="notes">
+                    <div t-if="not is_html_empty(service_request.notes)" class="col" t-field="service_request.notes" />
+                    <div t-else="" class="col-lg-10">
+                    No Remarks
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</template>
+
+
+<!-- <template id="request_attachments" name="Service Request Attachments">
+        <div id="request_attachment_css">
+
+            <table class="table table-bordered" id="table_projects">
+                <thead>
+                    <tr>
+                        <th>Document Type</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody id="table_documents_body">
+                    <tr>
+                        <td class="row-index">
+                            <p>${document_type}</p>
+                        </td>
+                        <td class="row-index">
+                            <p>${data['name']}</p>
+                        </td>
+                        <td class="row-index">
+                            <p>${document_description}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </template> -->
+
+<template id="request_attachment_followup" name="Notes service request">
+<div class="container-fluid">
+<div class="row pt-3">
+
+    <div class="col">
+        <div class="card border-0 mb24">
+            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">Documents</div>
+            <div class="card-body">
+                <span class="body2 t-text-dark-gray no_attachments" t-if="not has_documents">
+                    No attachments have been added.
+                </span>
+                <div t-if="has_documents" id="request_attachment_css">
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12 mt-2">
+                            <span class="body2 t-text-dark-gray font-weight-bold">Document</span>
+                            <t t-foreach="document_ids" t-as="document">
+                                <a class="mt-4 d-flex align-items-center oe_attachments" t-attf-href="/web/content/#{document.id}?download=true" target="_blank" data-no-post-process="">
+                                    <div class='oe_attachment_embedded o_image o_image_small mr-lg-3' t-att-title="document.mimetype" t-att-data-mimetype="document.mimetype" />
+                                    <div class='oe_attachment_name text-truncate body2 t-text-dark-gray'>
+                                        <t t-esc='document.name' />
+                                    </div>
+                                    <div class="ml-3" t-att-title="document.name" t-att-data-mimetype="document.mimetype" style="background-image:url('/thiqah_portal/static/src/img/button-download.svg');width: 32px;height: 32px;"/>
+                                </a>
+                            </t>
+                        </div>
+                        <div class="col-md-6 col-xs-12 mt-2">
+                            <span class="body2 t-text-dark-gray font-weight-bold">Description</span>
+                            <p class="body2 t-text-dark-gray mt-4" t-field="service_request.document_description">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</template>
+
+<!-- Request Status -->
+<template id="request_status" name="Status service request">
+<div class="container-fluid">
+<div class="row pt-3">
+
+    <div class="col">
+        <div class="card border-0 mb24">
+            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">Status</div>
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <t t-set="status_list" t-value="[state[2] for state in actions]"/>
+                    <t t-set="status_label" t-value="[state[5] for state in actions]"/>
+                    <t t-set="status_index" t-value="service_request.state in status_list and (status_list.index(service_request.state)+1) or -1"/>
+
+                    <img src="/thiqah_portal/static/src/img/status.svg" />
+                    <span class="body2 mx-2 font-weight-bold">Currently:</span>
+                    <span t-if="not env.user.partner_id.is_customer" t-field="service_request.state" class="body2 font-weight-normal _status_info" title="Current Status of this Service Request" />
+                    <span t-if="env.user.partner_id.is_customer" t-field="service_request.request_status" class="body2 font-weight-normal _status_info" title="Current Status of this Service Request" />
+                </div>
+                <span t-if="service_request.request_status not in ['approved','rejected'] and status_index != -1" class="body2 font-weight-bold">
+                    <div class="my-3" style="width:1px;height:24px; background-color:#E0E4E7"></div>
+            Next: 
+                    <span class="font-weight-normal" t-if="status_index &lt; len(status_list)">
+                        <t t-esc="status_label[status_index-1] "/>
+                    </span>
+                    <span t-else="" class="body2 font-weight-normal">
+            Approved
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</template>
+
+
+<template id="readonly_field" name="Service Request Readonly Field">
+<div class="col-lg-12">
+<!-- <t t-call="thiqah_portal.select_vb"/> -->
+<p style="color:red;font-size:13px;">This field is readonly (associated with the
+                project).You can update it in Project Managment.</p>
+</div>
+</template>
+
+<!-- <template id="thiqah_message_thread" inherit_id="portal.message_thread">
+        <xpath expr="//div[@id='discussion']" position="after">
+            <div class="col-sm col-xs-12">
+                <select class="form-control" name="level_impact_add_update">
+                    <option t-attf-value="low">Low</option>
+                    <option t-attf-value="medium">Medium</option>
+                    <option t-attf-value="high">High</option>
+                </select>
+            </div>
+        </xpath>
+    </template> -->
+
+<template id="service_request_followup" name="Service Requests">
+<t t-call="thiqah_portal.portal_dashboard_layout">
+<t t-if="not env.user.partner_id.is_customer">
+    <t t-call="thiqah_portal.service_request_actions" />
+</t>
+
+<div t-if="mode_restrict == 'pm_restrict'" id="restrict_message" class="alert alert-info">
+    As the project manager, you cannot modify this request at this stage.
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card border-0 mb24">
+                <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+        Summary
+                </div>
+                <div class="card-body">
+                    <div class="service_request" id="request_followup">
+                        <form action="/my/request/update/" method="POST" id="request_update_form">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                            <input type="hidden" name="request_id" t-att-value="service_request.id" />
+                            <t t-set="is_done" t-value="service_request.state == latest_status" />
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Created on</label>
+                                    <h4 class="body2 t-text-dark-gray" t-field="service_request.create_date" t-options="{'format':'MMM d, yyyy'}">
+                                    </h4>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Managed by</label>
+                                    <h4 class="body2 t-text-dark-gray" t-field="service_request.project_manager_id.name">
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <div class="form-row  pt-3" t-if="service_request.client_id">
+                                <div class="form-group col-md-6">
+                                    <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Client</label>
+                                    <div class="align-items-center d-flex" t-if="mode == 'view' or mode =='change_status'">
+                                        <div class="mr-3">
+                                            <img class="rounded-circle o_portal_contact_img" t-attf-src="#{image_data_uri(service_request.client_id.avatar_1024)}" alt="Contact" />
+                                        </div>
+                                        <h4 class="body2 t-text-dark-gray" t-field="service_request.client_id" t-options='{"widget": "contact", "fields": ["name", "email"], "no_marker": true}' />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div id="redirect_documents_section" class="" t-if="service_request.user_id">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Created by</label>
+                                        <div class="align-items-center d-flex">
+                                            <div class="mr-3">
+                                                <img class="rounded-circle o_portal_contact_img" t-attf-src="#{image_data_uri(service_request.user_id.avatar_1024)}" alt="Contact" />
+                                            </div>
+                                            <h4 class="body2 t-text-dark-gray" t-field="service_request.user_id" t-options='{"widget": "contact", "fields": ["name", "email"], "no_marker": true}'>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-10" t-if="mode == 'edit'">
+                                    <t t-call="thiqah_portal.select_partner" />
+                                </div>
+                            </div>
+                            <div class="form-row  pt-3">
+                                <div class="form-group col-md-6">
+                                    <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Project</label>
+                                    <h4 class="body2 t-text-dark-gray" t-if="mode == 'view' or mode =='change_status'" t-field="service_request.project_id.name">
+                                    </h4>
+
+                                    <div class="col-lg-10" t-if="mode == 'edit'">
+                                        <t t-call="thiqah_portal.select_project" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Project accountant</label>
+                                    <h4 class="body2 t-text-dark-gray" t-if="mode in ( 'view','change_status','edit')">
+                                        <span t-field="service_request.project_accountant_id.name" />
+                                        <span t-if="not service_request.project_accountant_id.name">
+                                            Empty</span>
+                                    </h4>
+                                </div>
+                            </div>
+
+                            <!-- Service Catalog -->
+                            <div class="form-row pt-3">
+                                <div class="form-group col-md-6">
+                                    <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Department</label>
+                                    <h4 class="body2 t-text-dark-gray" t-if="mode in('view','edit','change_status')" t-field="service_request.department_id.name">
+                                        <span id="department" t-field="service_request.department_id.name" t-att-id="service_request.department_id.name" />
+                                    </h4>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Service Catalog</label>
+                                    <h4 class="body2 t-text-dark-gray" t-if="mode in('view','edit','change_status')">
+                                        <span t-field="service_request.catalog_id.name_en" />
+                                    </h4>
+                                    <div class="col-lg-10" t-if="mode == 'edit'">
+                                        <div class="col-lg-12">
+                                            <!-- <t t-call="thiqah_portal.select_vb"/> -->
+                                            <p style="color:red;font-size:13px;">
+                        This field is readonly (associated with the Department).You can update it in
+                        Project Managment.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row pt-3">
+                                <div class="form-group col">
+                                    <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Description</label>
+                                    <h4 class="body2 t-text-dark-gray" t-if="mode in('view','edit','change_status')" t-field="service_request.description">
+                                    </h4>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<t t-call="thiqah_portal.request_status"/>
+<t t-call="thiqah_portal.request_attachment_followup"/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <div class="card-border-0 mb24">
+                <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">Justification</div>
+                <div class="card-body">
+                    <span class="body2 t-text-dark-gray no_attachments" t-if="not has_justifications">
+            No justifications have been added.
+                    </span>
+                    <t t-if="has_justifications">
+                        <span class="body2 t-text-dark-gray no_attachments" t-if="mode in('view','edit','change_status')" t-field="service_request.justification_text">
+                        </span>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Todo check with Moath first -->
+    <t t-call="thiqah_portal.notes_request"/>
+
+    <!-- <div t-if="not env.user.has_group('base.group_portal')"> -->
+    <div class="o_portal_messages_container mt32" t-if="active_state not in ('Approved','Rejected')">
+        <h4 class="heading-4 mb40">Message and communication history</h4>
+        <t t-call="portal.message_thread">
+
+            <t t-set="object" t-value="service_request"/>
+            <t t-set="pid" t-value="pid"/>
+            <t t-set="hash" t-value="hash"/>
+
+        </t>
+    </div>
+
+
+
+
+    <!-- Update Request Modal-->
+    <div class="modal" tabindex="-1" role="dialog" id="update_confirm_modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content p-5">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Request</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you wish to proceed?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Discard</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div t-if="mode == 'edit'" t-attf-class="clearfix oe_login_buttons text-center mb-1">
+        <a class="btn btn-primary btn-block open_update_confirm_modal" data-target="#update_confirm_modal" data-toggle="modal">
+            Update My Request
+        </a>
+    </div>
+    <div t-att-class="active" id="info_state" class="alert alert-success text-center" role="status">
+        <div id="details_info"></div>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-xs badge badge-danger" t-if="env.user.partner_id.is_customer and (env.user.has_group('thiqah_project.quality_assurance_group') or env.user.has_group('thiqah_project.vp_group'))">
+            <div class="message_customer_checked" style="font-size:17px;color:white;word-wrap: break-word;">
+     You cannot change the status because you're considered as customer. <br></br>Please Contact the administrator of the contacts management in the backend. </div>
+        </div>
+    </div>
+</div>
+
+<div t-if="env.user.has_group('thiqah_project.thiqah_hr_group') and not active_state == 'Approved'" class="container">
+    <div class="row">
+        <div id="justification_div" class="col-12 col-xs text-center d-none" style="padding-left: 11px;">
+            <!-- <i class="fa fa-exclamation-triangle custom_exclamation"/> -->
+            <span id="message_justification">
+                <i class="fa fa-exclamation-triangle custom_exclamation" />
+Sorry, this stage need a justification. </span>
+        </div>
+    </div>
+</div>
+</t>
+
+</template>
+
+<!-- Service Request Form Modal -->
+<template id="service_request_template" name="Service Request">
+<!-- The Modal -->
+<div t-if="request.env.user.check_service_access('service_request', 'create')" class="modal" id="createServiceRequest">
+<div class="modal-dialog" style="max-width: 1028px;">
+    <div class="service_request">
+        <section>
+            <form id="service_request_form" class="needs-validation" action="/website/form/" method="post" enctype="multipart/form-data" novalidate="1">
+                <div class="modal-content" style="padding: 72px;padding-bottom: 56px;">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                    <!-- Modal Header -->
+                    <div class="modal-header border-0">
+                        <h2 class="heading-3">New Service Requests</h2>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                                <path fill="#798793" d="M.33 19.67c.442.43 1.173.43 1.602 0l8.07-8.07 8.07 8.07c.43.43 1.173.442 1.602 0a1.142 1.142 0 0 0 0-1.588l-8.07-8.083 8.07-8.07c.429-.43.442-1.161 0-1.59a1.134 1.134 0 0 0-1.601 0l-8.07 8.07L1.931.34C1.503-.102.759-.115.33.34a1.142 1.142 0 0 0 0 1.59l8.07 8.07-8.07 8.083c-.429.428-.441 1.16 0 1.588Z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label class="s_website_form_label heading-7" for="partner_id">
+                                        <span class="s_website_form_label_content">
+                                                        Client</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <select name="partner_id" data-style="t-btn-outile-light-gray-secondary" data-live-search="true" data-size="10" id="partner_id" required="1" t-att-disabled="env.user.partner_id.is_customer" data-placeholder="Select the client..." class="selectpicker form-control o_website_form_input">
+                                        <option value="" groups="project.group_project_manager">
+                                                        Choose...</option>
+                                        <t t-foreach="customers or []" t-as="customer">
+                                            <option data-divider="true" class="m-0"></option>
+                                            <option t-att-value="customer.id">
+                                                <t t-esc="customer.name" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="s_website_form_label heading-7" for="project_id">
+                                        <span class="s_website_form_label_content">
+                                                        Project</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <select name="project_id" data-style="t-btn-outile-light-gray-secondary" id="project_id" required="1" data-placeholder="Select the project..." class="selectpicker form-control o_website_form_input">
+                                        <option value="">Choose...</option>
+                                        <t t-foreach="projects or []" t-as="project">
+                                            <option data-divider="true" class="m-0"></option>
+                                            <option t-att-value="project.id" t-att-data-partner_id="project.partner_id.id" t-att-selected="project.id == 'project_id'">
+                                                <t t-esc="project.name" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label class="s_website_form_label heading-7" for="date_from">
+                                        <span class="s_website_form_label_content">Request
+                                                        Date</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <div class="input-group date">
+                                        <input id="date_from" required="1" disabled="1" t-att-value="date_from" class="form-control s_website_form_input" name="date_from" />
+                                        <span class="input-group-addon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                                                <path fill="#798793" d="M2.243 13.417h9.522c1.457 0 2.181-.725 2.181-2.161V2.744c0-1.436-.724-2.16-2.181-2.16H2.243C.786.583.053 1.3.053 2.743v8.512c0 1.443.733 2.16 2.19 2.16Zm-.105-1.123c-.62 0-.962-.327-.962-.976V4.745c0-.641.342-.976.962-.976h9.717c.62 0 .97.335.97.976v6.574c0 .648-.35.975-.97.975H2.138Zm3.506-6.022h.412c.244 0 .32-.07.32-.314v-.411c0-.244-.076-.321-.32-.321h-.412c-.244 0-.327.077-.327.32v.412c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.314v-.411c0-.244-.083-.321-.327-.321h-.411c-.244 0-.328.077-.328.32v.412c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.314v-.411c0-.244-.084-.321-.328-.321h-.411c-.244 0-.32.077-.32.32v.412c0 .244.076.314.32.314ZM3.33 8.552h.404c.251 0 .328-.07.328-.315v-.41c0-.245-.077-.315-.328-.315H3.33c-.251 0-.328.07-.328.314v.411c0 .244.077.314.328.314Zm2.314 0h.412c.244 0 .32-.07.32-.315v-.41c0-.245-.076-.315-.32-.315h-.412c-.244 0-.327.07-.327.314v.411c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.315v-.41c0-.245-.083-.315-.327-.315h-.411c-.244 0-.328.07-.328.314v.411c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.315v-.41c0-.245-.084-.315-.328-.315h-.411c-.244 0-.32.07-.32.314v.411c0 .244.076.314.32.314ZM3.33 10.837h.404c.251 0 .328-.077.328-.321v-.411c0-.244-.077-.314-.328-.314H3.33c-.251 0-.328.07-.328.314v.41c0 .245.077.322.328.322Zm2.314 0h.412c.244 0 .32-.077.32-.321v-.411c0-.244-.076-.314-.32-.314h-.412c-.244 0-.327.07-.327.314v.41c0 .245.083.322.327.322Zm2.315 0h.41c.245 0 .328-.077.328-.321v-.411c0-.244-.083-.314-.327-.314h-.411c-.244 0-.328.07-.328.314v.41c0 .245.084.322.328.322Z"></path>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div id="later_date_error" class="d-none">
+                                        <h5 class="text-danger">
+                                            <span>Please check the date,
+                                                            it seems to be a later
+                                                            date.</span>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="s_website_form_label heading-7" for="department_id">
+                                        <span class="s_website_form_label_content">
+                                                        Department</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <select name="department_id" data-style="t-btn-outile-light-gray-secondary" id="department_id" required="1" data-placeholder="Select the department..." class="selectpicker form-control o_website_form_input">
+                                        <option value="">Choose...</option>
+                                        <t t-foreach="departmens or []" t-as="department">
+                                            <option data-divider="true" class="m-0"></option>
+                                            <option t-att-value="department.id">
+                                                <t t-esc="department.name" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="s_website_form_label heading-7" for="catalog_id">
+                                        <span class="s_website_form_label_content">Service
+                                                        Catalog</span>
+                                        <span class="s_website_form_mark">*</span>
+                                    </label>
+                                    <select name="catalog_id" data-style="t-btn-outile-light-gray-secondary" id="catalog_id" required="1" data-live-search="true" data-size="10" data-placeholder="Select the service catalog..." class="selectpicker form-control o_website_form_input">
+                                        <option value="">Choose...</option>
+                                        <t t-foreach="catalogs or []" t-as="catalog">
+                                            <option data-divider="true" class="m-0"></option>
+                                            <option t-att-value="catalog.id" t-att-data-department_id="catalog.department_id.id" t-att-selected="catalog.id == 'catalog_id'">
+                                                <t t-esc="catalog.name_en" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="s_website_form_label heading-7" for="description">
+                                        <span class="s_website_form_label_content">
+                                                        Description</span>
+                                    </label>
+                                    <textarea id="description" class="form-control s_website_form_input" name="description" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="s_website_form_label heading-7" for="notes">
+                                        <span class="s_website_form_label_content">
+                                                        Remarks</span>
+                                    </label>
+                                    <textarea id="notes" class="form-control s_website_form_input" name="notes" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="s_website_form_label heading-7" for="document_description">
+                                        <span class="s_website_form_label_content">
+                                                        Document
+                                                        Description</span>
+                                    </label>
+                                    <textarea id="document_description" class="form-control s_website_form_input" name="document_description" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label class="s_website_form_label heading-7" for="attachments">
+                                    <span class="s_website_form_label_content">
+                                                    Upload Attachments</span>
+                                </label>
+                                <div class="custom-input-file">
+                                    <div class="btn-circle t-custom-bg-cyan" style="width:40px;height:40px">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" fill="none">
+                                            <path fill="#fff" d="m18.366 11.991-4.618-4.338c-.35-.311-.754-.482-1.174-.482-.427 0-.808.148-1.166.466l-3.514 3.141L6.455 9.48c-.326-.295-.684-.443-1.05-.443-.35 0-.676.14-1.002.435L1.44 12.147c.047 1.407.622 2.122 1.78 2.122h13.032c1.407 0 2.114-.785 2.114-2.278Zm-11.74-4.26a1.837 1.837 0 0 0 1.827-1.835A1.842 1.842 0 0 0 6.626 4.06c-1.01 0-1.835.832-1.835 1.835 0 1.01.825 1.835 1.835 1.835Zm-3.35 7.083h13.45c1.633 0 2.441-.801 2.441-2.403v-9.5C19.167 1.308 18.36.5 16.726.5H3.276C1.65.5.833 1.309.833 2.91v9.501c0 1.602.816 2.403 2.441 2.403Zm.015-1.252c-.778 0-1.205-.412-1.205-1.22V2.98c0-.808.427-1.228 1.205-1.228h13.42c.77 0 1.205.42 1.205 1.228v9.361c0 .809-.436 1.22-1.206 1.22H3.29Z" />
+                                        </svg>
+                                    </div>
+                                    <p class="body2 m-0 ml-3"> Drag Drop or <span class="t-text-cyan">Choose File</span> To
+                                                    Upload </p>
+                                    <input id="export_document" type="file" name="attachments" class="form-control s_website_form_input" multiple="true" accept="image/*,application/pdf,video/*,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" />
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="name" t-att-value="Test" />
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn rounded-pill t-btn-outile-gray button-text" data-dismiss="modal">Close</button>
+                        <button type="submit" style="color: #ffffff !important" class="btn btn-secondary button-text rounded-pill btn-lg submit_add_request">
+                                        Submit</button>
+                        <span id="s_website_form_result"></span>
+
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+</div>
+</template>
+
+</odoo>

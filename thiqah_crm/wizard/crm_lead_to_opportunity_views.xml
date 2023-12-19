@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+
+	<record id="thiqah_view_crm_lead2opportunity_partner" model="ir.ui.view">
+		<field name="name">view.crm.lead2opportunity.partner.form.inherited.thiqah</field>
+		<field name="model">crm.lead2opportunity.partner</field>
+		<field name="inherit_id" ref="crm.view_crm_lead2opportunity_partner" />
+		<field name="arch" type="xml">
+			<field name="name" position="attributes">
+				<attribute name="invisible">1</attribute>
+			</field>
+			<group name="action" position="attributes">
+				<attribute name="invisible">1</attribute>
+			</group>
+			<group name="name" position="after">
+				<group>
+					<group>
+						<field name="lead_source" widget="radio" />
+					</group>
+					<group>
+<!--						<field name="aahd_opportunity_channel_id" attrs="{'invisible':[('lead_source','!=','for_aahd')]}" domain="[('for_aahd','=',True)]" />-->
+						<field name="aahd_opportunity_channel_id" invisible="lead_source != 'for_aahd'" domain="[('for_aahd','=',True)]" />
+
+<!--						<field name="bd_opportunity_channel_id" attrs="{'invisible':[('lead_source','!=','for_bd')]}" domain="[('for_bd','=',True)]" />-->
+						<field name="bd_opportunity_channel_id" invisible="lead_source != 'for_bd'" domain="[('for_bd','=',True)]" />
+					</group>
+
+				</group>
+			</group>
+
+		</field>
+	</record>
+
+
+</odoo>

@@ -1,0 +1,35 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record id="contract_type_tree" model="ir.ui.view">
+      <field name="name">thiqah.project.contract.type.tree</field>
+      <field name="model">thiqah.project.contract.type</field>
+      <field name="arch" type="xml">
+        <tree editable="bottom">
+          <field name="name_ar"/>
+          <field name="name_en"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="contract_type_form" model="ir.ui.view">
+      <field name="name">thiqah.project.contract.type.form</field>
+      <field name="model">thiqah.project.contract.type</field>
+      <field name="arch" type="xml">
+        <form string="">
+          <header>
+          </header>
+          <sheet>
+            <group name="name">
+              <field name="name_ar"/>
+              <field name="name_en"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+  </data>
+</odoo>

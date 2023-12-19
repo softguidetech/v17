@@ -1,0 +1,41 @@
+// variables
+// Primary
+$black: #0a0a0a !important;
+$cyan: #30b6e5 !important;
+$dark-grey: #434345 !important;
+// Secondary
+$dark-blue: #117dbc !important;
+$purple: #4d4285 !important;
+$turquoise: #00bcb4 !important;
+$amulet: #9dd3c9 !important;
+$gray: #798793 !important;
+$light-gray: #e7ebee !important;
+$gray-light-secondary: #e0e4e7 !important;
+
+$t-bg-card-gray: #f2f3f5 !important;
+$t-border-card-gray: #d6e0e3 !important;
+$border-radius: 8px !important;
+
+$input-btn-padding-y: 0.75rem;
+$input-btn-padding-x: 1.5rem;
+$input-btn-padding-y-sm: 0.5rem;
+$input-btn-padding-x-sm: 1rem;
+$input-btn-line-height-sm: $line-height-sm;
+
+$input-btn-padding-y-lg: 1rem;
+$input-btn-padding-x-lg: 1.5rem;
+
+$btn-padding-y: $input-btn-padding-y;
+$btn-padding-x: $input-btn-padding-x;
+$btn-line-height: $input-btn-line-height;
+
+$btn-padding-y-sm: $input-btn-padding-y-sm;
+$btn-padding-x-sm: $input-btn-padding-x-sm;
+$btn-line-height-sm: $input-btn-line-height-sm;
+
+$btn-padding-y-lg: $input-btn-padding-y-lg;
+$btn-padding-x-lg: $input-btn-padding-x-lg;
+$btn-line-height-lg: $input-btn-line-height-lg;
+// Caret dropdown icon
+$t-caret: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath fill='%23798793' d='M6.003 7.334c.173 0 .346-.069.463-.2l5.347-5.479A.616.616 0 0 0 12 1.213a.62.62 0 0 0-.629-.635.656.656 0 0 0-.449.18L5.63 6.166h.74L1.078.757a.631.631 0 0 0-.45-.18.62.62 0 0 0-.628.636c0 .173.07.325.187.45l5.347 5.47c.13.132.29.201.47.201Z'/%3E%3C/svg%3E";
+$t-caret-hover: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath fill='%230A0A0A' d='M6.003 7.334c.173 0 .346-.069.463-.2l5.347-5.479A.616.616 0 0 0 12 1.213a.62.62 0 0 0-.629-.635.656.656 0 0 0-.449.18L5.63 6.166h.74L1.078.757a.631.631 0 0 0-.45-.18.62.62 0 0 0-.628.636c0 .173.07.325.187.45l5.347 5.47c.13.132.29.201.47.201Z'/%3E%3C/svg%3E";

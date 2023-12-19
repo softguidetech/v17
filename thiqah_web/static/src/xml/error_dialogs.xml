@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-inherit="web.ErrorDialogBody" t-inherit-mode="extension">
+    <xpath expr="//*[@role='alert']" position="replace">
+    <div class="alert alert-warning clearfix" role="alert">
+          <div class="float-right ml8 btn-group-vertical">
+             
+          </div>
+          <p><b>An error occurred</b></p>
+          <p>Please contact your administrator</p>
+      </div>
+      </xpath>
+
+   <xpath expr="//*[hasclass('btn')]" position="replace">
+  	 
+   </xpath>
+  
+</t>
+
+
+</templates>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="CalenderPortalSystray">
+        <div class="new_icon">
+            <div class="icon_div" id="_systray_div">
+                <a class="link_systray">
+                <!-- <a class="link_systray" href="/my/home"> -->
+                    <i class="fa fa-calendar connect_calender" style="font-size:24px;" role="img" title="Connect Calender" aria-label="Connect Calender"/>
+                </a>
+            </div>
+        </div>
+    </t>
+</templates>

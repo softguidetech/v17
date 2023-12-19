@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+ <t t-inherit="mail.ComposerSuggestedRecipient"
+	t-inherit-mode="extension">
+        <xpath expr="//*[@type='checkbox']" position="replace">
+   
+                    <input t-attf-id="{{ id }}_checkbox"
+	class="custom-control-input" type="checkbox"
+	t-on-change="_onChangeCheckbox" t-ref="checkbox" />
+</xpath></t></templates>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_client_registration,client_registration.client_registration,model_client_registration,client_registration.group_client_registration_officer,1,1,1,1
+access_client_payment,client_payment.client_payment,model_client_payment,client_registration.group_client_registration_officer,1,1,1,1
+all_access_client_product,all_access_client_product,model_client_product,client_registration.group_client_registration_officer,1,0,0,0

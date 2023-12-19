@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="workflow_action_tree" model="ir.ui.view">
+        <field name="name">workflow.action.tree</field>
+        <field name="model">workflow.action</field>
+        <field name="arch" type="xml">
+            <tree string="Actions">
+                <field name="description"/>
+                <field name="name"/>
+                <field name="state_id"/>
+                <field name="action_type"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="workflow_action_form" model="ir.ui.view">
+        <field name="name">workflow.action.form</field>
+        <field name="model">workflow.action</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="type"/>
+                        <field name="description"/>
+                        <field name="state_id" domain="[('id','in',parent.state_ids)]"/>
+                        <field name="state_to" domain="[('id','in',parent.state_ids)]"/>
+                        <field name="action_type"/>
+                        <field name="is_return_action"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

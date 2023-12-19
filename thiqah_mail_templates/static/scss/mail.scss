@@ -1,0 +1,139 @@
+$mail-border-radius: 10px;
+
+
+#_service_request_mail{
+
+  img{
+    background-color: #676e9f;
+  }
+  .badge-mail{
+      float: right;
+      border-color: #676e9f;
+      color: #FFFFFF;
+      background-color: #676e9f;
+      border-radius: $mail-border-radius;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 17px;
+      font-weight: lighter;
+      padding: 10px 10px 10px 10px;
+
+  }
+
+.span_mail{
+    color: #676e9f;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.notif_mail_english{
+    border-left: 1rem solid #d8c8d8;
+}
+
+div.half {
+    box-sizing: border-box;
+    width: 50%;
+    display: inline-block;
+  }
+
+
+
+/* CARDS */
+
+.cards_ {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+  
+  .card_ {
+    margin: 20px;
+    padding: 20px;
+    width: 500px;
+    min-height: 200px;
+    display: grid;
+    grid-template-rows: 20px 50px 1fr 50px;
+    border-radius: $mail-border-radius;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+    text-align: center;
+    margin-left: 300px;
+
+  }
+  
+  .card_:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+  }
+  
+  .card__link,
+  .card__exit,
+  .card__icon {
+    position: relative;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .card__link::after {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.5s;
+  }
+  
+  .card__link:hover::after {
+    width: 100%;
+  }
+  
+  .card__icon {
+    grid-row: 2/3;
+    font-size: 30px;
+  }
+  
+  .card__title {
+    grid-row: 3/4;
+    font-weight: 400;
+    color: white;
+  }
+  
+  .card__apply {
+    grid-row: 4/5;
+    align-self: center;
+  }
+  .card-1 {
+    background: radial-gradient(#676e9f, #676e9f);
+}
+
+.footer_{
+    background-color: #EDEDED;
+    height: auto;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    color: white;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1600px) {
+    .cards {
+      justify-content: center;
+    }
+}
+
+@media (max-width: 400px) {
+  .card_ {
+    margin-left: 25px !important;
+
+  }
+}
+
+
+
+}

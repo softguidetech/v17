@@ -1,0 +1,15 @@
+// Override Colors to adpat them , from a brand perspective
+
+$thiqah-border-radius : 3px !important;
+
+.o_form_view .o_form_statusbar > .o_statusbar_buttons > .btn {
+    border-radius: $thiqah-border-radius
+}
+
+body > div.o_action_manager > div > div.o_control_panel > div.o_cp_bottom > div.o_cp_bottom_left > div > div > button{
+    border-radius: $thiqah-border-radius
+}
+
+button.btn.btn-primary.o_form_button_save,  button.btn.btn-secondary.o_form_button_cancel, body > div.o_action_manager > div > div.o_control_panel > div.o_cp_bottom > div.o_cp_bottom_left > div.o_cp_buttons > div > div.o_form_buttons_view > button.btn.btn-primary.o_form_button_edit, body > div.o_action_manager > div > div.o_control_panel > div.o_cp_bottom > div.o_cp_bottom_left > div.o_cp_buttons > div > div.o_form_buttons_view > button.btn.btn-secondary.o_form_button_create{
+    border-radius: $thiqah-border-radius
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<templates>
+
+    <!-- Main component of this Widget && Adding a client action-->
+    <t t-name="_bd_dashboard">
+        <div class="o_action o_thiqah_dashboard">
+            <div class="o_content container-fluid bd_dashboard_dom pt-3"></div>
+        </div>
+    </t>
+
+    <t t-name="thiqah_bd_dashboard">
+        <div id="_bd_dashboard">
+            <div class="container">
+                <div class="row">
+                    <div class="bd-card col-sm">
+                        <div class="col text-center _span_value" id="_bd_total_opportunities"/>
+
+                        <div class="col text-center">
+                            <span class="badge badge-primary _description_span">Total of Opportunities</span>
+                        </div>
+                    </div>
+                    <div class="bd-card col-sm">
+                        <div class="col text-center _span_value" id="_bd_winnig_opportunities"></div>
+                        <div class="col text-center">
+                            <span class="badge badge-primary _description_span">Winnig Opportunities</span>
+                        </div>
+                    </div>
+                    <div class="bd-card col-sm">
+                        <div class="col text-center _span_value" id="_bd_lost_opportunities"></div>
+                        <div class="col text-center">
+                            <span class="badge badge-primary _description_span">Lost Opportunities</span>
+                        </div>
+                    </div>
+                    <div class="bd-card col-sm">
+                        <div class="col text-center _span_value" id="_bd_revenue_opportunities"></div>
+                        <div class="col text-center">
+                            <span class="badge badge-primary _description_span">Revenue</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- chart(s) -->
+                <div class="row">
+                    <div class="col _padding_bd">
+                        <div class="text-center">
+                            <span class="head_chart ">Lead Source</span>
+                        </div>
+                        <canvas height="100px" id="leadSource">
+                        </canvas>
+                    </div>
+
+                    <div class="col">
+                        <div class="text-center">
+                            <span class="head_chart">Opportunities Values</span>
+                        </div>
+
+                        <canvas height="100px" id="DBopportunitiesValue"></canvas>
+                    </div>
+                </div>
+
+
+
+                <div class="row text-center awarded_padding" id="table_awarded_bd">
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+
+        </div>
+    </t>
+
+
+
+</templates>

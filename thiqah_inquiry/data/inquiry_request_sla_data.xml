@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+            
+        <record id="inquiry_low" model="inquiry.request.sla">
+            <field name="request_type">inquiry</field>
+            <field name="urgency">low</field>
+            <field name="sla_days">3</field>
+        </record>
+
+        <record id="inquiry_medium" model="inquiry.request.sla">
+            <field name="request_type">inquiry</field>
+            <field name="urgency">medium</field>
+            <field name="sla_days">2</field>
+        </record>
+
+        <record id="inquiry_heigh" model="inquiry.request.sla">
+            <field name="request_type">inquiry</field>
+            <field name="urgency">heigh</field>
+            <field name="sla_days">1</field>
+        </record>
+ 
+        <record id="complaint_low" model="inquiry.request.sla">
+            <field name="request_type">complaint</field>
+            <field name="urgency">low</field>
+            <field name="sla_days">3</field>
+        </record>
+        
+        <record id="complaint_medium" model="inquiry.request.sla">
+            <field name="request_type">complaint</field>
+            <field name="urgency">medium</field>
+            <field name="sla_days">2</field>
+        </record>
+        
+        <record id="complaint_heigh" model="inquiry.request.sla">
+            <field name="request_type">complaint</field>
+            <field name="urgency">heigh</field>
+            <field name="sla_days">1</field>
+        </record>
+        
+        <record id="other_low" model="inquiry.request.sla">
+            <field name="request_type">other</field>
+            <field name="urgency">low</field>
+            <field name="sla_days">3</field>
+        </record>
+        
+        <record id="other_medium" model="inquiry.request.sla">
+            <field name="request_type">other</field>
+            <field name="urgency">medium</field>
+            <field name="sla_days">2</field>
+        </record>
+        
+        <record id="other_heigh" model="inquiry.request.sla">
+            <field name="request_type">other</field>
+            <field name="urgency">heigh</field>
+            <field name="sla_days">1</field>
+        </record>
+    
+    </data>
+</odoo>

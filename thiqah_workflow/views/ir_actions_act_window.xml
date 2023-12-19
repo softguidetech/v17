@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+  <!-- actions opening views on models -->
+
+  <!-- Workflow -->
+  <record id="workflow_action" model="ir.actions.act_window">
+    <field name="name">Workflows</field>
+    <field name="res_model">workflow.workflow</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+
+</odoo>

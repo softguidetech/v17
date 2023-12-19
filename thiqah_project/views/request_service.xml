@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="service_request_tree" model="ir.ui.view">
+        <field name="name">service.request.tree</field>
+        <field name="model">thiqah.project.service.request</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" />
+                <field name="client_id" />
+                <field name="project_id" />
+                <field name="department_id" />
+                <field name="sla_indicator" />
+                <field name="concerned_user_ids" />
+                <field name="employee_id" widget="many2one_avatar_employee"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="service_request_form" model="ir.ui.view">
+        <field name="name">service.request.form</field>
+        <field name="model">thiqah.project.service.request</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box" groups="base.group_user">
+                        <button name="preview_service_request" type="object" class="oe_stat_button" icon="fa-globe icon">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Back To</span>
+                                <span class="o_stat_text">Portal</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="float-right">
+                        <field name="employee_id" widget="many2one_avatar_employee"/>
+                    </div>
+                    <div class="oe_title">
+                        <label for="sequence" name="name_label"/>
+                        <h1>
+                            <field name="sequence"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="related_information" string="Related Information">
+                            <field name="project_id"/>
+                            <field name="project_accountant_id" readonly="1"/>
+                            <field name="client_id" domain="[('is_customer', '=', True)]"/>
+                            <field name="department_id"/>
+                            <field name="catalog_id" domain="[('department_id','=',department_id)]"/>
+                        </group>
+                        <group name="tracking_section" string="Tracking Section">
+                            <field name="date_from"/>
+                            <field name="sla"/>
+                            <field name="sla_indicator"/>
+                            <field name="sla_end_date"/>
+                            <field name="delivery_date"/>
+                            <field name="remaining_day"/>
+                            <field name="actual_working_date"/>
+                            <field name="create_date"/>
+                        </group>
+                    </group>
+                    <group name="notes" string="Notes">
+                        <field name="description" widget='text' nolabel="1" placeholder="General Description ..."/>
+                        <field name="notes" widget='text' nolabel="1" placeholder="Remarks ..."/>
+                        <field name="document_description" widget='text' nolabel="1" placeholder="Document Description ..."/>
+                    </group>
+                    <notebook>
+                        <page name="concerned_users" string="Concerned Users" groups="base.group_no_one">
+                            <field name="concerned_user_ids" readonly="1">
+                                <tree>
+                                    <field name="login"/>
+                                    <field name="email"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+</odoo>

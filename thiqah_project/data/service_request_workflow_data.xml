@@ -1,0 +1,1551 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+
+    <!--1- THIQAH SERVICE REQUEST WORKFLOW DATA (Sourcing Candidate) -->
+        <!-- STATES -->
+        <record id="service_request_state_HRBP_sourcing_candidate" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_PM_sourcing_candidate" model="workflow.state">
+            <field name="name">PM</field>
+            <field name="technical_name">pm_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_HRBP_second_sourcing_candidate" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_second_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_approval_sourcing_candidate" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <!-- Workflow Actions -->
+        <record id="service_request_action_HRBP_sourcing_candidate" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_sourcing_candidate"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_PM_sourcing_candidate"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_PM_sourcing_candidate" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">PM Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_PM_sourcing_candidate"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_HRBP_second_sourcing_candidate"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_HRBP_second_sourcing_candidate" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_second_sourcing_candidate"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_approval_sourcing_candidate"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+        <record id="service_request_transition_validation_HRBP_control_sourcing_candidate" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_PM_control_sourcing_candidate" model="workflow.transition.validation">
+            <field name="name">PM Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">True</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_HRBP_second_control_sourcing_candidate" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <!-- Workflow Transition -->
+        <record id="service_request_transition_action_HRBP_sourcing_candidate" model="workflow.transition">
+            <field name="name">HRBP -> PM</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_sourcing_candidate"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_HRBP_control_sourcing_candidate')])]"/>
+        </record>
+
+
+        <record id="service_request_transition_action_PM_sourcing_candidate" model="workflow.transition">
+            <field name="name">PM -> HRBP</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_PM_sourcing_candidate"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">1</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_PM_control_sourcing_candidate')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_HRBP_second_sourcing_candidate" model="workflow.transition">
+            <field name="name">HRBP -> Approved</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_second_sourcing_candidate"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">2</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBP_second_control_sourcing_candidate')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_service_request_workflow_sourcing_candidate" model="workflow.workflow">-->
+<!--            <field name="name">Service Request Workflow Num 11 (Sourcing Candidate)</field>-->
+<!--            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_project.model_thiqah_project_service_catalog')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_project.service_request_state_HRBP_sourcing_candidate'), ref('thiqah_project.service_request_state_PM_sourcing_candidate'), ref('thiqah_project.service_request_state_HRBP_second_sourcing_candidate'), ref('thiqah_project.service_request_state_approval_sourcing_candidate')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_project.service_request_action_HRBP_sourcing_candidate'), ref('thiqah_project.service_request_action_PM_sourcing_candidate'), ref('thiqah_project.service_request_action_HRBP_second_sourcing_candidate')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_action_HRBP_sourcing_candidate'), ref('thiqah_project.service_request_transition_action_PM_sourcing_candidate'), ref('thiqah_project.service_request_transition_action_HRBP_second_sourcing_candidate')])]"/>-->
+<!--        </record>-->
+
+
+
+    <!--2- THIQAH SERVICE REQUEST WORKFLOW DATA (Employee Termination) -->
+        <!-- STATES -->
+        <record id="service_request_state_HRBP_employee_termination" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_HRBO_employee_termination" model="workflow.state">
+            <field name="name">HRBO</field>
+            <field name="technical_name">hrbo_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_HRBP_second_employee_termination" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_second_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_approval_employee_termination" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <!-- Workflow Actions -->
+        <record id="service_request_action_HRBP_employee_termination" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_employee_termination"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_HRBO_employee_termination"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_HRBO_employee_termination" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBO Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBO_employee_termination"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_HRBP_second_employee_termination"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_HRBP_second_employee_termination" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_second_employee_termination"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_approval_employee_termination"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+        <record id="service_request_transition_validation_HRBP_control_employee_termination" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_HRBO_control_employee_termination" model="workflow.transition.validation">
+            <field name="name">HRBO Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_base.group_hr_business_operation'))]"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_HRBP_second_control_employee_termination" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <!-- Workflow Transition -->
+        <record id="service_request_transition_action_HRBP_employee_termination" model="workflow.transition">
+            <field name="name">HRBP -> HRBO</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_employee_termination"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_HRBP_control_employee_termination')])]"/>
+        </record>
+
+
+        <record id="service_request_transition_action_HRBO_employee_termination" model="workflow.transition">
+            <field name="name">HRBO -> HRBP</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBO_employee_termination"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">1</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBO_control_employee_termination')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_HRBP_second_employee_termination" model="workflow.transition">
+            <field name="name">HRBP -> Approved</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_second_employee_termination"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">2</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBP_second_control_employee_termination')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_service_request_workflow_employee_termination" model="workflow.workflow">-->
+<!--            <field name="name">Service Request Workflow Num 4  (Employee Termination)</field>-->
+<!--            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_project.model_thiqah_project_service_catalog')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_project.service_request_state_HRBP_employee_termination'), ref('thiqah_project.service_request_state_HRBO_employee_termination'), ref('thiqah_project.service_request_state_HRBP_second_employee_termination'), ref('thiqah_project.service_request_state_approval_employee_termination')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_project.service_request_action_HRBP_employee_termination'), ref('thiqah_project.service_request_action_HRBO_employee_termination'), ref('thiqah_project.service_request_action_HRBP_second_employee_termination')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_action_HRBP_employee_termination'), ref('thiqah_project.service_request_transition_action_HRBO_employee_termination'), ref('thiqah_project.service_request_transition_action_HRBP_second_employee_termination')])]"/>-->
+<!--        </record>-->
+
+
+
+    <!--3- THIQAH SERVICE REQUEST WORKFLOW DATA (Request Miscellaneous) -->
+        <!-- STATES -->
+        <record id="service_request_state_HRBP_request_miscellaneous" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_approval_request_miscellaneous" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <!-- Workflow Actions -->
+
+        <record id="service_request_action_HRBP_request_miscellaneous" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_request_miscellaneous"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_approval_request_miscellaneous"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+
+        <record id="service_request_transition_validation_action_HRBP_control_request_miscellaneous" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <!-- Workflow Transition -->
+
+        <record id="service_request_transition_action_HRBP_request_miscellaneous" model="workflow.transition">
+            <field name="name">HRBP -> Approved</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_request_miscellaneous"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBP_control_request_miscellaneous')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_service_request_workflow_request_miscellaneous" model="workflow.workflow">-->
+<!--            <field name="name">Service Request Workflow Num 2  (Request Miscellaneous)</field>-->
+<!--            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_project.model_thiqah_project_service_catalog')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_project.service_request_state_HRBP_request_miscellaneous'), ref('thiqah_project.service_request_state_approval_request_miscellaneous')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_project.service_request_action_HRBP_request_miscellaneous')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_action_HRBP_request_miscellaneous')])]"/>-->
+<!--        </record>-->
+
+
+    <!--4- THIQAH SERVICE REQUEST WORKFLOW DATA (Salary letter) -->
+        <!-- STATES -->
+        <record id="service_request_state_HRBO_salary_letter" model="workflow.state">
+            <field name="name">HRBO</field>
+            <field name="technical_name">hrbo_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_approval_salary_letter" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <!-- Workflow Actions -->
+
+        <record id="service_request_action_HRBO_salary_letter" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBO Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBO_salary_letter"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_approval_salary_letter"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+
+        <record id="service_request_transition_validation_action_HRBO_control_salary_letter" model="workflow.transition.validation">
+            <field name="name">HRBO Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_base.group_hr_business_operation'))]"/>
+        </record>
+
+        <!-- Workflow Transition -->
+
+        <record id="service_request_transition_action_HRBO_salary_letter" model="workflow.transition">
+            <field name="name">HRBO -> Approved</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBO_salary_letter"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBO_control_salary_letter')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_service_request_workflow_salary_letter" model="workflow.workflow">-->
+<!--            <field name="name">Service Request Workflow Num 1  (Salary Letter)</field>-->
+<!--            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_project.model_thiqah_project_service_catalog')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_project.service_request_state_HRBO_salary_letter'), ref('thiqah_project.service_request_state_approval_salary_letter')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_project.service_request_action_HRBO_salary_letter')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_action_HRBO_salary_letter')])]"/>-->
+<!--        </record>-->
+
+
+    <!--5- THIQAH SERVICE REQUEST WORKFLOW DATA (Request Training) -->
+        <!-- STATES -->
+        <record id="service_request_state_HRBP_request_training" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_PA_request_training" model="workflow.state">
+            <field name="name">PA</field>
+            <field name="technical_name">pa_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+
+        <record id="service_request_state_approval_request_training" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <!-- Workflow Actions -->
+        <record id="service_request_action_HRBP_request_training" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_request_training"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_PA_request_training"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_PA_request_training" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">PA Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_PA_request_training"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_approval_request_training"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+
+
+        <!-- Workflow Transition Validation-->
+        <record id="service_request_transition_validation_HRBP_control_request_training" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_PA_control_request_training" model="workflow.transition.validation">
+            <field name="name">PA Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">True</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+
+        <!-- Workflow Transition -->
+        <record id="service_request_transition_action_HRBP_request_training" model="workflow.transition">
+            <field name="name">HRBP -> PA</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_request_training"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_HRBP_control_request_training')])]"/>
+        </record>
+
+
+        <record id="service_request_transition_action_PA_request_training" model="workflow.transition">
+            <field name="name">PA -> Approved</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_PA_request_training"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">1</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_PA_control_request_training')])]"/>
+        </record>
+
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_service_request_workflow_request_training" model="workflow.workflow">-->
+<!--            <field name="name">Service Request Workflow Num 444 (Request Training)</field>-->
+<!--            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_project.model_thiqah_project_service_catalog')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_project.service_request_state_HRBP_request_training'), ref('thiqah_project.service_request_state_PA_request_training'), ref('thiqah_project.service_request_state_approval_request_training')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_project.service_request_action_HRBP_request_training'), ref('thiqah_project.service_request_action_PA_request_training')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_action_HRBP_request_training'), ref('thiqah_project.service_request_transition_action_PA_request_training')])]"/>-->
+<!--        </record>-->
+
+
+
+    <!--6- THIQAH SERVICE REQUEST WORKFLOW DATA (Request Payments and Business Trip) -->
+        <!-- STATES -->
+        <record id="service_request_state_HRBP_request_payments" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_PA_request_payments" model="workflow.state">
+            <field name="name">PA</field>
+            <field name="technical_name">pa_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_HRBP_second_request_payments" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_second_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_approval_request_payments" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <!-- Workflow Actions -->
+        <record id="service_request_action_HRBP_request_payments" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_request_payments"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_PA_request_payments"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_PA_request_payments" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">PA Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_PA_request_payments"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_HRBP_second_request_payments"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_HRBP_second_request_payments" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_second_request_payments"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_approval_request_payments"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+        <record id="service_request_transition_validation_HRBP_control_request_payments" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_PA_control_request_payments" model="workflow.transition.validation">
+            <field name="name">PA Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">True</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_HRBP_second_control_request_payments" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <!-- Workflow Transition -->
+        <record id="service_request_transition_action_HRBP_request_payments" model="workflow.transition">
+            <field name="name">HRBP -> PA</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_request_payments"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_HRBP_control_request_payments')])]"/>
+        </record>
+
+
+        <record id="service_request_transition_action_PA_request_payments" model="workflow.transition">
+            <field name="name">PA -> HRBP</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_PA_request_payments"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">1</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_PA_control_request_payments')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_HRBP_second_request_payments" model="workflow.transition">
+            <field name="name">HRBP -> Approved</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_second_request_payments"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">2</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBP_second_control_request_payments')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_service_request_workflow_request_payments" model="workflow.workflow">-->
+<!--            <field name="name">Service Request Workflow Num 333 (Request Payments and Business Trip)</field>-->
+<!--            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_project.model_thiqah_project_service_catalog')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_project.service_request_state_HRBP_request_payments'), ref('thiqah_project.service_request_state_PA_request_payments'), ref('thiqah_project.service_request_state_HRBP_second_request_payments'), ref('thiqah_project.service_request_state_approval_request_payments')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_project.service_request_action_HRBP_request_payments'), ref('thiqah_project.service_request_action_PA_request_payments'), ref('thiqah_project.service_request_action_HRBP_second_request_payments')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_action_HRBP_request_payments'), ref('thiqah_project.service_request_transition_action_PA_request_payments'), ref('thiqah_project.service_request_transition_action_HRBP_second_request_payments')])]"/>-->
+<!--        </record>-->
+
+
+    <!--7- THIQAH SERVICE REQUEST WORKFLOW DATA (HR Bonuses) -->
+        <!-- STATES -->
+        <record id="service_request_state_HRBP_hr_bonuses" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_first_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_PA_hr_bonuses" model="workflow.state">
+            <field name="name">PA</field>
+            <field name="technical_name">pa_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_PM_hr_bonuses" model="workflow.state">
+            <field name="name">PM</field>
+            <field name="technical_name">pm_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_HRBP_second_hr_bonuses" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_second_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_approval_hr_bonuses" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <!-- Workflow Actions -->
+        <record id="service_request_action_HRBP_hr_bonuses" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_hr_bonuses"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_PA_hr_bonuses"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_PA_hr_bonuses" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">PA Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_PA_hr_bonuses"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_PM_hr_bonuses"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_PM_hr_bonuses" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">PM Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_PM_hr_bonuses"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_HRBP_second_hr_bonuses"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_HRBP_second_hr_bonuses" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_second_hr_bonuses"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_approval_hr_bonuses"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+        <record id="service_request_transition_validation_HRBP_control_hr_bonuses" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_PA_control_hr_bonuses" model="workflow.transition.validation">
+            <field name="name">PA Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">True</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_PM_control_hr_bonuses" model="workflow.transition.validation">
+            <field name="name">PM Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">True</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+
+        <record id="service_request_transition_validation_action_HRBP_second_control_hr_bonuses" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <!-- Workflow Transition -->
+        <record id="service_request_transition_action_HRBP_hr_bonuses" model="workflow.transition">
+            <field name="name">HRBP -> PA</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_hr_bonuses"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_HRBP_control_hr_bonuses')])]"/>
+        </record>
+
+
+        <record id="service_request_transition_action_PA_hr_bonuses" model="workflow.transition">
+            <field name="name">PA -> PM</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_PA_hr_bonuses"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">1</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_PA_control_hr_bonuses')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_PM_hr_bonuses" model="workflow.transition">
+            <field name="name">PM -> HRBP</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_PM_hr_bonuses"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">2</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_PM_control_hr_bonuses')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_HRBP_second_hr_bonuses" model="workflow.transition">
+            <field name="name">HRBP -> Approved</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_second_hr_bonuses"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">3</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBP_second_control_hr_bonuses')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_service_request_workflow_hr_bonuses" model="workflow.workflow">-->
+<!--            <field name="name">Service Request Workflow Num 22 (HR Bonuses)</field>-->
+<!--            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_project.model_thiqah_project_service_catalog')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_project.service_request_state_HRBP_hr_bonuses'), ref('thiqah_project.service_request_state_PA_hr_bonuses'),  ref('thiqah_project.service_request_state_PM_hr_bonuses'), ref('thiqah_project.service_request_state_HRBP_second_hr_bonuses'), ref('thiqah_project.service_request_state_approval_hr_bonuses')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_project.service_request_action_HRBP_hr_bonuses'), ref('thiqah_project.service_request_action_PA_hr_bonuses'), ref('thiqah_project.service_request_action_PM_hr_bonuses'), ref('thiqah_project.service_request_action_HRBP_second_hr_bonuses')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_action_HRBP_hr_bonuses'), ref('thiqah_project.service_request_transition_action_PA_hr_bonuses'), ref('thiqah_project.service_request_transition_action_PM_hr_bonuses'), ref('thiqah_project.service_request_transition_action_HRBP_second_hr_bonuses')])]"/>-->
+<!--        </record>-->
+
+
+    <!--8- THIQAH SERVICE REQUEST WORKFLOW DATA (Contract Employee) -->
+        <!-- STATES -->
+        <record id="service_request_state_HRBP_contract_employee" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_PA_contract_employee" model="workflow.state">
+            <field name="name">PA</field>
+            <field name="technical_name">pa_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_hr_head_contract_employee" model="workflow.state">
+            <field name="name">Head Of HR</field>
+            <field name="technical_name">hr_head_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_HRBO_contract_employee" model="workflow.state">
+            <field name="name">HRBO</field>
+            <field name="technical_name">hrbo_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_HRBP_second_contract_employee" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_second_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_approval_contract_employee" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <!-- Workflow Actions -->
+        <record id="service_request_action_HRBP_contract_employee" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_contract_employee"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_PA_contract_employee"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_PA_contract_employee" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">PA Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_PA_contract_employee"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_hr_head_contract_employee"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_hr_head_contract_employee" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">Head Of HR Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_hr_head_contract_employee"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_HRBO_contract_employee"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_HRBO_contract_employee" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBO Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBO_contract_employee"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_HRBP_second_contract_employee"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_HRBP_second_contract_employee" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_second_contract_employee"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_approval_contract_employee"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+        <record id="service_request_transition_validation_HRBP_control_contract_employee" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_PA_control_contract_employee" model="workflow.transition.validation">
+            <field name="name">PA Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">True</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_hr_head_control_contract_employee" model="workflow.transition.validation">
+            <field name="name">Head Of HR Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_base.group_hr_head'))]"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_HRBO_control_contract_employee" model="workflow.transition.validation">
+            <field name="name">HRBO Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_base.group_hr_business_operation'))]"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_HRBP_second_control_contract_employee" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <!-- Workflow Transition -->
+        <record id="service_request_transition_action_HRBP_contract_employee" model="workflow.transition">
+            <field name="name">HRBP -> PA</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_contract_employee"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_HRBP_control_contract_employee')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_PA_contract_employee" model="workflow.transition">
+            <field name="name">PA -> Head Of HR</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_PA_contract_employee"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">1</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_PA_control_contract_employee')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_hr_head_contract_employee" model="workflow.transition">
+            <field name="name">Head Of HR -> HRBO</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_hr_head_contract_employee"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">2</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_hr_head_control_contract_employee')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_HRBO_contract_employee" model="workflow.transition">
+            <field name="name">HRBO -> HRBP</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBO_contract_employee"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">3</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBO_control_contract_employee')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_HRBP_second_contract_employee" model="workflow.transition">
+            <field name="name">HRBP -> Approved</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_second_contract_employee"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">4</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBP_second_control_contract_employee')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_service_request_workflow_contract_employee" model="workflow.workflow">-->
+<!--            <field name="name">Service Request Workflow Num 666  (Contract Employee)</field>-->
+<!--            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_project.model_thiqah_project_service_catalog')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_project.service_request_state_HRBP_contract_employee'), ref('thiqah_project.service_request_state_PA_contract_employee'), ref('thiqah_project.service_request_state_hr_head_contract_employee'), ref('thiqah_project.service_request_state_HRBO_contract_employee'), ref('thiqah_project.service_request_state_HRBP_second_contract_employee'), ref('thiqah_project.service_request_state_approval_contract_employee')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_project.service_request_action_HRBP_contract_employee'), ref('thiqah_project.service_request_action_PA_contract_employee'), ref('thiqah_project.service_request_action_hr_head_contract_employee'), ref('thiqah_project.service_request_action_HRBO_contract_employee'), ref('thiqah_project.service_request_action_HRBP_second_contract_employee')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_action_HRBP_contract_employee'), ref('thiqah_project.service_request_transition_action_PA_contract_employee'), ref('thiqah_project.service_request_transition_action_hr_head_contract_employee'), ref('thiqah_project.service_request_transition_action_HRBO_contract_employee'), ref('thiqah_project.service_request_transition_action_HRBP_second_contract_employee')])]"/>-->
+<!--        </record>-->
+
+    <!--9- THIQAH SERVICE REQUEST WORKFLOW DATA (Job Offer) -->
+        <!-- STATES -->
+        <record id="service_request_state_HRBP_job_offer" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_PA_job_offer" model="workflow.state">
+            <field name="name">PA</field>
+            <field name="technical_name">pa_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_hr_head_job_offer" model="workflow.state">
+            <field name="name">Head Of HR</field>
+            <field name="technical_name">hr_head_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_HRBP_second_job_offer" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_second_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_approval_job_offer" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <!-- Workflow Actions -->
+        <record id="service_request_action_HRBP_job_offer" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_job_offer"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_PA_job_offer"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_PA_job_offer" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">PA Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_PA_job_offer"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_hr_head_job_offer"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+
+        <record id="service_request_action_hr_head_job_offer" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">Head Of HR Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_hr_head_job_offer"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_HRBP_second_job_offer"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_HRBP_second_job_offer" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_second_job_offer"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_approval_job_offer"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+        <record id="service_request_transition_validation_HRBP_control_job_offer" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_PA_control_job_offer" model="workflow.transition.validation">
+            <field name="name">PA Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">True</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_hr_head_control_job_offer" model="workflow.transition.validation">
+            <field name="name">Head Of HR Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_base.group_hr_head'))]"/>
+        </record>
+
+
+        <record id="service_request_transition_validation_action_HRBP_second_control_job_offer" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <!-- Workflow Transition -->
+        <record id="service_request_transition_action_HRBP_job_offer" model="workflow.transition">
+            <field name="name">HRBP -> PA</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_job_offer"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_HRBP_control_job_offer')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_PA_job_offer" model="workflow.transition">
+            <field name="name">PA -> Head Of HR</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_PA_job_offer"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">1</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_PA_control_job_offer')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_hr_head_job_offer" model="workflow.transition">
+            <field name="name">Head Of HR -> HRBP</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_hr_head_job_offer"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">2</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_hr_head_control_job_offer')])]"/>
+        </record>
+
+
+        <record id="service_request_transition_action_HRBP_second_job_offer" model="workflow.transition">
+            <field name="name">HRBP -> Approved</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_second_job_offer"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">3</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBP_second_control_job_offer')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_service_request_workflow_job_offer" model="workflow.workflow">-->
+<!--            <field name="name">Service Request Workflow Num 222  (Job Offer)</field>-->
+<!--            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_project.model_thiqah_project_service_catalog')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_project.service_request_state_HRBP_job_offer'), ref('thiqah_project.service_request_state_PA_job_offer'), ref('thiqah_project.service_request_state_hr_head_job_offer'), ref('thiqah_project.service_request_state_HRBP_second_job_offer'), ref('thiqah_project.service_request_state_approval_job_offer')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_project.service_request_action_HRBP_job_offer'), ref('thiqah_project.service_request_action_PA_job_offer'), ref('thiqah_project.service_request_action_hr_head_job_offer'), ref('thiqah_project.service_request_action_HRBP_second_job_offer')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_action_HRBP_job_offer'), ref('thiqah_project.service_request_transition_action_PA_job_offer'), ref('thiqah_project.service_request_transition_action_hr_head_job_offer'), ref('thiqah_project.service_request_transition_action_HRBP_second_job_offer')])]"/>-->
+<!--        </record>-->
+
+
+    <!--10- THIQAH SERVICE REQUEST WORKFLOW DATA (Issuance E/R Visa) -->
+        <!-- STATES -->
+        <record id="service_request_state_HRBP_issuance_visa" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_PA_issuance_visa" model="workflow.state">
+            <field name="name">PA</field>
+            <field name="technical_name">pa_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_gr_issuance_visa" model="workflow.state">
+            <field name="name">GR</field>
+            <field name="technical_name">gr_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_HRBP_second_issuance_visa" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_second_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_approval_issuance_visa" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <!-- Workflow Actions -->
+        <record id="service_request_action_HRBP_issuance_visa" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_issuance_visa"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_PA_issuance_visa"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_PA_issuance_visa" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">PA Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_PA_issuance_visa"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_gr_issuance_visa"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+
+        <record id="service_request_action_gr_issuance_visa" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">GR Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_gr_issuance_visa"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_HRBP_second_issuance_visa"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_HRBP_second_issuance_visa" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_second_issuance_visa"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_approval_issuance_visa"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+        <record id="service_request_transition_validation_HRBP_control_issuance_visa" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_PA_control_issuance_visa" model="workflow.transition.validation">
+            <field name="name">PA Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">True</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_gr_control_issuance_visa" model="workflow.transition.validation">
+            <field name="name">GR Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_base.group_government_relations'))]"/>
+        </record>
+
+
+        <record id="service_request_transition_validation_action_HRBP_second_control_issuance_visa" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <!-- Workflow Transition -->
+        <record id="service_request_transition_action_HRBP_issuance_visa" model="workflow.transition">
+            <field name="name">HRBP -> PA</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_issuance_visa"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_HRBP_control_issuance_visa')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_PA_issuance_visa" model="workflow.transition">
+            <field name="name">PA -> GR</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_PA_issuance_visa"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">1</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_PA_control_issuance_visa')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_gr_issuance_visa" model="workflow.transition">
+            <field name="name">GR -> HRBP</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_gr_issuance_visa"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">2</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_gr_control_issuance_visa')])]"/>
+        </record>
+
+
+        <record id="service_request_transition_action_HRBP_second_issuance_visa" model="workflow.transition">
+            <field name="name">HRBP -> Approved</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_second_issuance_visa"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">3</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBP_second_control_issuance_visa')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_service_request_workflow_issuance_visa" model="workflow.workflow">-->
+<!--            <field name="name">Service Request Workflow Num 111  (Issuance E/R Visa)</field>-->
+<!--            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_project.model_thiqah_project_service_catalog')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_project.service_request_state_HRBP_issuance_visa'), ref('thiqah_project.service_request_state_PA_issuance_visa'), ref('thiqah_project.service_request_state_gr_issuance_visa'), ref('thiqah_project.service_request_state_HRBP_second_issuance_visa'), ref('thiqah_project.service_request_state_approval_issuance_visa')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_project.service_request_action_HRBP_issuance_visa'), ref('thiqah_project.service_request_action_PA_issuance_visa'), ref('thiqah_project.service_request_action_gr_issuance_visa'), ref('thiqah_project.service_request_action_HRBP_second_issuance_visa')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_action_HRBP_issuance_visa'), ref('thiqah_project.service_request_transition_action_PA_issuance_visa'), ref('thiqah_project.service_request_transition_action_gr_issuance_visa'), ref('thiqah_project.service_request_transition_action_HRBP_second_issuance_visa')])]"/>-->
+<!--        </record>-->
+
+    <!--11- THIQAH SERVICE REQUEST WORKFLOW DATA (Sponsorship Transfer) -->
+        <!-- STATES -->
+        <record id="service_request_state_HRBP_sponsorship_transfer" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_approval</field>
+            <field name="flow_start">True</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_gr_sponsorship_transfer" model="workflow.state">
+            <field name="name">GR</field>
+            <field name="technical_name">gr_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_HRBP_second_sponsorship_transfer" model="workflow.state">
+            <field name="name">HRBP</field>
+            <field name="technical_name">hrbp_second_approval</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">False</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="service_request_state_approval_sponsorship_transfer" model="workflow.state">
+            <field name="name">Approved</field>
+            <field name="technical_name">approved</field>
+            <field name="flow_start">False</field>
+            <field name="flow_end">True</field>
+            <field name="is_approved">False</field>
+        </record>
+
+        <!-- Workflow Actions -->
+        <record id="service_request_action_HRBP_sponsorship_transfer" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_sponsorship_transfer"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_gr_sponsorship_transfer"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+
+
+        <record id="service_request_action_gr_sponsorship_transfer" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">GR Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_gr_sponsorship_transfer"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_HRBP_second_sponsorship_transfer"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <record id="service_request_action_HRBP_second_sponsorship_transfer" model="workflow.action">
+            <field name="name">Approve</field>
+            <field name="description">HRBP Approval</field>
+            <field name="state_id" ref="thiqah_project.service_request_state_HRBP_second_sponsorship_transfer"/>
+            <field name="state_to" ref="thiqah_project.service_request_state_approval_sponsorship_transfer"/>
+            <field name="action_type">transition</field>
+            <field name="is_return_action">False</field>
+        </record>
+
+        <!-- Workflow Transition Validation-->
+        <record id="service_request_transition_validation_HRBP_control_sponsorship_transfer" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <record id="service_request_transition_validation_gr_control_sponsorship_transfer" model="workflow.transition.validation">
+            <field name="name">GR Control</field>
+            <field name="type">by_group</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">False</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="[(4, ref('thiqah_base.group_government_relations'))]"/>
+        </record>
+
+        <record id="service_request_transition_validation_action_HRBP_second_control_sponsorship_transfer" model="workflow.transition.validation">
+            <field name="name">HRBP Control</field>
+            <field name="type">by_user</field>
+            <field name="is_project_manager">False</field>
+            <field name="is_project_accoutant">False</field>
+            <field name="is_hrbp">True</field>
+            <field name="is_line_management">False</field>
+            <field name="creator">False</field>
+            <field name="is_stakeholder">False</field>
+            <field name="group_ids" eval="False"/>
+        </record>
+
+        <!-- Workflow Transition -->
+        <record id="service_request_transition_action_HRBP_sponsorship_transfer" model="workflow.transition">
+            <field name="name">HRBP -> GR</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_sponsorship_transfer"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">0</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_HRBP_control_sponsorship_transfer')])]"/>
+        </record>
+
+        <record id="service_request_transition_action_gr_sponsorship_transfer" model="workflow.transition">
+            <field name="name">GR -> HRBP</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_gr_sponsorship_transfer"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">1</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_gr_control_sponsorship_transfer')])]"/>
+        </record>
+
+
+        <record id="service_request_transition_action_HRBP_second_sponsorship_transfer" model="workflow.transition">
+            <field name="name">HRBP -> Approved</field>
+            <field name="action_id" ref="thiqah_project.service_request_action_HRBP_second_sponsorship_transfer"/>
+            <field name="is_return_transition">False</field>
+            <field name="return_to_transition_id" eval="False"/>
+            <field name="sequence">2</field>
+            <field name="transition_validation_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_validation_action_HRBP_second_control_sponsorship_transfer')])]"/>
+        </record>
+
+<!--        &lt;!&ndash; Workflow &ndash;&gt;-->
+<!--        <record id="thiqah_service_request_workflow_sponsorship_transfer" model="workflow.workflow">-->
+<!--            <field name="name">Service Request Workflow Num 1111  (sponsorship transfer)</field>-->
+<!--            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>-->
+<!--            <field name="relationship_model_ids" eval="[(6, 0, [ref('thiqah_project.model_thiqah_project_service_catalog')])]"/>-->
+<!--            <field name="state_ids" eval="[(6, 0, [ref('thiqah_project.service_request_state_HRBP_sponsorship_transfer') , ref('thiqah_project.service_request_state_gr_sponsorship_transfer'), ref('thiqah_project.service_request_state_HRBP_second_sponsorship_transfer'), ref('thiqah_project.service_request_state_approval_sponsorship_transfer')])]"/>-->
+<!--            <field name="action_ids" eval="[(6, 0, [ref('thiqah_project.service_request_action_HRBP_sponsorship_transfer'), ref('thiqah_project.service_request_action_gr_sponsorship_transfer'), ref('thiqah_project.service_request_action_HRBP_second_sponsorship_transfer')])]"/>-->
+<!--            <field name="transition_ids" eval="[(6, 0, [ref('thiqah_project.service_request_transition_action_HRBP_sponsorship_transfer'), ref('thiqah_project.service_request_transition_action_gr_sponsorship_transfer'), ref('thiqah_project.service_request_transition_action_HRBP_second_sponsorship_transfer')])]"/>-->
+<!--        </record>-->
+
+
+    </data>
+</odoo>

@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="financial_dashboard" name="Financial Dashboard">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="financial_dashboard_class multi-view">
+                <div class="container-fluid">
+                    <div class="row dashboard_title">
+                        <div class="modal" id="by_client_modal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content" style="padding: 56px 40px">
+                                    <div class="modal-header border-0">
+                                        <h2 class="heading-3">By Client Filter</h2>
+                                        <button type="button" class="close" data-dismiss="modal">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                                                <path fill="#798793" d="M.553 13.447a.772.772 0 0 0 1.068 0l5.38-5.38 5.38 5.38a.764.764 0 0 0 1.068 0 .761.761 0 0 0 0-1.06L8.07 7l5.38-5.38a.753.753 0 0 0 0-1.06.756.756 0 0 0-1.067 0l-5.38 5.38L1.621.56a.748.748 0 0 0-1.069 0 .761.761 0 0 0 0 1.06l5.38 5.38-5.38 5.389a.753.753 0 0 0 0 1.059Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <input type="text" style="padding: 14px 24px 14px 53px !important" class=" rounded-pill t-btn-outile-light-gray-secondary w-100 form-control o_website_form_input" />
+                                        <select class="form-select select_client" name="client_id" size="3">
+                                            <t t-foreach="customers or []" t-as="customer">
+                                                <option t-att-value="customer.id">
+                                                    <t t-esc="customer.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+
+                                        <select name="project_id" id="project_id" data-placeholder="Select the project..." class="form-control o_website_form_input">
+                                            <option value="">Choose...</option>
+                                            <t t-foreach="projects or []" t-as="project">
+                                                <option t-att-value="project.id" t-att-data-partner_id="project.partner_id.id">
+                                                    <t t-esc="project.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                        <ul class="list-group list-group-flush select_client">
+                                            <t t-foreach="customers or []" t-as="customer">
+                                                <a t-attf-href="/my/financial/dashboard?filter_by_id={{customer.id}}_and_0" class="list-group-item">
+                                                    <t t-esc="customer.name" />
+                                                </a>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer border-0 mt56 p-0">
+                                        <button type="button" class="btn rounded-pill t-btn-outile-gray button-text" data-dismiss="modal">Close</button>
+                                        <button type="submit" style="color: #ffffff !important" class="btn btn-secondary financial_filter button-text rounded-pill btn-lg s_website_form_send submit_add_request">
+                                            Submit</button>
+                                        <span id="s_website_form_result"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-header col d-flex align-items-center justify-content-between mb72">
+                            <h1 class="heading-1 m-0">Financial Dashboard</h1>
+                            <div class="dropdown custom_dropdown" groups="project.group_project_manager">
+                                <button style="width:135px" class="btn btn-sm dropdown-toggle rounded-pill t-btn-outile-light-gray-secondary t-text-gray" type="button">
+                                    Filter by
+                                </button>
+                                <!-- <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item button-text border-bottom" href="/my/financial/dashboard">All
+                                        Project</a>
+                                    <a class="dropdown-item button-text" data-toggle="modal" data-target="#by_client_modal" href="#by_client_modal">By Client</a>
+                                </div> -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <!-- Tabs navs -->
+                            <ul class="nav nav-tabs mb48 border-0 justify-content-end w-100" id="financialViews" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button id="cardView" data-toggle="tab" data-target="#viewCards" type="button" role="tab" aria-controls="viewCards" aria-selected="true" class="active bg-white p-0 btn-circle t-btn-outile-light-gray-secondary s-40 ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                            <path fill="#0A0A0A" d="M2.189 7.359H5.82c1.012 0 1.522-.51 1.522-1.562v-3.56c0-1.052-.51-1.554-1.522-1.554H2.19C1.177.683.667 1.185.667 2.236v3.561c0 1.052.51 1.562 1.522 1.562Zm.016-1.124c-.28 0-.415-.143-.415-.438v-3.56c0-.288.136-.431.415-.431h3.593c.278 0 .422.143.422.43v3.561c0 .295-.144.438-.422.438H2.205Zm7.982 1.124h3.625c1.012 0 1.522-.51 1.522-1.562v-3.56c0-1.052-.51-1.554-1.522-1.554h-3.625c-1.02 0-1.53.502-1.53 1.553v3.561c0 1.052.51 1.562 1.53 1.562Zm.016-1.124c-.287 0-.422-.143-.422-.438v-3.56c0-.288.135-.431.422-.431h3.593c.279 0 .414.143.414.43v3.561c0 .295-.135.438-.414.438h-3.593ZM2.19 15.35H5.82c1.012 0 1.522-.502 1.522-1.553v-3.57c0-1.043-.51-1.553-1.522-1.553H2.19c-1.012 0-1.522.51-1.522 1.554v3.569c0 1.051.51 1.553 1.522 1.553Zm.016-1.123c-.28 0-.415-.143-.415-.43v-3.561c0-.295.136-.438.415-.438h3.593c.278 0 .422.143.422.438v3.56c0 .288-.144.431-.422.431H2.205Zm7.982 1.123h3.625c1.012 0 1.522-.502 1.522-1.553v-3.57c0-1.043-.51-1.553-1.522-1.553h-3.625c-1.02 0-1.53.51-1.53 1.554v3.569c0 1.051.51 1.553 1.53 1.553Zm.016-1.123c-.287 0-.422-.143-.422-.43v-3.561c0-.295.135-.438.422-.438h3.593c.279 0 .414.143.414.438v3.56c0 .288-.135.431-.414.431h-3.593Z" />
+                                        </svg>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button id="cardView" data-toggle="tab" data-target="#viewChart" type="button" role="tab" aria-controls="viewChart" aria-selected="false" class="bg-white p-0 btn-circle t-btn-outile-light-gray-secondary s-40 ml-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                            <path fill="#0A0A0A" d="m12.336 12.982.726-.676L8.964 8.26l4.917-2.826L13.4 4.6 8.56 7.374V1.608h-.963v6.493a.52.52 0 0 0 .172.417l4.566 4.464ZM8 15.333c4.012 0 7.334-3.329 7.334-7.333 0-4.012-3.33-7.333-7.34-7.333C3.988.667.666 3.988.666 8c0 4.005 3.329 7.333 7.333 7.333Zm0-1.222A6.082 6.082 0 0 1 1.896 8a6.076 6.076 0 0 1 6.097-6.111 6.094 6.094 0 0 1 6.118 6.11 6.088 6.088 0 0 1-6.11 6.112Z" />
+                                        </svg>
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button id="cardView" data-toggle="tab" data-target="#viewList" type="button" role="tab" aria-controls="viewList" aria-selected="false" class="bg-white p-0 btn-circle t-btn-outile-light-gray-secondary s-40 ml-2">
+                                        <svg width="14" height="11" viewBox="0 0 14 11" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3.9464 1.43126H13.4372C13.7499 1.43126 14 1.18809 14 0.875434C14 0.555831 13.7499 0.312655 13.4372 0.312655H3.9464C3.6268 0.312655 3.38362 0.555831 3.38362 0.875434C3.38362 1.18809 3.6268 1.43126 3.9464 1.43126ZM3.9464 5.63473H13.4372C13.7499 5.63473 14 5.38461 14 5.07195C14 4.7593 13.7499 4.51612 13.4372 4.51612H3.9464C3.6268 4.51612 3.38362 4.7593 3.38362 5.07195C3.38362 5.38461 3.6268 5.63473 3.9464 5.63473ZM3.9464 9.83128H13.4372C13.7499 9.83128 14 9.58807 14 9.27545C14 8.95582 13.7499 8.71268 13.4372 8.71268H3.9464C3.6268 8.71268 3.38362 8.95582 3.38362 9.27545C3.38362 9.58807 3.6268 9.83128 3.9464 9.83128ZM0.875432 1.74392C1.36179 1.74392 1.75086 1.35484 1.75086 0.875434C1.75086 0.389082 1.36179 0 0.875432 0C0.389082 0 0 0.389082 0 0.875434C0 1.35484 0.389082 1.74392 0.875432 1.74392ZM0.875432 5.9474C1.36179 5.9474 1.75086 5.55831 1.75086 5.07195C1.75086 4.5856 1.36179 4.19652 0.875432 4.19652C0.389082 4.19652 0 4.5856 0 5.07195C0 5.55831 0.389082 5.9474 0.875432 5.9474ZM0.875432 10.1508C1.36179 10.1508 1.75086 9.75485 1.75086 9.27545C1.75086 8.7891 1.36179 8.39999 0.875432 8.39999C0.389082 8.39999 0 8.7891 0 9.27545C0 9.75485 0.389082 10.1508 0.875432 10.1508Z" fill="#0A0A0A" />
+                                        </svg>
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="tab-content w-100" id="financialViewsWrapper">
+                                <div class="tab-pane fade show active" id="viewCards" role="tabpanel" aria-labelledby="viewCards-tab">
+                                    <div class="row">
+                                        <div class="col-md-6" t-attf-class="#{'col-sm-6' if is_customer else 'col-lg-4'}">
+                                            <!-- Budget (value) -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-purple s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">Budget
+                                                            value</span>
+                                                            <span class="caption t-text-gray text-uppercase" t-if="is_customer">Projects value</span>
+                                                            <h3 class="heading-3 m-0 span_project_value"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                            <!-- Available Balance -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-dark-blue s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Acutal Available Balance</span>
+                                                            <h3 class="heading-3 m-0 available_balance"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                            <!-- Balance After Commitment -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-turquoise s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Balance After Commitment
+                                                            </span>
+
+                                                            <h3 class="heading-3 m-0 balance_after_commitment"></h3>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6" t-if="is_customer">
+                                            <!-- Number of BRs-->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-turquoise s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Number
+                                                                of BRs
+                                                            </span>
+
+                                                            <h3 class="heading-3 m-0 balance_after_commitment"></h3>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row financial_row_one">
+                                        <div class="col-sm-6" t-attf-class="#{'col-sm-6' if is_customer else 'col-xl-3'}">
+                                            <!-- Total of HC (Number of headcount) -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-cyan s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="24" fill="none">
+                                                                <path fill="#fff" d="M7.07 22.389v-3.847c0-1.071-.54-1.611-1.654-1.611H1.645C.531 16.93 0 17.47 0 18.542v3.847C0 23.46.531 24 1.645 24h3.77c1.114 0 1.654-.54 1.654-1.611Zm-1.19-.017c0 .295-.152.439-.464.439H1.645c-.304 0-.456-.144-.456-.44v-3.804c0-.295.152-.447.456-.447h3.77c.313 0 .465.152.465.447v3.805Zm1.19-8.453v-3.838c0-1.072-.54-1.611-1.654-1.611H1.645C.531 8.47 0 9.01 0 10.08v3.84c0 1.079.531 1.619 1.645 1.619h3.77c1.114 0 1.654-.54 1.654-1.62Zm-1.19-.017c0 .304-.152.447-.464.447H1.645c-.304 0-.456-.143-.456-.447v-3.804c0-.296.152-.439.456-.439h3.77c.313 0 .465.143.465.439v3.804Zm1.19-8.444V1.611C7.07.54 6.53 0 5.415 0H1.645C.531 0 0 .54 0 1.611v3.847c0 1.071.531 1.611 1.645 1.611h3.77c1.114 0 1.654-.54 1.654-1.611Zm-1.19-.017c0 .295-.152.439-.464.439H1.645c-.304 0-.456-.144-.456-.439V1.637c0-.304.152-.448.456-.448h3.77c.313 0 .465.144.465.448V5.44Zm9.65 16.948v-3.847c0-1.071-.531-1.611-1.645-1.611h-3.779c-1.105 0-1.645.54-1.645 1.611v3.847c0 1.071.54 1.611 1.645 1.611h3.78c1.113 0 1.645-.54 1.645-1.611Zm-1.189-.017c0 .295-.152.439-.456.439h-3.77c-.313 0-.464-.144-.464-.44v-3.804c0-.295.151-.447.464-.447h3.77c.304 0 .456.152.456.447v3.805Zm1.19-8.453v-3.838c0-1.072-.532-1.611-1.646-1.611h-3.779c-1.105 0-1.645.54-1.645 1.61v3.84c0 1.079.54 1.619 1.645 1.619h3.78c1.113 0 1.645-.54 1.645-1.62Zm-1.19-.017c0 .304-.152.447-.456.447h-3.77c-.313 0-.464-.143-.464-.447v-3.804c0-.296.151-.439.464-.439h3.77c.304 0 .456.143.456.439v3.804Zm1.19-8.444V1.611C15.53.54 14.998 0 13.884 0h-3.779C9.001 0 8.461.54 8.461 1.611v3.847c0 1.071.54 1.611 1.645 1.611h3.78c1.113 0 1.645-.54 1.645-1.611Zm-1.19-.017c0 .295-.152.439-.456.439h-3.77c-.313 0-.464-.144-.464-.439V1.637c0-.304.151-.448.464-.448h3.77c.304 0 .456.144.456.448V5.44Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Total Of HC
+                                                            </span>
+                                                            <h3 class="heading-3 m-0 number_headcount"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6" t-attf-class="#{'col-sm-6' if is_customer else 'col-xl-3'}">
+                                            <!-- Total POS % -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-gray s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Total POS
+                                                            </span>
+                                                            <h3 class="heading-3 m-0 number_of_pos"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xl-3 col-sm-6" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                            <!-- VAT % -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-purple s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            VAT
+                                                            </span>
+                                                            <h3 class="heading-3 m-0 vat"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="col-xl-3 col-sm-6" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                            <!-- Actual Margin Amount -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-dark-blue s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Margin
+                                                            </span>
+                                                            <h3 class="heading-3 m-0 actual_margin_amount"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row margin_total">
+                                        <div class="col-lg-4" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                            <!-- Actual Margin Average % -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-dark-gray s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" fill="none">
+                                                                <path fill="#fff" d="M3.409 9.768c2.118 0 3.399-1.744 3.399-4.522 0-2.778-1.29-4.492-3.4-4.492C1.292.754 0 2.478 0 5.246c0 2.788 1.28 4.522 3.409 4.522Zm0-1.379c-1.143 0-1.823-1.153-1.823-3.143 0-1.96.69-3.123 1.823-3.123s1.813 1.153 1.813 3.123c0 1.99-.67 3.143-1.813 3.143ZM14.6 19.246c2.118 0 3.399-1.744 3.399-4.512 0-2.788-1.29-4.503-3.399-4.503-2.118 0-3.409 1.725-3.409 4.503s1.28 4.512 3.409 4.512Zm0-1.37c-1.143 0-1.823-1.162-1.823-3.142 0-1.97.69-3.123 1.823-3.123s1.813 1.143 1.813 3.123c0 1.98-.67 3.143-1.813 3.143Zm-11.902 1.41c.365.206.897.177 1.212-.276L15.488 1.896c.345-.492.138-.995-.227-1.211-.345-.188-.827-.148-1.172.344L2.512 18.093c-.354.503-.177.976.188 1.193Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Margin
+                                                            </span>
+                                                            <h3 class="heading-3 m-0 actual_margin_percent"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                            <!-- Total Utilization with Margin and VAT-->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-dark-blue s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Total Utilization With Margin and VAT
+                                                            </span>
+                                                            <h3 class="heading-3 m-0 total_margin_vat"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-lg-4" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                            <!-- Actual Revenue -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-turquoise s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Actual Revenue
+                                                            </span>
+                                                            <h3 class="heading-3 m-0 actual_revenue"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-sm-6" t-if="is_customer">
+                                            <!-- Total Utilization with Margin and VAT-->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-turquoise s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Available
+                                                                Projects Budget
+                                                            </span>
+                                                            <h3 class="heading-3 m-0 total_margin_vat"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6" t-if="is_customer">
+                                            <!-- Total Utilization with Margin and VAT-->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-turquoise s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z"></path>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                           Commitment from Available Projects Budget
+                                                            </span>
+                                                            <h3 class="heading-3 m-0 total_margin_vat"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="viewChart" role="tabpanel" aria-labelledby="viewChart-tab">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-sm">
+                                            <!-- Budget (value) -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-purple s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">Budget
+                                                            value</span>
+                                                            <span class="caption t-text-gray text-uppercase" t-if="is_customer">Projects value</span>
+                                                            <h3 class="heading-3 m-0 span_project_value"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-sm">
+                                            <!-- Total POS % -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-gray s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+                                                                <path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Total POS
+                                                            </span>
+                                                            <h3 class="heading-3 m-0 number_of_pos"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-4 col-sm">
+                                            <!-- Total of HC (Number of headcount) -->
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="btn-circle t-custom-bg-cyan s-56">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="24" fill="none">
+                                                                <path fill="#fff" d="M7.07 22.389v-3.847c0-1.071-.54-1.611-1.654-1.611H1.645C.531 16.93 0 17.47 0 18.542v3.847C0 23.46.531 24 1.645 24h3.77c1.114 0 1.654-.54 1.654-1.611Zm-1.19-.017c0 .295-.152.439-.464.439H1.645c-.304 0-.456-.144-.456-.44v-3.804c0-.295.152-.447.456-.447h3.77c.313 0 .465.152.465.447v3.805Zm1.19-8.453v-3.838c0-1.072-.54-1.611-1.654-1.611H1.645C.531 8.47 0 9.01 0 10.08v3.84c0 1.079.531 1.619 1.645 1.619h3.77c1.114 0 1.654-.54 1.654-1.62Zm-1.19-.017c0 .304-.152.447-.464.447H1.645c-.304 0-.456-.143-.456-.447v-3.804c0-.296.152-.439.456-.439h3.77c.313 0 .465.143.465.439v3.804Zm1.19-8.444V1.611C7.07.54 6.53 0 5.415 0H1.645C.531 0 0 .54 0 1.611v3.847c0 1.071.531 1.611 1.645 1.611h3.77c1.114 0 1.654-.54 1.654-1.611Zm-1.19-.017c0 .295-.152.439-.464.439H1.645c-.304 0-.456-.144-.456-.439V1.637c0-.304.152-.448.456-.448h3.77c.313 0 .465.144.465.448V5.44Zm9.65 16.948v-3.847c0-1.071-.531-1.611-1.645-1.611h-3.779c-1.105 0-1.645.54-1.645 1.611v3.847c0 1.071.54 1.611 1.645 1.611h3.78c1.113 0 1.645-.54 1.645-1.611Zm-1.189-.017c0 .295-.152.439-.456.439h-3.77c-.313 0-.464-.144-.464-.44v-3.804c0-.295.151-.447.464-.447h3.77c.304 0 .456.152.456.447v3.805Zm1.19-8.453v-3.838c0-1.072-.532-1.611-1.646-1.611h-3.779c-1.105 0-1.645.54-1.645 1.61v3.84c0 1.079.54 1.619 1.645 1.619h3.78c1.113 0 1.645-.54 1.645-1.62Zm-1.19-.017c0 .304-.152.447-.456.447h-3.77c-.313 0-.464-.143-.464-.447v-3.804c0-.296.151-.439.464-.439h3.77c.304 0 .456.143.456.439v3.804Zm1.19-8.444V1.611C15.53.54 14.998 0 13.884 0h-3.779C9.001 0 8.461.54 8.461 1.611v3.847c0 1.071.54 1.611 1.645 1.611h3.78c1.113 0 1.645-.54 1.645-1.611Zm-1.19-.017c0 .295-.152.439-.456.439h-3.77c-.313 0-.464-.144-.464-.439V1.637c0-.304.151-.448.464-.448h3.77c.304 0 .456.144.456.448V5.44Z" />
+                                                            </svg>
+                                                        </div>
+                                                        <div class="flex-fill ml-3">
+                                                            <span class="caption t-text-gray text-uppercase">
+                                                            Total Of HC
+                                                            </span>
+                                                            <h3 class="heading-3 m-0 number_headcount"></h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md">
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body flex-column d-flex justify-content-between">
+                                                    <div  t-attf-class="top-left #{'text-right' if lang[:2] == 'ar' else ''}">
+                                                        <sapn class="caption t-text-gray">
+                                                        Actual Available Balance
+                                                        </sapn>
+                                                        <h3 class="heading-3 available_balance"></h3>
+                                                    </div>
+                                                    <div class="align-items-center chart-container d-flex" style="height:300px">
+                                                        <canvas id="actual_commitment"></canvas>
+                                                    </div>
+                                                    <div t-attf-class="bottom-right #{'text-right' if lang[:2] == 'en' else 'text-left'}">
+                                                        <sapn class="caption t-text-gray">
+                                                        Balance After Commitment
+                                                        </sapn>
+                                                        <h3 class="heading-3 balance_after_commitment"></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md">
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div t-attf-class="top-left #{'text-right' if lang[:2] == 'ar' else ''}">
+                                                        <sapn class="caption t-text-gray">
+                                                        Total Utilization With Margin And Vat
+                                                        </sapn>
+                                                        <h3 class="heading-3 total_margin_vat"></h3>
+                                                    </div>
+                                                    <div class="align-items-center chart-container d-flex" style=" position: relative;
+                                                            margin: auto;
+                                                            height: 290px;">
+                                                        <canvas id="vatRevenue"></canvas>
+                                                    </div>
+                                                    <div t-attf-class="bottom-right #{'text-right' if lang[:2] == 'en' else 'text-left'}">
+                                                        <sapn class="caption t-text-gray">
+                                                        Actual Revenue
+                                                        </sapn>
+                                                        <h3 class="heading-3 actual_revenue"></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md">
+                                            <div class="card border-0 t-shadow mb32">
+                                                <div class="card-body">
+                                                    <div t-attf-class="top-left #{'text-right' if lang[:2] == 'ar' else ''}">
+                                                        <sapn class="caption t-text-gray">
+                                                        Margin
+                                                        </sapn>
+                                                        <h3 class="heading-3 actual_margin_amount"></h3>
+                                                    </div>
+                                                    <div class="align-items-center chart-container d-flex" style=" position: relative;
+                                                            margin: auto;
+                                                            height: 290px;">
+                                                        <canvas id="marginVat"></canvas>
+                                                    </div>
+                                                    <div t-attf-class="bottom-right #{'text-right' if lang[:2] == 'en' else 'text-left'}">
+                                                        <sapn class="caption t-text-gray">
+                                                        VAT
+                                                        </sapn>
+                                                        <h3 class="heading-3 vat"></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="viewList" role="tabpanel" aria-labelledby="viewList-tab">
+                                    <div class="table-responsive">
+                                        <table class="body2 table table-bordered" style="table-layout: fixed;" id="financialTableView">
+                                            <thead>
+                                                <tr>
+                                                    <th>Label</th>
+                                                    <th style="width:140px" class="t-custom-bg-amulet text-right">
+                                                    Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Budget Value</td>
+                                                    <td class="t-custom-bg-amulet text-right">
+                                                        <sapn class="span_project_value"></sapn>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Actual Available Balance</td>
+                                                    <td class="text-right t-custom-bg-light-gray border-white">
+                                                        <sapn class="available_balance"></sapn>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Balance After Commitment</td>
+                                                    <td class="text-right t-custom-bg-light-gray border-white">
+                                                        <sapn class="balance_after_commitment"></sapn>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total of HC</td>
+                                                    <td class="text-right t-custom-bg-light-gray border-white">
+                                                        <sapn class="number_headcount"></sapn>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total POS</td>
+                                                    <td class="text-right t-custom-bg-light-gray border-white">
+                                                        <sapn class="number_of_pos"></sapn>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>VAT</td>
+                                                    <td class="text-right t-custom-bg-light-gray border-white">
+                                                        <sapn class="vat"></sapn>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Margin ($)</td>
+                                                    <td class="text-right t-custom-bg-light-gray border-white">
+                                                        <sapn class="actual_margin_percent"></sapn>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Margin (%)</td>
+                                                    <td class="text-right t-custom-bg-light-gray border-white">
+                                                        <sapn class="actual_margin_amount"></sapn>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Total Utilization With Margin And Vat</td>
+                                                    <td class="text-right t-custom-bg-light-gray border-white">
+                                                        <sapn class="total_margin_vat"></sapn>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-bottom-left-radius: 16px;">Actual
+                                                    Revenue</td>
+                                                    <td style="border-bottom-right-radius: 16px;" class="text-right t-custom-bg-light-gray border-white">
+                                                        <sapn class="actual_revenue"></sapn>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div t-if="not is_customer" class="row cost_row">
+                    <div class="col">
+                        <div class="card w-100 card-wrapper mt48">
+                            <div class="card-header heading-4 d-flex align-items-center">
+                            Example label
+                            </div>
+                            <div class="card-block pb-0">
+                                <div class="row">
+                                    <div class="col-md-6" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                        <div class="card card-borderless">
+                                            <span class="card-header heading-5">Actual Cost</span>
+                                            <div class="card-body">
+                                                <div class="chart-container">
+                                                    <canvas id="total_actual_cost" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                        <div class="card card-borderless">
+                                            <span class="card-header heading-5">Commitments</span>
+                                            <div class="card-body">
+                                                <div class="chart-container">
+                                                    <canvas id="commitments_chart" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="h-divider mt48 mb48"></div>
+                            <div class="card-block pt-0">
+                                <div class="row">
+                                    <div class="col-md-6" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                        <div class="card card-borderless">
+                                            <span class="card-header heading-5">Invoices</span>
+                                            <div class="card-body">
+                                                <div class="chart-container">
+                                                    <canvas id="projects_invoices" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                        <div class="card card-borderless">
+                                            <span class="card-header heading-5">Contract</span>
+                                            <div class="card-body">
+                                                <div class="chart-container">
+                                                    <canvas id="contract_chart" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

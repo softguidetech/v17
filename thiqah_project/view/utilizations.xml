@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="project_utilizations" name="Project utilizations">
+        <div class="project_utilization mb72">
+            <!-- Add Utilization Modal -->
+            <div class="project-details-modal modal fade" id="addUtilizationModal" tabindex="-1" aria-labelledby="utilizationModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header border-0">
+                            <h3 class="modal-title heading-3" id="utilizationModalLabel">
+                                Utilization</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <t t-call="thiqah_project.close_button" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <t t-call="thiqah_project.utilization_modal_form" />
+                        </div>
+                        <div class="modal-footer border-0">
+                            <div t-att-class="active" id="info_state" class="alert alert-success text-center m-0" role="status">
+                                <div id="details_info"></div>
+                            </div>
+                            <div class="ml-auto">
+                                <button type="button" class="rounded-pill btn btn-lg t-btn-outile-gray button-text" data-dismiss="modal">
+                                    Cancel</button>
+                                <button type="button" id="add_project_utilization" class="ml-3 btn btn-lg btn-secondary rounded-pill add_data_button">
+                                    Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add_project_box">
+                <input type="hidden" name="utilization_ids" value="0" />
+                <h5 class="heading-5 mb24">Utilizations</h5>
+
+                <div class="card placeholder-card">
+                    <div class="align-items-center card-body d-flex flex-column">
+                        <div class="btn-circle mb32 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="28" fill="none">
+                                <path fill="#117DBC" d="M7.01 13.169h6.291v-1.66h-6.29a.843.843 0 0 0-.856.83c0 .465.377.83.855.83Zm8.053 1.711a2.553 2.553 0 0 0 2.541-2.554 2.55 2.55 0 0 0-2.541-2.542 2.553 2.553 0 0 0-2.554 2.542 2.556 2.556 0 0 0 2.554 2.554Zm0-1.296c-.717 0-1.246-.553-1.246-1.258 0-.717.529-1.246 1.246-1.246.692 0 1.245.529 1.245 1.246 0 .705-.553 1.258-1.245 1.258Zm1.648-.415h2.328a.825.825 0 0 0 .805-.83c0-.453-.378-.83-.805-.83H16.71v1.66Zm-9.75 6.807h2.327v-1.661H6.96a.822.822 0 0 0-.805.818c0 .465.377.843.805.843Zm3.975 1.71a2.559 2.559 0 0 0 2.567-2.553 2.553 2.553 0 1 0-5.108 0 2.553 2.553 0 0 0 2.54 2.554Zm0-1.295c-.692 0-1.246-.554-1.246-1.27 0-.705.554-1.246 1.246-1.246.717 0 1.27.54 1.27 1.245 0 .717-.553 1.27-1.27 1.27Zm1.761-.415h6.291a.846.846 0 0 0 .856-.843c0-.453-.378-.818-.856-.818h-6.29v1.66ZM.166 15.22c0 7.02 5.825 12.833 12.833 12.833 7.021 0 12.834-5.813 12.834-12.833 0-6.19-4.517-11.437-10.405-12.595V.84c0-.893-.617-1.133-1.296-.642l-4.014 2.806c-.579.403-.591 1.006 0 1.422l4.001 2.818c.692.503 1.309.264 1.309-.642V4.815c4.755 1.082 8.253 5.31 8.253 10.405A10.643 10.643 0 0 1 13 25.914 10.646 10.646 0 0 1 2.305 15.22c.012-3.573 1.749-6.731 4.429-8.644.516-.39.68-.981.365-1.51-.315-.516-1.007-.654-1.56-.226C2.304 7.193.165 10.992.165 15.22Z" />
+                            </svg>
+                        </div>
+                        <h6 class="heading-6">No utilizations has been added yet</h6>
+                        <h3 class="body3 t-text-gray">Use the button below to add new position to
+                            this section</h3>
+                        <button class="btn rounded-pill t-btn-outile-gray button-text" type="button" data-toggle="modal" data-target="#addUtilizationModal">Add<svg class="ml-2"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="12" fill="none">
+                            <path fill="#0A0A0A" d="M.666 6c0 .346.29.63.63.63H5.87v4.574c0 .34.283.63.63.63.346 0 .636-.29.636-.63V6.629h4.567c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H7.136V.796c0-.34-.29-.63-.637-.63-.346 0-.629.29-.629.63v4.567H1.295c-.34 0-.629.29-.629.637Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="project_details_table" id="utilizationDiv">
+                <div class="t-shadow mt40 overflow-hidden" style="border-radius:16px">
+                    <div class="table-responsive">
+
+
+                        <table class="table table-bordered" id="table_projects">
+                            <thead>
+                                <tr>
+                                    <th>Utilization Number</th>
+                                    <th>Planned Hours</th>
+                                    <th>Actual Hours</th>
+                                    <th>Forecasted Hours</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table_utilizations_body">
+                                <!-- To be filled dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button type="button" data-toggle="modal" data-target="#addUtilizationModal" class="btn mt24 btn-secondary rounded-pill add_data_button">Add Next <svg class="ml-2"
+                    xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                    <path fill="#fff" d="M.166 6c0 .346.29.63.63.63H5.37v4.574c0 .34.283.63.63.63.346 0 .636-.29.636-.63V6.629h4.567c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H6.636V.796c0-.34-.29-.63-.637-.63-.346 0-.629.29-.629.63v4.567H.795c-.34 0-.629.29-.629.637Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+</template>
+
+<template id="utilization_modal_form" name="Utilization Modal Form">
+<!-- Utilization Number -->
+<div class="form-group">
+    <label class="" for="utilization_number">Utilization Number
+    </label>
+    <input id="utilization_number" type="text" min="0" class="form-control" name="utilization_number" />
+</div>
+<!-- Planned Hours -->
+<div class="form-group">
+    <label class="" for="planned_hours">Planned Hours
+    </label>
+    <input id="planned_hours" type="number" min="0" class="form-control" name="planned_hours" />
+</div>
+<!-- Actual Hours -->
+<div class="form-group">
+    <label class="" for="actual_hours">Actual Hours
+    </label>
+    <input id="actual_hours" type="number" min="0" class="form-control" name="actual_hours" />
+</div>
+<!-- Forecasted Hours -->
+<div class="form-group">
+    <label class="" for="forecasted_hours">Forecasted Hours
+    </label>
+    <input id="forecasted_hours" type="number" min="0" class="form-control" name="forecasted_hours" />
+</div>
+</template>
+</odoo>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+  <!-- actions opening views on models -->
+
+  <!-- Service Managment -->
+  <!-- Request Service -->
+  <record id="service_request_action" model="ir.actions.act_window">
+    <field name="name">Service Requests</field>
+    <field name="res_model">thiqah.project.service.request</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Service Type -->
+  <record id="service_type_action" model="ir.actions.act_window">
+    <field name="name">Service Types</field>
+    <field name="res_model">thiqah_project.service_type</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Catalog Type -->
+  <record id="service_catalog_action" model="ir.actions.act_window">
+    <field name="name">Catalog Types</field>
+    <field name="res_model">thiqah_project.service_catalog</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+
+  <!-- Thiqah Project Managment -->
+  <!-- Contract Type -->
+  <record id="contract_type_action" model="ir.actions.act_window">
+    <field name="name">Contract Types</field>
+    <field name="res_model">thiqah.project.contract.type</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Risk Type -->
+  <record id="risk_type_action" model="ir.actions.act_window">
+    <field name="name">Risk Types</field>
+    <field name="res_model">thiqah.project.risk.type</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Action Type -->
+  <record id="action_type_action" model="ir.actions.act_window">
+    <field name="name">Action Types</field>
+    <field name="res_model">thiqah_project.action_type</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Resources -->
+  <record id="resources_action" model="ir.actions.act_window">
+    <field name="name">Resources</field>
+    <field name="res_model">thiqah.project.resource</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Risk And Issues -->
+  <record id="risk_and_issues_action" model="ir.actions.act_window">
+    <field name="name">Risk And Issues</field>
+    <field name="res_model">thiqah.project.risk</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Revenue Plans -->
+  <record id="revenue_action" model="ir.actions.act_window">
+    <field name="name">Revenue Plans</field>
+    <field name="res_model">thiqah.revenue.plan</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Deliverables -->
+  <record id="deliverable_action" model="ir.actions.act_window">
+    <field name="name">Deliverables</field>
+    <field name="res_model">thiqah.project.deliverable</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Utilizations -->
+  <record id="utilization_action" model="ir.actions.act_window">
+    <field name="name">Utilizations</field>
+    <field name="res_model">thiqah.project.utilization</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+
+  <!-- For both -->
+  <record id="request_stage_action" model="ir.actions.act_window">
+    <field name="name">Request Stages</field>
+    <field name="res_model">thiqah_project.request_stage</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- 
+  <record id="project_department_action" model="ir.actions.act_window">
+    <field name="name">Departments</field>
+    <field name="res_model">thiqah_project.project_department</field>
+    <field name="view_mode">tree,form</field>
+  </record> -->
+
+  <record id="document_type_action" model="ir.actions.act_window">
+    <field name="name">Document Types</field>
+    <field name="res_model">document.type</field>
+    <field name="view_mode">tree</field>
+  </record>
+
+
+  
+
+</odoo>

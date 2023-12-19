@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Odoo code is not yet completely made in Owl, so it needs a way to tell the difference between Owl templates (new code) and old templates (for components). To do that in a backward-compatible way, all new templates should be defined with the owl attribute set to 1. -->
+    <template id="notification_menu">
+        <div class="notifications">
+            <div class="icon_wrap">
+                <i class="fa fa-bell">
+                    <span class="o_NotificationMenu_counter badge badge-pill"></span>
+                </i>
+            </div>
+            <div class="notification_dd scroll">
+                <ul class="notification_ul" id="notification_portal_">
+                    <!-- Loop  -->
+                    <!-- <t t-foreach="messages" t-as="message">
+                        <li class="starbucks success">
+                            <div class="notify_data">
+                                <div class="title">
+                                    <span>
+                                        <t t-esc="message.name"/>
+                                    </span>
+                                </div>
+                                <div class="sub_title">
+                                    <span>
+                                        <t t-esc="message.description"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="notify_status">
+                                <p>Success</p>
+                            </div>
+                        </li>
+                    </t> -->
+                    <!-- <li class="show_all">
+                        <p class="link">Show All Activities</p>
+                    </li> -->
+                </ul>
+            </div>
+
+        </div>
+
+    </template>
+
+
+
+</odoo>
+
+
+
+

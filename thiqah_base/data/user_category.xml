@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+
+    <record id="object_hr" model="user.category">
+      <field name="name">HR</field>
+      <field name="code">hr</field>
+    </record>
+
+    <record id="object_ahad_advisory" model="user.category">
+      <field name="name">Ahad Advisory</field>
+      <field name="code">ahad_advisory</field>
+    </record>
+
+    <record id="object_c_level" model="user.category">
+      <field name="name">C Level</field>
+      <field name="code">c_level</field>
+    </record>
+
+    <record id="object_internal_it" model="user.category">
+      <field name="name">Internal It</field>
+      <field name="code">internal_it</field>
+    </record>
+
+
+  </data>
+</odoo>

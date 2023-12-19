@@ -1,0 +1,47 @@
+
+#_legal_dashboard_id{
+    
+    .cards_legal{
+        margin:10px 10px 10px 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    
+    
+    .padding-custom {
+        margin: 15px 15px 10px 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        background-color: white;
+        border-radius: 10px;
+
+    }
+
+
+    .legal-card{
+        padding: 10px 30px 10px 0px;
+      
+    }
+
+    .legal_table{
+        padding-top: 15px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    }
+
+    .legal_span_color{
+        color: #767a9c !important;
+        font-weight: 900;
+    }
+
+    .subspan_color{
+        color: #7d7d7d !important;
+    }
+
+    tr > th{
+        color:#676e9f;
+    }
+
+    tr > td{
+        font-weight: bold;
+    }
+
+}

@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inquiry Request Form Modal -->
+    <template id="inquiry_request_template" name="Inquiry Request">
+        <!-- The Modal -->
+        <div class="modal" id="createInquiryRequest">
+            <div class="modal-dialog" style="max-width: 1028px;">
+                <div class="inquiry_request">
+                    <section>
+                        <form id="inquiry_request_form" class="needs-validation" action="/website/form" method="post" enctype="multipart/form-data" novalidate="1">
+                            <div class="modal-content" style="padding: 72px;padding-bottom: 56px;">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                <!-- Modal Header -->
+                                <div class="modal-header border-0">
+                                    <h2 class="heading-3">New Inquiry Request</h2>
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                                            <path fill="#798793" d="M.33 19.67c.442.43 1.173.43 1.602 0l8.07-8.07 8.07 8.07c.43.43 1.173.442 1.602 0a1.142 1.142 0 0 0 0-1.588l-8.07-8.083 8.07-8.07c.429-.43.442-1.161 0-1.59a1.134 1.134 0 0 0-1.601 0l-8.07 8.07L1.931.34C1.503-.102.759-.115.33.34a1.142 1.142 0 0 0 0 1.59l8.07 8.07-8.07 8.083c-.429.428-.441 1.16 0 1.588Z" />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="s_website_form_label heading-7" for="partner_portfolio">
+                                                    <span class="s_website_form_label_content">
+                                                        Partner Portfolio
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <select name="partner_portfolio" data-style="t-btn-outile-light-gray-secondary" data-live-search="true" data-size="10" id="partner_portfolio" required="1" data-placeholder="Select the Partner Portfolio..." class="selectpicker form-control o_website_form_input">
+                                                    <option value="">
+                                                        Choose...
+                                                    </option>
+                                                    <t t-foreach="partner_portfolio or []" t-as="portfolio">
+                                                        <option data-divider="true" class="m-0"></option>
+                                                        <option t-att-value="portfolio.id">
+                                                            <t t-esc="portfolio.name" />
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="s_website_form_label heading-7" for="partner_id">
+                                                    <span class="s_website_form_label_content">
+                                                        Partner
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <select name="partner_id" data-style="t-btn-outile-light-gray-secondary" id="partner_id" required="1" data-placeholder="Select the partner..." class="selectpicker form-control o_website_form_input">
+                                                    <option value="">Choose...</option>
+                                                    <t t-foreach="partners or []" t-as="partner">
+                                                        <option data-divider="true" class="m-0"></option>
+                                                        <option t-att-value="partner.id">
+                                                            <t t-esc="partner.name" />
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="s_website_form_label heading-7" for="section">
+                                                    <span class="s_website_form_label_content">
+                                                        Section
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <input required="1" id="section" type="text" class="form-control" placeholder="Section..." name="section" />
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <!-- Department -->
+                                                <div class="  ">
+                                                    <label class="s_website_form_label heading-7" for="department_id">
+                                                        <span class="s_website_form_label_content">Department</span>
+                                                        <span class="s_website_form_mark">*</span>
+                                                    </label>
+
+                                                    <div class="">
+                                                        <select required="1" name="department_id" id="department_id" data-style="t-btn-outile-light-gray-secondary" data-live-search="true" data-size="10" data-placeholder="Select the client..." class="selectpicker form-control o_website_form_input basic_change_selector">
+                                                            <option value="">Choose...</option>
+                                                            <t t-foreach="departments or []" t-as="department">
+                                                                <option data-divider="true" class="m-0"></option>
+                                                                <option t-att-value="department.id">
+                                                                    <t t-esc="department.name" />
+                                                                </option>
+                                                            </t>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="s_website_form_label heading-7" for="request_type">
+                                                    <span class="s_website_form_label_content">
+                                                        Request Type
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <select name="request_type" data-style="t-btn-outile-light-gray-secondary" id="request_type" required="1" data-placeholder="Select the Request Type..." class="selectpicker form-control o_website_form_input">
+                                                    <option value="">Choose...</option>
+                                                    <option data-divider="true" class="m-0"></option>
+                                                    <option value="inquiry">
+                                                        Inquiry
+                                                    </option>
+                                                    <option data-divider="true" class="m-0"></option>
+                                                    <option value="complaint">
+                                                        Complaint
+                                                    </option>
+                                                    <option data-divider="true" class="m-0"></option>
+                                                    <option value="other">
+                                                        Other
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="s_website_form_label heading-7" for="urgency">
+                                                    <span class="s_website_form_label_content">
+                                                        Urgency
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <select name="urgency" data-style="t-btn-outile-light-gray-secondary" data-live-search="true" id="urgency" required="1" data-placeholder="Select the urgency..." class="selectpicker form-control o_website_form_input">
+                                                    <option value="">
+                                                        Choose...
+                                                    </option>
+                                                    <option data-divider="true" class="m-0"></option>
+                                                    <option value="low">
+                                                        Low
+                                                    </option>
+                                                    <option data-divider="true" class="m-0"></option>
+                                                    <option value="medium">
+                                                        Medium
+                                                    </option>
+                                                    <option data-divider="true" class="m-0"></option>
+                                                    <option value="heigh">
+                                                        Heigh
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label class="s_website_form_label heading-7" for="create_date">
+                                                    <span class="s_website_form_label_content">Create Date</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <div class="input-group date">
+                                                    <input id="create_date" required="1" disabled="1" t-att-value="datetime.date.today().strftime('%d/%m/%Y')" class="form-control s_website_form_input" name="create_date" />
+                                                    <span class="input-group-addon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                                                            <path fill="#798793" d="M2.243 13.417h9.522c1.457 0 2.181-.725 2.181-2.161V2.744c0-1.436-.724-2.16-2.181-2.16H2.243C.786.583.053 1.3.053 2.743v8.512c0 1.443.733 2.16 2.19 2.16Zm-.105-1.123c-.62 0-.962-.327-.962-.976V4.745c0-.641.342-.976.962-.976h9.717c.62 0 .97.335.97.976v6.574c0 .648-.35.975-.97.975H2.138Zm3.506-6.022h.412c.244 0 .32-.07.32-.314v-.411c0-.244-.076-.321-.32-.321h-.412c-.244 0-.327.077-.327.32v.412c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.314v-.411c0-.244-.083-.321-.327-.321h-.411c-.244 0-.328.077-.328.32v.412c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.314v-.411c0-.244-.084-.321-.328-.321h-.411c-.244 0-.32.077-.32.32v.412c0 .244.076.314.32.314ZM3.33 8.552h.404c.251 0 .328-.07.328-.315v-.41c0-.245-.077-.315-.328-.315H3.33c-.251 0-.328.07-.328.314v.411c0 .244.077.314.328.314Zm2.314 0h.412c.244 0 .32-.07.32-.315v-.41c0-.245-.076-.315-.32-.315h-.412c-.244 0-.327.07-.327.314v.411c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.315v-.41c0-.245-.083-.315-.327-.315h-.411c-.244 0-.328.07-.328.314v.411c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.315v-.41c0-.245-.084-.315-.328-.315h-.411c-.244 0-.32.07-.32.314v.411c0 .244.076.314.32.314ZM3.33 10.837h.404c.251 0 .328-.077.328-.321v-.411c0-.244-.077-.314-.328-.314H3.33c-.251 0-.328.07-.328.314v.41c0 .245.077.322.328.322Zm2.314 0h.412c.244 0 .32-.077.32-.321v-.411c0-.244-.076-.314-.32-.314h-.412c-.244 0-.327.07-.327.314v.41c0 .245.083.322.327.322Zm2.315 0h.41c.245 0 .328-.077.328-.321v-.411c0-.244-.083-.314-.327-.314h-.411c-.244 0-.328.07-.328.314v.41c0 .245.084.322.328.322Z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label class="s_website_form_label heading-7" for="due_date">
+                                                    <span class="s_website_form_label_content">Due Date</span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <div class="input-group date">
+                                                    <input id="due_date" required="1" t-att-value="due_date" class="form-control s_website_form_input" name="due_date" />
+                                                    <span class="input-group-addon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                                                            <path fill="#798793" d="M2.243 13.417h9.522c1.457 0 2.181-.725 2.181-2.161V2.744c0-1.436-.724-2.16-2.181-2.16H2.243C.786.583.053 1.3.053 2.743v8.512c0 1.443.733 2.16 2.19 2.16Zm-.105-1.123c-.62 0-.962-.327-.962-.976V4.745c0-.641.342-.976.962-.976h9.717c.62 0 .97.335.97.976v6.574c0 .648-.35.975-.97.975H2.138Zm3.506-6.022h.412c.244 0 .32-.07.32-.314v-.411c0-.244-.076-.321-.32-.321h-.412c-.244 0-.327.077-.327.32v.412c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.314v-.411c0-.244-.083-.321-.327-.321h-.411c-.244 0-.328.077-.328.32v.412c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.314v-.411c0-.244-.084-.321-.328-.321h-.411c-.244 0-.32.077-.32.32v.412c0 .244.076.314.32.314ZM3.33 8.552h.404c.251 0 .328-.07.328-.315v-.41c0-.245-.077-.315-.328-.315H3.33c-.251 0-.328.07-.328.314v.411c0 .244.077.314.328.314Zm2.314 0h.412c.244 0 .32-.07.32-.315v-.41c0-.245-.076-.315-.32-.315h-.412c-.244 0-.327.07-.327.314v.411c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.315v-.41c0-.245-.083-.315-.327-.315h-.411c-.244 0-.328.07-.328.314v.411c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.315v-.41c0-.245-.084-.315-.328-.315h-.411c-.244 0-.32.07-.32.314v.411c0 .244.076.314.32.314ZM3.33 10.837h.404c.251 0 .328-.077.328-.321v-.411c0-.244-.077-.314-.328-.314H3.33c-.251 0-.328.07-.328.314v.41c0 .245.077.322.328.322Zm2.314 0h.412c.244 0 .32-.077.32-.321v-.411c0-.244-.076-.314-.32-.314h-.412c-.244 0-.327.07-.327.314v.41c0 .245.083.322.327.322Zm2.315 0h.41c.245 0 .328-.077.328-.321v-.411c0-.244-.083-.314-.327-.314h-.411c-.244 0-.328.07-.328.314v.41c0 .245.084.322.328.322Z"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <label class="s_website_form_label heading-7" for="description">
+                                                    <span class="s_website_form_label_content">
+                                                        Description
+                                                    </span>
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <textarea id="description" class="form-control s_website_form_input" name="description" required="1" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <label class="s_website_form_label heading-7" for="attachment_ids">
+                                                <span class="s_website_form_label_content">
+                                                    Upload Attachments</span>
+                                            </label>
+                                            <div class="custom-input-file">
+                                                <div class="btn-circle t-custom-bg-cyan" style="width:40px;height:40px">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" fill="none">
+                                                        <path fill="#fff" d="m18.366 11.991-4.618-4.338c-.35-.311-.754-.482-1.174-.482-.427 0-.808.148-1.166.466l-3.514 3.141L6.455 9.48c-.326-.295-.684-.443-1.05-.443-.35 0-.676.14-1.002.435L1.44 12.147c.047 1.407.622 2.122 1.78 2.122h13.032c1.407 0 2.114-.785 2.114-2.278Zm-11.74-4.26a1.837 1.837 0 0 0 1.827-1.835A1.842 1.842 0 0 0 6.626 4.06c-1.01 0-1.835.832-1.835 1.835 0 1.01.825 1.835 1.835 1.835Zm-3.35 7.083h13.45c1.633 0 2.441-.801 2.441-2.403v-9.5C19.167 1.308 18.36.5 16.726.5H3.276C1.65.5.833 1.309.833 2.91v9.501c0 1.602.816 2.403 2.441 2.403Zm.015-1.252c-.778 0-1.205-.412-1.205-1.22V2.98c0-.808.427-1.228 1.205-1.228h13.42c.77 0 1.205.42 1.205 1.228v9.361c0 .809-.436 1.22-1.206 1.22H3.29Z" />
+                                                    </svg>
+                                                </div>
+                                                <p class="body2 m-0 ml-3"> Drag Drop or <span class="t-text-cyan">Choose File</span> To
+                                                        Upload </p>
+                                                <input id="attachment_ids" type="file" name="attachment_ids" class="form-control s_website_form_input" multiple="true" accept="image/*,application/pdf,video/*,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer border-0">
+                                    <button type="button" class="btn btn-lg mr-3 rounded-pill t-btn-outile-gray button-text" data-dismiss="modal">Close</button>
+                                    <button type="submit" style="color: #ffffff !important" class="btn btn-secondary button-text rounded-pill btn-lg submit_add_inquiry">
+                                        Submit
+                                    </button>
+                                    <span id="s_website_form_result"></span>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="portal_inquiries_list" name="Inquiries Requests List">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="success-modal modal fade" id="inquiryRequestAddSuccessModal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content p-5">
+                        <div class="modal-header border-0">
+                            <h3 class="modal-title heading-3">New Inquiry Request</h3>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img src="/thiqah_portal/static/src/img/icon-check.svg" />
+                            <h3 class="heading-3">Thank You!</h3>
+                            <span class="body2 t-text-gray mt24">Your inquiry request has been added succesfully.</span>
+                        </div>
+                        <div class="modal-footer border-0">
+                            <div class="mx-auto">
+                                <a href="/my/inquiries" type="button" class="btn btn-lg btn-secondary rounded-pill">
+                                    Go back to all requests 
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <t t-call="thiqah_inquiry.inquiry_request_template" />
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col d-flex align-items-center justify-content-between mb72">
+                        <h1 class="heading-1 m-0" style="line-height: 100%;">Inquiries Requests</h1>
+                        <button t-if="request.env.user.check_service_access('inquiry_request', 'create')" class="btn btn-lg btn-secondary rounded-pill with-icon" data-toggle="modal" data-target="#createInquiryRequest">
+                            Add 
+                            <svg class="ml-2"
+                                xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                                <path fill="#fff" d="M.167 6c0 .346.29.63.629.63H5.37v4.574c0 .34.282.63.629.63.346 0 .636-.29.636-.63V6.629h4.568c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H6.636V.796c0-.34-.29-.63-.636-.63-.347 0-.63.29-.63.63v4.567H.797c-.34 0-.63.29-.63.637Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <t t-set="breadcrumbs_searchbar" t-value="False" />
+                <t t-set="record_pager" t-value="True" />
+
+                <div t-att-class="active" id="info_state" class="alert alert-success text-center" role="status">
+                    <div id="details_info"></div>
+                </div>
+
+                <div t-if="not inquiries" class="alert alert-info">
+                    There are currently no Requests for you.
+                </div>
+
+                <t t-else="">
+                    <div class="t-shadow mt40 overflow-hidden" style="border-radius:16px">
+                        <t t-call="portal.portal_table">
+                            <t t-set="classes" t-value="'border-0 rounded-0'" />
+                            <thead>
+                                <tr>
+                                    <th style="padding-left: 40px !important;">Reference</th>
+                                    <th>RM Name</th>
+                                    <th>Partner</th>
+                                    <th>Created on</th>
+                                    <th>Request Type</th>
+                                    <th>Urgency</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <t t-foreach="inquiries" t-as="inquiry">
+                                <tr t-att-request_id="inquiry.id">
+                                    <td style="padding-left: 40px !important;">
+                                        <span t-field="inquiry.sequence" />
+                                    </td>
+                                    <td>
+                                        <span t-field="inquiry.create_uid" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="inquiry.partner_id.name" />
+                                    </td>
+                                    <td>
+                                        <span t-esc="inquiry.create_date.date()" />
+                                    </td>
+                                    <td>
+                                        <span t-field="inquiry.request_type" />
+                                    </td>
+                                    <td>
+                                        <span t-field="inquiry.urgency" />
+                                    </td>
+                                    <td class="td-actions">
+                                        <a t-attf-href="/my/inquiries/#{inquiry.id}" class="btn btn-secondary rounded-pill btn-action align-items-center justify-content-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                                <path fill="#fff" d="M.67 3.609a.608.608 0 0 0 0 .907L4.157 7.93a.67.67 0 0 0 .447.196c.359 0 .603-.25.603-.602 0-.17-.061-.305-.176-.42L3.575 5.694l-1.26-1.09 1.564.068h9.047c.352 0 .602-.25.602-.61a.58.58 0 0 0-.602-.602H3.879l-1.564.061 1.26-1.083L5.03 1.022a.557.557 0 0 0 .176-.42c0-.351-.244-.595-.603-.595a.662.662 0 0 0-.447.19L.67 3.608Zm12.662 8.789a.62.62 0 0 0 0-.914L9.845 8.07a.698.698 0 0 0-.454-.19c-.359 0-.596.244-.596.596 0 .176.054.312.17.42l1.462 1.415 1.26 1.09-1.565-.067H1.076c-.352 0-.61.25-.61.602 0 .36.258.61.61.61h9.046l1.565-.068-1.26 1.09-1.462 1.409a.566.566 0 0 0-.17.426c0 .352.237.596.596.596a.698.698 0 0 0 .454-.19l3.487-3.412Z" />
+                                            </svg>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <!-- Inquiry Request Details -->
+    <template id="inquiry_details" name="Inquiry Request Details">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="container-fluid">
+                <div class="row mb32">
+                    <div class="col-lg-9 d-flex align-items-center justify-content-between service-request-actionsl">
+                        <h1 class="heading-2 m-0">
+                            <span>Inquiry Request(#</span>
+                            <span t-field="inquiry_obj.sequence" />
+                            <span>)</span>
+
+                        </h1>
+                    </div>
+                    <div class="col-lg-3">
+                        <t t-call="thiqah_inquiry.inquiry_requests_actions"/>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                Inquiry Request
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Partner portfolio</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="inquiry_obj.partner_portfolio">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Partner</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="inquiry_obj.partner_id">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Section</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="inquiry_obj.section">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Department</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="inquiry_obj.department_id">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Request Type</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="inquiry_obj.request_type">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Urgency</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="inquiry_obj.urgency">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Create Date</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="inquiry_obj.create_date">
+                                        </h4>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Due Date</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="inquiry_obj.due_date">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div t-if="inquiry_obj.user_id" class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Assigned To</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="inquiry_obj.user_id">
+                                        </h4>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">Description</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="inquiry_obj.description">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt32">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">Documents</div>
+                            <div class="card-body">
+                                <span class="body2 t-text-dark-gray no_attachments" t-if="not has_documents">
+                                    No attachments have been added.
+                                </span>
+                                <div t-if="has_documents" id="request_attachment_css">
+                                    <div class="row">
+                                        <div class="col-12 mt-2">
+                                            <t t-foreach="document_ids" t-as="document">
+                                                <a class="mt-4 d-flex align-items-center oe_attachments" t-attf-href="/web/content/#{document.id}?download=true" target="_blank" data-no-post-process="">
+                                                    <div class='oe_attachment_embedded o_image o_image_small mr-lg-3' t-att-title="document.mimetype" t-att-data-mimetype="document.mimetype" />
+                                                    <div class='oe_attachment_name text-truncate body2 t-text-dark-gray'>
+                                                        <t t-esc='document.name' />
+                                                    </div>
+                                                    <div class="ml-3" t-att-title="document.name" t-att-data-mimetype="document.mimetype" style="background-image:url('/thiqah_portal/static/src/img/button-download.svg');width: 32px;height: 32px;"/>
+                                                </a>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card border-0 mb24">
+                            <div class="border-0 card-header heading-4 radius-8 t-custom-bg-light-gray">
+                                State
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label class="body2 mb-3 t-text-dark-gray font-weight-bold">State</label>
+                                        <h4 class="body2 t-text-dark-gray" t-field="inquiry_obj.state">
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="o_portal_messages_container container-fluid mt32">
+                <h4 class="heading-4 mb40">Message and communication history</h4>
+                <t t-call="portal.message_thread">
+                    <t t-set="object" t-value="inquiry_obj"/>
+                    <t t-set="pid" t-value="pid"/>
+                    <t t-set="hash" t-value="hash"/>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <!-- Inquiries Request Dashboard -->
+    <template id="inquiries_dashboard" name="Inquiries Request Dashboard">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="container-fluid">
+                <div class="content-header mb72">
+                    <h1 class="heading-1" style="line-height: 100%;">
+                        Inquiries Dashboard
+                    </h1>
+                </div>
+                <div class="row" id="dashboard_inquiries_cards">
+                    <div class="card w-100 card-wrapper">
+                        <div class="card-header heading-4 d-flex align-items-center">
+                            Current Requests
+                        </div>
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-xl-3 col-md-6" id="active_request_dashboard">
+                                    <!-- Active Requests -->
+                                    <div class="card card-data request-active">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-fill d-flex align-items-center">
+                                                <sapn class="mb-0 heading-2">
+                                                    <t t-esc="active_requests_count" />
+                                                </sapn>
+                                                <span class="ml16 caption t-text-purple text-uppercase">
+                                                    Active <br></br> Requests</span>
+                                                <input type="hidden" name="status_request" value="is_active" />
+                                            </div>
+                                            <a href="/my/inquiries?filterby=is_active" class="rounded-circle t-custom-bg-purple">
+                                                <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6" id="late_request_dashboard">
+                                    <!-- Late Requests -->
+                                    <div class="card card-data request-late">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-fill d-flex align-items-center">
+                                                <sapn class="mb-0 heading-2">
+                                                    <t t-esc="late_requests_count" />
+                                                </sapn>
+                                                <span class="ml16 caption t-text-cyan text-uppercase">
+                                                    Late <br></br> Requests</span>
+                                                <input type="hidden" name="status_request" value="is_active" />
+                                            </div>
+                                            <a href="/my/inquiries?filterby=is_late" class="rounded-circle t-custom-bg-cyan">
+                                                <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6" id="requests_today">
+                                    <!-- Today Requests -->
+                                    <div class="card card-data request-today">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-fill d-flex align-items-center">
+                                                <sapn class="mb-0 heading-2">
+                                                    <t t-esc="requests_due_today" />
+                                                </sapn>
+                                                <span class="ml16 caption t-text-turquoise text-uppercase">
+                                                    Need action <br></br> Today</span>
+                                                <input type="hidden" name="status_request" value="is_active" />
+                                            </div>
+                                            <a href="/my/inquiries?filterby=is_due_today" class="rounded-circle t-custom-bg-turquoise">
+                                                <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6" id="sla_request_dashboard">
+                                    <!-- SLA Requests -->
+                                    <div class="card card-data request-sla">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-fill d-flex align-items-center">
+                                                <sapn class="mb-0 heading-2">
+                                                    <t t-esc="sla_requests_count" />
+                                                </sapn>
+                                                <span class="ml16 caption text-uppercase t-text-dark-blue">
+                                                    SLA </span>
+                                                <input type="hidden" name="status_request" value="is_active" />
+                                            </div>
+                                            <a href="/my/inquiries?filterby=is_on_time" class="rounded-circle t-custom-bg-dark-blue">
+                                                <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row inquiries_dashboard_class">
+                    <div class="card w-100 card-wrapper mt48">
+                        <div class="card-header heading-4 d-flex align-items-center">
+                            Requests analysis
+                        </div>
+                        <div class="card-block pb-0 px-0">
+                            <div class="row">
+                                <div class="col-xl-4 col-md-6">
+
+                                    <div class="card border-0">
+                                        <div class="bg-transparent border-0 card-header heading-5">
+                                            By Status
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="chart-container">
+                                                <canvas id="inquiries_by_status" width="240" height="240"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-md-6">
+                                    <div class="card border-0">
+                                        <div class="bg-transparent border-0 card-header heading-5">
+                                            By Department
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="chart-container">
+                                                <canvas id="inquiries_by_department" width="240" height="240"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-md-6">
+                                    <div class="card border-0">
+                                        <div class="bg-transparent border-0 card-header heading-5">
+                                            By Sla Indicator
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="chart-container">
+                                                <canvas id="inquiries_by_sla_indicator" width="240" height="240"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h-divider mt48 mb48"></div>
+                        <div class="card-body">
+                            <span class="heading-5">By Category</span>
+                            <div class="chart-container">
+                                <canvas id="inquiries_by_category" class="mt56"></canvas>
+                            </div>
+                        </div>
+                        <div class="h-divider mt48 mb48"></div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="chart-container">
+                                        <span class="heading-5">By Creation Date</span>
+                                        <canvas id="inquiries_by_creation_date" class="mt56"></canvas>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mt-4 mt-lg-0">
+                                    <div class="card-body">
+                                        <span class="heading-5">By Client</span>
+                                        <div class="chart-container">
+                                            <canvas id="inquiries_by_client" class="mt56"></canvas>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card card-wrapper w-100 mt48">
+                        <div class="card-header heading-4 d-flex align-items-center">
+                            Inquiries Details
+                        </div>
+                        <div class="card-block">
+                            <div class="table-responsive">
+                                <table id="inquiries_details_table" class="table w-100">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="inquiry_requests_actions" name="Inquiry Requests Actions">
+        <div class="inquiry_action_selector">
+            <!-- Modal -->
+            <div class="modal fade" id="userAssignModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title heading-5" id="approveModalLabel">
+                                User Assignment
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+                                    <path fill="#798793" d="M.33 19.67c.442.43 1.173.43 1.602 0l8.07-8.07 8.07 8.07c.43.43 1.173.442 1.602 0a1.142 1.142 0 0 0 0-1.588l-8.07-8.083 8.07-8.07c.429-.43.442-1.161 0-1.59a1.134 1.134 0 0 0-1.601 0l-8.07 8.07L1.931.34C1.503-.102.759-.115.33.34a1.142 1.142 0 0 0 0 1.59l8.07 8.07-8.07 8.083c-.429.428-.441 1.16 0 1.588Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <label class="heading-7 s_website_form_label" for="user_id">
+                                        <span class="s_website_form_label_content">
+                                            Assign To
+                                        </span>
+                                    </label>
+                                    <select name="user_id" data-style="t-btn-outile-light-gray-secondary" data-live-search="true" data-size="10" required="1" data-placeholder="Select User..." class="selectpicker form-control o_website_form_input">
+                                        <option value="">
+                                            Choose...
+                                        </option>
+                                        <t t-foreach="users or []" t-as="user">
+                                            <option data-divider="true" class="m-0"></option>
+                                            <option t-att-value="user.id">
+                                                <t t-esc="user.name" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="heading-7 s_website_form_label" for="note">
+                                        <span class="s_website_form_label_content">
+                                            Note
+                                        </span>
+                                    </label>
+                                    <textarea type="text" class="form-control s_website_form_input" name="note" required="1"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-lg rounded-pill t-btn-outile-black" data-dismiss="modal">Close</button>
+                            <button type="button" t-att-irequest_id="inquiry_obj.id" class="btn btn-lg btn-secondary irequest_assign_user_action disabled rounded-pill">
+                                Confirm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <t t-foreach="actions" t-as="action">
+                <t t-if="action[2] == active_state_technical and request.env.user.id in action[3]">
+                    <div class="d-flex flex-lg-column flex-row">
+                        <t>
+                            <button type="button" t-attf-class="ml-3 mt-lg-3 ml-lg-0 btn rounded-pill justify-content-center t-custom-bg-dark-blue text-white irequest_approve_action" t-att-Irequest_id="inquiry_obj.id" t-att-active_state="active_state_technical" t-att-id="action[1]">
+                                <t t-esc="action[0]" />
+                            </button>
+                        </t>
+                    </div>
+                </t>
+                <t t-if="action[2] == active_state_technical and request.env.user.id in action[3] and active_state_technical == 'stakeholder_approval'">
+                    <div class="d-flex flex-lg-column flex-row">
+                        <t>
+                            <button type="button" t-attf-class="ml-3 mt-lg-3 ml-lg-0 btn rounded-pill justify-content-center t-custom-bg-dark-blue text-white" data-toggle="modal" data-target="#userAssignModal">
+                                <span>Assign User</span>
+                            </button>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </div>
+        <div class="request-error d-none text-danger mt-3 heading-7"></div>
+    </template>
+
+</odoo>

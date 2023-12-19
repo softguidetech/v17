@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- explicit list view definition -->
+
+    <record id="action_type_tree" model="ir.ui.view">
+        <field name="name">thiqah_project.action_type.tree</field>
+        <field name="model">thiqah_project.action_type</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="code"/>
+                <field name="name_ar"/>
+                <field name="name_en"/>
+                <field name="color"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_type_form" model="ir.ui.view">
+        <field name="name">thiqah_project.action_type.form</field>
+        <field name="model">thiqah_project.action_type</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                </header>
+                <sheet>
+                    <group name="name">
+                        <field name="code"/>
+                        <field name="name_ar"/>
+                        <field name="name_en"/>
+                        <field name="color"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

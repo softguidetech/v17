@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+	<t t-name="thiqah_crm_dashboard">
+		<div class="o_action o_thiqah_dashboard">
+			<div class="o_content pb72 CRM_dashboard"></div>
+		</div>
+	</t>
+
+	<t t-name="thiqah_crm_dashboard_document">
+		<div class="container">
+			<div class="align-items-center mb72 mt72 row o_content_header">
+				<!-- <div class="col d-flex mt72 mb72 w-100 justify-content-between align-items-center"> -->
+				<div class="col-xl-5">
+					<h1 class="heading-1">WATHQ Product Dashboard</h1>
+				</div>
+				<div class="col-xl-7">
+					<div class="align-items-center d-flex justify-content-xl-end">
+						<select id="choose_partner" class="selectpicker" data-style="t-btn-outile-light-gray-secondary">
+							<option id="" value="">Choose Customer</option>
+
+							<t t-foreach="widget.list_partners" t-as="partner">
+								<option t-att-id="partner[0]" t-att-value="partner[0]">
+									<t t-esc="partner[1]" />
+								</option>
+							</t>
+						</select>
+						<select id="choose_product" class="selectpicker ml-3" data-style="t-btn-outile-light-gray-secondary">
+							<option id="" value="">Choose Service</option>
+
+							<t t-if="widget.list_products" t-foreach="widget.list_products" t-as="product">
+								<option t-att-id="product[0]" t-att-value="product[0]">
+									<t t-esc="product[1]" />
+								</option>
+							</t>
+
+						</select>
+						<select id="choose_account_manager" class="selectpicker ml-3" data-style="t-btn-outile-light-gray-secondary">
+							<option id="" value="">Choose Account Manager</option>
+							<t t-if="widget.list_account_managers" t-foreach="widget.list_account_managers" t-as="account_manager">
+								<option t-att-id="account_manager[0]" t-att-value="account_manager[0]">
+									<t t-esc="account_manager[1]" />
+								</option>
+							</t>
+						</select>
+					</div>
+				</div>
+				<!-- </div> -->
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row aahd-cards mb40">
+				<div class="col-lg-6 mt-4 mt-lg-0">
+					<div class="card border-0 t-shadow " style="max-height: 184px;">
+						<div class="d-flex align-items-center">
+							<div class="btn-circle t-custom-bg-cyan s-56">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+									<path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+								</svg>
+							</div>
+							<div class="flex-fill ml-3">
+								<span class="caption t-text-gray text-uppercase">Total Revenue</span>
+								<h3 class="heading-3 m-0" id="total_revenue" t-esc="widget.total_revenue"></h3>
+							</div>
+						</div>
+						<div class="d-flex align-items-center">
+							<div class="btn-circle t-custom-bg-purple s-56">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+									<path fill="#fff" d="M6.409 11.768c2.118 0 3.399-1.744 3.399-4.522 0-2.778-1.29-4.492-3.4-4.492C4.292 2.754 3 4.478 3 7.246c0 2.788 1.28 4.522 3.409 4.522Zm0-1.379c-1.143 0-1.823-1.153-1.823-3.143 0-1.96.69-3.123 1.823-3.123s1.813 1.153 1.813 3.123c0 1.99-.67 3.143-1.813 3.143ZM17.6 21.246c2.118 0 3.399-1.744 3.399-4.512 0-2.788-1.29-4.503-3.399-4.503-2.118 0-3.409 1.725-3.409 4.503s1.28 4.512 3.409 4.512Zm0-1.37c-1.143 0-1.823-1.162-1.823-3.142 0-1.97.69-3.123 1.823-3.123s1.813 1.143 1.813 3.123c0 1.98-.67 3.143-1.813 3.143ZM5.7 21.287c.364.206.896.177 1.211-.276L18.488 3.896c.345-.492.138-.995-.227-1.211-.345-.188-.828-.148-1.172.344L5.512 20.093c-.354.503-.177.976.188 1.193Z"/>
+								</svg>
+							</div>
+							<div class="flex-fill ml-3">
+								<span class="caption t-text-gray text-uppercase">ahad commision</span>
+								<h3 class="heading-3 m-0" id="total_revenue" t-esc="widget.total_revenue"></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 mt-4 mt-lg-0">
+					<div class="card border-0 t-shadow " style="max-height: 184px;">
+						<t t-set="goal_status" t-value="widget.goal_status"/>
+						<div t-if="goal_status == 'true'" class="badge-approved arrow_span">
+							<img t-if="goal_status == 'true'" id="upwathiq" src="/thiqah_crm/static/src/img/arrow-up.svg" />
+						</div>
+						<div t-if="goal_status == 'false'" class="danger-badge arrow_span">
+							<img t-if="goal_status == 'false'" id="downwathiq" src="/thiqah_crm/static/src/img/arrow-down.svg" />
+						</div>
+						<div t-if="goal_status == 'no_status'" class="arrow_span">
+							<i t-if="goal_status == 'no_status'" id="bullseye_wathiq" class="fa fa-bullseye "></i>
+						</div>
+						<div class="d-flex align-items-center">
+							<div class="btn-circle t-custom-bg-cyan s-56">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+									<path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+								</svg>
+							</div>
+							<div class="flex-fill ml-3">
+								<span class="caption t-text-gray text-uppercase">Goal</span>
+
+								<h3 class="heading-3 m-0" t-esc="widget.growth_goal"></h3>
+							</div>
+						</div>
+						<div class="d-flex align-items-center">
+							<div class="btn-circle t-custom-bg-dark-blue s-56">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" fill="none">
+									<path fill="#fff" d="M4.586 14.155h2.502c.602 0 1-.409 1-.98v-1.89c0-.582-.398-.98-1-.98H4.586c-.603 0-1.001.398-1.001.98v1.89c0 .571.398.98 1 .98ZM.827 6.67h22.356V4.351H.827v2.318Zm2.38 11.06h17.586c2.145 0 3.207-1.051 3.207-3.155V3.452C24 1.348 22.938.286 20.793.286H3.207C1.072.286 0 1.348 0 3.452v11.122c0 2.104 1.072 3.156 3.207 3.156Zm.02-1.644c-1.021 0-1.583-.541-1.583-1.603V3.544c0-1.062.562-1.614 1.583-1.614h17.546c1 0 1.583.552 1.583 1.614v10.938c0 1.062-.582 1.603-1.583 1.603H3.227Z" />
+								</svg>
+							</div>
+							<div class="flex-fill ml-3">
+								<span class="caption t-text-gray text-uppercase">Growth</span>
+								<h3 class="heading-3 m-0" id="percent_growth" t-esc="widget.percent_growth"></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Wathq Graphs -->
+			<div class="row mb72">
+				<div class="col-lg-6 mt32">
+					<div class="card">
+						<div class="align-items-center card-header d-flex justify-content-between">
+							<h4 class="heading-4">Total of WATHQ Opportunities</h4>
+							<div class="heading-5 wathq-badge" id="total_opports_wathiq" t-esc="widget.total_opports_wathiq" />
+						</div>
+						<div class="card-body">
+							<div class="thiqahcard canvas_wathiq_basic_enterprise_bar_chart">
+								<canvas id="wathiq_basic_enterprise_bar_chart" class="wathiq_basic_enterprise_bar_chart" width="340px" height="280px" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 mt32">
+					<div class="card">
+						<div class="align-items-center card-header d-flex justify-content-between">
+							<h4 class="heading-4">Total of Enterprise Opportunities</h4>
+							<div class="heading-5 wathq-badge" id="total_opports_enterprise" t-esc="widget.total_opports_enterprise" />
+
+						</div>
+						<div class="card-body">
+							<div class="thiqahcard canvas_wathiq_basic_enterprise_bar_chart">
+								<canvas id="wathiq_enterprise_stages_bar_chart" class="wathiq_enterprise_stages_bar_chart" width="340px" height="280px" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 mt32">
+					<div class="card">
+						<div class="align-items-center card-header d-flex justify-content-between">
+							<h4 class="heading-4">Total of Basic Opportunities</h4>
+							<div class="heading-5 wathq-badge" id="total_opports_basic" t-esc="widget.total_opports_basic" />
+						</div>
+						<div class="card-body">
+							<div class="thiqahcard canvas_opports_month">
+								<canvas class="opports_month" id="opports_month" width="340px" height="280px" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 mt32">
+					<div class="card">
+						<div class="align-items-center card-header d-flex justify-content-between">
+							<h4 class="heading-4">Total of Request Opportunities</h4>
+							<div class="heading-5 wathq-badge" id="total_opports_batch" t-esc="widget.total_opports_batch" />
+						</div>
+						<div class="card-body">
+							<div class="thiqahcard canvas_wathiq_requests_bar_chart">
+								<canvas class="wathiq_requests_bar_chart" id="wathiq_requests_bar_chart" width="340px" height="280px" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Wathq Summary -->
+			<div class="row">
+				<div class="col">
+					<div class="card w-100  card-wrapper">
+						<div class="card-header">
+							<h4 class="heading-4">WATHQ Summary</h4>
+						</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-lg-6 mt-4">
+									<h5 class="heading-5 mb32">Annual Revenue</h5>
+									<div class="thiqahcard canvas_annual_target">
+										<canvas class="annual_target" id="annual_target" height="220px !important;" />
+									</div>
+								</div>
+
+								<div class="col-lg-6 mt-4">
+									<div class="d-flex justify-content-between align-items-center mb32">
+										<h5 class="heading-5 m-0">Clients</h5>
+										<div class="align-items-center d-flex">
+											<span class="heading-7 t-text-gray">Total Opportunities Amount</span>
+											<span class="wathq-badge button-text ml-3" style="color:#fff !important;padding:6px 15px" id="total_revenue">
+												<t t-esc="widget.currency"/>
+												<t t-esc="widget.get_total_top_ten_clients_revenue"/>
+											</span>
+										</div>
+									</div>
+									<div class="table-responsive">
+
+										<div t-if="widget.get_top_ten_clients1" t-foreach="widget.get_top_ten_clients1" t-as="client1">
+
+											<table class="table table-bordered" id="table_awarded">
+												<thead>
+													<tr>
+														<th class="body2" style="padding-left: 24px !important;">Client</th>
+														<th class="body2 text-right">Value</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>
+															<t t-esc="client1[0]" />
+														</td>
+														<td>SAR <t t-esc="client1[1]"/>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</t>
+
+</templates>

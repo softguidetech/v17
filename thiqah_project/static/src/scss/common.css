@@ -1,0 +1,23 @@
+.col-form-label {
+  color: #747d8c;
+  font-size: small;
+}
+
+.spacing_project {
+  padding-top: 10px;
+}
+
+.currency_padding {
+  padding-top: 7px;
+}
+
+.currency_position {
+  margin-top: 15px;
+  width: 300px;
+  margin-left: 389px;
+}
+
+.currency_margin {
+  top: -6px;
+}
+/*# sourceMappingURL=common.css.map */

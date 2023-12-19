@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+	<record id="thiqah_sp_manager_view_form"
+		model="ir.ui.view">
+		<field name="name">sp.manager.form</field>
+		<field name="model">sp.manager</field>
+		<field name="arch" type="xml">
+			<form class="o_sp_manager_form" js_class="crm_form">
+
+				<sheet>
+					<div class="oe_title">
+						<label for="name" />
+						<h1>
+							<field class="o_text_overflow" name="name" />
+						</h1>
+					</div>
+					
+					
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+	<record id="thiqah_sp_manager_view_tree"
+		model="ir.ui.view">
+		<field name="name">sp.manager.tree</field>
+		<field name="model">sp.manager</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="thiqah_sp_manager_action"
+		model="ir.actions.act_window">
+		<field name="name">SP Manager</field>
+		<field name="res_model">sp.manager</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+
+
+
+</odoo>

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<template id="report_thiqah_dashbaord_document">
+			<t t-call="web.basic_layout">
+					<t t-foreach="docs" t-as="o">
+						<div class="page">
+						
+						<h2>tesssssssssssssssssst</h2>
+					<!-- 	<t t-set="widget" t-value="o.get_dashboard_data()"/> -->
+						   
+    	 <div class="row mt-5"> 
+            <div class="col-sm-12 col-md-1 thiqah-vertical">
+            </div>
+            <div class="col-sm-12 col-md-3">
+             	<div class="thiqahcard">
+                    <div class="thiqahcard-header text-center">
+                        <h2 class="thiqah-title">Summary</h2>
+                    </div> 
+                </div>
+            </div>
+             <div class="col-sm-12 col-md-4">
+             	<div class="thiqahcard">
+                    <div class="thiqahcard-header text-center">
+                        <h2 class="thiqah-title">Distribution</h2>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-2"
+	style="margin-right: 4% !important;">
+                <div class="thiqahcard">
+                    <div class="thiqahcard-header text-center">
+                        <h2 class="thiqah-title">Awarded</h2> 
+                    </div> 
+                </div>
+            </div>
+       		<div class="col-sm-12 col-md-2">
+                <div class="thiqahcard">
+                    <div class="thiqahcard-header text-center">
+                        <h2 class="thiqah-title">Goal</h2>
+                    </div> 
+                 
+           </div>
+         </div>
+            
+            
+           </div>
+    
+    
+          <!-- <div class="row mt-5"> 
+            	<div
+	class="col-sm-12 col-md-1 thiqah-verticalcard wathiq_opportunities ">
+                         <h2 class="thiqah-title txtopprt">Opportunities</h2>   
+                	
+           		 </div>
+             <div class="col-sm-12 col-md-3">
+             	 <h2 class="nbrcard"
+	style=""
+	id="total_opports_wathiq" t-esc="widget.total_opports_wathiq" />
+                <div
+	class="thiqahcardrectangle wathiq_opportunities ">
+                           <h2 class="thiqah-title text-center">
+                           Total of Wathq Oppo
+                            </h2>
+                        
+                    </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                	<div
+	class="thiqahcard canvas_wathiq_basic_enterprise_bar_chart">
+                     	<canvas
+	id="wathiq_basic_enterprise_bar_chart"
+	class="wathiq_basic_enterprise_bar_chart" width="340px" height="280px" />
+                    </div> 
+                </div>
+            
+       		<div class="col-md-2 col-12 thiqah_revenue"
+	style="margin-right: 4% !important;">
+                <div class="thiqahcard text-center"
+	style="margin: 5%;">
+	 <h2 class="thiqah-title text-center"  style="font-size: 45px;color: #fff;"><span id="total_revenue"
+	t-esc="widget.total_revenue"></span> </h2>
+	<br/>
+                        <h2 class="thiqah-title text-center" style="font-size: 20px;"><span>Total Revenue</span></h2>
+                        <br />
+                      <h2 class="thiqah-title text-center"  style="font-size: 45px;color: #fff;"><span id="total_revenue"
+	t-esc="widget.total_revenue"></span> </h2>
+	<br/>
+                        <h2 class="thiqah-title text-center" style="font-size: 20px;"><span>Aahd Commission;10%</span></h2>
+                        <br />
+                </div>
+            </div>
+            <div class="col-md-2 col-12 thiqah_goal">
+             <h2 t-if="widget.growth_goal" style="font-size: 50px;color: #30b5e4;"> <span t-esc="widget.growth_goal" />M</h2>
+              <h2 class="thiqah-title text-center float-left" style="margin-top: 45%;font-size: 50px;color: #30b5e4;width: 55%;"><span id="total_revenue" 
+	t-esc="widget.total_revenue"></span></h2>
+	
+	<h2 t-if="widget.percent_growth" class="thiqah-title text-center float-right" style="margin-top: 10%;font-size: 25px;color: #000;width: 35%;"><span id="total_revenue" 
+	t-esc="widget.percent_growth"></span></h2>
+	
+            </div>
+       
+       
+       </div>
+       
+     <div class="thiqah2rows" style="width:100%;">
+     
+     		<div class="thiqahrow1 float-left" style="width:63%;">
+     	
+			           <div class="row mt-5"> 
+			           
+			            	<div
+	class="col-sm-12 col-md-1 thiqah-verticalcard wathiq_enterprise_opportunities ">
+			                         <h2 class="thiqah-title txtopprt">Corporate</h2>   
+			                	
+			           		 </div>
+			             <div class="col-sm-12 col-md-5">
+			             	  <h2 class="nbrcard"
+	id="total_opports_enterprise" t-esc="widget.total_opports_enterprise" />
+			                            
+			                <div
+	class="thiqahcardrectangle wathiq_enterprise_opportunities ">
+			                           <h2 class="thiqah-title text-center">
+			                           Total of Enterprise Oppo
+			                          
+			                            </h2>
+			                        
+			                    </div>
+			            </div>
+			              
+			            <div class="col-sm-12 col-md-6">
+			                	<div
+	class="thiqahcard canvas_wathiq_enterprise_stages_bar_chart">
+			                     	<canvas
+	id="wathiq_enterprise_stages_bar_chart"
+	class="wathiq_enterprise_stages_bar_chart" width="340px" height="280px" />
+			                    </div> 
+			                </div>
+			            
+			       		
+			       
+			       
+			       </div>
+			       
+			         <div class="row mt-5"> 
+			           
+			            	<div
+	class="col-sm-12 col-md-1 thiqah-verticalcard wathiq_basic_opportunities ">
+			                         <h2 class="thiqah-title txtopprt">Basic</h2>   
+			                	
+			           		 </div>
+			             <div class="col-sm-12 col-md-5">
+			             	 <span class="nbrcard"
+	id="total_opports_basic" t-esc="widget.total_opports_basic" />
+			                            
+			                <div
+	class="thiqahcardrectangle wathiq_basic_opportunities ">
+			                           <h2 class="thiqah-title text-center">
+			                           Total of Basic Oppo
+			                           
+			                            </h2>
+			                        
+			                    </div>
+			            </div>
+			            <div class="col-sm-12 col-md-6">
+			                	<div class="thiqahcard canvas_opports_month">
+			                     	<canvas class="opports_month"
+	id="opports_month" width="340px" height="280px" />
+			                    </div> 
+			                </div>
+			            
+			       
+			       </div>
+       
+           
+			         <div class="row mt-5"> 
+			           
+			            	<div
+	class="col-sm-12 col-md-1 thiqah-verticalcard wathiq_batch_opportunities ">
+			                         <h2 class="thiqah-title txtopprt">Request</h2>   
+			                	
+			           		 </div>
+			             <div class="col-sm-12 col-md-5">
+			             	<span class="nbrcard"
+	id="total_opports_batch" t-esc="widget.total_opports_batch" />
+			                <div
+	class="thiqahcardrectangle wathiq_batch_opportunities ">
+			                           <h2 class="thiqah-title text-center">
+			                           Total of Request Oppo
+			                             
+			                            
+			                            </h2>
+			                        
+			                    </div>
+			            </div>
+			            <div class="col-sm-12 col-md-6">
+			                	<div
+	class="thiqahcard canvas_wathiq_requests_bar_chart">
+			                     	<canvas
+	class="wathiq_requests_bar_chart" id="wathiq_requests_bar_chart"
+	width="340px" height="280px" />
+			                    </div> 
+			                </div>
+			            
+			       
+			       </div>
+       
+       
+       </div>
+       <div class="thiqahrow2 mt-5 float-right"
+	style="width:35%;border: 2px solid #30b5e4;border-radius: 5px 5px 25px 25px;">
+       
+      
+              
+                 <br />
+                 <div
+	style="background-color:#30b5e4;width:100%;height:40px;margin-top:-20px;">
+                 <h2 class="thiqah-title text-center">Watheq Summary</h2>
+                 </div>
+                 
+                 <br /><br />
+                 
+                <center><h2 class="thiqah-title text-center"
+	style="background-color: #30b5e4; color: #fff; width: 50%;height:40px;">Annual Growth</h2></center>
+                <br />
+                <div class="thiqahcard canvas_annual_target">
+                    <canvas class="annual_target"
+	id="annual_target" style="280px !important;" height="280px !important;" />
+                 </div>
+                 <br />
+              <center>   <h2 class="thiqah-title text-center"
+	style="background-color: #30b5e4; color: #fff; width: 50%;height:40px;">2022 Clients</h2></center>
+                <br />
+               <div style="width:100%;height: 300px !important;">
+		               <div class="ml-2 mb-2 float-left"
+	style="width:35%;height:100%;background-color: #30b5e4;border-radius:10px ">
+		                <div class="thiqahcard">
+		                    <div class="text-center "
+	style="color: #fff;margin-top: 28%;">
+		                        <h2 style="color: #fff;"><span style="color: #fff;">Total Opportunities Amount</span></h2>
+		                        <br />
+		                      <h2 style="color: #fff;">  <span style="color: #fff;"
+	id="total_revenue" t-esc="widget.get_total_top_ten_clients_revenue"></span> SAR</h2>
+		                        
+		                    </div> 
+		                 
+		                </div>
+		            </div>
+		              <div class="float-right" style="width:63%;">
+		            
+		            <div class="float-right" style="width:45%;">
+								            <div class="row">
+								            	<div class="tdclient" style="">Client</div>
+								            	<div class="tdclient" style="">Value</div>
+								            </div>
+							               
+							              
+							               <div t-if="widget.get_top_ten_clients1"
+	t-foreach="widget.get_top_ten_clients1" t-as="client1">
+						<div class="row">
+								                <div class="tdclientval" style="">
+		<img class="o_object_fit_cover" width="35" height="25" t-attf-src="/web/image?model=res.partner&amp;field=avatar_128&amp;id=#{client1[2]}" alt=""/>
+								                
+								                <t
+	t-esc="client1[0]" />
+	
+	</div>
+								                <div class="tdclientval" style="">SAR <t
+	t-esc="client1[1]" /></div>
+								                </div>
+							                </div> 
+		               </div>
+		                
+		                   <div class="float-left" style="width: 45%;">
+					                <div class="row">
+						            	<div class="tdclient" style="">Client</div>
+						            	<div class="tdclient" style="">Value</div>
+						            </div>
+					       
+						               <div t-if="widget.get_top_ten_clients2"
+	t-foreach="widget.get_top_ten_clients2" t-as="client2">
+										<div class="row">
+							               <div class="tdclientval" style="">		<img class="o_object_fit_cover" width="35" height="25" t-attf-src="/web/image?model=res.partner&amp;field=avatar_128&amp;id=#{client2[2]}" alt=""/>
+							               <t
+	t-esc="client2[0]" /></div>
+							                <div class="tdclientval" style="">SAR <t
+	t-esc="client2[1]" /></div>
+						                </div></div>
+		                
+		                
+		               
+		            		</div>
+               </div>
+               
+           </div></div>
+            
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       </div>
+       
+						 -->
+						
+						
+						</div>
+					</t>
+			</t>
+		</template>
+		
+	
+<!-- QWeb Reports -->
+		<record id="thiqah_dashboard_reports" model="ir.actions.report">
+			<field name="name">Dashboard</field>
+			<field name="model">crm.lead</field>
+			<field name="report_type">qweb-html</field>
+			<field name="report_name">thiqah_crm.report_thiqah_dashbaord_document</field>
+			<field name="report_file">thiqah_crm.report_thiqah_dashbaord_document</field>
+			<field name="paperformat_id"
+				ref="thiqah_crm.thiqah_report_paperformat" />
+		    <field name="binding_type">report</field>
+            <field name="binding_model_id" ref="crm.model_crm_lead"/>
+
+		</record>
+
+	</data>
+</odoo>

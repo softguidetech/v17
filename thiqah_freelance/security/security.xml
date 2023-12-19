@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+
+		<record id="group_freelance_officer" model="res.groups">
+			<field name="name">Freelance Officer</field>
+			<field name="comment">user with this group access all data related freelance requests</field>
+		</record>
+
+		<record id="group_freelance_od" model="res.groups">
+			<field name="name">OD Freelance</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+			<field name="implied_ids" eval="[(4, ref('thiqah_freelance.group_freelance_officer'))]" />
+		</record>
+		
+		<record id="group_freelance_hr_operations" model="res.groups">
+			<field name="name">Freelance HR Operations</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+			<field name="implied_ids" eval="[(4, ref('thiqah_freelance.group_freelance_officer'))]" />
+		</record>
+
+		<record id="group_freelance_finance_business_partner" model="res.groups">
+			<field name="implied_ids" eval="[(4, ref('thiqah_freelance.group_freelance_officer'))]" />
+			<field name="name">Freelance Finance Business Partner</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+		</record>
+		
+		<record id="group_freelance_finance" model="res.groups">
+			<field name="implied_ids" eval="[(4, ref('thiqah_freelance.group_freelance_officer'))]" />
+			<field name="name">Freelance Finance</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+		</record>
+
+		<record id="group_freelance_workorder" model="res.groups">
+			<field name="name">Freelance Workorder</field>
+			<field name="implied_ids" eval="[(4, ref('thiqah_freelance.group_freelance_officer'))]" />
+		</record>
+
+	</data>
+</odoo>

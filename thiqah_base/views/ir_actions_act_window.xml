@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="user_category_action" model="ir.actions.act_window">
+        <field name="name">User Category</field>
+        <field name="res_model">user.category</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <record id="action_user_analysis_wizard" model="ir.actions.act_window">
+        <field name="name">User Analysis Report(s)</field>
+        <field name="res_model">user.analysis.report</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="thiqah_user_analysis_wizard"/>
+        <field name="target">new</field>
+        <!-- <field name="binding_model_id" ref="crm.model_crm_stage" /> -->
+        <field name="binding_view_types">list</field>
+    </record>
+
+</odoo>

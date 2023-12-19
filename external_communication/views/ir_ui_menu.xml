@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Workflow Editor -->
+
+    <menuitem name="External Communication" id="external_base_menu" groups="base.group_system" sequence="-1"/>
+
+    <menuitem name="Communications" id="external_menu" groups="base.group_system" parent="external_base_menu" action="external_agent_acquirer_action" sequence="-1"/>
+
+
+</odoo>

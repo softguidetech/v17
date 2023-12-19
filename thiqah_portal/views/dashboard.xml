@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="_portal_dashboard" name="Portal Dashboard">
+        <t t-call="portal.portal_layout">
+            <h3>Project Managment</h3>
+
+            <div class="o_portal_docs row">
+
+                <t t-call="portal.portal_docs_entry">
+                    <t t-set="title">All Projects</t>
+                    <t t-set="url" t-value="'/my/projects'"/>
+                    <t t-set="count" t-value="all_projects_count if all_projects_count else '0'"/>
+                    <t t-set="icon" t-value="'fa fa-tasks'"/>
+                </t>
+
+                <t t-foreach="states" t-as="state">
+                    <t t-call="portal.portal_docs_entry">
+                        <t t-set="title">
+                            <t t-esc="state[1]"/>
+                                Projects
+                        </t>
+                        <t t-set="url" t-value="'/my/projects?groupby=client&amp;search_in=state&amp;search='+state[0]"/>
+                        <t t-set="count" t-value="state[2] if state[2] else '0'"/>
+                        <t t-set="icon" t-value="'fa fa-tasks'"/>
+                    </t>
+                </t>
+
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data noupdate="0">
+
+		<!-- Aahd -->
+		<record id="thiqah_crm_category" model="ir.module.category">
+			<field name="sequence">2</field>
+			<field name="name">Thiqah CRM</field>
+		</record>
+
+		<record id="sales_team.group_sale_salesman" model="res.groups">
+			<field name="name">User: Own Documents Only</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_crm_category" />
+		</record>
+
+		<record id="sp_link_crm_group" model="res.groups">
+			<field name="name">User: SP Access</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_crm_category" />
+			<field name="implied_ids" eval="[(4, ref('thiqah_crm.sp_team_group'))]" />
+		</record>
+
+		<record id="sales_team.group_sale_salesman_all_leads" model="res.groups">
+			<field name="name">User: All Documents</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_crm_category" />
+			<field name="implied_ids" eval="[(4, ref('sales_team.group_sale_salesman'))]" />
+		</record>
+
+		<record id="sales_team.group_sale_manager" model="res.groups">
+			<field name="name">Administrator</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_crm_category" />
+			<field name="implied_ids" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]" />
+			<field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]" />
+		</record>
+
+		<record id="thiqah_aahd_category" model="ir.module.category">
+			<field name="description">Helps you handle your Aahd Levels.
+			</field>
+			<field name="sequence">2</field>
+			<field name="name">Aahd</field>
+		</record>
+
+		<record id="group_thiqah_aahd_leadsource" model="res.groups">
+			<field name="name">Aahd: Lead Source</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_aahd_category" />
+			<field name="comment">access to create new lead/opp</field>
+		</record>
+		<record id="group_thiqah_aahd_presalesteam" model="res.groups">
+			<field name="name">Aahd: PreSales Team</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_aahd_category" />
+			<field name="comment">to show btn under development on proposal stage
+			</field>
+		</record>
+
+		<record id="group_thiqah_aahd_evaluation_manager" model="res.groups">
+			<field name="name">Aahd: Evaluation Manager</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_aahd_category" />
+			<field name="comment">access to show btn statusbar on evaluation Stage
+			</field>
+		</record>
+
+
+		<record id="group_thiqah_aahd_sales_manager_grp" model="res.groups">
+			<field name="name">Aahd Sales Manager</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_aahd_category" />
+		</record>
+
+		<record id="group_thiqah_aahd_sales_team_grp" model="res.groups">
+			<field name="name">Aahd Sales Team</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_aahd_category" />
+		</record>
+
+		<record id="group_thiqah_aahd_vb_grp" model="res.groups">
+			<field name="name">Aahd VB</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_aahd_category" />
+		</record>
+
+		<record id="group_thiqah_aahd_evaluation_member_grp" model="res.groups">
+			<field name="name">Aahd Evaluation Member</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_aahd_category" />
+		</record>
+
+		<record id="group_thiqah_aahd_proposal_member_grp" model="res.groups">
+			<field name="name">Aahd Proposal Member</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_aahd_category" />
+			<field name="comment">access pass to next stage proposal</field>
+		</record>
+
+		<record id="group_thiqah_sp_dashboard" model="res.groups">
+			<field name="name">SP Dashboard</field>
+			<field name="comment">access to SP dashboard Report</field>
+		</record>
+
+		<!-- AAHD BD  -->
+		<record id="aahd_bd_group" model="res.groups">
+			<field name="name">AAHD BD</field>
+			<field name="comment">access to all functionalities dedicated to the aahd bd group.</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_aahd_category" />
+		</record>
+
+
+
+		<!-- Marketing Development  -->
+		<record id="marketing_development_group" model="res.groups">
+			<field name="name">Marketing Development</field>
+			<field name="comment">access to all functionalities dedicated to the marketing development group.</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_crm_category" />
+		</record>
+
+		<record id="can_view_own_leads" model="res.groups">
+			<field name="name">Leads : Can View Only His own</field>
+			<field name="comment">can view only his leads.</field>
+			<field name="category_id" ref="thiqah_crm.thiqah_crm_category" />
+		</record>
+
+
+		<record id="user_view_all_leads" model="ir.rule">
+			<field name="name">User can view all leads</field>
+			<field name="model_id" ref="model_crm_lead"/>
+			<field name="domain_force">[(1,'=',1)]</field>
+			<field name="groups" eval="[
+            Command.link(ref('thiqah_crm.marketing_development_group')),Command.link(ref('thiqah_crm.sp_team_group'))]"/>
+		</record>
+
+		<record id="user_view_only_his_leads" model="ir.rule">
+			<field name="name">User can view only his leads</field>
+			<field name="model_id" ref="model_crm_lead"/>
+			<field name="domain_force">[('create_uid','=',user.id)]</field>
+			<field name="groups" eval="[
+            Command.link(ref('thiqah_crm.can_view_own_leads'))]"/>
+		</record>
+
+		<record id="any_user_can_create_lead" model="ir.rule">
+			<field name="name">Create Lead</field>
+			<field name="model_id" ref="crm.model_crm_lead" />
+			<!-- <field name="domain_force">[('for_aahd','=',True)]</field> -->
+			<field name="groups" eval="[(4, ref('base.group_user'))]" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_read" eval="False" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+
+
+		<!-- Rules -->
+		<!-- 17/02/2023 <record id="create_crm_lead_only_group_thiqah_aahd_leadsource" model="ir.rule">
+			<field name="name">Create Lead</field>
+			<field name="model_id" ref="crm.model_crm_lead" />
+			<field name="domain_force">[('for_aahd','=',True)]</field>
+			<field name="groups" eval="[(4, ref('thiqah_crm.group_thiqah_aahd_leadsource'))]" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_read" eval="False" />
+			<field name="perm_unlink" eval="False" />
+		</record> -->
+
+		<!-- 		<record id="write_crm_lead_only_group_thiqah_vb_grp" model="ir.rule">
+			<field name="name">Write Lead</field>
+			<field name="model_id" ref="crm.model_crm_lead" />
+			<field name="domain_force">[('for_aahd','=',True)]</field>
+			<field name="groups" eval="[(4, ref('thiqah_crm.group_thiqah_aahd_vb_grp'))]" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+ -->
+
+		<!--  17/02/2023 <record id="write_crm_lead_only_group_thiqah_aahd_leadsource" model="ir.rule">
+			<field name="name">create/Write Lead</field>
+			<field name="model_id" ref="crm.model_crm_lead" />
+			<field name="domain_force">[('for_aahd','=',True)]</field>
+			<field name="groups" eval="[(4, ref('thiqah_crm.group_thiqah_aahd_sales_manager_grp')),(4, ref('thiqah_crm.group_thiqah_aahd_sales_team_grp'))]" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+		<record id="delete_crm_lead_only_group_thiqah_aahd_leadsource" model="ir.rule">
+			<field name="name">Delete Lead</field>
+			<field name="model_id" ref="crm.model_crm_lead" />
+			<field name="domain_force">[('for_aahd','=',True)]</field>
+			<field name="groups" eval="[(4, ref('base.group_system'))]" />
+			<field name="perm_unlink" eval="True" />
+		</record> -->
+
+		<!-- <record id="crm_rule_thiqah_aahd_crm_lead" model="ir.rule"> <field name="name">Read Aahd Opp</field> <field ref="crm.model_crm_lead" name="model_id" /> <field name="domain_force">[('for_aahd','=',True)]</field> <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman')),(4, ref('thiqah_crm.group_thiqah_aahd_leadsource')),(4, 
+			ref('thiqah_crm.group_thiqah_aahd_presalesteam')), (4, ref('thiqah_crm.group_thiqah_aahd_salesteam')),(4, 
+			ref('thiqah_crm.group_thiqah_aahd_evaluation_manager'))]" /> <field name="perm_write" eval="False"/> <field name="perm_create" eval="False"/> <field name="perm_read" eval="True"/> <field name="perm_unlink" eval="False"/> </record> -->
+
+
+		<!-- 	<record id="aahd_crm_rule_personal_lead" model="ir.rule">
+			<field name="name">Aahd Personal Leads</field>
+			<field ref="crm.model_crm_lead" name="model_id" />
+			<field name="domain_force">[('for_aahd','=',True),'|',('user_id','=',user.id),('user_id','=',False)]
+			</field>
+			<field name="groups" eval="[(4, ref('sales_team.group_sale_salesman'))]" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_unlink" eval="False" />
+		</record> -->
+
+
+
+		<!-- <record id="aahd_crm_rule_all_lead1" model="ir.rule">
+			<field name="name">Aahd All Leads</field>
+			<field ref="crm.model_crm_lead" name="model_id" />
+			<field name="domain_force">[('for_aahd','=',True)]</field>
+			<field name="groups" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+ -->
+
+
+		<record id="write_crm_lead_only_group_evaluation_member_on_eval_stagee" model="ir.rule">
+			<field name="name">Write Lead on Evaluation Stage</field>
+			<field name="model_id" ref="crm.model_crm_lead" />
+			<field name="domain_force">[('for_aahd','=',True),('stage_id.is_brochure_evaluation','=',True)]</field>
+			<field name="groups" eval="[(4, ref('thiqah_crm.group_thiqah_aahd_sales_manager_grp')),(4, ref('thiqah_crm.group_thiqah_aahd_sales_team_grp')),(4, ref('thiqah_crm.group_thiqah_aahd_evaluation_member_grp')),(4, ref('thiqah_crm.group_thiqah_aahd_evaluation_manager')),(4, ref('thiqah_crm.group_thiqah_aahd_vb_grp'))]" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+
+
+		<!-- <record id="write_crm_lead_only_group_evaluation_member_on_won_stage" model="ir.rule">
+			<field name="name">Write Lead on Winning Stage</field>
+			<field name="model_id" ref="crm.model_crm_lead" />
+			<field name="domain_force">[('for_aahd','=',True),('is_opportunity_won','=',True)]</field>
+			<field name="groups" eval="[(4, ref('thiqah_crm.group_thiqah_aahd_sales_manager_grp')),(4, ref('thiqah_crm.group_thiqah_aahd_sales_team_grp')),(4, ref('thiqah_crm.group_thiqah_aahd_evaluation_member_grp')),(4, ref('thiqah_crm.group_thiqah_aahd_evaluation_manager')),(4, ref('thiqah_crm.group_thiqah_aahd_vb_grp'))]" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_unlink" eval="False" />
+		</record> -->
+
+		<!-- 
+		<record id="crm.crm_rule_personal_lead" model="ir.rule">
+			<field name="name">Personal Leads</field>
+			<field ref="crm.model_crm_lead" name="model_id" />
+			<field name="active" eval="False" />
+			<field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]
+			</field>
+			
+			<field name="groups" eval="[(4, ref('sales_team.group_sale_salesman'))]" />
+		</record> -->
+
+		<!--  <record id="crm.crm_lead_company_rule" model="ir.rule">
+        <field name="name">CRM Lead Multi-Company</field>
+        <field name="model_id" ref="crm.model_crm_lead"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        <field name="active" eval="False" />
+    </record>
+
+    <record id="crm.crm_rule_all_lead" model="ir.rule">
+        <field name="name">All Leads</field>
+        <field name="active" eval="False" />
+        <field ref="crm.model_crm_lead" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('sales_team.group_sale_salesman_all_leads'))]"/>
+    </record> -->
+
+
+
+
+	</data>
+
+</odoo>

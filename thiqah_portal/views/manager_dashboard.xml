@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="pager_custom" name="Pager">
+        <ul t-if="pager['page_count'] > 1" t-attf-class="#{ classname or '' } pagination m-0 #{_classes}" t-att-style="style or None">
+            <li t-attf-class="page-item #{'disabled' if pager['page']['num'] == 1 else ''}">
+                <a t-att-href=" pager['page_previous']['url'] if pager['page']['num'] != 1 else None" t-attf-class="page-link #{extraLinkClass}">Prev</a>
+            </li>
+            <t t-foreach="pager['pages']" t-as="page">
+                <li t-attf-class="page-item #{'active' if page['num'] == pager['page']['num'] else ''}">
+                    <a t-att-href="page['url']" t-attf-class="page-link #{extraLinkClass}" t-out="page['num']"/>
+                </li>
+            </t>
+            <li t-attf-class="page-item #{'disabled' if pager['page']['num'] == pager['page_count'] else ''}">
+                <a t-att-href="pager['page_next']['url'] if pager['page']['num'] != pager['page_count'] else None" t-attf-class="page-link #{extraLinkClass}">Next</a>
+            </li>
+        </ul>
+    </template>
+
+    <template id="portal_table_custom" name="My Portal Table Custom">
+        <div t-attf-class="table-responsive  border rounded border-top-0 #{classes if classes else ''}">
+            <table class="table rounded mb-0 bg-white o_portal_my_doc_table">
+                <t t-out="0"/>
+            </table>
+        </div>
+        <div t-if="pager" class="o_portal_pager text-center">
+            <t t-call="thiqah_portal.pager_custom"/>
+        </div>
+    </template>
+
+
+    <template id="my_requests_dashbaord" name="Requests Task Dashboard">
+        <div t-if="not grouped_requests" class="alert alert-info">
+                There are currently no Requests for your account.
+        </div>
+        <t t-else="">
+            <div class="table-responsive">
+                <table id="requests_task_department" class="table table-striped table-hover dt-responsive display nowrap" cellspacing="0">
+                </table>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="requiring_actions_dashbaord" name="Requests Task Dashboard">
+        <div t-if="requiring_actions_count == 0" class="alert alert-info">
+                There are currently no requiring actions for your account.قفقف
+        </div>
+        <t t-else="">
+            <div class="table-responsive">
+                <table id="requiring_actions_table" class="table table-striped table-hover dt-responsive display nowrap" cellspacing="0">
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="draft_request_dashboard" name="Draft Requests Task Dashboard">
+        <div id="draft_request_error" class="alert alert-info d-none">
+                There are currently no draft requests for your account.
+        </div>
+
+        <t>
+            <div class="table-responsive">
+                <table id="draft_requests_table" class="table table-striped table-hover dt-responsive display nowrap" cellspacing="0">
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="manager_task_dashboard_id" name="Department Task Dashboard">
+        <t t-call="website.layout">
+            <div class="task_dashboard_selector" id="task_dashboard_id">
+                <div class="container">
+
+                    <div class="row global_data">
+                        <div class="col-sm padding-custom">
+                            <div class="container container text-center">
+                                <div class="row no-gutters">
+                                    <div class="col-sm-12 col-md-4">
+                                        <i class="fa fa-folder-open-o fa-2x text-gray-300"/>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-8">
+                                        <div>
+                                            <span class="font-weight-bold text-center task_span_color">Draft Requests</span>
+                                        </div>
+                                        <div>
+                                            <span class="subspan_color">Draft In Your Inbox</span>
+                                        </div>
+                                        <div>
+                                            <span id="draft_requests_count">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm padding-custom">
+                            <div class="container container text-center">
+                                <div class="row no-gutters">
+                                    <div class="col-sm-12 col-md-4">
+                                        <i class="fa fa-star-o fa-2x text-gray-300"/>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-8">
+                                        <div>
+                                            <span class="font-weight-bold text-center task_span_color">Requiring Actions</span>
+                                        </div>
+                                        <div>
+                                            <span class="subspan_color">Actions In Your Inbox</span>
+                                        </div>
+                                        <div>
+                                            <span id="requiring_actions_count">
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm padding-custom">
+                            <div class="container container text-center">
+                                <div class="row no-gutters">
+                                    <div class="col-sm-12 col-md-4">
+                                        <i class="fa fa-file-text-o fa-2x text-gray-300"/>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-8">
+                                        <div>
+                                            <span class="font-weight-bold text-center task_span_color">Service Requests</span>
+                                        </div>
+                                        <div>
+                                            <span class="subspan_color">Opened Service Requests</span>
+                                        </div>
+                                        <div>
+                                            <span>
+                                                <t t-esc="requests_count"/>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="requests_task_department">
+                        <div class="alert alert-info text-center">
+                            <span class="font-weight-bold task_span_color">Draft Requests</span>
+                        </div>
+                        <t t-call="thiqah_portal.draft_request_dashboard"/>
+                    </div>
+
+                    <div class="requests_task_department">
+                        <div class="alert alert-info text-center">
+                            <span class="font-weight-bold task_span_color">Requiring Actions</span>
+                        </div>
+                        <t t-call="thiqah_portal.requiring_actions_dashbaord"/>
+                    </div>
+
+                    <div class="requests_task_department">
+                        <div class="alert alert-info text-center">
+                            <span class="font-weight-bold task_span_color">Service Requests</span>
+                        </div>
+                        <t t-call="thiqah_portal.my_requests_dashbaord"/>
+                    </div>
+
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

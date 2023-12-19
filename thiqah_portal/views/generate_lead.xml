@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="aahd_generate_lead" name="Generate Lead">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <div class="container">
+                <div class="row">
+                    <!-- style="background-color:red;" -->
+                    <div t-att-class="'col' + ('text-left' if env.context.get('lang') == 'ar_001' else 'text-right' )">
+                        <a href="/"> <img src="/thiqah_portal/static/src/img/my_website_logo.png" class="logo_generate_lead" /></a>
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- t-if="env.context.get('lang') == 'ar_001'" && t-if="env.context.get('lang') == 'en_US'"  -->
+            <!-- style="background-color:red;" -->
+            <div id="aahd_lead_portal_form">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="service_request">
+                            <div class="container">
+                                <form id="_generate_lead_form" action="/generate/lead" method="post" enctype="multipart/form-data" class="o_mark_required">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <div class="s_website_form_rows row s_col_no_bgcolor">
+
+                                        <!-- header -->
+                                        <div class="container">
+                                            <div class="row">
+                                                <label class="col text-center text_title">
+                                                    <span t-if="env.context.get('lang') == 'ar_001'">
+                                                        <t t-esc="page_title_lead_ar"/>
+                                                    </span>
+                                                    <span t-if="env.context.get('lang') == 'en_US'">
+                                                        <t t-esc="page_title_lead_en"/>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <article class="col text-center text_body">
+                                                    <span t-if="env.context.get('lang') == 'ar_001'">
+                                                        <t t-esc="page_body_lead_ar"/>
+                                                    </span>
+                                                    <span t-if="env.context.get('lang') == 'en_US'">
+                                                        <t t-esc="page_body_lead_en"/>
+                                                    </span>
+                                                </article>
+                                            </div>
+
+                                        </div>
+
+
+                                        <!-- Description
+                                        <div class="form-group col-12 s_website_form_field">
+                                            <div class="row">
+                                                <label class="col-form-label col-auto s_website_form_label" for="description">
+                                                    <span class="s_website_form_mark">*</span>
+                                                </label>
+                                                <div class="col-sm col-xs-12">
+                                                    <textarea t-if="env.context.get('lang') == 'ar_001'" id="description" class="form-control s_website_form_input" name="description" placeholder="الشرح..."/>
+                                                    <textarea t-if="env.context.get('lang') == 'en_US'" id="description" class="form-control s_website_form_input" name="description" placeholder="Description..."/>
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+
+                                        <!-- header -->
+                                        <div class="container">
+                                            <div class="row">
+                                                <label class="col text-center text_register">
+                                                    <span t-if="env.context.get('lang') == 'ar_001'">سجّل إهتمامك</span>
+                                                    <span t-if="env.context.get('lang') == 'en_US'">Register Your Interset</span>
+                                                </label>
+                                                <!-- <div class="col-sm col-xs-12">
+                                                    <input t-if="env.context.get('lang') == 'ar_001'" id="title" class="form-control s_website_form_input" name="title" placeholder="العنوان..."/>
+                                                    <input t-if="env.context.get('lang') == 'en_US'" id="title" class="form-control s_website_form_input" name="title" placeholder="Title..."/>
+                                                </div> -->
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <!-- Name -->
+                                        <div class="form-group col-12 s_website_form_field">
+                                            <div class="row">
+                                                <label class="col-form-label col-auto s_website_form_label" for="name">
+                                                    <!-- <span class="s_website_form_mark">*</span> -->
+                                                </label>
+                                                <div class="col-sm col-xs-12">
+                                                    <input t-if="env.context.get('lang') == 'ar_001'" id="name" class="form-control s_website_form_input" name="name" placeholder="الإسم..."/>
+                                                    <input t-if="env.context.get('lang') == 'en_US'" id="name" class="form-control s_website_form_input" name="name" placeholder="Name..."/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Email -->
+                                        <div class="form-group col-12 s_website_form_field">
+                                            <div class="row">
+                                                <label class="col-form-label col-auto s_website_form_label" for="email">
+                                                    <!-- <span class="s_website_form_mark">*</span> -->
+                                                </label>
+                                                <div class="col-sm col-xs-12">
+                                                    <input t-if="env.context.get('lang') == 'ar_001'" id="email" class="form-control s_website_form_input" name="email" placeholder="البريد الإلكتروني..."/>
+                                                    <input t-if="env.context.get('lang') == 'en_US'" id="email" class="form-control s_website_form_input" name="email" placeholder="Email..."/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Phone Number -->
+                                        <div class="form-group col-12 s_website_form_field">
+                                            <div class="row">
+                                                <label class="col-form-label col-auto s_website_form_label" for="phone">
+                                                    <!-- <span class="s_website_form_mark">*</span> -->
+                                                </label>
+                                                <div class="col-sm col-xs-12">
+                                                    <input t-if="env.context.get('lang') == 'ar_001'" id="phone" class="form-control s_website_form_input" name="phone" placeholder="رقم الجوّال أو الهاتف القار..."/>
+                                                    <input t-if="env.context.get('lang') == 'en_US'" id="phone" class="form-control s_website_form_input" name="phone" placeholder="Phone Number..."/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="container" id="submit_button_lead">
+                                            <div class="row">
+                                                <div class="col text-center button_generate_center">
+                                                    <button type="submit" class="btn btn-success next">
+                                                        <span t-if="env.context.get('lang') == 'ar_001'">تأكيد</span>
+                                                        <span t-if="env.context.get('lang') == 'en_US'">Confirm</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </t>
+    </template>
+
+</odoo>

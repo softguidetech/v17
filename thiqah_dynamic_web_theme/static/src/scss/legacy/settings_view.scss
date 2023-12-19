@@ -1,0 +1,25 @@
+.o_base_settings .o_setting_container {
+   
+    .settings_tab, .tab {
+        background: lighten($o-brand-odoo, 30%) !important;
+        color: darken($mk-appbar-color, 20%) !important;
+        
+        .selected {
+            background-color: lighten($o-brand-odoo, 20%) !important;
+            //box-shadow: inset 0 -5px $o-brand-odoo;
+            color: saturate($mk-appbar-color, 40%) !important;
+        }
+      
+    }
+}
+.o_tooltip.active{
+   border: 3px solid $o-brand-odoo !important;
+}
+.o_tooltip::before {
+
+    background: radial-gradient($o-brand-odoo, $o-brand-odoo) !important;
+}
+.o_tooltip.active::before {
+
+    border-color: $o-brand-odoo !important;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+<!-- Inside CONFIGURATION -->
+   <record id="thiqah_crm_action_dashboard" model="ir.actions.client">
+            <field name="name">CRM Dashboard</field>
+            <field name="tag">ThiqahCRMDashboard</field>
+        </record>
+
+		<record id="thiqah_crm_action_dashboard_all_data" model="ir.actions.client">
+            <field name="name">Opportunities Dashboard</field>
+            <field name="tag">ThiqahCRMDashboardAllData</field>
+        </record>
+	</data>
+</odoo>

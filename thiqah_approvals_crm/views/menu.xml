@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<menuitem id="menu_thiqah_commitee_tracker_report" name="Business Committee Tracker" sequence="1" parent="crm.crm_menu_report" action="action_thiqah_report_commitee_tracker_wizard" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp"/>
+
+</odoo>

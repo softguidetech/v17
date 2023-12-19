@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+	<record id="thiqah_client_status_view_form" model="ir.ui.view">
+		<field name="name">client.status.form</field>
+		<field name="model">client.status</field>
+		<field name="arch" type="xml">
+			<form class="o_client_status_form" js_class="crm_form">
+				
+				<sheet>
+					<div class="oe_title">
+						<label for="name" />
+						<h1>
+							<field class="o_text_overflow" name="name" />
+						</h1>
+						
+					</div>
+					
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+	<record id="thiqah_client_status_view_tree" model="ir.ui.view">
+		<field name="name">client.status.tree</field>
+		<field name="model">client.status</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name" />
+			</tree>
+		</field>
+	</record>
+	
+	<record id="action_thiqah_client_status"
+		model="ir.actions.act_window">
+		<field name="name">Client Status</field>
+		<field name="res_model">client.status</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+
+
+
+</odoo>

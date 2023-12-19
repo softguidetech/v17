@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="thiqah_template_user_analysis">
+        <t t-set="o" t-value="o.with_context(lang=lang)"/>
+        <t t-set="user_analysis_data" t-value="o.get_thiqah_user_analysis_data()"/>
+        <div class="row">
+            <div class="col text-center">
+                <p style="color:red;">Highly confidential</p>
+            </div>
+        </div>
+        <br></br>
+        <div class="row">
+            <div class="col text-center">
+                <p style="color:#676e9f;font-size:38px;font-weight:900;">
+                    <span t-esc="user_analysis_data['header']" />
+                </p>
+            </div>
+        </div>
+        <br></br>
+        <table class="table">
+
+            <thead>
+                <tr t-if="user_analysis_data['analysis_type']=='login'">
+                    <th scope="col">#</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Login Date</th>
+                    <th scope="col">Redirect To</th>
+                </tr>
+
+                <tr t-if="user_analysis_data['analysis_type']=='request'">
+                    <th scope="col">#</th>
+                    <th scope="col">Action date</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Department</th>
+                    <!-- <th scope="col">HTTP Request</th> -->
+                    <th scope="col">Method</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <t t-foreach="user_analysis_data['get_data']" t-as="data">
+                    <tr t-if="user_analysis_data['analysis_type']=='login'">
+                        <th scope="row">
+                            <span t-esc="data['row']" />
+                        </th>
+                        <td>
+                            <span t-esc="data['user']" />
+                        </td>
+                        <td>
+                            <span t-esc="data['login_date']" />
+                        </td>
+                        <td>
+                            <span t-esc="data['redirect_to']" />
+                        </td>
+                    </tr>
+
+                    <tr t-if="user_analysis_data['analysis_type']=='request'">
+                        <th scope="row">
+                            <span t-esc="data['row']" />
+                        </th>
+                        <td>
+                            <span t-esc="data['create_date']" />
+                        </td>
+                        <td>
+                            <span t-esc="data['user_id']" />
+                        </td>
+                        <td>
+                            <span t-esc="data['category_type']" />
+                        </td>
+                        <!-- <td>
+                            <span t-esc="data['http_request']" />
+                        </td> -->
+                        <td>
+                            <span t-esc="data['method']" />
+                        </td>
+                    </tr>
+                </t>
+
+            </tbody>
+        </table>
+    </template>
+
+</odoo>
+

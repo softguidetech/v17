@@ -1,0 +1,33 @@
+@media only screen and (max-width: 600px) {
+  .icon_wrap {
+    padding-left: 92px !important;
+  }
+
+  .notification_dd {
+    right: 22px;
+  }
+}
+@media (min-width: 576px) {
+  #wrapwrap {
+    .dropdown-menu {
+      &.dropdown-notifications {
+        max-height: 17rem;
+        width: 400px !important;
+      }
+    }
+  }
+}
+@media (max-width: 575.98px) {
+  #wrapwrap {
+    .thiqah-notifications {
+      position: static;
+
+      .dropdown-menu {
+        &.dropdown-notifications {
+          left: 10px !important;
+          right: 10px !important;
+        }
+      }
+    }
+  }
+}

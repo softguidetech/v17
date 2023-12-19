@@ -1,0 +1,395 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="crm_lead_lost_view_form_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.lost.form.inherit</field>
+        <field name="model">crm.lead.lost</field>
+        <field name="inherit_id" ref="crm.crm_lead_lost_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lost_reason_id']" position="after">
+                <field name="lost_proposal_amount" required="1"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="thiqah_crm_lead_view_form" model="ir.ui.view">
+        <field name="name">view.crm.lead.form.inherited.thiqah</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="before">
+                <group>
+                    <!--
+                    <field name="proposal_deadline" required="1" />
+                    <field name="expected_revenue" required="1" />
+                     -->
+                </group>
+                <group>
+                    <field name="for_aahd" invisible="1"/>
+                    <field name="passed_score" invisible="1"/>
+                    <field name="for_bd" invisible="1"/>
+                    <field name="is_idea" invisible="1" widget="boolean_toggle"/>
+                    <field name="development_of_location" string="Country" class="long-title"/>
+                    <field name="is_ict" class="long-title" string="Lead related to IT" widget="boolean_toggle"/>
+                    <field name="is_qualification_stage" invisible="1"/>
+                    <field name="is_likned_to_event" invisible="1"/>
+                </group>
+                <!-- groups="thiqah_crm.marketing_development_group" -->
+                <!-- groups="thiqah_crm.marketing_development_group" -->
+                <!--				<group attrs="{'invisible': [('is_ict', '=', False)]}">-->
+                <group invisible="is_ict">
+                    <field name="ict" options="{'no_create': 1, 'no_open': 1}" required="is_ict"/>
+                    <field name="ict_services" string="Ict Services" related="ict.ict_services"
+                           options="{'no_create': 1, 'no_open': 1}" invisible="not ict" required="is_ict"/>
+                    <!--					attrs="{'invisible': [('ict_services', '=', False)], 'required': [('is_ict', '=', True)]}"-->
+                    <field name="ict_services_info" string="Ict Services Info" options="{'no_create': 1, 'no_open': 1}"
+                           invisible="not ict_services" required="is_ict"/>
+                    <field name="sectors_of_interest" widget="many2many_tags" options="{'no_create': 1, 'no_open': 1}"
+                           required="is_ict"/>
+                    <field name="types_of_services_provided" widget="many2many_tags"
+                           options="{'no_create': 1, 'no_open': 1}" required="is_ict"/>
+                    <field name="services_for" options="{'no_empty': True}" required="is_ict"/>
+                </group>
+                <!-- <group>
+                    <field name="opportunity_channel_id" required="1" attrs="{'invisible':[('for_aahd','=',False)]}" domain="[('for_aahd','=',True)]" />
+                    <field name="opportunity_channel_id" required="1" attrs="{'invisible':[('for_bd','=',False)]}" domain="[('for_bd','=',True)]" />
+                </group> -->
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Lead Evaluation" groups="thiqah_crm.marketing_development_group">
+                    <group>
+                        <div>
+                            <h1>
+                                Passing Score :
+                                <field name="total_score_compute" class="oe_inline" readonly="1" force_save="1"/>
+                                /
+                                <field name="passing_score_lead_evaluation" class="oe_inline" readonly="1"
+                                       force_save="1"/>
+                            </h1>
+                        </div>
+                    </group>
+                    <group>
+                        <field name="aligned_with_market_startegy" widget="radio" class="long-title"
+                               options="{'no_empty': True,'horizontal':True}" readonly="passed_score"/>
+                        <field name="select_all_apply" widget="radio" options="{'no_empty': True,'horizontal':True}"
+                               readonly="passed_score"/>
+                        <field name="product_name" readonly="passed_score"/>
+                        <field name="potential_sectorial_interests" widget="radio" class="long-title"
+                               options="{'no_empty': True,'horizontal':True}" readonly="passed_score"/>
+                        <field name="sectors" readonly="passed_score"/>
+                        <field name="serves_strategy_initiatives" widget="radio" class="long-title"
+                               options="{'no_empty': True,'horizontal':True}" readonly="passed_score"/>
+                        <field name="init_themes" readonly="passed_score"/>
+                        <field name="involves_addressing_market_needs" widget="radio" class="long-title"
+                               options="{'no_empty': True,'horizontal':True}" readonly="passed_score"/>
+                        <style>
+                            .long-title .o_field_label {
+                            /* Adjust the width as per your requirement */
+                            }
+                        </style>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//field[@name='stage_id']" position="attributes">
+                <attribute name="options">{'fold_field': 'fold'}</attribute>
+            </xpath>
+
+            <!-- <xpath expr="//button[@name='%(crm.action_crm_lead2opportunity_partner)d']" position="attributes">
+                    <attribute name="groups">thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp
+                    </attribute>
+                </xpath> -->
+
+            <xpath expr="//button[@name='%(crm.action_crm_lead2opportunity_partner)d']" position="attributes">
+                <attribute name="groups">thiqah_crm.sp_team_group</attribute>
+                <!--			<attribute name="attrs">{'invisible':[('is_qualification_stage','=',False)]}</attribute>-->
+                <attribute name="invisible">not is_qualification_stage</attribute>
+            </xpath>
+            <!--		<xpath expr="//label[@for='name']" position="attributes">-->
+            <!--			<attribute name="string" value="Title">Title</attribute>-->
+            <!--		</xpath>-->
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="placeholder" value="Lead Title">Lead Title</attribute>
+            </xpath>
+
+            <xpath expr="//div[hasclass('oe_title')]" position="after">
+                <group>
+                    <field name="is_idea" widget="boolean_toggle"/>
+                    <field name="source_lead_id" string="Source"/>
+                    <field name="event_id" invisible="not is_likned_to_event"/>
+                </group>
+                <group invisible="not is_idea">
+                    <field name="idea_name" string="Name"/>
+                    <field name="problem"/>
+                    <field name="solution"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="category_portfolio_id" string="Sector" invisible="not partner_id"/>
+                <field name="sp_manager_id" context="{'default_is_sp_manager':True}"
+                       domain="[('is_sp_manager','=', True)]" invisible="not category_portfolio_id"/>
+                <field name="deputy_id" context="{'default_is_deputy_id':True}" domain="[('is_deputy','=', True)]"
+                       invisible="not category_portfolio_id"/>
+                <field name="chief_id" context="{'default_is_chief_id':True}" domain="[('is_chief','=', True)]"
+                       invisible="not category_portfolio_id"/>
+            </xpath>
+
+            <div name="button_box" position="inside">
+                <button class="oe_stat_button" name="action_open_documents" type="object" icon="fa-file-text-o">
+                    <field string="Documents" name="documents_count" widget="statinfo"/>
+                </button>
+            </div>
+
+            <!-- Customization | Context : Lead -->
+            <!-- <xpath expr="//header" position="inside">
+                    <field name="thiqah_lead_stage_id" widget="statusbar"/>
+                </xpath> -->
+
+            <xpath expr="//header" position="inside">
+                <field name="thiqah_lead_stage_id" widget="statusbar"/>
+                <button name="action_lead_next_stage" string="Next Stage" type="object" title="Next Stage"
+                        invisible="is_qualification_stage"/>
+
+            </xpath>
+
+            <!--		<xpath expr="//button[@name='action_set_lost']" position="attributes">-->
+            <xpath expr="//button[@name='%(crm.crm_lead_lost_action)d']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='%(crm_helpdesk.crm_lead_convert2ticket_action)d']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//div[@id='probability']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//label[@for='probability']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='website']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='lang_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="string">Client</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="organization"/>
+            </xpath>
+
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='team_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='contact_name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='title']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='email_cc']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//group[@name='lead_priority']" position="attributes">
+                <attribute name="invisible">type == 'opportunity' or type == 'lead'</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='extra']" position="attributes">
+                <!--			<attribute name="attrs">{'invisible': ['|',('type', '=', 'opportunity'),('type', '=', 'lead')]}</attribute>-->
+                <attribute name="invisible">type == 'opportunity' or type == 'lead'</attribute>
+            </xpath>
+
+            <xpath expr="//group[@name='lead_partner']" position="attributes">
+                <!--			<attribute name="attrs">{'invisible': ['|',('type', '=', 'opportunity'),('is_idea', '=', True)]}</attribute>-->
+                <attribute name="invisible">type == 'opportunity' or is_idea</attribute>
+            </xpath>
+
+            <xpath expr="//group[@name='lead_info']" position="attributes">
+                <!--			<attribute name="attrs">{'invisible': ['|',('type', '=', 'opportunity'),('is_idea', '=', True)]}</attribute>-->
+                <attribute name="invisible">type == 'opportunity' or is_idea</attribute>
+            </xpath>
+
+            <xpath expr="//label[@for='street']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//label[@for='contact_name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//div[hasclass('o_address_format')]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="thiqah_quick_create_opportunity_form" model="ir.ui.view">
+        <field name="name">view.crm.lead.form.quick_create.thiqah</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="for_aahd" invisible="1"/>
+                <field name="for_bd" invisible="1"/>
+                <field name="opportunity_channel_id" required="1" options="{'no_create_edit': True,'no_create': True}"/>
+            </field>
+            <field name="partner_id" position="attributes">
+                <attribute name="options">{'no_create_edit': True,'no_create': True}</attribute>
+                <attribute name="domain">[('is_customer','=',True)]</attribute>
+                <attribute name="context">{'default_is_customer':True}</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="thiqah_crm_case_kanban_view_leads" model="ir.ui.view">
+        <field name="name">view.crm.lead.kanban.inherited.thiqah</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="attributes">
+                <attribute name="records_draggable">false</attribute>
+            </xpath>
+            <!--		<xpath expr="//div[hasclass('o_kanban_record_title')]" position="after">-->
+            <xpath expr="//div[hasclass('oe_kanban_details')]" position="after">
+                <field name="thiqah_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="opportunity_is_overdue" invisible="1"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <record id="thiqah_crm_case_tree_view_oppor" model="ir.ui.view">
+        <field name="name">view.crm.lead.tree.inherited.thiqah</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="thiqah_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_lead_search_form" model="ir.ui.view">
+        <field name="name">lead.event.search.form</field>
+        <field name="model">crm.lead.event</field>
+        <field name="arch" type="xml">
+            <search string="Leads">
+                <field name="name" string="Event"/>
+                <field string="Lead" name="display_lead_id"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter string="lead" name="lead" context="{'group_by': 'lead_id'}"/>
+                    <filter string="Creation Date" name="group_create_date" context="{'group_by': 'create_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="crm.view_crm_lead_kanban" model="ir.ui.view">
+        <field name="name">crm.lead.kanban</field>
+        <field name="model">crm.lead</field>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <!-- <kanban class="o_kanban_mobile" archivable="false" js_class="crm_kanban" sample="1"> -->
+            <kanban default_group_by="thiqah_lead_stage_id" class="o_kanban_small_column o_opportunity_kanban"
+                    archivable="false" sample="1">
+                <field name="thiqah_lead_stage_id"
+                       options="{&quot;group_by_tooltip&quot;: {&quot;requirements&quot;: &quot;Description&quot;}}"/>
+                <field name="name"/>
+                <field name="contact_name"/>
+                <field name="priority"/>
+                <field name="tag_ids"/>
+                <field name="user_id"/>
+                <field name="activity_ids"/>
+                <field name="activity_state"/>
+                <!-- <field name="is_readonly_grouped_by" invisible="1"/> -->
+                <progressbar field="activity_state"
+                             colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                            <div>
+                                <strong class="o_kanban_record_title">
+                                    <span>
+                                        <field name="name"/>
+                                    </span>
+                                </strong>
+                            </div>
+                            <div>
+                                <span class="o_kanban_record_subtitle">
+                                    <field name="contact_name"/>
+                                </span>
+                            </div>
+                            <div>
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="user_id" widget="many2one_avatar_user"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="crm.crm_lead_all_leads">
+        <field name="name">Leads</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">kanban,tree,graph,pivot,calendar,form,activity</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('crm.view_crm_lead_kanban')}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('crm.crm_case_tree_view_leads')}),
+                (0, 0, {'view_mode': 'calendar', 'view_id': ref('crm.crm_case_calendar_view_leads')}),
+                (0, 0, {'view_mode': 'pivot', 'view_id': ref('crm.crm_lead_view_pivot')}),
+                (0, 0, {'view_mode': 'graph', 'view_id': ref('crm.crm_lead_view_graph')}),
+
+				]"/>
+        <field name="domain">['|', ('type','=','lead'), ('type','=',False)]</field>
+        <field name="search_view_id" ref="crm.view_crm_case_leads_filter"/>
+        <field name="context">{
+            'default_type':'lead',
+            'search_default_type': 'lead',
+            'search_default_to_process':1,
+            }
+        </field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a Lead
+            </p>
+            <p>
+                Leads are the qualification step before the creation of an opportunity.
+            </p>
+        </field>
+    </record>
+
+</odoo>

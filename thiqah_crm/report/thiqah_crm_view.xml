@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="thiqah_report_Opportunities_wizard" model="ir.ui.view">
+            <field name="name">Opportunities Status</field>
+            <field name="model">thiqah.crm.report</field>
+            <field name="arch" type="xml">
+            <form string="Opportunities Status">
+             	<p> Print Proposal Data for Awarded Or Submitted Or  Potential Opportunities</p>
+             	<group>
+                   <field name="report_type" required="1" widget="radio"/>
+                </group>
+                <footer>
+                    <button string="Print" name="action_report_print" type="object" default_focus="1" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+            </field>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="action_thiqah_report_Opportunities_wizard" model="ir.actions.act_window">
+            <field name="name">Opportunities Status</field>
+            <field name="res_model">thiqah.crm.report</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="thiqah_report_Opportunities_wizard"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="crm.model_crm_stage" />
+            <field name="binding_view_types">list</field>
+        </record>
+    </data>
+</odoo>

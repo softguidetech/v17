@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="service_type_tree" model="ir.ui.view">
+        <field name="name">service_type.tree</field>
+        <field name="model">thiqah_project.service_type</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name_ar"/>
+                <field name="name_en"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

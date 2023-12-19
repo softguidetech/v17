@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- res.partner form view -->
+    <record id="partner_form_view_form_inherit" model="ir.ui.view">
+        <field name="name">view.res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//span[@name='address_name']" position="before">
+                <field name="can_see_utilization_report"/>
+            </xpath>
+        </field>
+    </record>
+    
+</odoo>

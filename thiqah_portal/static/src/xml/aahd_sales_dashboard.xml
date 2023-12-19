@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="aahd_dashboard_id" xml:space="preserve">
+
+    <t t-name="aahd_sales_dashboard">
+        <div class="o_action o_thiqah_dashboard">
+            <!-- <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <label for="years">If you want to eliminate the winning opportunities of the last year choose the current year:</label>
+                    <select name="choose_year" id="choose_year">
+                        TODO : Make it more dynamic
+                        <option value="202211" selected="selected">2022111</option>
+                        <option value="1111">2021113</option>
+                    </select>
+
+                </div>
+                <div class="col"></div>
+            </div> -->
+            <div class="o_content container-fluid sales_aahd_DASHBOARD pt-3"></div>
+        </div>
+    </t>
+
+    <t t-name="aahd_sales_dashboard_document">
+        <div id="_aahad">
+
+            <div class="row">
+
+                <div class="col" style="height:50px;">
+                    <div class="row" style="height:250px;">
+                        <div class="col-md-8">
+                            <div class="row ">
+                                <div class="col" style="max-width:44px;"></div>
+                                <div class="col-3 aahd_dahsboard_card">
+                                    <div class="text-center">
+                                        <h2 class="aahd-title">Projects Summary</h2>
+                                    </div>
+                                </div>
+                                <div class="col aahd_dahsboard_card">
+                                    <div class="text-center">
+                                        <h2 class="aahd-title">Distribution</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="height:50px;">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="aahd_dahsboard_card text-center">
+                                        <h2 class="aahd-title">Margin</h2>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="aahd_dahsboard_card text-center">
+                                        <h2 class="aahd-title">Goal</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col" style="height:320px;">
+                    <div class="row" style="height:320px;">
+                        <div class="col-md-8">
+                            <div class="row ">
+                                <div class="col aahd-verticalcard" style="max-width:44px;">
+                                    <!-- <div class="aahd-verticalcard"> -->
+                                    <div class="text-center">
+                                        <h2 class="aahd-title txtopprt">Opportunities Received</h2>
+                                    </div>
+                                    <!-- </div> -->
+                                </div>
+                                <div class="col-3 card">
+                                    <!-- <div class="card _aahd_row_two"> -->
+                                    <div class="col text-center total_span_one" id="total_opportunities"></div>
+                                    <div class="col text-left">
+                                        <span class="badge badge-primary" id="_total_opportunities">Total of Opportunities</span>
+                                    </div>
+                                    <!-- </div> -->
+                                </div>
+
+                                <div class="col card">
+                                    <!-- <div class="card _aahd_row_distribution"> -->
+                                    <!-- <div class="_aahd_row_first_chart"> -->
+                                    <div class="_aahd_row_first_chart_">
+                                        <canvas height="90px" id="distributionProduct"></canvas>
+                                    </div>
+
+                                    <div class="_aahd_row_second_chart">
+                                        <canvas height="70px" id="distributionSource"></canvas>
+                                    </div>
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4" style="height:350px;">
+                            <div class="row ">
+                                <!-- <div class="col">
+                                    <div class="card custom_card">
+                                        <div class="text-center margin_span_one">
+                                            <span id="margin_percent"></span>
+                                            <div class="line-1">
+                                                <div class="float-left line_min" id="margin_min">
+                                                </div>
+                                                <div class="float-right line_max" id="margin_max">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center margin_span_two">
+                                            <i class="fa fa-arrow-circle-o-up"/>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="col">
+                                    <div class="card custom_card">
+                                        <span class="text-center">#Goal</span>
+                                        <div class="text-center margin_span_one_ " id="goal_amount"/>
+                                        <span class="text-center">#Revenue</span>
+                                        <div class="text-center" id="revenues_won_stage"/>
+                                        <div class="text-center goal_span">
+                                            <span id="goal_percent"/>
+                                            <sup class="up">
+                                                <i id="sort_up" class="fa fa-sort-up d-none"></i>
+                                                <i id="sort_down" class="fa fa-sort-down d-none"></i>
+                                            </sup>
+                                        </div>
+                                        <span class="text-center">#Value</span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card custom_card">
+                                        <span class="text-center">#Goal</span>
+                                        <div class="text-center margin_span_one_ " id="goal_amount"/>
+                                        <span class="text-center">#Revenue</span>
+
+                                        <div class="text-center" id="revenues_won_stage"/>
+                                        <div class="text-center goal_span">
+                                            <span id="goal_percent"/>
+                                            <sup class="up">
+                                                <i id="sort_up" class="fa fa-sort-up d-none"></i>
+                                                <i id="sort_down" class="fa fa-sort-down d-none"></i>
+                                            </sup>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8" style="height:900px;">
+
+                    <div class="row" style="height:300px;">
+                        <!-- <div class="col-md-12">
+                            <div class="row"> -->
+
+                        <div class="col aahd-verticalcard" style="max-width:44px;">
+                            <!-- <div class="aahd-verticalcard"> -->
+                            <div class="text-center">
+                                <h2 class="title-non_digital txtopprt">Non-digital Statistics</h2>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+
+
+                        <div class="col-3 card">
+                            <!-- <div class="card _aahd_row_non"> -->
+                            <div class="col text-center total_span_one" id="non_digital_opportunities"></div>
+
+                            <div class="col text-center total_span_two">
+                                <span class="badge badge-primary total_span_two">Total # of Non-digital</span>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+
+                        <div class="col card">
+                            <!-- <div class="card _aahd_row_non_digital"> -->
+                            <div class="_aahd_row_first_chart">
+                                <canvas height="150px" id="nonDigitalChart"></canvas>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+
+                        <!-- </div>
+                        </div> -->
+                    </div>
+
+                    <div class="row" style="height:300px;">
+                        <!-- <div class="col-lg-6"> -->
+                        <div class="col aahd-verticalcard" style="max-width:44px;">
+                            <!-- <div class="aahd-verticalcard"> -->
+                            <div class="text-center">
+                                <h2 class="title_digital txtopprt">Digital Statistics</h2>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <!-- </div> -->
+
+
+                        <div class="col-3 card">
+                            <!-- <div class="card _aahd_row_non"> -->
+                            <div class="col text-center total_span_one" id="digital_opportunities"></div>
+                            <div class="col text-center total_span_two">
+                                <span class="badge badge-primary total_span_two">
+                                        Total # of Digital
+                                </span>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+
+                        <div class="col card">
+                            <!-- <div class="card _aahd_row_digital"> -->
+                            <div class="_aahd_row_first_chart">
+                                <canvas height="150px" id="digitalChart"></canvas>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="height:300px;">
+                        <!-- <div class="col-md-12"> -->
+                        <div class="col aahd-verticalcard" style="max-width:44px;">
+                            <!-- <div class="aahd-verticalcard"> -->
+                            <div class="text-center">
+                                <h2 class="title_opportunity txtopprt">Opportunity Value</h2>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+
+                        <div class="col-3 card">
+                            <!-- <div class="card _aahd_row_non"> -->
+                            <div class="col text-center opportunity_span_one" id="value_winning_rate"></div>
+                            <div class="col text-center opportunity_span_two">
+                                <span class=" badge badge-primary">Value Winning Rate</span>
+                            </div>
+                            <div class="col text-center opportunity_span_one" id="quantity_value_rate"></div>
+                            <div class="col text-center opportunity_span_two">
+                                <span class=" badge badge-primary">Quantity Winning Rate</span>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+
+                        <div class="col card">
+                            <!-- <div class="card _aahd_row_opportunity"> -->
+                            <div class="_aahd_row_first_chart">
+                                <canvas height="150px" id="opportunityValueChart"></canvas>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
+                <div class="col-md-4" style="height:900px;">
+                    <div class="row">
+                        <div class="col-12" style="height:300px;">
+                            <!-- <div class="col"> -->
+                            <div class="card text-center ytd_summary _card_ytd">
+                                <!-- <div class="card text-center _aahd_row_two_marign _card_ytd"> -->
+                                <div id="card_ytd_header">
+                                    <span>YTD Summary</span>
+                                </div>
+                                <div class="badge badge-purple text-center projects_awarded margin_bottom">
+                                    <span>Monthly Revenue</span>
+                                </div>
+                                <div class="_aahd_row_first_chart">
+                                    <canvas height="170px" id="monthlyRevenueChart"></canvas>
+                                </div>
+
+                                <!-- </div> -->
+                            </div>
+
+                        </div>
+                        <div class='col-12' style="height:300px;">
+
+
+                            <!-- <div class="col"> -->
+                            <div class="card ytd_summary _card_ytd">
+                                <div class="badge badge-purple text-center projects_awarded margin_bottom">
+                                    <span>Monthly Growth</span>
+                                </div>
+                                <div class="_aahd_row_first_chart">
+                                    <canvas height="200px" id="monthlyGrowthChart"></canvas>
+                                </div>
+                                <!-- </div> -->
+                            </div>
+
+
+                        </div>
+                        <div class='col-12' style="height:300px;">
+
+                            <!-- <div class="col"> -->
+                            <div class="card ytd_summary _card_ytd">
+                                <div class="badge badge-primary text-center projects_awarded">
+                                    <span>TOP 10 Projects</span>
+                                    <!-- <span>Recently Awarded Projects</span> -->
+                                </div>
+                                <div class="container awarded_class">
+                                    <div class="flex-container" id="table_awarded">
+                                        <!-- </div> -->
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </t>
+</templates> 
+

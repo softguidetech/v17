@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+
+		<record id="group_client_registration_officer" model="res.groups">
+			<field name="name">Client Registration Officer</field>
+		</record>
+
+		<record id="group_business_operation_approval_creg" model="res.groups">
+			<field name="name">Business Operation Approval (CReg)</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+			<field name="implied_ids" eval="[(4, ref('client_registration.group_client_registration_officer'))]" />
+		</record>
+
+		<record id="group_product_manager_creg" model="res.groups">
+			<field name="name">Product Manager (CReg)</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+			<field name="implied_ids" eval="[(4, ref('client_registration.group_client_registration_officer'))]" />
+		</record>
+
+		<record id="group_account_receivable_creg" model="res.groups">
+			<field name="name">Account receivable (CReg)</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+			<field name="implied_ids" eval="[(4, ref('client_registration.group_client_registration_officer'))]" />
+		</record>
+
+		<record id="group_account_payable_creg" model="res.groups">
+			<field name="name">Account Payable (CReg)</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+			<field name="implied_ids" eval="[(4, ref('client_registration.group_client_registration_officer'))]" />
+		</record>
+
+		<record id="group_treasury_approval_creg" model="res.groups">
+			<field name="name">Treasury Approval (CReg)</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+			<field name="implied_ids" eval="[(4, ref('client_registration.group_client_registration_officer'))]" />
+		</record>
+
+	</data>
+</odoo>

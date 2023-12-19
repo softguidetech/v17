@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="service_catalog_search_view" model="ir.ui.view">
+        <field name="name">thiqah_project.service_catalog.search</field>
+        <field name="model">thiqah_project.service_catalog</field>
+        <field name="arch" type="xml">
+            <search string="Search Catalog">
+                <field name="name_en" filter_domain="[('name_en', 'ilike', self)]" string="Name"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="service_catalog_tree" model="ir.ui.view">
+        <field name="name">service_catalog.tree</field>
+        <field name="model">thiqah_project.service_catalog</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name_ar" string="Name"/>
+                <field name="name_en"/>
+                <field name="service_type"/>
+                <field name="department_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="service_catalog_form" model="ir.ui.view">
+        <field name="name">service_catalog.form</field>
+        <field name="model">thiqah_project.service_catalog</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+<!--                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>-->
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name_en" name="name_label"/>
+                        <h1>
+                            <field name="name_en" placeholder="e.g. Catalog ..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="name_ar"/>
+                    </group>
+
+                    <group>
+                        <field name="service_type"/>
+                        <field name="department_id"/>
+                        <field name="partner_id"/>
+                    </group>
+
+                    <group>
+                        <group>
+                            <field name="order"/>
+                        </group>
+
+                        <group>
+                            <field name="sla"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <field name="description"/>
+                    </group>
+
+                    <group>
+                        <field name="description_ar"/>
+                    </group>
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

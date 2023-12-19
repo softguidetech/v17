@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="thiqah_approval_category_view_form_inherit" model="ir.ui.view">
+        <field name="name">approval.thiqah.category.view.form.inherit</field>
+        <field name="model">approval.category</field>
+        <field name="inherit_id" ref="approvals.approval_category_view_form"/>
+        <field name="arch" type="xml">
+            <group name="approvers" position="inside">
+            	<field name="company_id" invisible="1"/>
+            	<field name="request_owner_id"/>
+<!--            	<field name="request_owner_id" domain="[(1, '=', 1)]"/>-->
+            </group>
+        </field>
+    </record>
+</odoo>

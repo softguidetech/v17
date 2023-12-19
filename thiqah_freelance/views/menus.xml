@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- This Menu Item will appear in the Upper bar, that's why It needs NO parent or action -->
+    <menuitem id="freelance_menu_root" name="Freelance" sequence="50" web_icon="thiqah_freelance,static/src/img/freelance_icon.png"/>
+   
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="freelance_request_menu_act" name="Freelance requests" parent="freelance_menu_root" action="freelance_request_action" sequence="1"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="freelance_application_menu_act" name="Freelance applications" parent="freelance_menu_root" action="freelance_application_action" sequence="2"/>
+
+    <menuitem id="freelance_workorder_menu_act" name="Freelance workorders" parent="freelance_menu_root" action="freelance_workorder_action_window" sequence="5"/>
+
+    <menuitem id="config_menu" name="Settings" parent="freelance_menu_root" sequence="99"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="entity_menu_act" name="Entities" parent="config_menu" action="res_entity_action" sequence="1"/>
+    <menuitem id="oracle_config_menu_act" name="Oracle Config" parent="config_menu" action="oracle_config_action" sequence="5"/>
+
+</odoo>

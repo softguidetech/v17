@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+	<record id="thiqah_opportunity_channels_view_form"
+		model="ir.ui.view">
+		<field name="name">opportunity.channels.form</field>
+		<field name="model">opportunity.channels</field>
+		<field name="arch" type="xml">
+			<form class="o_opportunity_channels_form" js_class="crm_form">
+
+				<sheet>
+					<div class="oe_title">
+						<label for="name" />
+						<h1>
+							<field class="o_text_overflow" name="name" />
+						</h1>
+					</div>
+					<group>
+						<group string="For Aahd">
+						 	<field name="for_aahd"/>
+<!--							<field name="opp_source" widget="radio" attrs="{'invisible':[('for_aahd','=',False)]}"/>-->
+							<field name="opp_source" widget="radio" invisible="not for_aahd"/>
+						</group>
+						<group string="For BD">
+							<field name="for_bd"/>
+							<field name="bd_stages" widget="radio" invisible="not for_aahd"/>
+						</group>
+					</group>
+					
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+	<record id="thiqah_opportunity_channels_view_tree"
+		model="ir.ui.view">
+		<field name="name">opportunity.channels.tree</field>
+		<field name="model">opportunity.channels</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="thiqah_opportunity_channels_action"
+		model="ir.actions.act_window">
+		<field name="name">Opportunity Channels</field>
+		<field name="res_model">opportunity.channels</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+
+
+
+</odoo>

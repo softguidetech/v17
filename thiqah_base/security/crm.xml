@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- <record id="group_legal_user" model="res.groups">
+        <field name="name">Legal User: Restrictions</field>
+        <field name="category_id" ref="thiqah_crm.thiqah_crm_category" />
+    </record> -->
+
+    <!-- Leads -->
+    <!-- <record model='ir.ui.menu' id='crm.crm_menu_leads'>
+        <field name="groups_id" eval="[(6, 0, [ref('sales_team.group_sale_manager'),ref('thiqah_crm.aahd_bd_group') ])]"/>
+    </record>
+
+    <record model='ir.ui.menu' id='crm.crm_menu_report'>
+        <field name="groups_id" eval="[(6, 0, [ref('sales_team.group_sale_manager')])]"/>
+    </record> -->
+
+
+</odoo>

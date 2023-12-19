@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- inquiry.request.sla tree view -->
+    <record id="inquiry_request_sla_view_tree" model="ir.ui.view">
+        <field name="name">inquiry.request.sla.view.tree</field>
+        <field name="model">inquiry.request.sla</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" create="false">
+                <field name="request_type" readonly="1"/>
+                <field name="urgency" readonly="1"/>
+                <field name="sla_days"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- inquiry.request.sla action window -->
+    <record id="inquiry_request_sla_action" model="ir.actions.act_window">
+        <field name="name">Inquiry Request SLA</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">inquiry.request.sla</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+</odoo>

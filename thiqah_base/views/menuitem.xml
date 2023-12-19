@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <menuitem id="menu_user_analysis_report" name="User Analysis Report" sequence="0" parent="base.menu_administration" action="action_user_analysis_wizard" />
+     <menuitem id="menu_user_category" name="User Categories" parent="base.menu_users" sequence="30" action="user_category_action" />
+
+</odoo>

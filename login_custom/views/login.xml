@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="thiqah_web_login_page" inherit_id="web.login"
+              name="Login">
+
+        <xpath expr="//div[hasclass('field-login')]"
+               position="attributes">
+            <attribute name="style">display:block;</attribute>
+        </xpath>
+        <!--		<xpath expr="//div[hasclass('field-password')]"-->
+        <!--			position="attributes">-->
+        <!--			<attribute name="style">display:block;</attribute>-->
+        <!--		</xpath>-->
+        <xpath expr="//div/input[@name='password']" position="attributes">
+            <attribute name="style">display:block;</attribute>
+        </xpath>
+        <xpath expr="//button[@type='submit']" position="attributes">
+            <attribute name="style">display:block;</attribute>
+        </xpath>
+
+    </template>
+</odoo>

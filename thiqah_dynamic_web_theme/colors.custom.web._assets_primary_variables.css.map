@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "colors.custom.web._assets_primary_variables.scss"
+    ],
+    "names": [],
+    "file": "colors.custom.web._assets_primary_variables.css"
+}

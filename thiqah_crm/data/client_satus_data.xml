@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+
+		<record id="client_status1" model="client.status">
+			<field name="name">New Lead</field>
+		</record>
+		<record id="client_status2" model="client.status">
+			<field name="name">Existing client</field>
+		</record>
+		<record id="client_status3" model="client.status">
+			<field name="name">New Client</field>
+		</record>
+
+
+
+
+		<record id="sectors_of_interest1" model="crm.lead.sectors_of_interest">
+			<field name="name">Manufacturing and Industrial</field>
+		</record>
+
+		<record id="sectors_of_interest2" model="crm.lead.sectors_of_interest">
+			<field name="name">Real Estate and Construction</field>
+		</record>
+
+		<record id="sectors_of_interest3" model="crm.lead.sectors_of_interest">
+			<field name="name">Logistics, Transport and Mobility</field>
+		</record>
+
+		<record id="sectors_of_interest4" model="crm.lead.sectors_of_interest">
+			<field name="name">Banking, Financial Services and Insurance</field>
+		</record>
+
+		<record id="sectors_of_interest5" model="crm.lead.sectors_of_interest">
+			<field name="name">Tourism, Entertainment and Media</field>
+		</record>
+
+		<record id="sectors_of_interest6" model="crm.lead.sectors_of_interest">
+			<field name="name">Healthcare</field>
+		</record>
+
+		<record id="sectors_of_interest7" model="crm.lead.sectors_of_interest">
+			<field name="name">Data</field>
+		</record>
+
+		<record id="sectors_of_interest8" model="crm.lead.sectors_of_interest">
+			<field name="name">E-commerce</field>
+		</record>
+
+		<record id="sectors_of_interest9" model="crm.lead.sectors_of_interest">
+			<field name="name">Retail</field>
+		</record>
+
+		<record id="sectors_of_interest10" model="crm.lead.sectors_of_interest">
+			<field name="name">Oil and gas</field>
+		</record>
+
+		<record id="sectors_of_interest11" model="crm.lead.sectors_of_interest">
+			<field name="name">Space</field>
+		</record>
+		
+		
+		
+		
+		<record id="types_of_services_provided1" model="crm.lead.types_of_services_provided">
+			<field name="name">Government entities</field>
+		</record>
+		<record id="types_of_services_provided2" model="crm.lead.types_of_services_provided">
+			<field name="name">Businesses</field>
+		</record>
+		<record id="types_of_services_provided3" model="crm.lead.types_of_services_provided">
+			<field name="name">Individual Customers</field>
+		</record>
+
+
+
+
+
+
+
+	</data>
+</odoo>

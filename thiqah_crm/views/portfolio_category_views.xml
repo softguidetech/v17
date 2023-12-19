@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<odoo>
+
+
+    <record id="thiqah_portfolio_category_view_form"
+            model="ir.ui.view">
+        <field name="name">category.portfolio.form</field>
+        <field name="model">category.portfolio</field>
+        <field name="arch" type="xml">
+            <form class="o_portfolio_category_form" js_class="crm_form">
+
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field class="o_text_overflow" name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="sp_manager_id"
+                               context="{'default_is_sp_manager':True}"
+                               required="1"
+                               domain="[('is_sp_manager','=', True)]"/>
+                        <field name="parent_id"/>
+                        <field name="deputy_id"
+                               context="{'default_is_deputy':True}"
+                               required="1"
+                               domain="[('is_deputy','=', True)]"/>
+                        <field name="chief_id"
+                               context="{'default_is_chief':True}"
+                               required="1"
+                               domain="[('is_chief','=', True)]"/>
+                        <field name="parent_id"/>
+                    </group>
+                    <group>
+                        <field name="vb_account_id"/>
+                        <field name="level" widget="radio"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="thiqah_portfolio_category_view_tree"
+            model="ir.ui.view">
+        <field name="name">category.portfolio.tree</field>
+        <field name="model">category.portfolio</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="parent_id"/>
+                <field name="level"/>
+                <field name="vb_account_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="thiqah_portfolio_category_action"
+            model="ir.actions.act_window">
+        <field name="name">Portfolio Category</field>
+        <field name="res_model">category.portfolio</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!-- <template id="thiqah_template_header_default" inherit_id="website.layout" 
+		name="Template Header Default" active="True"> <xpath expr="//div@id=['top_menu_collapse]/t[@t-call='website.submenu']" 
+		position="replace"> </xpath> </template> -->
+
+
+
+
+
+<!--	<template id="thiqah_portal_my_home"-->
+<!--		inherit_id="portal.portal_my_home">-->
+<!--&lt;!&ndash;		<xpath expr="//div[hasclass('o_portal_my_home')]//h3"&ndash;&gt;-->
+<!--&lt;!&ndash;			position="replace">&ndash;&gt;-->
+<!--&lt;!&ndash;			<h3>My Portal</h3>&ndash;&gt;-->
+<!--&lt;!&ndash;		</xpath>&ndash;&gt;-->
+<!--		<xpath expr="//div[hasclass('o_portal_docs')]"-->
+<!--			position="replace">-->
+<!--			<div class="o_portal_docs row"></div>-->
+<!--		</xpath>-->
+<!--	</template>-->
+
+
+
+<!--	<template id="thiqah_portal_layout"-->
+<!--		inherit_id="portal.portal_layout">-->
+<!--		&lt;!&ndash; <xpath expr="//div[@id='o_my_sidebar']" position="replace">-->
+<!--			<div id="o_my_sidebar"-->
+<!--				class="pt-3 pt-lg-0 col-12 col-md col-lg-4 col-xl-3 o_my_sidebar">-->
+<!--			</div>-->
+<!--		</xpath> &ndash;&gt;-->
+
+<!--&lt;!&ndash;		<xpath expr="//div[@t-attf-class='col-12 col-md col-lg-6']"&ndash;&gt;-->
+<!--&lt;!&ndash;			position="replace">&ndash;&gt;-->
+<!--&lt;!&ndash;			<div t-attf-class="col-12 col-md-10 col-lg-10 my-cards">&ndash;&gt;-->
+<!--&lt;!&ndash;				<t t-out="0" />&ndash;&gt;-->
+<!--&lt;!&ndash;			</div>&ndash;&gt;-->
+<!--&lt;!&ndash;		</xpath>&ndash;&gt;-->
+
+<!--	</template>-->
+
+	<template id="thiqah_footer_copyright_company_name" inherit_id="website.layout">
+		    <xpath expr="//footer//span[hasclass('o_footer_copyright_name')]" position="replace">
+		        <span class="o_footer_copyright_name mr-2">Copyright &amp;copy; THIQAH</span>
+		    </xpath>
+		</template>
+
+
+
+	<template id="thiqah_portal_docs_entry"
+		inherit_id="portal.portal_docs_entry">
+		<xpath expr="//a[@t-att-href='url']" position="replace">
+			<div class="col-12 col-lg-4 col-md-6 mt-2">
+				<a t-att-href="url" t-att-title="title"
+					class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+					<t t-esc="title" />
+					<t t-if='count or count == 0'>
+						<span class="fa-stack fa-3x has-badge"
+							t-att-data-count="count or 0">
+							<i t-attf-class="{{icon}} fa-stack-1x"></i>
+						</span>
+					</t>
+					<t t-elif="placeholder_count">
+						<span class="badge badge-secondary badge-pill"
+							t-att-data-placeholder_count="placeholder_count">
+							<i class="fa fa-spin fa-circle-o-notch"></i>
+						</span>
+					</t>
+				</a>
+			</div>
+		</xpath>
+
+	</template>
+
+
+
+
+
+
+
+</odoo>

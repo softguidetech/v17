@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="crm_thiqah_lead_stage_search" model="ir.ui.view">
+        <field name="name">thiqah - Stage - Search</field>
+        <field name="model">thiqah.crm.stage</field>
+        <field name="arch" type="xml">
+            <search string="Stage Search">
+                <field name="name"/>
+                <field name="sequence"/>
+                <field name="is_won"/>
+                <field name="is_qualification"/>
+                <!-- <field name="team_id"/> -->
+            </search>
+        </field>
+    </record>
+
+    <!-- STAGES TREE VIEW + MUTI_EDIT -->
+    <record id="crm_thiqah_lead_stage_tree" model="ir.ui.view">
+        <field name="name">thiqah.crm.stage.tree</field>
+        <field name="model">thiqah.crm.stage</field>
+        <field name="arch" type="xml">
+            <tree string="Stages" multi_edit="1">
+                <field name="sequence" widget="handle"/>
+                <field name="name" readonly="1"/>
+                <field name="is_won"/>
+                <field name="is_qualification"/>
+                <!-- <field name="team_id"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_stage_thiqah_form" model="ir.ui.view">
+        <field name="name">thiqah.crm.stage.form</field>
+        <field name="model">thiqah.crm.stage</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <form string="Stage">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. New"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="is_won"/>
+                            <field name="is_qualification"/>
+                            <field name="fold"/>
+<!--                            <field name="team_id" options='{"no_open": True, "no_create": True}' attrs="{'invisible': [('team_count', '&lt;=', 1)]}" kanban_view_ref="%(sales_team.crm_team_view_kanban)s"/>-->
+                            <field name="team_id" options='{"no_open": True, "no_create": True}' invisible="team_count &lt;= 1" kanban_view_ref="%(sales_team.crm_team_view_kanban)s"/>
+                        </group>
+                        <field name="team_count" invisible="1"/>
+                    </group>
+                    <separator string="Requirements"/>
+                    <field name="requirements" nolabel="1" placeholder="Give your team the requirements to move an opportunity to this stage."/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="thiqah_crm_lead_action" model="ir.actions.act_window">
+        <field name="name">Lead Stages</field>
+        <field name="res_model">thiqah.crm.stage</field>
+        <field name="view_id" ref="thiqah_crm.crm_thiqah_lead_stage_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Set a new stage in your lead pipeline
+            </p>
+            <p>
+            Stages allow salespersons to easily track how a specific opportunity
+            is positioned in the sales cycle.
+            </p>
+        </field>
+    </record>
+
+</odoo>

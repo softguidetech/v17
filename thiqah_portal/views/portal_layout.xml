@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="thiqah_portal.notifications_dropdown">
+
+
+        <div class="dropdown topbar-head-dropdown ms-1 header-item">
+            <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class='bx bx-bell fs-22'></i>
+                <span class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">
+                    3<span class="visually-hidden">unread messages</span>
+                </span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+
+                <div class="dropdown-head bg-primary bg-pattern rounded-top">
+                    <div class="p-3">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="m-0 fs-16 fw-semibold text-white"> Notifications </h6>
+                            </div>
+                            <div class="col-auto dropdown-tabs">
+                                <span class="badge badge-soft-light fs-13"> 4 New</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="px-2 pt-2">
+                        <ul class="nav nav-tabs dropdown-tabs nav-tabs-custom" data-dropdown-tabs="true" id="notificationItemsTab" role="tablist">
+                            <li class="nav-item waves-effect waves-light">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#all-noti-tab" role="tab" aria-selected="true">
+                                    All (4)
+                                </a>
+                            </li>
+                            <li class="nav-item waves-effect waves-light">
+                                <a class="nav-link" data-bs-toggle="tab" href="#messages-tab" role="tab" aria-selected="false">
+                                    Messages
+                                </a>
+                            </li>
+                            <li class="nav-item waves-effect waves-light">
+                                <a class="nav-link" data-bs-toggle="tab" href="#alerts-tab" role="tab" aria-selected="false">
+                                    Alerts
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="tab-content" id="notificationItemsTabContent">
+                    <div class="tab-pane fade show active py-2 ps-2" id="all-noti-tab" role="tabpanel">
+                        <div data-simplebar="" style="max-height: 300px;" class="pe-2">
+                            <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                <div class="d-flex">
+                                    <div class="avatar-xs me-3">
+                                        <span class="avatar-title bg-soft-info text-info rounded-circle fs-16">
+                                            <i class="bx bx-badge-check"></i>
+                                        </span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <a href="#!" class="stretched-link">
+                                            <h6 class="mt-0 mb-2 lh-base">Your <b>Elite</b> author
+                                                Graphic Optimization <span class="text-secondary">
+                                                reward</span> is ready! </h6>
+                                        </a>
+                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                            <span>
+                                                <i class="mdi mdi-clock-outline"></i> Just 30 sec
+                                                ago</span>
+                                        </p>
+                                    </div>
+                                    <div class="px-2 fs-15">
+                                        <div class="form-check notification-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="all-notification-check01" />
+                                            <label class="form-check-label" for="all-notification-check01"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-reset notification-item d-block dropdown-item position-relative active">
+                                <div class="d-flex">
+                                    <img src="/thiqah_portal/static/src/layout/assets/images/users/avatar-2.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic" />
+                                    <div class="flex-1">
+                                        <a href="#!" class="stretched-link">
+                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">Angela Bernier</h6>
+                                        </a>
+                                        <div class="fs-13 text-muted">
+                                            <p class="mb-1">Answered to your comment on the cash
+                                                flow forecast's
+                                                graph 🔔.</p>
+                                        </div>
+                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                            <span>
+                                                <i class="mdi mdi-clock-outline"></i> 48 min ago</span>
+                                        </p>
+                                    </div>
+                                    <div class="px-2 fs-15">
+                                        <div class="form-check notification-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="all-notification-check02" checked="checked" />
+                                            <label class="form-check-label" for="all-notification-check02"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                <div class="d-flex">
+                                    <div class="avatar-xs me-3">
+                                        <span class="avatar-title bg-soft-danger text-danger rounded-circle fs-16">
+                                            <i class='bx bx-message-square-dots'></i>
+                                        </span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <a href="#!" class="stretched-link">
+                                            <h6 class="mt-0 mb-2 fs-13 lh-base">You have received <b class="text-success">20</b> new messages in the
+                                                conversation </h6>
+                                        </a>
+                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                            <span>
+                                                <i class="mdi mdi-clock-outline"></i> 2 hrs ago</span>
+                                        </p>
+                                    </div>
+                                    <div class="px-2 fs-15">
+                                        <div class="form-check notification-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="all-notification-check03" />
+                                            <label class="form-check-label" for="all-notification-check03"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                <div class="d-flex">
+                                    <img src="/thiqah_portal/static/src/layout/assets/images/users/avatar-8.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic" />
+                                    <div class="flex-1">
+                                        <a href="#!" class="stretched-link">
+                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">Maureen Gibson</h6>
+                                        </a>
+                                        <div class="fs-13 text-muted">
+                                            <p class="mb-1">We talked about a project on linkedin.</p>
+                                        </div>
+                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                            <span>
+                                                <i class="mdi mdi-clock-outline"></i> 4 hrs ago</span>
+                                        </p>
+                                    </div>
+                                    <div class="px-2 fs-15">
+                                        <div class="form-check notification-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="all-notification-check04" />
+                                            <label class="form-check-label" for="all-notification-check04"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="my-3 text-center">
+                                <button type="button" class="btn btn-soft-success waves-effect waves-light">View All
+                                    Notifications <i class="ri-arrow-right-line align-middle"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane fade py-2 ps-2" id="messages-tab" role="tabpanel" aria-labelledby="messages-tab">
+                        <div data-simplebar="" style="max-height: 300px;" class="pe-2">
+                            <div class="text-reset notification-item d-block dropdown-item">
+                                <div class="d-flex">
+                                    <img src="/thiqah_portal/static/src/layout/assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic" />
+                                    <div class="flex-1">
+                                        <a href="#!" class="stretched-link">
+                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">James Lemire</h6>
+                                        </a>
+                                        <div class="fs-13 text-muted">
+                                            <p class="mb-1">We talked about a project on linkedin.</p>
+                                        </div>
+                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                            <span>
+                                                <i class="mdi mdi-clock-outline"></i> 30 min ago</span>
+                                        </p>
+                                    </div>
+                                    <div class="px-2 fs-15">
+                                        <div class="form-check notification-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="messages-notification-check01" />
+                                            <label class="form-check-label" for="messages-notification-check01"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-reset notification-item d-block dropdown-item">
+                                <div class="d-flex">
+                                    <img src="/thiqah_portal/static/src/layout/assets/images/users/avatar-2.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic" />
+                                    <div class="flex-1">
+                                        <a href="#!" class="stretched-link">
+                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">Angela Bernier</h6>
+                                        </a>
+                                        <div class="fs-13 text-muted">
+                                            <p class="mb-1">Answered to your comment on the cash
+                                                flow forecast's
+                                                graph 🔔.</p>
+                                        </div>
+                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                            <span>
+                                                <i class="mdi mdi-clock-outline"></i> 2 hrs ago</span>
+                                        </p>
+                                    </div>
+                                    <div class="px-2 fs-15">
+                                        <div class="form-check notification-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="messages-notification-check02" />
+                                            <label class="form-check-label" for="messages-notification-check02"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-reset notification-item d-block dropdown-item">
+                                <div class="d-flex">
+                                    <img src="/thiqah_portal/static/src/layout/assets/images/users/avatar-6.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic" />
+                                    <div class="flex-1">
+                                        <a href="#!" class="stretched-link">
+                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">Kenneth Brown</h6>
+                                        </a>
+                                        <div class="fs-13 text-muted">
+                                            <p class="mb-1">Mentionned you in his comment on 📃
+                                                invoice #12501.
+                                            </p>
+                                        </div>
+                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                            <span>
+                                                <i class="mdi mdi-clock-outline"></i> 10 hrs ago</span>
+                                        </p>
+                                    </div>
+                                    <div class="px-2 fs-15">
+                                        <div class="form-check notification-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="messages-notification-check03" />
+                                            <label class="form-check-label" for="messages-notification-check03"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-reset notification-item d-block dropdown-item">
+                                <div class="d-flex">
+                                    <img src="/thiqah_portal/static/src/layout/assets/images/users/avatar-8.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic" />
+                                    <div class="flex-1">
+                                        <a href="#!" class="stretched-link">
+                                            <h6 class="mt-0 mb-1 fs-13 fw-semibold">Maureen Gibson</h6>
+                                        </a>
+                                        <div class="fs-13 text-muted">
+                                            <p class="mb-1">We talked about a project on linkedin.</p>
+                                        </div>
+                                        <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                            <span>
+                                                <i class="mdi mdi-clock-outline"></i> 3 days ago</span>
+                                        </p>
+                                    </div>
+                                    <div class="px-2 fs-15">
+                                        <div class="form-check notification-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="messages-notification-check04" />
+                                            <label class="form-check-label" for="messages-notification-check04"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="my-3 text-center">
+                                <button type="button" class="btn btn-soft-success waves-effect waves-light">View All
+                                    Messages <i class="ri-arrow-right-line align-middle"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade p-4" id="alerts-tab" role="tabpanel" aria-labelledby="alerts-tab">
+                        <div class="w-25 w-sm-50 pt-3 mx-auto">
+                            <img src="/thiqah_portal/static/src/layout/assets/images/svg/bell.svg" class="img-fluid" alt="user-pic" />
+                        </div>
+                        <div class="text-center pb-5 mt-2">
+                            <h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </template>
+    <template id="thiqah_portal.website_layout" inherit_id="website.layout" name="Website Layout Inherit">
+
+        <xpath expr="//body" position="inside">
+            <div class="preloader">
+                <img src="/thiqah_portal/static/src/img/loading.svg" />
+            </div>
+        </xpath>
+    </template>
+    <template id="thiqah_portal.portal_dashboard_layout" name="Portal Dashboard Layout">
+        <t t-call="thiqah_portal.website_layout">
+            <t t-set="no_footer" t-value="true" />
+            <t t-set="no_header" t-value="true" />
+
+            <header>
+                <nav class="sb-topnav navbar navbar-expand bg-light-secondary">
+                    <!-- Navbar Brand-->
+
+                    <a class="logo navbar-brand" href="#">
+                        <img src="/thiqah_portal/static/src/img/logo_2.png" class="img-fluid" alt="Logo" style="height: 4rem;"/>
+                    </a>
+                    <button id="sidebarToggle" type="button" class="navbar-toggler bg-white btn-icon align-items-center justify-content-center rounded-circle" style="border:none; width:40px;height:40px">
+                        <svg width="14" height="16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#798793" d="M.67 3.609a.608.608 0 0 0 0 .907L4.157 7.93a.67.67 0 0 0 .447.196c.359 0 .603-.25.603-.602 0-.17-.061-.305-.176-.42L3.575 5.694l-1.26-1.09 1.564.068h9.047c.352 0 .602-.25.602-.61a.58.58 0 0 0-.602-.602H3.879l-1.564.061 1.26-1.083L5.03 1.022a.557.557 0 0 0 .176-.42c0-.351-.244-.595-.603-.595a.662.662 0 0 0-.447.19L.67 3.608Zm12.662 8.789a.62.62 0 0 0 0-.914L9.845 8.07a.698.698 0 0 0-.454-.19c-.359 0-.596.244-.596.596 0 .176.054.312.17.42l1.462 1.415 1.26 1.09-1.565-.067H1.076c-.352 0-.61.25-.61.602 0 .36.258.61.61.61h9.046l1.565-.068-1.26 1.09-1.462 1.409a.566.566 0 0 0-.17.426c0 .352.237.596.596.596a.698.698 0 0 0 .454-.19l3.487-3.412Z" />
+                        </svg>
+                    </button>
+                    <div class="ml-auto d-flex">
+                        <form class="d-lg-flex d-none form-inline mr-3 mr-lg-0" id="searchForm">
+                            <div class="form-group has-search rounded-pill bg-white position-relative">
+                                <img class="form-control-feedback" src="/thiqah_portal/static/src/img/search-icon.svg" />
+                                <input type="text" class="border-none button-text rounded-pill border-0" style="max-width: -moz-available;" placeholder="Search" />
+                            </div>
+                        </form>
+                        <button class="d-lg-none bg-white btn-icon align-items-center justify-content-center rounded-circle" style="border:none; width:40px;height:40px" id="toggleSearch">
+                            <img style="width:16px; height:16px" src="/thiqah_portal/static/src/img/search-icon.svg" />
+                        </button>
+                        <div class="d-none" id="SearchMobile">
+                            <form class="form-inline mr-0">
+                                <div class="form-group has-search rounded-pill bg-white position-relative">
+                                    <img class="form-control-feedback" src="/thiqah_portal/static/src/img/search-icon.svg" />
+                                    <input type="text" class="border-none button-text rounded-pill border-0" style="" placeholder="Search" />
+                                </div>
+                            </form>
+                        </div>
+                        <button class="ml-2 ml-lg-3 bg-white btn-icon btn-circle btn s-40">
+                            <img style="width:16px; height:16px" src="/thiqah_portal/static/src/img/cog-icon.svg" />
+                        </button>
+                        <a href="/web#home" class="ml-2 ml-lg-3 bg-white btn-icon btn-circle btn s-40 fa o_menu_toggle">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="t-text-gray w-75">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"></path>
+                            </svg>
+                        </a>
+                        <div class="dropdown thiqah-notifications">
+                            <button data-toggle="dropdown" aria-expanded="false" class="ml-3 bg-white btn-circle dropdown-toggle o-no-caret position-relative" style="border:none; width:40px;height:40px">
+                                <img style="width:16px; height:16px" src="/thiqah_portal/static/src/img/bell-icon.svg" />
+                                <span class="o_NotificationMenu_counter btn-circle t-custom-bg-turquoise text-white d-none"></span>
+                            </button>
+                            <div class="dropdown-menu js_usermenu dropdown-menu-right dropdown-notifications">
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <div id="layoutSidenav">
+                <div id="layoutSidenav_nav" class="bg-light-secondary">
+                    <nav class="sb-sidenav accordion bg-light-secondary" id="sidenavAccordion">
+                        <div class="sb-sidenav-menu">
+                            <div t-if="request.env.user.check_service_access('service_request', 'create') or request.env.user.check_service_access('project_management', 'create')" class="dropdown">
+                                <button class="btn btn-secondary rounded-pill with-icon dropdown-toggle o-no-caret" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Add New<img class="plus-icon" src="/thiqah_portal/static/src/img/add-icon.svg" />
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="min-width: 176px !important;">
+                                    <a t-if="request.env.user.check_service_access('service_request', 'create')" class="dropdown-item button-text d-flex align-items-center" href="/my/requests">
+                                        <svg class="mr-2"
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="12" fill="none">
+                                            <path fill="#0A0A0A" d="M2.13 11.596h11.74c1.424 0 2.13-.705 2.13-2.103V5.476c0-.61-.081-.916-.387-1.29l-2.34-2.897C12.477.312 12.125.014 10.917.014H5.082c-1.208 0-1.554.298-2.347 1.275L.387 4.187C.088 4.56 0 4.865 0 5.476v4.017c0 1.404.712 2.103 2.13 2.103Zm.014-1.092c-.678 0-1.052-.36-1.052-1.065v-3.38h4.302C5.557 7.33 6.623 8.265 8 8.265c1.377 0 2.443-.944 2.606-2.206h4.302v3.38c0 .705-.38 1.065-1.052 1.065H2.144ZM8 7.26c-.957 0-1.574-.834-1.574-1.621v-.02c0-.286-.17-.55-.523-.55H1.432c-.224 0-.272-.197-.156-.34l2.517-3.175c.333-.42.713-.59 1.208-.59h5.998c.495 0 .875.17 1.208.59l2.524 3.175c.109.143.068.34-.156.34h-4.478c-.353 0-.516.264-.516.55v.02c0 .787-.617 1.621-1.581 1.621Zm2.85-5.299h-5.7a.322.322 0 0 0-.326.326c0 .183.143.325.326.325h5.7a.322.322 0 0 0 .326-.325.322.322 0 0 0-.326-.326Zm.902 1.533H4.248c-.19 0-.34.17-.34.353 0 .184.15.34.34.34h7.504a.34.34 0 0 0 .34-.34c0-.183-.15-.353-.34-.353Z" />
+                                        </svg>
+                                        Service Requests</a>
+                                    <a t-if="request.env.user.check_service_access('project_management', 'create')" class="dropdown-item button-text d-flex align-items-center" href="/project/form">
+                                        <svg class="mr-2"
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                            <path fill="#0A0A0A" d="M11.018 8.996H5.357a.456.456 0 0 0-.47.455c0 .26.201.462.47.462h5.661a.45.45 0 0 0 .455-.462.448.448 0 0 0-.455-.455Zm0 2.603H5.357a.463.463 0 0 0-.47.47c0 .254.201.448.47.448h5.661a.441.441 0 0 0 .455-.448.456.456 0 0 0-.455-.47Zm-6.706 4.394h7.922c1.544 0 2.312-.784 2.312-2.335V6.885c0-.962-.111-1.38-.708-1.992L9.728.71C9.16.127 8.69 0 7.855 0H4.312C2.776 0 2 .79 2 2.342v11.316c0 1.559.768 2.335 2.312 2.335Zm.053-1.201c-.769 0-1.164-.41-1.164-1.156V2.364c0-.739.395-1.164 1.171-1.164h3.32v4.334c0 .94.47 1.402 1.402 1.402h4.252v6.699c0 .745-.396 1.156-1.172 1.156h-7.81ZM9.228 5.81c-.298 0-.41-.12-.41-.418v-3.96l4.296 4.378H9.228Z" />
+                                        </svg>
+                                        Project</a>
+                                </div>
+                            </div>
+
+                            <div class="nav mt56">
+
+                                <a t-if="request.env.user.check_service_access('home_dashboard')" href="/my/requests/dashboard" t-attf-class="nav-link d-flex align-items-center pt-0 #{'active' if unslug_url(request.httprequest.path) ==
+                                unslug_url('/my/requests/dashboard') else ''}">
+                                    <svg width="19" height="16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.584 15.186h4.351v-5.49c0-.347-.226-.573-.573-.573H8.165c-.355 0-.58.226-.58.573v5.49Zm-2.948.777h10.202c1.071 0 1.697-.611 1.697-1.667V5.963l-1.214-.829v8.853c0 .49-.264.762-.739.762h-9.69c-.482 0-.746-.272-.746-.762V5.142l-1.214.821v8.333c0 1.056.625 1.667 1.704 1.667ZM.76 7.57c0 .309.241.603.648.603.211 0 .385-.113.543-.241L9.5 1.597c.165-.15.37-.15.535 0l7.548 6.335c.151.128.325.24.536.24.354 0 .64-.218.64-.58a.617.617 0 0 0-.233-.512L10.676.48c-.558-.475-1.252-.475-1.817 0L1 7.08a.63.63 0 0 0-.241.49Zm13.882-3.401 1.893 1.598V2.284c0-.332-.211-.543-.543-.543h-.807c-.324 0-.543.21-.543.543v1.885Z" />
+                                    </svg>
+                                    Home
+                                </a>
+
+                                <a t-if="request.env.user.check_service_access('dashboard_user')" class="nav-link d-none align-items-center" href="#">
+                                    <svg width="18" height="18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.222 8.279h4.087c1.138 0 1.712-.574 1.712-1.757V2.516c0-1.183-.574-1.748-1.712-1.748H2.222C1.084.768.51 1.333.51 2.516v4.006c0 1.183.574 1.757 1.712 1.757Zm.018-1.264c-.314 0-.466-.161-.466-.493V2.516c0-.323.152-.484.466-.484h4.042c.314 0 .475.161.475.484v4.006c0 .332-.161.493-.475.493H2.24Zm8.98 1.264h4.078c1.138 0 1.712-.574 1.712-1.757V2.516c0-1.183-.574-1.748-1.712-1.748H11.22c-1.147 0-1.72.565-1.72 1.748v4.006c0 1.183.573 1.757 1.72 1.757Zm.018-1.264c-.322 0-.475-.161-.475-.493V2.516c0-.323.152-.484.475-.484h4.042c.314 0 .466.161.466.484v4.006c0 .332-.152.493-.466.493h-4.042ZM2.222 17.268h4.087c1.138 0 1.712-.565 1.712-1.748v-4.015c0-1.174-.574-1.748-1.712-1.748H2.222c-1.138 0-1.712.574-1.712 1.748v4.015c0 1.183.574 1.748 1.712 1.748Zm.018-1.264c-.314 0-.466-.16-.466-.484v-4.006c0-.332.152-.493.466-.493h4.042c.314 0 .475.161.475.493v4.006c0 .323-.161.484-.475.484H2.24Zm8.98 1.264h4.078c1.138 0 1.712-.565 1.712-1.748v-4.015c0-1.174-.574-1.748-1.712-1.748H11.22c-1.147 0-1.72.574-1.72 1.748v4.015c0 1.183.573 1.748 1.72 1.748Zm.018-1.264c-.322 0-.475-.16-.475-.484v-4.006c0-.332.152-.493.475-.493h4.042c.314 0 .466.161.466.493v4.006c0 .323-.152.484-.466.484h-4.042Z" />
+                                    </svg>
+                                    Dashboard User </a>
+
+                                <a t-if="request.env.user.check_service_access('fin_dashboard')" class="nav-link d-flex align-items-center" href="/my/financial/dashboard" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) ==
+                                unslug_url('/my/financial/dashboard') else ''}">
+                                    <svg width="19" height="18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.534 12.961c1.716 0 2.965-.959 2.965-2.296 0-1.128-.62-1.732-2.16-2.103l-1.144-.282c-.902-.225-1.289-.54-1.289-1.08 0-.676.629-1.144 1.563-1.144.846 0 1.362.363 1.644 1.137.129.282.346.41.572.41.419 0 .66-.37.515-.854-.225-.854-1.192-1.756-2.73-1.756-1.636 0-2.805.943-2.805 2.256 0 1.104.71 1.78 2.184 2.127L11 9.65c.902.21 1.24.515 1.24 1.104 0 .693-.668 1.144-1.707 1.144-.943 0-1.515-.355-1.805-1.12-.12-.274-.338-.403-.564-.403-.41 0-.628.33-.54.814.194.99 1.354 1.772 2.909 1.772Zm-.476.79c0 .266.218.491.484.491a.499.499 0 0 0 .491-.491V4.187a.499.499 0 0 0-.491-.491.492.492 0 0 0-.484.491v9.564Zm.484 3.432c4.488 0 8.218-3.73 8.218-8.218 0-4.496-3.73-8.218-8.218-8.218-4.496 0-8.218 3.714-8.218 8.21h1.37a6.808 6.808 0 0 1 6.848-6.832 6.815 6.815 0 0 1 6.848 6.84c0 3.803-3.045 6.864-6.848 6.848a6.82 6.82 0 0 1-5.543-2.836c-.25-.33-.629-.435-.967-.233-.322.201-.411.644-.137.999 1.53 2.054 3.932 3.44 6.647 3.44ZM1.332 7.41c-.58 0-.724.395-.41.846l1.805 2.562c.266.37.652.363.91 0l1.805-2.57c.306-.443.161-.838-.411-.838H1.333Z" />
+                                    </svg>
+                                    Financial Dashboard
+                                </a>
+
+                                <a t-if="request.env.user.check_service_access('utilization_report')" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) ==
+                                        unslug_url('/utilization/dashboard') else ''}" href="/utilization/dashboard">
+                                    <svg width="18" height="18" viewBox="0 0 22 22" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.5029 18.4736L18.5922 17.4599L12.4451 11.3883L19.8216 7.15001L19.0991 5.89904L11.8412 10.0618V1.41275H10.3961V11.151C10.3961 11.3883 10.4501 11.5823 10.6549 11.7765L17.5029 18.4736ZM11 22C17.0177 22 22 17.0069 22 11C22 4.98236 17.0069 0 10.9892 0C4.98236 0 0 4.98236 0 11C0 17.0069 4.99315 22 11 22ZM11 20.1667C5.90982 20.1667 1.84413 16.0903 1.84413 11C1.84413 5.90982 5.89903 1.83334 10.9892 1.83334C16.0795 1.83334 20.1667 5.90982 20.1667 11C20.1667 16.0903 16.0903 20.1667 11 20.1667Z"/>
+                                    </svg>                                    
+                                    Utilization Report
+                                </a>
+
+                                <a t-if="request.env.user.check_service_access('service_request')" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) ==
+                                unslug_url('/my/requests') else ''}" href="/my/requests">
+                                    <svg width="19" height="14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.157 13.296h13.206c1.603 0 2.397-.794 2.397-2.367V6.41c0-.687-.092-1.03-.435-1.45L15.69 1.7C14.798.601 14.401.265 13.042.265H6.477C5.12.265 4.73.601 3.837 1.7L1.194 4.96C.859 5.38.76 5.723.76 6.41v4.52c0 1.58.801 2.366 2.397 2.366Zm.015-1.23c-.763 0-1.183-.404-1.183-1.198V7.067h4.84c.183 1.427 1.381 2.48 2.93 2.48 1.55 0 2.749-1.06 2.932-2.48h4.84v3.801c0 .794-.428 1.199-1.183 1.199H3.172ZM9.76 8.419c-1.077 0-1.771-.94-1.771-1.825V6.57c0-.32-.191-.618-.588-.618h-5.03c-.252 0-.306-.221-.176-.382l2.832-3.572c.374-.473.801-.664 1.359-.664h6.748c.557 0 .984.19 1.359.664l2.84 3.572c.121.16.076.382-.176.382h-5.039c-.396 0-.58.298-.58.618v.023c0 .886-.694 1.825-1.778 1.825Zm3.206-5.962H6.554a.362.362 0 0 0-.367.366c0 .206.16.367.367.367h6.412c.206 0 .366-.16.366-.367a.362.362 0 0 0-.366-.366Zm1.015 1.725H5.538c-.213 0-.381.191-.381.397 0 .206.168.382.381.382h8.443a.383.383 0 0 0 .382-.382c0-.206-.168-.397-.382-.397Z" />
+                                    </svg>
+                                    Service Requests </a>
+
+                                <a t-if="request.env.user.check_service_access('project_management')" class="nav-link d-flex align-items-center" href="/my/projects" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) ==
+                                unslug_url('/my/projects') else ''}">
+                                    <svg width="19" height="13" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.854 12.728H14.01c1.194 0 1.894-.694 1.894-2.067V7.966a3.85 3.85 0 0 1-1.073 0v2.648c0 .687-.38 1.04-1.04 1.04H2.866c-.667 0-1.034-.353-1.034-1.047V2.591c0-.66.347-1 .988-1h1.407c.44 0 .707.113 1.047.4l.407.34c.433.36.787.487 1.447.487h3.955c.08-.38.173-.7.36-1.074H7.409c-.454 0-.727-.107-1.06-.394l-.407-.333c-.44-.374-.78-.494-1.44-.494H2.6C1.433.523.76 1.19.76 2.531v8.13c0 1.38.7 2.067 2.094 2.067Zm-1.44-7.47h9.856a3.96 3.96 0 0 1-.24-1.007H1.413V5.26Zm13.598 1.895h.573A.409.409 0 0 0 16 6.819l.16-.66c.093-.027.2-.067.293-.114l.574.347c.18.107.367.107.527-.046l.393-.4a.413.413 0 0 0 .04-.534l-.34-.58c.06-.094.08-.174.12-.267l.654-.16a.409.409 0 0 0 .34-.414v-.566c0-.2-.14-.347-.34-.4l-.647-.16c-.047-.114-.087-.2-.12-.274l.36-.594a.421.421 0 0 0-.054-.527l-.406-.393c-.147-.147-.347-.18-.514-.073l-.587.366c-.107-.053-.2-.08-.293-.113l-.16-.667a.42.42 0 0 0-.414-.34h-.573a.422.422 0 0 0-.414.34l-.153.654c-.114.046-.207.073-.307.126l-.573-.366a.42.42 0 0 0-.52.073l-.394.393c-.14.147-.18.354-.073.527l.366.594a7.217 7.217 0 0 0-.113.273l-.654.16c-.2.054-.333.207-.333.4v.567c0 .207.133.367.333.414l.66.16.114.267-.34.587c-.107.18-.094.38.046.526l.387.4c.147.154.354.154.527.047l.58-.347c.114.054.207.087.294.114l.153.66c.04.2.207.334.414.334Zm.293-2.335a1.103 1.103 0 0 1-1.114-1.113c0-.607.487-1.107 1.114-1.114.6-.013 1.107.507 1.107 1.114 0 .62-.507 1.113-1.107 1.113Z" />
+                                    </svg>
+                                    Project Management
+                                </a>
+
+                                <a t-if="request.env.user.check_service_access('task_dashboard')" class="nav-link d-flex align-items-center" href="/department/task/dashboard" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) ==
+                                unslug_url('/department/task/dashboard') else ''}">
+                                    <svg width="13" height="18" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3.61 8.09a.63.63 0 1 0-.632-.631c0 .341.29.631.632.631Zm0 2.63a.63.63 0 0 0 .631-.632.625.625 0 0 0-.631-.624.63.63 0 0 0-.632.624c0 .35.283.632.632.632Zm0 2.786a.63.63 0 1 0-.632-.632c0 .342.29.632.632.632Zm1.983-5.587h4.457c.253 0 .461-.208.461-.46a.47.47 0 0 0-.46-.469H5.592a.476.476 0 0 0-.468.469c0 .252.216.46.468.46Zm0 2.637h4.457a.46.46 0 0 0 .461-.468c0-.252-.2-.453-.46-.453H5.592c-.26 0-.468.2-.468.453 0 .26.208.468.468.468Zm0 2.779h4.457c.253 0 .461-.208.461-.46 0-.253-.2-.461-.46-.461H5.592a.465.465 0 0 0-.468.46c0 .253.216.46.468.46ZM2.8 18h7.89c1.537 0 2.302-.773 2.302-2.333V4.405c0-1.523-.735-2.332-2.22-2.332h-.18c.008.06.008.126.008.185v.669c0 .119-.007.238-.03.342h.179c.698 0 1.047.453 1.047 1.151v11.232c0 .743-.393 1.152-1.166 1.152H2.86c-.773 0-1.167-.409-1.167-1.151V4.42c0-.698.35-1.151 1.048-1.151h.178a1.673 1.673 0 0 1-.03-.342v-.669c0-.06 0-.126.008-.185h-.179c-1.485 0-2.22.81-2.22 2.332v11.262C.497 17.227 1.261 18 2.8 18ZM4.45 3.774h4.59c.431 0 .691-.275.691-.736v-.78c0-.46-.26-.735-.69-.735h-.684A1.624 1.624 0 0 0 6.745 0c-.862 0-1.56.683-1.612 1.523h-.684c-.43 0-.69.275-.69.735v.78c0 .461.26.736.69.736Zm2.295-1.545a.652.652 0 0 1-.647-.647c0-.364.29-.653.647-.653.356 0 .646.29.646.653 0 .35-.29.647-.646.647Z" />
+                                    </svg>
+                                    Task Dashboard </a>
+
+                                <a t-if="request.env.user.check_service_access('customer_centricity')" class="nav-link d-flex align-items-center" href="/customer/centricity" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) ==
+                                unslug_url('/customer/centricity') else ''}">
+                                    <svg width="16" height="17" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.404 16.25h11.003c1.453 0 2.145-.437 2.145-1.4 0-2.294-2.897-5.611-7.642-5.611-4.753 0-7.65 3.317-7.65 5.61 0 .964.691 1.401 2.144 1.401Zm-.411-1.322c-.228 0-.324-.06-.324-.245 0-1.435 2.223-4.122 6.241-4.122 4.01 0 6.232 2.687 6.232 4.122 0 .184-.087.245-.314.245H1.992ZM7.91 8.153c2.083 0 3.782-1.855 3.782-4.114 0-2.24-1.69-4-3.782-4C5.836.04 4.13 1.833 4.13 4.057c.008 2.25 1.698 4.096 3.781 4.096Zm0-1.321c-1.278 0-2.372-1.226-2.372-2.775 0-1.523 1.077-2.696 2.372-2.696 1.304 0 2.372 1.155 2.372 2.678 0 1.55-1.085 2.793-2.372 2.793Z" />
+                                    </svg>
+                                    Customer Centricity </a>
+
+                                <a t-if="request.env.user.check_service_access('freelance_request')" groups="thiqah_freelance.group_freelance_officer" class="nav-link d-flex align-items-center" href="/my/freelance" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) ==
+                                unslug_url('/my/freelance') else ''}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" fill="none">
+                                        <path fill="#798793" d="M11.056 15.96H21.88c1.44 0 2.12-.431 2.12-1.38 0-2.257-2.852-5.523-7.532-5.523-4.67 0-7.523 3.266-7.523 5.524 0 .948.68 1.379 2.111 1.379Zm-.413-1.302c-.224 0-.31-.06-.31-.24 0-1.414 2.188-4.06 6.135-4.06 3.956 0 6.145 2.646 6.145 4.06 0 .18-.095.24-.32.24h-11.65Zm5.834-6.67c2.05 0 3.723-1.826 3.723-4.05C20.2 1.732 18.536 0 16.477 0c-2.051 0-3.732 1.767-3.723 3.955.009 2.215 1.672 4.033 3.723 4.033Zm0-1.3c-1.258 0-2.335-1.207-2.335-2.733-.01-1.499 1.05-2.654 2.335-2.654 1.284 0 2.335 1.138 2.335 2.637 0 1.526-1.068 2.75-2.335 2.75ZM1.749 15.96h6.765c-.413-.233-.724-.75-.663-1.276H1.543c-.181 0-.259-.069-.259-.232 0-2.137 2.439-4.137 5.257-4.137 1.077 0 2.06.259 2.895.75.267-.345.586-.646.974-.913C9.298 9.418 7.963 9.04 6.54 9.04 2.93 9.04 0 11.66 0 14.53c0 .956.586 1.43 1.75 1.43Zm4.8-7.903c1.776 0 3.232-1.594 3.232-3.55 0-1.913-1.44-3.456-3.232-3.456-1.775 0-3.24 1.569-3.231 3.473 0 1.948 1.456 3.533 3.231 3.533Zm0-1.284c-1.06 0-1.947-1.008-1.947-2.249 0-1.215.879-2.189 1.947-2.189 1.086 0 1.957.957 1.957 2.172 0 1.258-.897 2.266-1.957 2.266Z"/>
+                                    </svg>
+                                    Freelance Requests
+                                </a>
+
+                                <a t-if="request.env.user.check_service_access('freelance_workorder')" groups="thiqah_freelance.group_freelance_workorder" class="nav-link d-flex align-items-center" href="/my/freelance_workorder?filterby=all" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) == unslug_url('/my/freelance_workorder?filterby=all') else ''}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="16" fill="none">
+                                        <path fill="#798793" d="M9.018 8.996H3.357a.456.456 0 0 0-.47.455c0 .26.201.462.47.462h5.661a.45.45 0 0 0 .455-.462.447.447 0 0 0-.455-.455Zm0 2.603H3.357a.463.463 0 0 0-.47.47c0 .254.201.448.47.448h5.661a.441.441 0 0 0 .455-.448.455.455 0 0 0-.455-.47Zm-6.706 4.394h7.922c1.544 0 2.312-.784 2.312-2.335V6.885c0-.962-.111-1.38-.708-1.992L7.728.71C7.16.127 6.69 0 5.855 0H2.312C.776 0 0 .79 0 2.342v11.316c0 1.559.768 2.335 2.312 2.335Zm.053-1.201c-.769 0-1.164-.41-1.164-1.156V2.364c0-.739.395-1.164 1.171-1.164h3.32v4.334c0 .94.47 1.402 1.402 1.402h4.251v6.699c0 .745-.395 1.156-1.17 1.156h-7.81ZM7.228 5.81c-.298 0-.41-.12-.41-.418v-3.96l4.296 4.378H7.228Z"/>
+                                    </svg>
+                                    Freelance Payments
+                                </a>
+                            </div>
+                        </div>
+                        <div class="align-items-center d-flex pt24 sb-sidenav-footer">
+                            <div class="position-relative user-avatar">
+                                <t t-set="avatar_source" t-value="image_data_uri(user_id.avatar_256)" />
+                                <img class="rounded-circle" t-att-src="avatar_source" />
+                            </div>
+                            <div class="user-info d-flex flex-column  justify-content-between ml-3">
+                                <span class="body1">
+                                    <t t-esc="user_id.name" />
+                                </span>
+                                <sapn class="body3" style="color: #798793 !important">
+                                    <t t-esc="user_id.email" />
+                                </sapn>
+                            </div>
+                        </div>
+                        <div class="h-divider mt24"></div>
+                        <t t-set="language_selector_visible" t-value="len(languages) &gt; 1"/>
+                        <div t-if="language_selector_visible" class="align-items-center d-flex justify-content-between ">
+                            <div class="d-flex align-items-center d-flex justify-content-center w-50 pb24 pt24">
+                                <t t-set="active_lang" t-value="list(filter(lambda lg : lg[0] == lang, languages))[0]"/>
+                                <t t-if="active_lang[0] == 'en_US'">
+                                    <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code='ar_001')" role="menuitem" class="js_change_lang nav-link log-lang-link">
+                                        <span>العربية</span>
+                                    </a>
+                                </t>
+                                <t t-else="active_lang[0] == 'ar_001'">
+                                    <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code='en_US')" role="menuitem" class="js_change_lang nav-link log-lang-link">
+                                        <span>English</span>
+                                    </a>
+                                </t>
+                            </div>
+                            <div class="vr"></div>
+                            <div class="d-flex align-items-center d-flex justify-content-center w-50 pb24 pt24">
+                                <a t-attf-href="/web/session/logout?redirect=/" role="menuitem" class="d-flex nav-link log-lang-link" id="o_logout">
+                                    <img src="/thiqah_portal/static/src/img/logout.svg" class="mr-1" />
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                        <div t-if="not language_selector_visible" class="pb24 pt24">
+                            <a t-attf-href="/web/session/logout?redirect=/" role="menuitem" class="d-flex nav-link log-lang-link" id="o_logout">
+                                <img src="/thiqah_portal/static/src/img/logout.svg" class="mr-1" />
+                                Logout
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                <div id="layoutSidenav_content">
+                    <div class="container-fluid pb96" style="max-width:1376px">
+                        <t t-out="0" />
+                    </div>
+                    <footer class="body2 bg-light-secondary py-4 mt-auto">
+
+                        <div class="d-flex align-items-center justify-content-between" style="padding-left: 108px;
+    padding-right: 96px;">
+                            <span class="body2">Copyright &amp;copy; <t t-esc="datetime.date.today().year"/>
+ THIQAH. All rights reserved.</span>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+
+        </t>
+    </template>
+    <template id="thiqah_portal_searchbar" inherit_id="portal.portal_searchbar" name="Thiqah Portal Search Bar">
+        <xpath expr="//nav[contains(@t-attf-class, 'o_portal_navbar')]" position="replace">
+            <nav t-attf-class="navbar navbar-expand-lg p-0 o_portal_navbar {{classes if classes else ''}} {{'mt-3 rounded' if breadcrumbs_searchbar else '' }}">
+                <!--  Navbar breadcrumb or title  -->
+                <t t-if="breadcrumbs_searchbar">
+                    <t t-call="portal.portal_breadcrumbs" />
+                </t>
+                <!-- <span t-else="" class="navbar-brand mb-0 h1 mr-auto" t-esc="title or 'No
+                title'" /> -->
+
+                <!--  Collapse button -->
+                <button class="navbar-toggler btn-icon btn-circle s-40  t-btn-outile-light-gray-secondary" type="button" data-toggle="collapse" data-target="#o_portal_navbar_content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle filters">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                        <path fill="#0A0A0A" d="M7.201 6.287h14.915A.872.872 0 0 0 23 5.413a.874.874 0 0 0-.884-.884H7.2a.867.867 0 0 0-.884.884c0 .491.382.874.884.874Zm0 6.605h14.915a.88.88 0 0 0 .884-.884.871.871 0 0 0-.884-.874H7.2a.865.865 0 0 0-.884.874c0 .491.382.884.884.884Zm0 6.595h14.915a.872.872 0 0 0 .884-.874.874.874 0 0 0-.884-.884H7.2a.867.867 0 0 0-.884.884c0 .491.382.874.884.874ZM2.376 6.777a1.37 1.37 0 1 0 0-2.74 1.37 1.37 0 1 0 0 2.74Zm0 6.606a1.37 1.37 0 0 0 1.375-1.375 1.37 1.37 0 0 0-1.375-1.376A1.37 1.37 0 0 0 1 12.008a1.37 1.37 0 0 0 1.376 1.375Zm0 6.606a1.377 1.377 0 1 0-.003-2.754 1.377 1.377 0 0 0 .003 2.754Z" />
+                    </svg>
+                </button>
+
+                <!--  Collapsable content  -->
+                <div class="collapse navbar-collapse" id="o_portal_navbar_content">
+                    <form t-if="searchbar_inputs" class="form-inline o_portal_search_panel mt-2 mt-lg-0">
+                        <div class="dropdown-menu " role="menu">
+                            <t t-foreach='searchbar_inputs' t-as='input'>
+                                <a t-att-href="'#' + input_value['input']" t-attf-class="dropdown-item#{search_in == input_value['input'] and ' active' or ''}">
+                                    <span t-out="input_value['label']" />
+                                </a>
+                            </t>
+                        </div>
+                        <div class="input-group form-control-feedback form-control-feedback-end flex-fill w-100">
+                            <div class="form-control-feedback-icon">
+                                <i class="fa fa-search opacity-50"></i>
+                            </div>
+                            <input type="text" placeholder="Search" t-att-value='search' name="search" />
+                        </div>
+                    </form>
+                    <div class="flex-column flex-sm-row ml-auto mt-2 mt-lg-0 nav p-0">
+                        <t t-if="download_excel">
+                            <a href="#" class="_generate_excel btn btn-sm rounded-pill justify-content-center t-btn-outile-light-gray-secondary mt-2 mt-lg-0">
+                                Download <svg class="ml-3"
+                                xmlns="http://www.w3.org/2000/svg" width="14" height="16" fill="none">
+                                <path fill="#0A0A0A" d="M2.66 16h8.5c1.55 0 2.328-.77 2.328-2.297V6.307c0-1.527-.778-2.298-2.327-2.298H9.093v1.193h2.046c.733 0 1.156.4 1.156 1.171v7.263c0 .77-.423 1.17-1.156 1.17H2.675c-.74 0-1.148-.4-1.148-1.17V6.373c0-.77.407-1.17 1.148-1.17h2.053V4.008H2.661C1.11 4.01.333 4.78.333 6.307v7.396C.333 15.229 1.112 16 2.66 16Zm4.247-4.876c.156 0 .281-.045.43-.193l2.505-2.423a.525.525 0 0 0 .178-.386c0-.304-.238-.519-.542-.519a.53.53 0 0 0-.4.178L7.952 8.975l-.497.526.045-1.112V.578A.597.597 0 0 0 6.907 0a.59.59 0 0 0-.586.578v7.811l.045 1.112-.504-.526-1.12-1.194a.557.557 0 0 0-.407-.178c-.31 0-.533.215-.533.52 0 .155.06.273.17.385l2.505 2.423c.156.148.282.193.43.193Z" />
+                            </svg>
+                        </a>
+                    </t>
+                    <t t-if="confirm_button">
+                        <a t-attf-href="#" t-attf-class="d-none confirm_workorder btn btn-sm rounded-pill btn-secondary mt-2 mr-2 mt-lg-0">
+                                Confirm 
+                        </a>
+                    </t>
+                    <!-- <t t-if="pay_button">
+                        <a t-attf-href="#" t-attf-class="d-none pay_workorder btn btn-sm rounded-pill btn-secondary mt-2 mt-lg-0">
+                                Pay 
+                        </a>
+                    </t> -->
+                    <div t-if="searchbar_sortings" class="form-inline ml-0 ml-sm-2 mt-2 mt-lg-0">
+                        <div class="btn-group w-100">
+                            <button id="portal_searchbar_sortby" data-toggle="dropdown" class="btn btn-sm dropdown-toggle rounded-pill t-btn-outile-light-gray-secondary t-text-gray">
+                                <!-- <t t-esc="searchbar_sortings[sortby].get('label',
+                                    'Newest')" /> -->
+                                    Sort By </button>
+                            <div class="dropdown-menu" aria-labelledby="portal_searchbar_sortby">
+                                <t t-foreach="searchbar_sortings" t-as="option">
+                                    <a t-att-href="request.httprequest.path + '?' + keep_query('*', sortby=option)" t-attf-class="dropdown-item#{sortby == option and ' active' or ''}">
+                                        <span t-esc="searchbar_sortings[option].get('label')" />
+                                    </a>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-if="searchbar_filters" class="form-inline ml-0 ml-sm-2 mt-2 mt-lg-0">
+                        <div class="btn-group w-100">
+                            <button id="portal_searchbar_filters" data-toggle="dropdown" class="btn btn-sm dropdown-toggle rounded-pill t-btn-outile-light-gray-secondary t-text-gray">
+                                <!-- <t t-esc="searchbar_filters.get(filterby,searchbar_filters.get('all')).get('label', 'All')" /> -->
+                                    Filter By </button>
+                            <div class="dropdown-menu" aria-labelledby="portal_searchbar_filters">
+                                <t t-foreach="searchbar_filters" t-as="option">
+                                    <a t-att-href="default_url + '?' + keep_query('*', filterby=option)" t-attf-class="dropdown-item#{filterby == option and ' active' or ''}">
+                                        <span t-esc="searchbar_filters[option].get('label')" />
+                                    </a>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-if="searchbar_groupby" class="form-inline ml-0 ml-sm-2 mt-2 mt-lg-0">
+                        <div class="btn-group w-100">
+                            <button id="portal_searchbar_groupby" data-toggle="dropdown" class="btn btn-sm dropdown-toggle rounded-pill t-btn-outile-light-gray-secondary t-text-gray">
+                                <!-- <t t-esc="searchbar_groupby[groupby].get('label', 'None')" /> -->
+                                    Group By </button>
+                            <div class="dropdown-menu" aria-labelledby="portal_searchbar_groupby">
+                                <t t-foreach="searchbar_groupby" t-as="option">
+                                    <a t-att-href="default_url + '?' + keep_query('*', groupby=option)" t-attf-class="dropdown-item#{groupby == option and ' active' or ''}">
+                                        <span t-esc="searchbar_groupby[option].get('label')" />
+                                    </a>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                    <t t-out="0" />
+                </div>
+
+            </div>
+        </nav>
+    </xpath>
+
+</template>
+</odoo>
+  

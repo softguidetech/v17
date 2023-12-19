@@ -1,0 +1,1664 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* thiqah_crm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20220221\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-17 08:53+0000\n"
+"PO-Revision-Date: 2022-03-17 08:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: thiqah_crm
+#: model:ir.actions.report,print_report_name:thiqah_crm.thiqah_project_report
+msgid "(object._get_report_base_filename())"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "2022 Clients"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid ""
+"<i class=\"fa fa-gear\" role=\"img\" title=\"Switch to automatic "
+"probability\" aria-label=\"Switch to automatic probability\"/>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid ""
+"<span class=\"fa fa-exclamation-triangle text-warning oe_edit_only\" "
+"title=\"By saving this change, the customer email will also be updated.\" "
+"attrs=\"{'invisible': [('partner_email_update', '=', False)]}\"/>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid ""
+"<span class=\"fa fa-exclamation-triangle text-warning oe_edit_only\" "
+"title=\"By saving this change, the customer phone number will also be "
+"updated.\" attrs=\"{'invisible': [('partner_phone_update', '=', False)]}\"/>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid ""
+"<span class=\"o_stat_text\" attrs=\"{'invisible': [('calendar_event_count', '&lt;', 2)]}\"> Meetings</span>\n"
+"\t\t\t\t\t\t\t\t<span class=\"o_stat_text\" attrs=\"{'invisible': [('calendar_event_count', '&gt;', 1)]}\"> Meeting</span>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid ""
+"<span class=\"o_stat_text\" attrs=\"{'invisible': [('duplicate_lead_count', '&lt;', 2)]}\">Similar Leads</span>\n"
+"\t\t\t\t\t\t\t\t<span class=\"o_stat_text\" attrs=\"{'invisible': [('duplicate_lead_count', '&gt;', 1)]}\">Similar Lead</span>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid ""
+"<span class=\"oe_grey p-2\" groups=\"crm.group_use_recurring_revenues\"> + </span>\n"
+"\t\t\t\t\t\t\t\t\t<span class=\"oe_grey p-2\" groups=\"!crm.group_use_recurring_revenues\"> at </span>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "<span class=\"oe_grey p-2\"> at </span>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "<span class=\"oe_grey\"> %</span>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "<strong>Bidding &amp; Direct Clients:</strong>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+msgid "<strong>Total # of Awarded Projects</strong>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "<strong>Total # of Submitted Projects</strong>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+msgid "<strong>Total Awarded Amount (approx.)</strong>"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "<strong>Total Submitted Amount (approx.)</strong>"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#: model:ir.module.category,name:thiqah_crm.thiqah_aahd_category
+#, python-format
+msgid "Aahd"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.actions.act_window,name:thiqah_crm.aahd_crm_lead_all_leads
+#: model:ir.ui.menu,name:thiqah_crm.aahd_crm_menu_leads
+msgid "Aahd Leads"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/all_data_dashboard.js:0
+#, python-format
+msgid "Aahd Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:res.groups,name:thiqah_crm.group_thiqah_aahd_evaluation_manager
+msgid "Aahd: Evaluation Manager"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:res.groups,name:thiqah_crm.group_thiqah_aahd_leadsource
+msgid "Aahd: Lead Source"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:res.groups,name:thiqah_crm.group_thiqah_aahd_presalesteam
+msgid "Aahd: PreSales Team"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:res.groups,name:thiqah_crm.group_thiqah_aahd_salesteam
+msgid "Aahd: Sales Team"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "About The Opportunity"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Accept Decision"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__brochure_evaluation_status__accepted
+msgid "Accepted"
+msgstr "تمت الموافقة"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__account_manager_id
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_partner__account_manager_id
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_users__account_manager_id
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "Account Manager"
+msgstr "مدير الحساب"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_res_config_settings_view_form
+msgid ""
+"Activate Notification\n"
+"\t\t\t\t\t\t\t\tSalesPerson"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_res_config_settings_view_form
+msgid ""
+"Activate Notification Sales\n"
+"\t\t\t\t\t\t\t\tManager"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__activate_notif_salesteam_manager
+msgid "Activate Notification Sales Team Manager"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__activate_notif_salesperson
+msgid "Activate Notification SalesPerson"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Add a description..."
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Address"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__res_partner__subordinate_to__ahad
+msgid "Ahad"
+msgstr "عهد"
+
+#. module: thiqah_crm
+#: model:ir.ui.menu,name:thiqah_crm.all_crm_menu_leads
+msgid "All Leads"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Analysis"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Annual Growth"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_view_partners_form_crm1
+msgid "Authorized Person Info"
+msgstr "بيانات صاحب الصلاحية"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_view_partners_form_crm1
+msgid "Authorized Person Name..."
+msgstr "اسم صاحب الصلاحية"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_partner__authorized_person_info
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_users__authorized_person_info
+msgid "Authorized Person info"
+msgstr "بيانات صاحب الصلاحية"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Award Opportunity Proposal"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Award Proposal"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__proposal_status__awarded
+#, python-format
+msgid "Awarded"
+msgstr "منحت"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__thiqah_crm_report__report_type__awarded_project
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "Awarded Projects"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.actions.act_window,name:thiqah_crm.bd_crm_lead_all_leads
+#: model:ir.ui.menu,name:thiqah_crm.bd_crm_menu_leads
+msgid "BD Leads"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/all_data_dashboard.js:0
+#, python-format
+msgid "BD Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.actions.act_window,name:thiqah_crm.crm_lead_bd_leads
+#: model:ir.ui.menu,name:thiqah_crm.menu_crm_bd_opportunities
+msgid "BD Pipeline"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:res.groups,name:thiqah_crm.group_thiqah_bd_business_director
+msgid "BD: Business Director"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:res.groups,name:thiqah_crm.group_thiqah_bd_portfolio_managers
+msgid "BD: Portfolio Managers"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:res.groups,name:thiqah_crm.group_thiqah_bd_team_members
+msgid "BD: Team members"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__service_type__basic
+#, python-format
+msgid "Basic"
+msgstr ""
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_dashboard.py:0
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__service_type__batch
+#, python-format
+msgid "Batch"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_res_config_settings_view_form
+msgid "Before x days"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__brochure_evaluation_status
+msgid "Brochure Evaluation Status"
+msgstr "حالة تقييم الكراسة"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__budget_and_margin_value
+msgid "Budget And margin"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#: model:ir.module.category,name:thiqah_crm.thiqah_bd_category
+#, python-format
+msgid "Business Development"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_view_partners_form_crm1
+msgid "CR Info"
+msgstr "بيانات السجل التجاري"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_view_partners_form_crm1
+msgid "CR NUMBER"
+msgstr "رقم السجل التجاري"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_partner__cr_number
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_users__cr_number
+msgid "CR Number"
+msgstr "رقم السجل التجاري"
+
+#. module: thiqah_crm
+#: model:ir.actions.client,name:thiqah_crm.thiqah_crm_action_dashboard
+#: model:ir.ui.menu,name:thiqah_crm.menu_thiqah_crm_dashboard
+msgid "CRM Dashboard"
+msgstr "لوحة المعلومات"
+
+#. module: thiqah_crm
+#: model:ir.model,name:thiqah_crm.model_crm_stage
+msgid "CRM Stages"
+msgstr "مراحل العلاقات العامة"
+
+#. module: thiqah_crm
+#: model:ir.actions.server,name:thiqah_crm.ir_cron_crm_notif_before_proposal_deadline_ir_actions_server
+#: model:ir.cron,cron_name:thiqah_crm.ir_cron_crm_notif_before_proposal_deadline
+#: model:ir.cron,name:thiqah_crm.ir_cron_crm_notif_before_proposal_deadline
+msgid "CRM: Notification Before Proposal Deadline"
+msgstr "إشعار قبل الموعد النهائي للاقتراح"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_report_project_wizard
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__carrying_capacity_value
+msgid "Carrying Capacity"
+msgstr ""
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_lead.py:0
+#, python-format
+msgid "Check Budget And Margin Value"
+msgstr "الرجاء التحقق من قيمة  الميزانية والهامش"
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_lead.py:0
+#, python-format
+msgid "Check Carrying Capacity Value"
+msgstr "الرجاء التحقق من قيمة القدرة الاستيعابية"
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_lead.py:0
+#, python-format
+msgid "Check Duration Value"
+msgstr "الرجاء التحقق من قيمة المدة الزمنية"
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_lead.py:0
+#, python-format
+msgid "Check Partner Value"
+msgstr "الرجاء التحقق من قيمة العميل"
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_lead.py:0
+#, python-format
+msgid "Check Project Risk Value"
+msgstr "الرجاء التحقق من قيمة مخاطر المشروع"
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_lead.py:0
+#, python-format
+msgid "Check Work Area Value"
+msgstr "الرجاء التحقق من قيمة نطاق العمل"
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_lead.py:0
+#, python-format
+msgid "Check strategic Recommendations Value"
+msgstr "الرجاء التحقق من قيمة التوصيات الاستراتيجية"
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#, python-format
+msgid "Choose Account Manager"
+msgstr "اختر مدير الحساب"
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Choose Choose Service"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#, python-format
+msgid "Choose Customer"
+msgstr "اختر العميل"
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#, python-format
+msgid "Choose Service"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "City"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Client"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.actions.act_window,name:thiqah_crm.action_thiqah_client_status
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__client_status_id
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_partner__client_status_id
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_users__client_status_id
+#: model:ir.ui.menu,name:thiqah_crm.menu_crm_client_status_act
+msgid "Client Status"
+msgstr "حالة العميل"
+
+#. module: thiqah_crm
+#: model:opportunity.channels,name:thiqah_crm.opportunity_channels1
+msgid "Client directly"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model,name:thiqah_crm.model_res_company
+msgid "Companies"
+msgstr "شركات"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_partner__cr_company_name
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_users__cr_company_name
+msgid "Company Name"
+msgstr "اسم الشركة"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_view_partners_form_crm1
+msgid "Company Name..."
+msgstr "اسم الشركة..."
+
+#. module: thiqah_crm
+#: model:ir.model,name:thiqah_crm.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الاعدادات"
+
+#. module: thiqah_crm
+#: model:ir.model,name:thiqah_crm.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Contact Information"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model,name:thiqah_crm.model_crm_lead2opportunity_partner
+msgid "Convert Lead to Opportunity (not in mass)"
+msgstr "تحويل الترشيح إلى فرصة (في غير المراسلات الجماعية)"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Convert to Opportunity"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Corporate"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__cost_details
+msgid "Cost details"
+msgstr "تفاصيل التكاليف "
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Country"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_client_status__create_uid
+#: model:ir.model.fields,field_description:thiqah_crm.field_opportunity_channels__create_uid
+#: model:ir.model.fields,field_description:thiqah_crm.field_thiqah_crm_report__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_client_status__create_date
+#: model:ir.model.fields,field_description:thiqah_crm.field_opportunity_channels__create_date
+#: model:ir.model.fields,field_description:thiqah_crm.field_thiqah_crm_report__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها في"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Customer"
+msgstr "العميل"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "Deadline"
+msgstr "تاريخ التعميد"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__cost_details__direct
+msgid "Direct"
+msgstr "مباشرة"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_client_status__display_name
+#: model:ir.model.fields,field_description:thiqah_crm.field_opportunity_channels__display_name
+#: model:ir.model.fields,field_description:thiqah_crm.field_thiqah_crm_report__display_name
+msgid "Display Name"
+msgstr "الاسم"
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Distribution"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__duration_value
+msgid "Duration"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "E.g. Monthly"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Email"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_res_config_settings_view_form
+msgid ""
+"Email\n"
+"\t\t\t\t\t\t\t\tTemplate"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__email_template_id_salesperson
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__email_template_id_salesteam_manager
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_res_config_settings_view_form
+msgid "Email Template"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__service_type__enterprise
+msgid "Enterprise"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Evaluation Details"
+msgstr "تفاصيل التقييم"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__execution_direction
+msgid "Execution Direction"
+msgstr "جهة التنفيذ "
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "Execution Time"
+msgstr "مدة التنفيذ"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__project_execution_time
+msgid "Execution(Years)"
+msgstr "مدة التنفيذ (سنوات)"
+
+#. module: thiqah_crm
+#: model:client.status,name:thiqah_crm.client_status2
+msgid "Existing client"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__execution_direction__external
+msgid "External"
+msgstr "خارجي"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Extra Info"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Extra Information"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__final_result
+msgid "Final Result"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Financial details"
+msgstr "التفاصيل المالية"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__financial_offer_value
+msgid "Financial offer value"
+msgstr "قيمة العرض المالي "
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__for_aahd
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_stage__for_aahd
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_crm_stage_form
+msgid "For Aahd"
+msgstr "خاص بعهد"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__stage_is_brochure_evaluation
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_stage__is_brochure_evaluation
+msgid "For Brochure Evaluation"
+msgstr "خاص بتقييم الكراسة"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__for_bd
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_stage__for_bd
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_crm_stage_form
+msgid "For Business Development"
+msgstr "خاص بتطوير الأعمال"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_stage__is_overdue
+msgid "For Overdue Stage"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__stage_is_proposal
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_stage__is_proposal
+msgid "For Proposal"
+msgstr "خاص بالعروض"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead2opportunity_partner__lead_source__for_aahd
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead2opportunity_partner_mass__lead_source__for_aahd
+msgid "From Aahd"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead2opportunity_partner__lead_source__for_bd
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead2opportunity_partner_mass__lead_source__for_bd
+msgid "From BD"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_stage__opp_source__from_client_direct
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__opportunity_channels__opp_source__from_client_direct
+msgid "From Client Directly"
+msgstr "من العميل مباشرة"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_stage__opp_source__from_etmd
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__opportunity_channels__opp_source__from_etmd
+msgid "From ETMD"
+msgstr "من منصة إعتماد "
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Goal"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__res_partner__sector_type__government
+msgid "Government"
+msgstr "حكومي"
+
+#. module: thiqah_crm
+#: model:ir.module.category,description:thiqah_crm.thiqah_aahd_category
+msgid ""
+"Helps you handle your Aahd Levels.\n"
+"\t\t\t"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.module.category,description:thiqah_crm.thiqah_bd_category
+msgid ""
+"Helps you handle your Business Development Levels.\n"
+"\t\t\t"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_client_status__id
+#: model:ir.model.fields,field_description:thiqah_crm.field_opportunity_channels__id
+#: model:ir.model.fields,field_description:thiqah_crm.field_thiqah_crm_report__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__cost_details__indirect
+msgid "Indirect"
+msgstr "غير مباشرة"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__execution_direction__internal
+msgid "Internal"
+msgstr "داخلي"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Internal Notes"
+msgstr "ملاحظات داخلية"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__is_wathiq
+#: model:ir.model.fields,field_description:thiqah_crm.field_product_product__is_wathiq
+#: model:ir.model.fields,field_description:thiqah_crm.field_product_template__is_wathiq
+msgid "Is Wathiq"
+msgstr "منتج واثق"
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/all_data_dashboard.js:0
+#, python-format
+msgid "LOST Aahd Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/all_data_dashboard.js:0
+#, python-format
+msgid "LOST BD Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_client_status____last_update
+#: model:ir.model.fields,field_description:thiqah_crm.field_opportunity_channels____last_update
+#: model:ir.model.fields,field_description:thiqah_crm.field_thiqah_crm_report____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_client_status__write_uid
+#: model:ir.model.fields,field_description:thiqah_crm.field_opportunity_channels__write_uid
+#: model:ir.model.fields,field_description:thiqah_crm.field_thiqah_crm_report__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_client_status__write_date
+#: model:ir.model.fields,field_description:thiqah_crm.field_opportunity_channels__write_date
+#: model:ir.model.fields,field_description:thiqah_crm.field_thiqah_crm_report__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Lead"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead2opportunity_partner__lead_source
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead2opportunity_partner_mass__lead_source
+msgid "Lead Type"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model,name:thiqah_crm.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "ترشيح/فرصة"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Lost"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Mark as lost"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Mark as won"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Marketing"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__budget_and_margin_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_company__budget_and_margin_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__budget_and_margin_value_max
+msgid "Max Budget And margin"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__carrying_capacity_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_company__carrying_capacity_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__carrying_capacity_value_max
+msgid "Max Carrying Capacity"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__duration_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_company__duration_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__duration_value_max
+msgid "Max Duration"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__final_result_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_company__final_result_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__final_result_max
+msgid "Max Final Result"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__partner_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_company__partner_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__partner_value_max
+msgid "Max Partner"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__project_risk_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_company__project_risk_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__project_risk_value_max
+msgid "Max Project Risk"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__strategic_recommendations_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_company__strategic_recommendations_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__strategic_recommendations_value_max
+msgid "Max strategic Recommendations"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__work_area_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_company__work_area_value_max
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__work_area_value_max
+msgid "Max work Area"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_res_config_settings_view_form
+msgid "Maximal Evaluation Criteria"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Misc"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Mobile"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_client_status__name
+#: model:ir.model.fields,field_description:thiqah_crm.field_opportunity_channels__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: thiqah_crm
+#: model:client.status,name:thiqah_crm.client_status3
+msgid "New Client"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:client.status,name:thiqah_crm.client_status1
+msgid "New Lead"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Next Stage"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_res_config_settings_view_form
+msgid "Notification Before Proposal Deadline"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__nbr_days_notif_salesteam_manager
+msgid "Number of days to notify Sales Team Manager"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_config_settings__nbr_days_notif_salesperson
+msgid "Number of days to notify SalesPerson"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__opportunity_channel_opp_source
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__stage_opp_source
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_stage__opp_source
+#: model:ir.model.fields,field_description:thiqah_crm.field_opportunity_channels__opp_source
+msgid "Opp Source"
+msgstr "مصدر الطلب"
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.actions.client,name:thiqah_crm.thiqah_crm_action_dashboard_all_data
+#: model:ir.ui.menu,name:thiqah_crm.menu_thiqah_crm_dashboard_all_data
+msgid "Opportunities Dashboard"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__opportunity_channel_id
+msgid "Opportunity Channel"
+msgstr "قناة الفرصة"
+
+#. module: thiqah_crm
+#: model:ir.actions.act_window,name:thiqah_crm.thiqah_opportunity_channels_action
+#: model:ir.ui.menu,name:thiqah_crm.menu_crm_opportunity_channels_act
+msgid "Opportunity Channels"
+msgstr "قنوات الفرص"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_view_partners_form_crm1
+msgid "Other Information"
+msgstr "بيانات اخرى"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Participate Decision"
+msgstr "مشاركة القرار"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__brochure_evaluation_status__participation_decision
+msgid "Participation decision"
+msgstr "مشاركة القرار"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__partner_value
+msgid "Partner Value"
+msgstr ""
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_lead.py:0
+#, python-format
+msgid "Please add Won Proposal Amount"
+msgstr " الرجاء إضافة المبلغ النهائي المقترح"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__thiqah_crm_report__report_type__potential_opportunities
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "Potential Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__brochure_evaluation_status__prepare_doc
+msgid "Preparing the evaluation document"
+msgstr "تجهيز مستند التقييم"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_report_project_wizard
+msgid "Print"
+msgstr "طباعة"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_report_project_wizard
+msgid ""
+"Print Proposal Data for Awarded Or Submitted Or  Potential Opportunities"
+msgstr "يمكنك طباعة احد التقارير"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__res_partner__sector_type__private
+msgid "Private"
+msgstr "خاص"
+
+#. module: thiqah_crm
+#: model:ir.model,name:thiqah_crm.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__profit_margin
+msgid "Profit margin"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__project_date_deadline
+msgid "Project Deadline"
+msgstr "تاريخ تسليم المشروع"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_partner__project_name
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_users__project_name
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "Project Name"
+msgstr "اسم المشروع"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_view_partners_form_crm1
+msgid "Project Name..."
+msgstr "اسم المشروع..."
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__project_risk_value
+msgid "Project Risk"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:crm.stage,name:thiqah_crm.stage_lead_proposal
+msgid "Proposal"
+msgstr "عرض"
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/report/thiqah_crm_report.py:0
+#: model:ir.actions.report,name:thiqah_crm.thiqah_project_report
+#, python-format
+msgid "Proposal Data"
+msgstr "تقرير العروض"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__proposal_deadline
+msgid "Proposal Deadline"
+msgstr "التاريخ النهائي للعرض"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Proposal Details"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.actions.act_window,name:thiqah_crm.action_thiqah_report_project_wizard
+#: model:ir.ui.menu,name:thiqah_crm.menu_thiqah_projects_report
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_report_project_wizard
+msgid "Proposal Report"
+msgstr "تقرير العروض"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__proposal_status
+msgid "Proposal Status"
+msgstr "حالة العرض"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__proposal_submitted_datetime
+msgid "Proposal Submitted On"
+msgstr "تاريخ تقديم العرض"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__technical_recommendation
+msgid "Recommendation"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__technical_recommendation_notes
+msgid "Recommendation Notes"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__technical_recommendation_member_bc
+msgid "Recommendations of members of the Business Committee"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Refuse Decision"
+msgstr "رفض القرار"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Reject Opportunity Proposal"
+msgstr "رفض العرض"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Reject Proposal"
+msgstr "رفض العرض"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__brochure_evaluation_status__rejected
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__proposal_status__rejected
+msgid "Rejected"
+msgstr "تم الرفض"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_thiqah_crm_report__report_type
+msgid "Report Type"
+msgstr "اختر التقرير"
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Request"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Restore"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#, python-format
+msgid "SAR"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "SP Manager"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__scoop_details
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "Scoop Details"
+msgstr "نطاق المشروع"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_partner__sector_type
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_users__sector_type
+msgid "Sector Type"
+msgstr "نوع القطاع"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Send Proposal To sales Team"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__service_type
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__product_ids
+#: model:ir.ui.menu,name:thiqah_crm.menu_crm_services_act
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Services"
+msgstr "الخدمات"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__stage_for_aahd
+msgid "Stage For Aahd"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__stage_for_bd
+msgid "Stage For BD"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_partner__stakeholder_email
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_users__stakeholder_email
+msgid "Stakeholder Email"
+msgstr "البريد الإلكتروني"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_view_partners_form_crm1
+msgid "Stakeholder Email..."
+msgstr "البريد الإلكتروني لصاحب المصلحة..."
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_partner__stakeholder_name
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_users__stakeholder_name
+msgid "Stakeholder Name"
+msgstr "الاسم"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_view_partners_form_crm1
+msgid "Stakeholder Name..."
+msgstr "اسم صاحب المصلحة..."
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_view_partners_form_crm1
+msgid "Stakeholders Info"
+msgstr "بيانات صاحب المصلحة"
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "State"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Street 2..."
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Street..."
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Submit Opportunity Proposal"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__thiqah_crm_report__report_type__submitted_project
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "Submitted Projects"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__expected_revenue
+msgid "Submitted Proposal Amount"
+msgstr "المبلغ المقدم في العرض"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_partner__subordinate_to
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_users__subordinate_to
+msgid "Subordinate To"
+msgstr "التابع ل"
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/dynamic_dashboard.js:0
+#, python-format
+msgid "Subscriptions"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Summary"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Technical Evaluation"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+msgid "Technical Recommendation"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_partner__phone
+#: model:ir.model.fields,field_description:thiqah_crm.field_res_users__phone
+msgid "Telephone"
+msgstr "رقم الهاتف"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__res_partner__subordinate_to__thiqah
+msgid "Thiqah"
+msgstr "ثقة"
+
+#. module: thiqah_crm
+#: model:ir.module.category,name:thiqah_crm.thiqah_crm_category
+msgid "Thiqah CRM"
+msgstr ""
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_lead.py:0
+#, python-format
+msgid "This Stage not compatible with Opportunity Channel"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "This email is blacklisted for mass mailings. Click to unblacklist."
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid ""
+"This phone number is blacklisted for SMS Marketing. Click to unblacklist."
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Title"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "Total Amount"
+msgstr "القيمة اًلاجماليةً"
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#, python-format
+msgid "Total Lost Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#, python-format
+msgid "Total Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Total Opportunities Amount"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Total Revenue"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates_all.xml:0
+#, python-format
+msgid "Total Won Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Total of Basic Oppo"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Total of Enterprise Oppo"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Total of Request Oppo"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Total of Wathq Oppo"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Tracking"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/dynamic_dashboard.js:0
+#, python-format
+msgid "Transactions"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__proposal_status__under_development
+msgid "Under development"
+msgstr "تحت التطوير"
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Value"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_awarded_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_potential_projects_document
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.report_thiqah_submitted_projects_document
+msgid "Value in 2022"
+msgstr "القيمة في 2022"
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__stage_visible
+msgid "Visible Stage"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/all_data_dashboard.js:0
+#, python-format
+msgid "WON Aahd Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/all_data_dashboard.js:0
+#, python-format
+msgid "WON BD Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/xml/crm_dashboard_templates.xml:0
+#, python-format
+msgid "Watheq Summary"
+msgstr ""
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_dashboard.py:0
+#, python-format
+msgid "Wathiq Basic"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/dynamic_dashboard.js:0
+#, python-format
+msgid "Wathiq Basic Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/dynamic_dashboard.js:0
+#, python-format
+msgid "Wathiq Batch Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__wathiq_email
+msgid "Wathiq Email"
+msgstr "البريد الإلكتروني لواثق"
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/models/crm_dashboard.py:0
+#, python-format
+msgid "Wathiq Enterprise"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/dynamic_dashboard.js:0
+#, python-format
+msgid "Wathiq Enterprise Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#. openerp-web
+#: code:addons/thiqah_crm/static/src/js/dynamic_dashboard.js:0
+#, python-format
+msgid "Wathiq Opportunities"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "Won"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__won_revenue
+msgid "Won Proposal Amount"
+msgstr "المبلغ النهائي المقترح"
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/wizard/crm_lead_to_opportunity.py:0
+#, python-format
+msgid "You Don't have acces to choose this option"
+msgstr ""
+
+#. module: thiqah_crm
+#: code:addons/thiqah_crm/wizard/crm_lead_to_opportunity.py:0
+#, python-format
+msgid "You Don't have access to choose this option"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "ZIP"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model,name:thiqah_crm.model_client_status
+msgid "client.status"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "e.g. Product Pricing"
+msgstr ""
+
+#. module: thiqah_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_aahd_crm_lead_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_crm.thiqah_bd_crm_lead_view_form
+msgid "e.g. https://www.odoo.com"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__operational_costs
+msgid "operational costs"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model,name:thiqah_crm.model_opportunity_channels
+msgid "opportunity.channels"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__strategic_recommendations_value
+msgid "strategic Recommendations"
+msgstr "التوصيات الاستراتيجية"
+
+#. module: thiqah_crm
+#: model:ir.model.fields.selection,name:thiqah_crm.selection__crm_lead__proposal_status__submitted
+msgid "submitted"
+msgstr "قدمت"
+
+#. module: thiqah_crm
+#: model:ir.model,name:thiqah_crm.model_thiqah_crm_report
+msgid "thiqah.crm.report"
+msgstr ""
+
+#. module: thiqah_crm
+#: model:ir.model.fields,field_description:thiqah_crm.field_crm_lead__work_area_value
+msgid "work Area"
+msgstr "نطاق العم"

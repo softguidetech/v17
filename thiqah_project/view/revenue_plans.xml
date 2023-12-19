@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="revenue_plans" name="Revenue Plans">
+
+        <div class="project_revenue_plans mb48">
+            <!-- Add Revenue Plans Modal -->
+            <div class="project-details-modal modal fade" id="addRvenueModal" tabindex="-1" aria-labelledby="revenueModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header border-0">
+                            <h3 class="modal-title heading-3" id="revenueModalLabel">Revenue Plan</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <t t-call="thiqah_project.close_button" />
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <t t-call="thiqah_project.revenue_modal_form" />
+                        </div>
+                        <div class="modal-footer border-0">
+                            <div t-att-class="active" id="info_state" class="alert alert-success text-center m-0" role="status">
+                                <div id="details_info"></div>
+                            </div>
+                            <div class="ml-auto">
+                                <button type="button" class="rounded-pill btn btn-lg t-btn-outile-gray button-text" data-dismiss="modal">
+                                    Cancel</button>
+                                <button type="button" id="add_revenue_plan" class="ml-3 btn btn-lg btn-secondary rounded-pill add_data_button">
+                                    Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add_project_box">
+                <h5 class="heading-5 mb24"> Revenue Plans (Currency <t t-esc="currency" />
+) </h5>
+
+                <div class="card placeholder-card">
+                    <div class="align-items-center card-body d-flex flex-column">
+                        <div class="btn-circle mb32 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="none">
+                                <path fill="#117DBC" d="M15.204 19.162c2.67 0 4.612-1.491 4.612-3.571 0-1.755-.965-2.695-3.359-3.272l-1.78-.438c-1.403-.351-2.005-.84-2.005-1.68 0-1.052.978-1.78 2.432-1.78 1.316 0 2.118.565 2.556 1.768.2.438.54.639.89.639.652 0 1.028-.576.802-1.328-.35-1.329-1.855-2.733-4.248-2.733-2.544 0-4.362 1.467-4.362 3.51 0 1.717 1.103 2.77 3.397 3.308l1.792.426c1.403.326 1.93.802 1.93 1.717 0 1.078-1.04 1.78-2.657 1.78-1.466 0-2.356-.552-2.807-1.742-.188-.426-.527-.627-.878-.627-.639 0-.977.514-.84 1.266.301 1.542 2.106 2.757 4.525 2.757Zm-.74 1.229c0 .413.339.764.752.764.414 0 .765-.35.765-.764V5.514a.776.776 0 0 0-.764-.764.765.765 0 0 0-.753.764v14.877Zm.752 5.339C22.197 25.73 28 19.927 28 12.946 28 5.953 22.197.163 15.216.163 8.223.163 2.434 5.94 2.434 12.933h2.13c0-5.915 4.738-10.627 10.654-10.627a10.601 10.601 0 0 1 10.652 10.64c0 5.916-4.737 10.678-10.652 10.653-3.572-.013-6.706-1.742-8.623-4.412-.389-.513-.978-.676-1.504-.363-.501.313-.64 1.002-.213 1.554 2.381 3.196 6.116 5.352 10.34 5.352ZM.893 10.527c-.903 0-1.128.614-.64 1.316L3.06 15.83c.413.576 1.015.564 1.416 0l2.807-3.998c.476-.69.25-1.304-.639-1.304H.892Z" />
+                            </svg>
+                        </div>
+                        <h6 class="heading-6">No revenue plans has been added yet</h6>
+                        <h3 class="body3 t-text-gray">Use the button below to add new position to
+                            this section</h3>
+                        <button class="btn rounded-pill t-btn-outile-gray button-text" type="button" data-toggle="modal" data-target="#addRvenueModal"> Add <svg class="ml-2"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="12" fill="none">
+                            <path fill="#0A0A0A" d="M.666 6c0 .346.29.63.63.63H5.87v4.574c0 .34.283.63.63.63.346 0 .636-.29.636-.63V6.629h4.567c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H7.136V.796c0-.34-.29-.63-.637-.63-.346 0-.629.29-.629.63v4.567H1.295c-.34 0-.629.29-.629.637Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="project_details_table" id="revenueDiv">
+                <div class="t-shadow mt40 overflow-hidden" style="border-radius:16px">
+                    <div class="table-responsive">
+                        <table class="table" id="table_projects">
+                            <thead>
+                                <tr>
+                                    <th>Invoice Number</th>
+                                    <th>Invoice Date</th>
+                                    <th>Payment Date</th>
+                                    <th>Amount Billed</th>
+                                    <th>Amount Received</th>
+                                    <!-- <th>Amount Due</th> -->
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table_revenue_body">
+                                <!-- To be filled dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button type="button" data-toggle="modal" data-target="#addRvenueModal" class="btn mt24 btn-secondary rounded-pill add_data_button">Add Next <svg class="ml-2"
+                    xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                    <path fill="#fff" d="M.166 6c0 .346.29.63.63.63H5.37v4.574c0 .34.283.63.63.63.346 0 .636-.29.636-.63V6.629h4.567c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H6.636V.796c0-.34-.29-.63-.637-.63-.346 0-.629.29-.629.63v4.567H.795c-.34 0-.629.29-.629.637Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+</template>
+<template id="revenue_modal_form" name="Revenue Plan Modal Form">
+<input type="hidden" name="revenue_plan_ids" value="0" />
+<!-- Invoice Number -->
+<div class="form-group">
+    <label class="" for="invoice_number">Invoice Number
+    </label>
+    <input id="invoice_number" type="text" class="form-control s_website_form_input" name="invoice_number" />
+</div>
+
+<!-- Invoice Date -->
+<div class="form-group  position-relative">
+    <label class="" for="invoice_date">Invoice Date
+    </label>
+    <div class="input-group date">
+        <input type="text" class="form-control" name="invoice_date" />
+        <span class="input-group-addon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                <path fill="#798793" d="M2.243 13.417h9.522c1.457 0 2.181-.725 2.181-2.161V2.744c0-1.436-.724-2.16-2.181-2.16H2.243C.786.583.053 1.3.053 2.743v8.512c0 1.443.733 2.16 2.19 2.16Zm-.105-1.123c-.62 0-.962-.327-.962-.976V4.745c0-.641.342-.976.962-.976h9.717c.62 0 .97.335.97.976v6.574c0 .648-.35.975-.97.975H2.138Zm3.506-6.022h.412c.244 0 .32-.07.32-.314v-.411c0-.244-.076-.321-.32-.321h-.412c-.244 0-.327.077-.327.32v.412c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.314v-.411c0-.244-.083-.321-.327-.321h-.411c-.244 0-.328.077-.328.32v.412c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.314v-.411c0-.244-.084-.321-.328-.321h-.411c-.244 0-.32.077-.32.32v.412c0 .244.076.314.32.314ZM3.33 8.552h.404c.251 0 .328-.07.328-.315v-.41c0-.245-.077-.315-.328-.315H3.33c-.251 0-.328.07-.328.314v.411c0 .244.077.314.328.314Zm2.314 0h.412c.244 0 .32-.07.32-.315v-.41c0-.245-.076-.315-.32-.315h-.412c-.244 0-.327.07-.327.314v.411c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.315v-.41c0-.245-.083-.315-.327-.315h-.411c-.244 0-.328.07-.328.314v.411c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.315v-.41c0-.245-.084-.315-.328-.315h-.411c-.244 0-.32.07-.32.314v.411c0 .244.076.314.32.314ZM3.33 10.837h.404c.251 0 .328-.077.328-.321v-.411c0-.244-.077-.314-.328-.314H3.33c-.251 0-.328.07-.328.314v.41c0 .245.077.322.328.322Zm2.314 0h.412c.244 0 .32-.077.32-.321v-.411c0-.244-.076-.314-.32-.314h-.412c-.244 0-.327.07-.327.314v.41c0 .245.083.322.327.322Zm2.315 0h.41c.245 0 .328-.077.328-.321v-.411c0-.244-.083-.314-.327-.314h-.411c-.244 0-.328.07-.328.314v.41c0 .245.084.322.328.322Z"></path>
+            </svg>
+        </span>
+    </div>
+</div>
+<!-- Payment Date -->
+<div class="form-group  position-relative">
+    <label class="" for="payment_date">Payment Date
+    </label>
+    <div class="input-group date">
+        <input type="text" class="form-control" name="payment_date" />
+        <span class="input-group-addon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none">
+                <path fill="#798793" d="M2.243 13.417h9.522c1.457 0 2.181-.725 2.181-2.161V2.744c0-1.436-.724-2.16-2.181-2.16H2.243C.786.583.053 1.3.053 2.743v8.512c0 1.443.733 2.16 2.19 2.16Zm-.105-1.123c-.62 0-.962-.327-.962-.976V4.745c0-.641.342-.976.962-.976h9.717c.62 0 .97.335.97.976v6.574c0 .648-.35.975-.97.975H2.138Zm3.506-6.022h.412c.244 0 .32-.07.32-.314v-.411c0-.244-.076-.321-.32-.321h-.412c-.244 0-.327.077-.327.32v.412c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.314v-.411c0-.244-.083-.321-.327-.321h-.411c-.244 0-.328.077-.328.32v.412c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.314v-.411c0-.244-.084-.321-.328-.321h-.411c-.244 0-.32.077-.32.32v.412c0 .244.076.314.32.314ZM3.33 8.552h.404c.251 0 .328-.07.328-.315v-.41c0-.245-.077-.315-.328-.315H3.33c-.251 0-.328.07-.328.314v.411c0 .244.077.314.328.314Zm2.314 0h.412c.244 0 .32-.07.32-.315v-.41c0-.245-.076-.315-.32-.315h-.412c-.244 0-.327.07-.327.314v.411c0 .244.083.314.327.314Zm2.315 0h.41c.245 0 .328-.07.328-.315v-.41c0-.245-.083-.315-.327-.315h-.411c-.244 0-.328.07-.328.314v.411c0 .244.084.314.328.314Zm2.314 0h.411c.244 0 .328-.07.328-.315v-.41c0-.245-.084-.315-.328-.315h-.411c-.244 0-.32.07-.32.314v.411c0 .244.076.314.32.314ZM3.33 10.837h.404c.251 0 .328-.077.328-.321v-.411c0-.244-.077-.314-.328-.314H3.33c-.251 0-.328.07-.328.314v.41c0 .245.077.322.328.322Zm2.314 0h.412c.244 0 .32-.077.32-.321v-.411c0-.244-.076-.314-.32-.314h-.412c-.244 0-.327.07-.327.314v.41c0 .245.083.322.327.322Zm2.315 0h.41c.245 0 .328-.077.328-.321v-.411c0-.244-.083-.314-.327-.314h-.411c-.244 0-.328.07-.328.314v.41c0 .245.084.322.328.322Z"></path>
+            </svg>
+        </span>
+    </div>
+</div>
+<!-- Amount Billed -->
+<div class="form-group">
+    <label class="" for="amount_billed">Amount Billed
+    </label>
+    <input type="number" min="0" class="form-control" name="amount_billed" />
+</div>
+<!-- Amount Received -->
+<div class="form-group">
+    <label class="" for="amount_received">Amount Received
+    </label>
+    <input type="number" min="0" class="form-control" name="amount_received" />
+</div>
+<!-- Status -->
+<div class="form-group position-relative">
+    <label class="" for="revenue_plan_status">Status
+    </label>
+    <select class="form-control selectpicker" name="revenue_plan_status" data-style="t-btn-outile-light-gray-secondary">
+        <option t-attf-value="open">Open</option>
+        <option data-divider="true" class="m-0"></option>
+        <option t-attf-value="closed">Closed</option>
+    </select>
+</div>
+
+</template>
+
+<!-- <template id="revenue_update_section" name="Project Revenue Update Section">
+        <div class="revenue_update_class">
+            <div class="project_revenue">
+                <div class="add_project_box">
+                    <div class="container-fluid-fluid">
+                        <input type="text" name="revenue_new_ids" value="0" />
+                        <div id="revenue_to_refresh">
+
+                            <div class="col">
+                                <div class="form-group col-12 s_website_form_field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" for="invoice_date">
+                                            <span class="s_website_form_label_content">Invoice Date</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input name="invoice_date_update" type="date" class="form-control s_website_form_input" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group col-12 s_website_form_field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" for="payment_date">
+                                            <span class="s_website_form_label_content">Payment Date</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input name="invoice_date_update" type="date" class="form-control s_website_form_input" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group col-12 s_website_form_field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" for="amount_billed">
+                                            <span class="s_website_form_label_content">Amount Billed</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input class="form-control" type="number" min="0" name="amount_billed_update"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col">
+                                <div class="form-group col-12 s_website_form_field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" for="amount_received">
+                                            <span class="s_website_form_label_content">Amount Received</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input class="form-control" type="number" min="0" name="amount_received_update"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group col-12 s_website_form_field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" for="amount_due">
+                                            <span class="s_website_form_label_content">Amount Due</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input class="form-control" type="number" min="0" name="amount_due_update"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-group col-12 s_website_form_field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" for="revenue_plan_status">
+                                            <span class="s_website_form_label_content">Status</span>
+                                        </label>
+
+                                        <div class="col-sm col-xs-12">
+                                            <select class="form-control" name="revenue_plan_status_update">
+                                                <option t-attf-value="open">Open</option>
+                                                <option t-attf-value="closed">Closed</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-100"></div>
+
+                            <div class="col">
+                                <button type="button" id="add_revenue_update" class="btn btn-outline-info
+    add_data_button">ADD</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template> -->
+
+<!-- <template id="revenues_update" name="Project Revenue Plans Update">
+        <div class="project_revenue_update">
+            <input name="revenues" type="text" t-att-value="revenues"/>
+            <input name="project_id" type="hidden" t-att-value="project_project.id"/>
+
+            <div class="add_project_box">
+
+                <div class="summary_project text-center">
+                        REVENUE PLANS | <t t-esc="project_project.name"/>
+                </div>
+
+                <div class="container-fluid-fluid">
+                    <t t-call="thiqah_project.revenue_update_section"/>
+
+                    <div class="modal" tabindex="-1" role="dialog" id="update_revenue_modal">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Update Revenue Plan(s)</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Are you sure you wish to proceed?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" id="update_revenue_button" class="btn btn-primary">Confirm</button>
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Discard</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div t-attf-class="clearfix oe_login_buttons text-center mb-1">
+                        <a class="btn btn-primary btn-block update_data_button" data-target="#update_revenue_modal" data-toggle="modal">
+                                    Update
+                        </a>
+                    </div>
+
+
+                    <div t-att-class="active" id="info_state" class="alert alert-success text-center" role="status">
+                        <div id="details_info"></div>
+                    </div>
+
+                    <table class="table table-bordered" id="revenue_body_update">
+                        <thead>
+                            <tr>
+                                <th>Invoice Date</th>
+                                <th>Payment Date</th>
+                                <th>Amount Billed</th>
+                                <th>Amount Received</th>
+                                <th>Amount Due</th>
+                                <th>Status</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="revenues_tbody_update">
+                            <div class="modal" tabindex="-1" role="dialog" id="delete_revenue_update_modal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Delete Revenue Plan</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>You will lost this Revenue Plan. Are you sure you wish to proceed?</p>
+                                            <input name="revenue_value" type="hidden" value="0"/>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a role="button" class="btn btn-danger delete_revenue">Confirm</a>
+                                            <button type="button" class="btn btn-light" data-dismiss="modal">Discard</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <t t-foreach="project_project.revenue_plan_ids" t-as="revenue">
+                                <tr t-att-id="revenue.id" t-att-value="revenue.id">
+
+                                    <td>
+                                        <input type="date" class="form-control s_website_form_input basic_change_selector
+    invoice_date_update"/>
+
+                                    </td>
+                                    <td>
+                                        <input type="date" class="form-control s_website_form_input basic_change_selector
+    payment_date_update"/>
+
+                                    </td>
+
+                                    <td>
+                                        <input type="number" class="form-control s_website_form_input amount_billed_update" t-att-value="revenue.amount_billed"/>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control s_website_form_input amount_received_update" t-att-value="revenue.amount_received"/>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control s_website_form_input amount_due_update" t-att-value="revenue.amount_due"/>
+                                    </td>
+
+                                    <td>
+                                        <select class="form-control revenue_status_update">
+                                            <option t-attf-value="open">Open</option>
+                                            <option t-attf-value="closed">Closed</option>
+                                        </select>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <button class="btn btn-danger btn-circle btn-circle-sm m-1 open_modal_revenue" data-target="#delete_revenue_update_modal" data-toggle="modal">
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </template> -->
+
+</odoo>

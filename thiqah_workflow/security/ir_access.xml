@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+		<record id="access_validation_element"
+			model="ir.model.access">
+			<field name="name">access_validation_element</field>
+			<field name="model_id" ref="model_validation_element" />
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+
+		<record id="access_validation_transition"
+			model="ir.model.access">
+			<field name="name">access_validation_transition</field>
+			<field name="model_id" ref="model_validation_transition" />
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+
+		<record id="access_transition_manager"
+			model="ir.model.access">
+			<field name="name">access_transition_manager</field>
+			<field name="model_id" ref="model_transition_manager" />
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+
+		<record id="access_workflow_model"
+			model="ir.model.access">
+			<field name="name">access_workflow_model</field>
+			<field name="model_id" ref="model_workflow_model" />
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+
+		<record id="access_workflow_workflow"
+			model="ir.model.access">
+			<field name="name">access_workflow_workflow</field>
+			<field name="model_id" ref="model_workflow_workflow" />
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+
+		<record id="access_workflow_action"
+			model="ir.model.access">
+			<field name="name">access_workflow_action</field>
+			<field name="model_id" ref="model_workflow_action" />
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+
+		<record id="access_workflow_transition"
+			model="ir.model.access">
+			<field name="name">access_workflow_transition</field>
+			<field name="model_id" ref="model_workflow_transition" />
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+
+		<record id="access_user_validation"
+			model="ir.model.access">
+			<field name="name">access_user_validation</field>
+			<field name="model_id" ref="model_user_validation" />
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+
+		<record id="access_workflow_state"
+			model="ir.model.access">
+			<field name="name">access_workflow_state</field>
+			<field name="model_id" ref="model_workflow_state"/>
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+
+		<record id="access_workflow_tansition_condition"
+			model="ir.model.access">
+			<field name="name">access_workflow_tansition_condition</field>
+			<field name="model_id" ref="model_workflow_tansition_condition" />
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+
+		<record id="access_workflow_transition_sla"
+			model="ir.model.access">
+			<field name="name">access_workflow_transition_sla</field>
+			<field name="model_id" ref="model_workflow_transition_sla" />
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+
+		<record id="access_workflow_transition_sla"
+			model="ir.model.access">
+			<field name="name">access_workflow_transition_sla_property</field>
+			<field name="model_id" ref="model_workflow_transition_sla_property" />
+			<field name="group_id" ref="base.group_user" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_unlink" eval="True" />
+		</record>
+	</data>
+</odoo>

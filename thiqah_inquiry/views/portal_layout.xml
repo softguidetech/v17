@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="inherit_portal_dashboard_layout" inherit_id="thiqah_portal.portal_dashboard_layout">
+
+		<xpath expr="//div[hasclass('sb-sidenav-menu')]//a[@href='/customer/centricity']" position="after">
+		<a t-if="request.env.user.check_service_access('inquiry_dashboard')" class="nav-link d-flex align-items-center" href="/my/inquiries/dashboard" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) ==
+			unslug_url('/my/inquiries/dashboard') else ''}">
+			<svg width="18" height="18" fill="none"
+			xmlns="http://www.w3.org/2000/svg">
+			<path d="M2.222 8.279h4.087c1.138 0 1.712-.574 1.712-1.757V2.516c0-1.183-.574-1.748-1.712-1.748H2.222C1.084.768.51 1.333.51 2.516v4.006c0 1.183.574 1.757 1.712 1.757Zm.018-1.264c-.314 0-.466-.161-.466-.493V2.516c0-.323.152-.484.466-.484h4.042c.314 0 .475.161.475.484v4.006c0 .332-.161.493-.475.493H2.24Zm8.98 1.264h4.078c1.138 0 1.712-.574 1.712-1.757V2.516c0-1.183-.574-1.748-1.712-1.748H11.22c-1.147 0-1.72.565-1.72 1.748v4.006c0 1.183.573 1.757 1.72 1.757Zm.018-1.264c-.322 0-.475-.161-.475-.493V2.516c0-.323.152-.484.475-.484h4.042c.314 0 .466.161.466.484v4.006c0 .332-.152.493-.466.493h-4.042ZM2.222 17.268h4.087c1.138 0 1.712-.565 1.712-1.748v-4.015c0-1.174-.574-1.748-1.712-1.748H2.222c-1.138 0-1.712.574-1.712 1.748v4.015c0 1.183.574 1.748 1.712 1.748Zm.018-1.264c-.314 0-.466-.16-.466-.484v-4.006c0-.332.152-.493.466-.493h4.042c.314 0 .475.161.475.493v4.006c0 .323-.161.484-.475.484H2.24Zm8.98 1.264h4.078c1.138 0 1.712-.565 1.712-1.748v-4.015c0-1.174-.574-1.748-1.712-1.748H11.22c-1.147 0-1.72.574-1.72 1.748v4.015c0 1.183.573 1.748 1.72 1.748Zm.018-1.264c-.322 0-.475-.16-.475-.484v-4.006c0-.332.152-.493.475-.493h4.042c.314 0 .466.161.466.493v4.006c0 .323-.152.484-.466.484h-4.042Z" />
+		</svg>
+				Inquiries Dashboard
+			</a>
+		<a t-if="request.env.user.check_service_access('inquiry_request')" class="nav-link d-flex align-items-center" href="/my/inquiries" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) ==
+			unslug_url('/my/inquiries') else ''}">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+					<path fill="#798793" d="M4.76 14.902c.325 0 .552-.173.957-.533l2.296-2.043h4.273c1.983 0 3.047-1.098 3.047-3.047V4.18c0-1.95-1.064-3.048-3.047-3.048H3.714C1.731 1.133.667 2.225.667 4.181V9.28c0 1.956 1.064 3.047 3.047 3.047h.32v1.73c0 .513.26.846.725.846Zm.272-1.218v-1.93c0-.36-.14-.5-.499-.5h-.819c-1.344 0-1.976-.684-1.976-1.982v-5.09c0-1.299.632-1.977 1.976-1.977h8.572c1.337 0 1.976.678 1.976 1.976v5.09c0 1.298-.639 1.984-1.976 1.984H7.973c-.372 0-.559.053-.811.313l-2.13 2.116ZM8 7.928c.32 0 .506-.18.512-.526l.094-3.514c.006-.332-.26-.592-.613-.592-.359 0-.612.253-.605.586l.086 3.52c.007.34.193.526.526.526Zm0 2.162c.386 0 .719-.3.719-.692 0-.386-.326-.685-.719-.685-.393 0-.719.306-.719.685 0 .386.333.692.719.692Z"/>
+				</svg>
+				Inquiries Requests
+			</a>
+		</xpath>
+
+	</template>
+</odoo>

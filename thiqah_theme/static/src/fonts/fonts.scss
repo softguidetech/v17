@@ -1,0 +1,54 @@
+// ------------------------------------------------------------------
+// Tanseek
+// ------------------------------------------------------------------
+
+@font-face {
+  font-family: "TanseekModernProArabic";
+  src: url(/thiqah_theme/static/src/fonts/TanseekModernProArabic-Light.woff2)
+      format("woff2"),
+    url(/thiqah_theme/static/src/fonts/Tanseek-Modern-Pro-Arabic-Light.ttf)
+      format("truetype");
+  font-weight: 300;
+  font-style: Light;
+}
+@font-face {
+  font-family: "TanseekModernProArabic";
+  src: url(/thiqah_theme/static/src/fonts/TanseekModernProArabic-Medium.woff2)
+      format("woff2"),
+    url(/thiqah_theme/static/src/fonts/TanseekModernProArabic-Medium.ttf)
+      format("truetype");
+  font-weight: 400;
+  font-style: Medium;
+}
+@font-face {
+  font-family: "TanseekModernProArabic";
+  src: url(/thiqah_theme/static/src/fonts/Tanseek-Modern-Pro-Arabic-Bold.woff2)
+      format("woff2"),
+    url(/thiqah_theme/static/src/fonts/Tanseek-Modern-Pro-Arabic-Bold.ttf)
+      format("truetype");
+  font-weight: 700;
+  font-style: Bold;
+}
+
+body {
+  color: #0a0a0a !important;
+  font-family: "TanseekModernProArabic", sans-serif !important;
+  line-height: 1 !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "TanseekModernProArabic", sans-serif !important;
+}
+.o_form_view .o_form_label {
+  font-size: 20px !important;
+}

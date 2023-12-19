@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="group_portal_department" model="res.groups">
+        <field name="name">Department Employees (portal permissions)</field>
+        <field name="comment">Access to all data related to their departments</field>
+    </record>
+
+    <record id="project_manager_group" model="res.groups">
+        <field name="name">Thiqah Projects Managers</field>
+        <field name="comment">Access to all projects that the current user is the manager</field>
+    </record>
+
+    <record id="thiqah_hr_group" model="res.groups">
+        <field name="name">HR Department</field>
+        <field name="comment">Access to all Functionnalities related to the HR Management.</field>
+    </record>
+
+    <record id="quality_assurance_group" model="res.groups">
+        <field name="name">Quality Assurance</field>
+        <field name="comment">Access to all projects and all dashboards (also exporting the projects)</field>
+        <field name="implied_ids" eval="[(4,ref('base.group_portal'))]"/>
+    </record>
+
+    <record id="vp_group" model="res.groups">
+        <field name="name">VP</field>
+        <field name="comment">access to all Functionnalities related to the VP.</field>
+        <field name="implied_ids" eval="[(4,ref('thiqah_project.quality_assurance_group'))]"/>
+    </record>
+
+    <record id="request_service_user" model="ir.rule">
+        <field name="name">Users can read and delete their own service requests</field>
+        <field name="model_id" ref="model_thiqah_project_service_request"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[
+                Command.link(ref('project.group_project_user')),]"/>
+    </record>
+
+    <!-- Depending from the Project Criteria -->
+    <record id="project_project_managers" model="ir.rule">
+        <field name="name">Thiqah Projects Managers can view only their projects</field>
+        <field name="model_id" ref="model_project_project"/>
+        <field name="domain_force">['|',('id', 'in', user.thiqah_projects_ids.ids),('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[
+                Command.link(ref('thiqah_project.project_manager_group')),]"/>
+    </record>
+
+    <record id="project_managers_extension" model="ir.rule">
+        <field name="name">Projects Managers can access to all projects</field>
+        <field name="model_id" ref="model_thiqah_project_service_request"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[
+                Command.link(ref('project.group_project_manager')),]"/>
+    </record>
+
+    <!-- Depending from the Department Criteria -->
+    <record id="request_service_department" model="ir.rule">
+        <field name="name">Thiqah Departments Employees can view all requests related to to their department</field>
+        <field name="model_id" ref="model_thiqah_project_service_request"/>
+        <field name="domain_force">['|','|',('department_id', '=', user.employee_id.department_id.id),('project_accountant_id','=',user.id),('director_finance_id','=',user.id)]</field>
+        <field name="groups" eval="[
+            Command.link(ref('thiqah_project.group_portal_department')),]"/>
+    </record>
+
+    <!-- Depending from the Department Criteria -->
+    <record id="request_service_managers" model="ir.rule">
+        <field name="name">Thiqah Projects Managers can view all requests related to their department</field>
+        <field name="model_id" ref="model_thiqah_project_service_request"/>
+        <field name="domain_force">[('project_id', 'in', user.thiqah_projects_ids.ids)]</field>
+        <field name="groups" eval="[
+            Command.link(ref('thiqah_project.project_manager_group')),]"/>
+    </record>
+
+    <!-- Depending from the Department Criteria -->
+    <record id="project_project_department" model="ir.rule">
+        <field name="name">Thiqah Departments Employees can view all projects related to to their department</field>
+        <field name="model_id" ref="model_project_project"/>
+        <field name="domain_force">[('thiqah_department_id', '=', user.employee_id.department_id.id)]</field>
+        <field name="groups" eval="[
+            Command.link(ref('thiqah_project.group_portal_department')),]"/>
+    </record>
+
+    <!-- Depending from the Department Criteria -->
+    <record id="hr_business_partner_see_iis_requests" model="ir.rule">
+        <field name="name">HR Business Partner can view all request in projects which is selected as HRBP</field>
+        <field name="model_id" ref="model_thiqah_project_service_request"/>
+        <field name="domain_force">[('project_id.hr_business_partner_id', '=', user.id)]</field>
+        <field name="groups" eval="[Command.link(ref('thiqah_base.group_hr_business_partner')),]"/>
+    </record>
+
+</odoo>

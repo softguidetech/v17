@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="0">
+
+    <record id="submission_succeed" model="website.page">
+        <field name="name">Submission succeed</field>
+        <field name="type">qweb</field>
+        <field name="url">/submission-succeed</field>
+        <field name="website_indexed" eval="False" />
+        <field name="is_published">True</field>
+        <field name="key">thiqah_portal.submission_succeed</field>
+        <field name="arch" type="xml">
+            <t name="Submission succeed" t-name="thiqah_portal.submission_succeed">
+                <t t-call="thiqah_portal.portal_dashboard_layout">
+
+
+                    <div class="col-xl-6 mx-auto">
+                        <span
+                            class="d-block fa fa-4x fa-thumbs-up mx-auto rounded-circle bg-primary" />
+                        <br />
+                        <h1 class="text-center">Thank You!</h1>
+                        <div class="pb16 pt16 s_hr" data-snippet="s_hr"
+                            data-name="Separator">
+                            <hr
+                                class="mx-auto border-top w-50 border-dark text-center" />
+                        </div>
+                        <h5 class="text-center">
+                            <span class="fa fa-check-circle" />
+
+                            <span> Hello <t t-out="request.env.user.name" /> <br /> Your Service
+                                Request <t
+                                    t-out="request.env['thiqah.project.service.request'].sudo().search([])[-1].id" />
+                                has been added <b>successfully</b>
+                            </span>
+
+                        </h5>
+
+                    </div>
+
+
+                    <script>
+                        setTimeout(function(){
+                        window.location.href = '/my/requests';
+                        }, 10000);
+                    </script>
+                </t>
+            </t>
+        </field>
+    </record>
+
+
+    <record id="submission_succeed_lead" model="website.page">
+        <field name="name">Lead Submission succeed</field>
+        <field name="type">qweb</field>
+        <field name="url">/submission-succeed-lead</field>
+        <field name="website_indexed" eval="False" />
+        <field name="is_published">True</field>
+        <field name="key">thiqah_portal.submission_succeed_lead</field>
+        <field name="arch" type="xml">
+            <t name="Submission succeed" t-name="thiqah_portal.submission_succeed_lead">
+                <t t-call="website.layout">
+                    <t t-set="no_header" t-value="True" />
+                    <div id="wrap" class="oe_structure oe_empty">
+                        <section class="s_text_block pt40 pb40 o_colored_level "
+                            data-snippet="s_text_block">
+                            <div class="container s_allow_columns">
+                                <div class="row">
+                                    <div class="col-lg-7 col-xl-6 mr-lg-auto">
+                                        <span
+                                            class="d-block fa fa-4x fa-thumbs-up mx-auto rounded-circle bg-primary" />
+                                        <br />
+                                        <h1 class="text-center">Thank you for your interest!</h1>
+                                        <div class="pb16 pt16 s_hr" data-snippet="s_hr"
+                                            data-name="Separator">
+                                            <hr
+                                                class="mx-auto border-top w-50 border-dark text-center" />
+                                        </div>
+                                        <h5 class="text-center">
+                                            <span class="fa fa-check-circle" />
+                                            <span>We will contact you <b>very soon</b>. </span>
+                                        </h5>
+
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <ul class="list-unstyled mb-0 pl-2">
+                                            <li>Thiqah Business Services HQ</li>
+                                            <li>
+                                                <i class="fa fa-map-marker fa-fw mr-2" />
+                                                <span class="o_force_ltr">Olaya St, As Sahafah,
+                                                    Riyadh 13321</span>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-phone fa-fw mr-2" />
+                                                <span class="o_force_ltr">+966 9200 09575</span>
+                                            </li>
+                                            <!-- <li>
+                                                <i class="fa fa-1x fa-fw fa-envelope mr-2"/>
+                                                <span>info@yourcompany.example.com</span>
+                                            </li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <script>
+                        setTimeout(function(){
+                        window.location.href = '/render/aahd/lead/';
+                        }, 5000);
+                    </script>
+                </t>
+            </t>
+        </field>
+    </record>
+</odoo>

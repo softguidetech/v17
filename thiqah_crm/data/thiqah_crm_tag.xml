@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record model="thiqah.crm.tag" id="thiqah_crm_tag_new">
+        <field name="name">New</field>
+        <field name="color">10</field>
+    </record>
+
+    <record model="thiqah.crm.tag" id="thiqah_crm_tag_need">
+        <field name="name">Need For Action</field>
+        <field name="color">1</field>
+    </record>
+
+</odoo>

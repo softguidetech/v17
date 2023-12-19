@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="project_edit_form_inherit" model="ir.ui.view">
+        <field name="name">project_edit.form_inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="inside">
+                <h1>
+                    <field name="name_arabic" class="o_text_overflow" placeholder="Project Arabic Name..."/>
+                </h1>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="project_accountant_id"/>
+                <field name="vp" options="{'no_open': True, 'no_create': True}"/>
+                <field name="director_finance" options="{'no_open': True, 'no_create': True}"/>
+                <field name="hr_business_partner_id" options="{'no_open': True, 'no_create': True}"/>
+                <field name="assing_to_id" readonly="1"/>
+            </xpath>
+            <!--            <xpath expr="//div[@name='project.action_project_task_burndown_chart_report']" position="attributes">-->
+            <!--            <xpath expr="//div[hasclass('col-6 o_kanban_card_manage_section o_kanban_manage_reporting')]//a[@name='action_project_task_burndown_chart_report']" position="attributes">-->
+            <!--            <xpath expr="//div[hasclass('o_kanban_manage_reporting')]//div[@name='project_burndown_menu']" position="attributes">-->
+            <!--                <attribute name="invisible">1</attribute>-->
+            <!--            </xpath>-->
+            <xpath expr="//button[@name='%(project.project_collaborator_action)d']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <div name="button_box" position="inside">
+                <button name="preview_project_project" type="object" class="oe_stat_button" icon="fa-globe icon">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Back To</span>
+                        <span class="o_stat_text">Project</span>
+                    </div>
+                </button>
+                <button class="oe_stat_button" name="action_open_documents" type="object" icon="fa-file-text-o">
+                    <field string="Documents" name="documents_count" widget="statinfo"/>
+                </button>
+            </div>
+            <xpath expr="//notebook" position="before">
+                <group string="Basic Data" name="basic_data">
+                    <!-- <field name="client_id" /> -->
+                    <field name="thqiah_project_number" class="o_text_overflow" placeholder="Project Number..."/>
+                    <field name="state" widget="selection_badge"/>
+                    <field name="duration"/>
+                    <field name="contract_type_id"/>
+                    <field name="currency_id" invisible="1"/>
+                    <field name="project_value" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </group>
+            </xpath>
+            <xpath expr="//page[@name='settings']" position="before">
+                <page name="project_overall_summary" string="Project Overall Summary">
+                    <group name="name">
+                        <!-- <field name="financial_report_date" /> -->
+                        <field name="vat"/>
+                        <field name="rev_plan_na"/>
+                        <field name="total_commitments"/>
+                        <field name="contract_liability"/>
+                    </group>
+                    <group string="MP Actual Cost" name="mp_actual_cost">
+                        <field name="number_headcount"/>
+                        <field name="total_cost_mp"/>
+                        <field name="commitments_mp"/>
+                        <field name="currency_id" invisible="1"/>
+                        <!-- <field name="forecasted_cost" widget="monetary" options="{'currency_field': 'currency_id'}"/> -->
+                    </group>
+                    <group name="project_supply_cost" string="Project and Supply Actual Cost">
+                        <field name="number_of_pos"/>
+                        <field name="actual_cost_pos"/>
+                        <field name="commitments_pos"/>
+                        <!-- <field name="total_actual_cost"/> -->
+                        <!-- <field name="open_po_amount"/> -->
+                        <field name="cost_spending_limit"/>
+                    </group>
+                    <group name="miscellaneous_cost" string=" Miscellaneous Actual Cost">
+                        <group>
+                            <field name="actual_total_miscellaneous"/>
+                        </group>
+
+                        <group>
+                            <!-- <field name="miscellaneous_forecasted_cost"/> -->
+                            <field name="commitments_miscellaneous"/>
+                        </group>
+
+                    </group>
+
+                    <group name="utilization_balance" string="Total utilization and Remaining balance">
+                        <!-- <field name="total_margin_vat"/> -->
+                        <field name="remaining_balance"/>
+                        <!-- <field name="remaining_balance_date"/> -->
+                    </group>
+
+                    <group name="utilization_utilization"
+                           string="Total Actual utilization with Margin and VAT + Project Expectation">
+                        <!-- <group>
+                            <field name="total_utilization_expectations"/>
+                        </group> -->
+                        <group>
+                            <!-- # change from available_project_budgets(available_budget) to balance_after_commitment -->
+                            <field name="available_budget"/>
+                        </group>
+                    </group>
+
+                    <group name="invoices" string="Invoices">
+                        <field name="billed_amount"/>
+                        <field name="collected_amount"/>
+                        <field name="billed_amount_no_vat"/>
+                        <field name="contract_unbilled_revenues"/>
+                        <field name="due_amount"/>
+                        <!-- <field name="cash_position"/> -->
+                    </group>
+
+                    <group name="Acutal_cost" string="Acutal Cost">
+                        <field name="margin_percent" string="Margin %"/>
+                        <field name="actual_cost" string="Total Actual Cost"/>
+                        <field name="actual_margin_amount"/>
+                        <field name="actual_revenue"/>
+                        <!-- <field name="actual_margin_percent" string="Actual Margin %"/> -->
+                    </group>
+                </page>
+
+                <page name="project_resources" string="Resources">
+                    <field name="resource_ids">
+                        <tree editable="bottom">
+                            <field name="resource_number"/>
+                            <field name="name"/>
+                            <field name="department_id"/>
+                            <field name="user_id"/>
+                            <field name="other_resource"/>
+                            <field name="resource_type"/>
+                        </tree>
+                    </field>
+                </page>
+
+                <page name="risk" string="Risk And Issues">
+                    <field name="risk_ids">
+                        <tree editable="bottom">
+                            <field name="risk_number"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="owner"/>
+                            <field name="risk_type_id"/>
+                            <field name="corrective_action"/>
+                            <field name="level_impact"/>
+                            <field name="risk_status"/>
+                        </tree>
+                    </field>
+                </page>
+
+                <page name="revenue_plans" string="Revenue Plans">
+                    <field name="revenue_plan_ids">
+                        <tree>
+                            <field name="invoice_number"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="invoice_date"/>
+                            <field name="payment_date"/>
+                            <field name="amount_billed" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="amount_received" widget="monetary"
+                                   options="{'currency_field': 'currency_id'}"/>
+                            <field name="amount_due" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            <field name="status"/>
+                        </tree>
+                    </field>
+                </page>
+
+                <page name="deliverables" string="Deliverables">
+                    <field name="deliverable_ids">
+                        <tree>
+                            <field name="deliverable_number"/>
+                            <field name="name"/>
+                            <field name="progress_percent" string="Progess %"/>
+                            <field name="due_date"/>
+                            <field name="delivered_date"/>
+                            <field name="status"/>
+                            <field name="project_id" invisible="1"/>
+                        </tree>
+                    </field>
+                </page>
+
+                <page name="utilizations" string="Utilizations">
+                    <field name="utilization_ids">
+                        <tree>
+                            <field name="utilization_number"/>
+                            <field name="planned_hours"/>
+                            <field name="actual_hours"/>
+                            <field name="forecasted_hours"/>
+                        </tree>
+                    </field>
+                </page>
+
+            </xpath>
+
+        </field>
+    </record>
+    <!-- Monkey Patch -->
+    <record id="project.open_view_project_all" model="ir.actions.act_window">
+        <field name="name">All Projects</field>
+        <field name="res_model">project.project</field>
+        <!-- <field name="domain">[('user_id', '=', uid)]</field> -->
+        <field name="domain">[]</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="project.view_project_kanban"/>
+        <field name="search_view_id" ref="project.view_project_project_filter"/>
+        <field name="target">main</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No projects found. Let's create one!
+            </p>
+            <p>
+                Projects regroup tasks on the same topic, and each has its dashboard.
+            </p>
+        </field>
+    </record>
+    <!-- Add A window action dedicated to the pendig projects -->
+    <record id="open_view_project_pending" model="ir.actions.act_window">
+        <field name="name">Pending Projects</field>
+        <field name="res_model">project.project</field>
+        <!-- <field name="domain">[('user_id', '=', uid)]</field> -->
+        <field name="domain">[]</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="project.view_project_kanban"/>
+        <field name="search_view_id" ref="project.view_project_project_filter"/>
+        <field name="target">main</field>
+        <field name="domain">[('state','=','pending')]</field>
+        <field name="context">{'default_state' : 'pending'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No projects found. Let's create one!
+            </p>
+            <p>
+                Projects regroup tasks on the same topic, and each has its dashboard.
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Resources -->
+    <record id="resources_view_tree" model="ir.ui.view">
+        <field name="name">resources.view.tree</field>
+        <field name="model">thiqah.project.resource</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="project_id"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Risk And Issues -->
+    <record id="risks_view_tree" model="ir.ui.view">
+        <field name="name">risks.view.tree</field>
+        <field name="model">thiqah.project.risk</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="risk_status"/>
+                <field name="risk_type_id"/>
+                <field name="project_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Revenue Plans -->
+    <record id="revenue_view_tree" model="ir.ui.view">
+        <field name="name">revenue.view.tree</field>
+        <field name="model">thiqah.revenue.plan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- <field name="sequence" /> -->
+                <field name="status"/>
+                <field name="project_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Deliverables -->
+    <record id="deliverable_tree" model="ir.ui.view">
+        <field name="name">deliverable.view.tree</field>
+        <field name="model">thiqah.project.deliverable</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- <field name="sequence" /> -->
+                <field name="due_date"/>
+                <field name="status"/>
+                <field name="project_id"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Utilizations -->
+    <record id="utilization_tree" model="ir.ui.view">
+        <field name="name">utilization.view.tree</field>
+        <field name="model">thiqah.project.utilization</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- <field name="sequence" /> -->
+                <field name="planned_hours"/>
+                <field name="actual_hours"/>
+                <field name="forecasted_hours"/>
+                <field name="project_id"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

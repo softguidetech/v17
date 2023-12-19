@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+all_access_freelance_request,all_access_freelance_request,model_freelance_request,thiqah_freelance.group_freelance_officer,1,1,1,0
+all_access_freelance_application,all_access_freelance_application,model_freelance_application,thiqah_freelance.group_freelance_officer,1,1,1,0
+all_access_freelance_impact_unit,all_access_freelance_impact_unit,model_freelance_impact_unit,thiqah_freelance.group_freelance_officer,1,1,1,0
+access_freelance_workorder,access_freelance_workorder,model_freelance_workorder,thiqah_freelance.group_freelance_workorder,1,1,1,0
+all_access_res_entity,all_access_res_entity,model_res_entity,,1,1,1,1
+all_access_oracle_config,all_access_oracle_config,model_oracle_config,,1,1,1,0

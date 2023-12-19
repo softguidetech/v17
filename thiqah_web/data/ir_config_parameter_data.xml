@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- <record id="dmax_file_upload_size" model="ir.config_parameter">
+            <field name="key">web.max_file_upload_size</field>
+            <field name="value">10</field>
+        </record>
+ -->
+      
+
+    </data>
+</odoo>

@@ -1,0 +1,27 @@
+.categ {
+  inset: 0;
+  z-index: 10;
+}
+.custom-radio input {
+  display: none;
+}
+
+.radio-btn {
+  margin: 10px;
+  width: 220px;
+  height: 180px;
+  background-color: #daecf9;
+  display: inline-flex;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  color: #30b6e5;
+  font-size: 26px;
+  font-weight: 600;
+}
+.custom-radio input:checked + .radio-btn {
+  transition: all 0.5s;
+  background: #117dbc;
+  color: #fff !important;
+}

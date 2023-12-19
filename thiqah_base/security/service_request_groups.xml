@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="thiqah_service_request_category" model="ir.module.category">
+        <field name="sequence">3</field>
+        <field name="name">Permissions Service Request</field>
+    </record>
+
+
+    <record id="group_update_service_request" model="res.groups">
+        <field name="name">Can Update</field>
+        <field name="comment">Capability to update service request.</field>
+        <field name="category_id" ref="thiqah_base.thiqah_service_request_category" />
+        <!-- <field name="implied_ids" eval="[(4, ref('project.group_project_manager')),(4, ref('thiqah_project.project_manager_group'))]" /> -->
+    </record>
+
+    <record id="group_change_status_service_request" model="res.groups">
+        <field name="name">Can change status</field>
+        <field name="comment">Capability to change status of a service request.</field>
+        <field name="category_id" ref="thiqah_base.thiqah_service_request_category" />
+        <!-- <field name="implied_ids" eval="[(4, ref('project.group_project_manager')),(4, ref('thiqah_project.project_manager_group'))]" /> -->
+    </record>
+
+
+    <record id="group_reject_service_request" model="res.groups">
+        <field name="name">Can reject</field>
+        <field name="comment">Capability to reject a service request.</field>
+        <field name="category_id" ref="thiqah_base.thiqah_service_request_category" />
+        <!-- <field name="implied_ids" eval="[(4, ref('project.group_project_manager')),(4, ref('thiqah_project.project_manager_group'))]" /> -->
+    </record>
+
+</odoo>

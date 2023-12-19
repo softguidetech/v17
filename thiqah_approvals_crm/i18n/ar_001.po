@@ -1,0 +1,211 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* thiqah_approvals_crm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20220401\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-19 10:47+0000\n"
+"PO-Revision-Date: 2022-04-19 10:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: thiqah_approvals_crm
+#: model:ir.actions.report,print_report_name:thiqah_approvals_crm.thiqah_business_commitee_report
+msgid "'Business Committee Tracker'"
+msgstr "'تعقب لجنة الأعمال'"
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.report_thiqah_business_commitee_template
+msgid "<span title=\"Approved\" role=\"img\" class=\"fa  fa-check-circle bg-success\"/>"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.report_thiqah_business_commitee_template
+msgid "<span title=\"Approved\" role=\"img\" class=\"fa fa-check-circle bg-success\"/>"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.report_thiqah_business_commitee_template
+msgid "<span title=\"Pending\" role=\"img\" class=\"fa fa-circle-o\"/>"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.report_thiqah_business_commitee_template
+msgid "<span title=\"Rejected\" role=\"img\" class=\"fa bg-danger fa-time-circle\"/>"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,help:thiqah_approvals_crm.field_approval_category__approval_type
+msgid ""
+"Allows you to define which documents you would like to create once the "
+"request has been approved"
+msgstr ""
+"يتيح لك تحديد أي المستندات سوف ترغب في إنشائها بمجرد أن تتم الموافقة على "
+"الطلب "
+
+#. module: thiqah_approvals_crm
+#: model:ir.model,name:thiqah_approvals_crm.model_approval_category
+msgid "Approval Category"
+msgstr "فئة الموافقة "
+
+#. module: thiqah_approvals_crm
+#: model:ir.model,name:thiqah_approvals_crm.model_approval_request
+msgid "Approval Request"
+msgstr "طلب موافقة "
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_approval_category__approval_type
+msgid "Approval Type"
+msgstr "نوع الموافقة"
+
+#. module: thiqah_approvals_crm
+#: model:ir.model,name:thiqah_approvals_crm.model_approval_category_approver
+msgid "Approval Type Approver"
+msgstr "مُعتمِد نوع الموافقة "
+
+#. module: thiqah_approvals_crm
+#: model:ir.model,name:thiqah_approvals_crm.model_approval_approver
+msgid "Approver"
+msgstr "مُعتَمِد "
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.report_thiqah_business_commitee_template
+msgid "Business Committee Members"
+msgstr "أعضاء لجنة الأعمال"
+
+#. module: thiqah_approvals_crm
+#: code:addons/thiqah_approvals_crm/report/business_committee_tracker.py:0
+#: model:ir.actions.act_window,name:thiqah_approvals_crm.action_thiqah_report_commitee_tracker_wizard
+#: model:ir.actions.report,name:thiqah_approvals_crm.thiqah_business_commitee_report
+#: model:ir.ui.menu,name:thiqah_approvals_crm.menu_thiqah_commitee_tracker_report
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.thiqah_report_commitee_tracker_wizard
+#, python-format
+msgid "Business Committee Tracker"
+msgstr "تعقب لجنة الأعمال"
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields.selection,name:thiqah_approvals_crm.selection__approval_category__approval_type__crm_evaluation
+msgid "CRM Evaluation"
+msgstr "تقييم الكراسة"
+
+#. module: thiqah_approvals_crm
+#: model:approval.category,name:thiqah_approvals_crm.approval_category_data_crm_evaluation
+msgid "CRM Evaluation Approval"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.thiqah_report_commitee_tracker_wizard
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_business_committee_tracker_report__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_business_committee_tracker_report__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.report_thiqah_business_commitee_template
+msgid "Customer"
+msgstr "الجهة"
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_business_committee_tracker_report__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_business_committee_tracker_report__id
+msgid "ID"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_business_committee_tracker_report____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_business_committee_tracker_report__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_business_committee_tracker_report__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_approval_request__opportunity_id
+msgid "Opportunity"
+msgstr "الفرصة"
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.report_thiqah_business_commitee_template
+msgid "Opportunity Name"
+msgstr "أسم الفرصة "
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_business_committee_tracker_report__filter_date
+msgid "Period"
+msgstr "الفترة"
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.thiqah_report_commitee_tracker_wizard
+msgid "Print"
+msgstr "طباعة"
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.thiqah_report_commitee_tracker_wizard
+msgid "Print Business Committee Tracker"
+msgstr "طباعة تقرير تعقب لجنة الأعمال"
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.report_thiqah_business_commitee_template
+msgid "Request Date"
+msgstr "تاريخ رفع حالة الأعمال "
+
+#. module: thiqah_approvals_crm
+#: model_terms:ir.ui.view,arch_db:thiqah_approvals_crm.report_thiqah_business_commitee_template
+msgid "Result Final"
+msgstr "القرار النهائي للجنة "
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields.selection,name:thiqah_approvals_crm.selection__business_committee_tracker_report__filter_date__month
+msgid "This Month"
+msgstr "هذا الشهر"
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields.selection,name:thiqah_approvals_crm.selection__business_committee_tracker_report__filter_date__quarter
+msgid "This Quarter"
+msgstr "هذا الربع"
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields.selection,name:thiqah_approvals_crm.selection__business_committee_tracker_report__filter_date__week
+msgid "This Week"
+msgstr "هذا الاسبوع"
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields.selection,name:thiqah_approvals_crm.selection__business_committee_tracker_report__filter_date__year
+msgid "This Year"
+msgstr "هذه السنة"
+
+#. module: thiqah_approvals_crm
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_approval_approver__vote_value
+#: model:ir.model.fields,field_description:thiqah_approvals_crm.field_approval_category_approver__vote_value
+msgid "Vote Value"
+msgstr "عدد الاصوات"
+
+#. module: thiqah_approvals_crm
+#: model:ir.model,name:thiqah_approvals_crm.model_business_committee_tracker_report
+msgid "business.committee.tracker.report"
+msgstr ""

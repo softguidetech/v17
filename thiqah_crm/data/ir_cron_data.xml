@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record forcecreate="True" id="ir_cron_crm_notif_before_proposal_deadline" model="ir.cron">
+            <field name="name">CRM: Notification Before Proposal Deadline</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_notification_before_proposal_deadline()</field>
+            <field name="active" eval="True"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+
+        <record forcecreate="True" id="ir_cron_crm_notif_before_contract_deadline" model="ir.cron">
+            <field name="name">CRM: Notification Before Contract Deadline</field>
+            <field name="model_id" ref="thiqah_crm.model_thiqah_contract"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_notify_contract_responsible()</field>
+            <field name="active" eval="True"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+
+        <record forcecreate="True" id="ir_cron_crm_set_overdue" model="ir.cron">
+            <field name="name">CRM: Set To Overdue After Deadline</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_set_overdue()</field>
+            <field name="active" eval="True"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <record forcecreate="True" id="ir_cron_sla_notif_before_sla_deadline" model="ir.cron">
+            <field name="name">SLA: Notification Before Sla Deadline</field>
+            <field name="model_id" ref="helpdesk.model_helpdesk_sla"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_notification_before_sla_deadline()</field>
+            <field name="active" eval="True"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <record forcecreate="True" id="ticket_progress" model="ir.cron">
+            <field name="name">Ticket Progress</field>
+            <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
+            <field name="state">code</field>
+            <field name="code">model.cron_ticket_progress()</field>
+            <field name="active" eval="True"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <!-- any winning opportunity in the last year will be archived automatically.  -->
+        <record forcecreate="True" id="archive_winning_opportunities" model="ir.cron">
+            <field name="name">Archive Winning Ahad Opportunities</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="state">code</field>
+            <field name="code">model.archive_winning_opportunities()</field>
+            <field name="active" eval="True"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">6</field>
+            <field name="interval_type">months</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

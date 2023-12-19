@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+
+		<record id="group_inquiry_user" model="res.groups">
+			<field name="name">Inquiry User</field>
+			<field name="comment">User with this group access only his inquiries requests</field>
+		</record>
+
+		<record id="group_inquiry_officer" model="res.groups">
+			<field name="name">Inquiry Officer</field>
+			<field name="implied_ids" eval="[(4, ref('thiqah_inquiry.group_inquiry_user'))]" />
+			<field name="comment">User with this group access all data related inquiry requests</field>
+		</record>
+
+		<record model="ir.rule" id="user_can_edit_irequest_assigned_to_him">
+			<field name="name">User can edit request assigned to him</field>
+			<field name="model_id" ref="thiqah_inquiry.model_inquiry_request"/>
+			<field name="domain_force">[('user_id', '=', user.id)]</field>
+			<field name="groups" eval="[(4,ref('base.group_user'))]"/>
+		</record>
+
+		<record model="ir.rule" id="irequest_user_access_all">
+			<field name="name">Inquiry request user access all</field>
+			<field name="model_id" ref="thiqah_inquiry.model_inquiry_request"/>
+			<field name="domain_force">[(1, '=', 1)]</field>
+			<field name="groups" eval="[(4,ref('thiqah_inquiry.group_inquiry_user'))]"/>
+		</record>
+
+	</data>
+</odoo>

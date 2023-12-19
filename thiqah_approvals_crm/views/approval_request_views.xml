@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="thiqah_approval_purchase_request_view_form_inherit"
+		model="ir.ui.view">
+		<field name="name">approval.purchase.request.thiqah.form.inherit
+		</field>
+		<field name="model">approval.request</field>
+		<field name="inherit_id"
+			ref="approvals.approval_request_view_form" />
+		<field name="arch" type="xml">
+			<field name="category_id" position="after">
+				<field name="opportunity_id" invisible="not opportunity_id"/>
+<!--				attrs="{'invisible':[('opportunity_id','=',False)]}"-->
+			</field>
+
+			<xpath expr="//page/field[@name='approver_ids']/tree"
+				position="inside">
+
+				<field name="vote_value" />
+
+			</xpath>
+			<div class="oe_chatter" position="replace">
+				<div class="oe_chatter">
+				 <field name="message_follower_ids" groups="base.group_user" /> 
+					<field name="activity_ids"/>
+					<!-- <field name="message_ids" /> -->
+				</div>
+			</div>
+		</field>
+	</record>
+
+	<record id="thiqah_approval_category_approver_view_tree"
+		model="ir.ui.view">
+		<field name="name">approval.category.approver.thiqah.tree</field>
+		<field name="model">approval.category.approver</field>
+		<field name="inherit_id"
+			ref="approvals.approval_category_approver_view_tree" />
+		<field name="arch" type="xml">
+
+			<xpath expr="//tree" position="inside">
+
+				<field name="vote_value" />
+
+			</xpath>
+
+		</field>
+	</record>
+
+
+
+</odoo>

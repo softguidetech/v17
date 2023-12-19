@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="workflow_from_view" model="ir.ui.view">
+        <field name="name">workflow.workflow.form</field>
+        <field name="model">workflow.workflow</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="btn_reload_workflow" string="Update" type="object" class="oe_highlight" icon="fa-refresh"/>
+                    <button name="mapping_records_criterias" string="Mapping" type="object" class="oe_highlight" icon="fa-refresh"/>
+<!--                    <button name="initialize_global_state" string="Initialize" type="object" class="oe_highlight" icon="fa-refresh" confirm="Are you sure? All configuration will be lost" attrs="{'invisible':[('is_stateful','=',False)]}"/>-->
+                    <button name="initialize_global_state" string="Initialize" type="object" class="oe_highlight" icon="fa-refresh" confirm="Are you sure? All configuration will be lost" invisible="not is_stateful"/>
+                </header>
+                <sheet>
+                    <!-- <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" groups="helpdesk.group_helpdesk_manager" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_toggle" />
+                        </button>
+                    </div> -->
+                    <group>
+                        <group name="basic_information">
+                            <field name="name"/>
+                            <field name="model_id" required="1"/>
+                            <field name="is_stateful" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="States">
+                            <field name="state_ids" context="{'default_workflow_id':id}">
+                                <tree delete="1">
+                                    <field name="name"/>
+                                    <field name="technical_name"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Actions">
+                            <field name="action_ids" context="{'default_workflow_id':id}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="type"/>
+                                    <field name="description"/>
+                                    <field name="state_id" domain="[('id','in',parent.state_ids)]"/>
+                                    <field name="state_to" domain="[('id','in',parent.state_ids)]"/>
+                                    <field name="action_type"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Transitions">
+                            <field name="transition_ids" mode="tree,kanban" context="{'default_workflow_id': id}">
+                                <form string="Transitions">
+                                    <group>
+                                        <group>
+                                            <field name="action_id" string='Action to trigger' domain="[('id','in',parent.action_ids)]" options="{'no_create': True, 'no_create_edit':True}"/>
+                                            <field name="name" string="Technical name"/>
+                                            <field name="is_return_transition" />
+<!--                                            <field name="return_to_transition_id" domain="[('workflow_id', '=', workflow_id)]" attrs="{'required': [('is_return_transition', '=', True)], 'invisible': [('is_return_transition', '!=', True)]}"/>-->
+                                            <field name="return_to_transition_id" domain="[('workflow_id', '=', workflow_id)]" required="is_return_transition" invisible="is_return_transition"/>
+                                            <field name="workflow_id" invisible="1"/>
+                                        </group>
+                                        <group>
+                                            <field name="state_from" domain="[('id','in',parent.state_ids)]" options="{'no_create': True, 'no_create_edit':True}"/>
+                                            <field name="state_to" domain="[('id','in',parent.state_ids)]" options="{'no_create': True, 'no_create_edit':True}"/>
+                                            <field name="sequence" />
+                                        </group>
+                                    </group>
+                                    <notebook>
+                                        <page string="Path">
+                                            <field name="transition_validation_ids" context="{'default_workflow_id':id}">
+                                                <tree>
+                                                    <field name="name"/>
+                                                    <field name="type"/>
+                                                </tree>
+                                            </field>
+                                        </page>
+
+                                        <page string="Python Expression">
+                                            <field name="code" widget='ace' options="{'mode': 'python'}" invisible="1"/>
+                                            <field name="model_name" invisible="1"/>
+                                            <label for="code_condition" class="oe_edit_only" string="Condition To Apply" style="width:50%"/>
+                                            <div style="width:50%">
+                                                <field name="code_condition" widget="domain" options="{'model': 'model_name'}"/>
+                                            </div>
+                                        </page>
+
+                                    </notebook>
+                                </form>
+
+                                <tree default_order="sequence" delete="1">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="display_name"/>
+                                    <field name="state_from" domain="[('id','in',parent.state_ids)]" />
+                                    <!-- attrs="{'domain': [('workflow_id','=',parent.id)]}" -->
+                                    <field name="state_to" domain="[('id','in',parent.state_ids)]"/>
+                                    <!-- attrs="{'domain': [('workflow_id','=',parent.id)]}" -->
+                                    <field name="action_id" domain="[('id','in',parent.action_ids)]"/>
+                                </tree>
+
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Criterias -->
+    <record id="criterias_extend_form" model="ir.ui.view">
+        <field name="name">criterias.extend.form</field>
+        <field name="model">workflow.workflow</field>
+        <field name="inherit_id" ref="thiqah_workflow.workflow_from_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='basic_information']" position="after">
+                <group>
+                    <field name="relationship_model_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                </group>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="criterias" string="Criterias">
+                    <field name="criteria_ids">
+                        <tree editable="bottom">
+                            <!-- Model -->
+                            <field name="model"/>
+                            <field name="department_id"/>
+                            <field name="criteria"/>
+                            <field name="criteria_id" invisible="1" force_save="1"/>
+                            <field name="technical_name" invisible="1" force_save="1"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="workflow_tree_view" model="ir.ui.view">
+        <field name="name">workflow.workflow.tree</field>
+        <field name="model">workflow.workflow</field>
+        <field name="arch" type="xml">
+            <tree string="Workflows">
+                <field name="name"/>
+                <field name="model_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+</odoo>

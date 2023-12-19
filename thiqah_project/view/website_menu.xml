@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <function name="unlink" model="website.menu">
+        <value model="website.menu" eval="obj().search([('name', '=', 'Project Management')]).ids"/>
+    </function>
+
+</odoo>

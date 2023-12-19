@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<menuitem id="menu_thiqah_aahd_sales_dashboard" name="Aahd Sales Dashboard" sequence="0" parent="crm.crm_menu_report" action="aahd_dashboard_tag_action" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" />
+
+
+</odoo>

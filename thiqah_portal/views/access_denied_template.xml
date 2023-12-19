@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <template id="thiqah_access_denied_page" name="Access Denied">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="container-fluid">
+                <h1>Access Denied</h1>
+                <p>Sorry, you do not have permission to access this page.</p>
+            </div>
+        </t>
+    </template>
+
+</odoo>

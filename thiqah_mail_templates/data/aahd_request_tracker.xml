@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+
+        <record id="to_do_service_request" model="mail.template">
+            <field name="name">Aahd Requests Tarcker: Action in Service Request</field>
+            <field name="model_id" ref="thiqah_project.model_thiqah_project_service_request"/>
+            <field name="subject">Requests Tracker: Action in Service Request</field>
+            <field name="email_from">{{ (object.user_id.email_formatted or user.email_formatted) }}</field>
+            <field name="email_to">houssem.eddine.adouani@gmail.com</field>
+            <!-- <field name="email_to">{{ (object.partner_email if not object.sudo().partner_id.email or object.sudo().partner_id.email != object.partner_email else '') }}</field> -->
+            <field name="partner_to">{{ object.partner_id.id if object.sudo().partner_id.email and object.sudo().partner_id.email == object.partner_email else '' }}</field>
+            <field name="body_html" type="html">
+                <div>
+                    <div id="_service_request_mail">
+                        <div>
+                            <div class="badge-mail">Ticket Number AAHD-98</div>
+                        </div>
+
+                        <div style="text-align:center;">
+                            <span class="span_mail">Hello</span>
+                        </div>
+                        <div style="text-align:center;">
+                            <div class="cards_">
+                                <div class="card_ card-1">
+                                    <div class="card__icon">
+                                        <i class="fa fa-bolt"></i>
+                                    </div>
+
+                                    <h2 class="card__title">You need to take action in service request AAHD-98.</h2>
+                                    <p class="card__apply">
+                                        <a class="card__link" href="#">Go to <i class="fa fa-arrow-right"></i>
+                                        </a>
+                                    </p>
+                                </div>
+
+                                <div class="footer_">
+
+                                    <h3>AAHD Requests Tracker</h3>
+                                    <h4>2022 <i class="fa fa-copyright"></i>
+                                    </h4>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </field>
+            <field name="lang">{{ object.partner_id.lang or object.user_id.lang or user.lang }}</field>
+            <field name="auto_delete" eval="False"/>
+        </record>
+
+
+    </data>
+</odoo>
+
+
+
+<!-- <div class="card card-1">
+                                <div class="card__icon">
+                                    <i class="fa fa-bolt"></i>
+                                </div>
+
+                                <h2 class="card__title">تحتاج لإتخاذ إجراء على عهد 89 ، تستطيع عرض الطلب </h2>
+                                <p class="card__apply">
+                                    <a class="card__link" href="#">من هنا <i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </p>
+                            </div> -->
+
+
+
+<!-- <div>
+                Dear <t t-out="object.sudo().partner_id.name or 'Madam/Sir'">Madam/Sir</t>,<br /><br />
+                Your request
+                <t t-if="object.get_portal_url()">
+                    <a t-attf-href="/my/ticket/{{ object.id }}/{{ object.access_token }}" t-out="object.name or ''"></a>
+                </t>
+                has been received and is being reviewed by our <t t-out="object.team_id.name or ''">Table legs are unbalanced</t> team.
+                The reference of your ticket is <t t-out="object.id or ''">15</t>.<br />
+
+                <div style="text-align: center; padding: 16px 0px 16px 0px;">
+                    <a style="background-color: #36b4e5; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;" t-att-href="object.get_portal_url()">View the ticket</a><br/>
+                </div>
+
+                To add additional comments, reply to this email.<br/><br/>
+
+                Thank you,<br/><br/>
+                <t t-out="object.team_id.name or 'Helpdesk'">Helpdesk</t> Team.
+                </div> -->

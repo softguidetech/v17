@@ -1,0 +1,308 @@
+.dashboard_user_class {
+  .card_spacing {
+    padding-top: 28px;
+    padding-bottom: 11px;
+  }
+
+  .money_space {
+    padding-left: 10px;
+  }
+
+  // padding: 44px 10px 10px 10px;
+  // .card {
+  //     position: relative;
+  //     display: -webkit-box;
+  //     display: -webkit-flex;
+  //     display: flex;
+  //     -webkit-box-orient: vertical;
+  //     -webkit-box-direction: normal;
+  //     -webkit-flex-direction: column;
+  //     flex-direction: column;
+  //     min-width: 0;
+  //     word-wrap: break-word;
+  //     background-color: #FFFFFF;
+  //     background-clip: border-box;
+  //     border: 1px solid rgba(0, 0, 0, 0.125);
+  //     border-radius: 0.25rem;
+  //     width: 500px;
+  //     height: 389px;
+  //   }
+  // .card-margin {
+  //     margin-bottom: 1.875rem;
+  // }
+
+  .card {
+    border: 0;
+    box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+    -ms-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+  }
+  // .card {
+  //     position: relative;
+  //     display: flex;
+  //     flex-direction: column;
+  //     min-width: 0;
+  //     word-wrap: break-word;
+  //     background-color: #ffffff;
+  //     background-clip: border-box;
+  //     border: 1px solid #e6e4e9;
+  //     border-radius: 8px;
+  // }
+
+  .card .card-header.no-border {
+    border: 0;
+  }
+
+  .card-header {
+    height: 84px !important;
+  }
+
+  // .card .card-header {
+  //     background: none;
+  //     padding: 0 0.9375rem;
+  //     font-weight: 500;
+  //     display: flex;
+  //     align-items: center;
+  //     min-height: 50px;
+  // }
+  // .card-header:first-child {
+  //     border-radius: calc(8px - 1px) calc(8px - 1px) 0 0;
+  // }
+  // .card-title {
+  //     margin-bottom: 0.75rem;
+  //     width: 100%;
+  //     height: 22%;
+
+  // }
+  // .widget-49 .widget-49-title-wrapper {
+  //   display: flex;
+  //   align-items: center;
+  // }
+
+  // .row.spacing-into-card {
+  //   padding-top: 15px;
+  // }
+}
+
+// ._ressources_dashboard{
+
+//   .o_portal_contact_img {
+//     width: 1.3em;
+//     height: 1.3em;
+//     object-fit: cover;
+//   }
+
+//   .mb-0 {
+//     font-size: 0.8rem !important;
+//   }
+
+// }
+
+.border-left-card {
+  border-left: 2px solid hsla(0, 0%, 50%, 0.2);
+}
+
+.description-spacing {
+  margin-top: 10px;
+  margin-bottom: -8px;
+}
+
+// .service-count{
+//   margin-left: -25px;
+//   padding-bottom: 5px;
+//   padding-top: 5px;
+// }
+
+// .border-left-card::before {
+//   content: "";
+//   position: absolute;
+//   left: 0;
+//   width: 4px;
+//   height: 4px;
+//   border-radius: 4px;
+//   background: hsl(210, 70%, 70%);
+//   transform: translateX(-3px);
+// }
+._shadow {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  padding-bottom: 4px;
+}
+
+._font_size {
+  font-size: 16px;
+}
+
+// // progressbar
+
+.progress {
+  height: 6px;
+  overflow: visible;
+  margin-top: -13px;
+}
+
+.progress .progress-bar {
+  position: relative;
+}
+
+.progress .progress-bar {
+  height: 100%;
+  color: inherit;
+}
+
+// .bg-c-red {
+//   background: $turquoise;
+// }
+
+.text-c-green {
+  color: #2ed8b6;
+}
+
+.progress .progress-bar:after {
+  content: "";
+  background: $turquoise;
+  position: absolute;
+  right: -6px;
+  top: -4px;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
+.progress .progress-bar.bg-c-red:after {
+  border: 3px solid $turquoise;
+}
+
+// // arrow
+.icon {
+  position: relative;
+  top: 55%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  top: 22px;
+  width: 40%;
+  height: 5px;
+  background-color: #676e9f !important;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  animation: arrow 700ms linear infinite;
+  left: 21px;
+}
+
+.arrow::after,
+.arrow::before {
+  content: "";
+  position: absolute;
+  width: 61%;
+  height: 5px;
+  right: -5px;
+  background-color: $purple;
+}
+
+.arrow::after {
+  top: -6px;
+  transform: rotate(45deg);
+}
+
+.arrow::before {
+  top: 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(-45deg);
+}
+
+// // Tooltip
+
+// //
+
+// @import url(https://fonts.googleapis.com/css?family=Audiowide);
+
+// /*== start of code for tooltips ==*/
+// .tool {
+//     cursor: help;
+//     position: relative;
+//     text-align: center;
+// }
+
+// /*== common styles for both parts of tool tip ==*/
+// .tool::before,
+// .tool::after {
+//     left: 50%;
+//     opacity: 0;
+//     position: absolute;
+//     z-index: -100;
+// }
+
+// .tool:hover::before,
+// .tool:focus::before,
+// .tool:hover::after,
+// .tool:focus::after {
+//     opacity: 1;
+//     transform: scale(1) translateY(0);
+//     z-index: 100;
+// }
+
+// /*== pointer tip ==*/
+// .tool::before {
+//     border-style: solid;
+//     border-width: 1em 0.75em 0 0.75em;
+//     border-color: #3E474F transparent transparent transparent;
+//     bottom: 100%;
+//     content: "";
+//     margin-left: -0.5em;
+//     transition: all .65s cubic-bezier(.84,-0.18,.31,1.26), opacity .65s .5s;
+//     transform:  scale(.6) translateY(-90%);
+// }
+
+// .tool:hover::before,
+// .tool:focus::before {
+//     transition: all .65s cubic-bezier(.84,-0.18,.31,1.26) .2s;
+// }
+
+// /*== speech bubble ==*/
+// .tool::after {
+//     background: #3E474F;
+//     border-radius: .25em;
+//     bottom: 130%;
+//     color: #EDEFF0;
+//     content: attr(data-tip);
+//     margin-left: -8.75em;
+//     padding: 1em;
+//     transition: all .65s cubic-bezier(.84,-0.18,.31,1.26) .2s;
+//     transform:  scale(.6) translateY(50%);
+//     width: 17.5em;
+//     font-size: 10px;
+// }
+
+// .tool:hover::after,
+// .tool:focus::after  {
+//     transition: all .65s cubic-bezier(.84,-0.18,.31,1.26);
+// }
+
+// .circle-img{
+//   position: absolute;
+//   left: 32%;
+//   top: 12%;
+//   z-index: -1;
+//   right: 0;
+//   margin: 0 auto;
+//   width: 69%;
+//   height: 74%;
+
+// }
+// .rotate {
+//   animation: rotation 8s infinite linear;
+// }
+
+// @keyframes rotation {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(359deg);
+//   }
+// }

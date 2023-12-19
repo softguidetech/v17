@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="transition_validation_form" model="ir.ui.view">
+        <field name="name">workflow.transition.validation.form</field>
+        <field name="model">workflow.transition.validation</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="type" widget="selection_badge"/>
+                        </group>
+                        <group>
+<!--                            <field name="user_ids" widget="many2many_tags" string="By User" readonly="1" force_save="1" attrs="{'invisible':[('type','!=','by_user')]}"/>-->
+                            <field name="user_ids" widget="many2many_tags" string="By User" readonly="1" force_save="1" invisible="type != 'by_user'"/>
+<!--                            <field name="group_ids" widget="many2many_tags" string="By Group" attrs="{'invisible':[('type','!=','by_group')]}"/>-->
+                            <field name="group_ids" widget="many2many_tags" string="By Group" invisible="type != 'by_group'" />
+                        </group>
+                    </group>
+<!--                    <group attrs="{'invisible':[('type','!=','by_user')]}">-->
+                    <group invisible="type != 'by_user'">
+                        <group>
+                            <field name="is_project_manager"/>
+                            <field name="is_project_accoutant" string="Is Project Accountant"/>
+                            <field name="is_hrbp"/>
+                        </group>
+                        <group>
+                            <field name="is_line_management"/>
+                            <field name="creator"/>
+                            <field name="is_stakeholder"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

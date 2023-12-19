@@ -1,0 +1,913 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* client_registration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20220210\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-02 15:19+0000\n"
+"PO-Revision-Date: 2023-11-02 15:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<small id=\"clientNameLength\" class=\"form-text text-muted\" style=\"font-"
+"size: 17px !important;\">Client name must be less than 15 chars!</small>"
+msgstr ""
+"<small id=\"clientNameLength\" class=\"form-text text-muted\" style=\"font-"
+"size: 17px !important;\">يجب أن يكون اسم العميل أقل من 15 حرفًا!</small>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"body2 t-text-gray mt24\">Your client payment request has been "
+"added succesfully.</span>"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"radio-btn d-flex align-items-center justify-content-"
+"center\">Emazad Company</span>"
+msgstr ""
+"<span class=\"radio-btn d-flex align-items-center justify-content-"
+"center\">Emazad  شركة</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"radio-btn d-flex align-items-center justify-content-"
+"center\">Emazad Individual</span>"
+msgstr ""
+"<span class=\"radio-btn d-flex align-items-center justify-content-"
+"center\">Emazad فرد</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"radio-btn d-flex align-items-center justify-content-"
+"center\">SASO</span>"
+msgstr ""
+"<span class=\"radio-btn d-flex align-items-center justify-content-"
+"center\">ساسو</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                            Client Name</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                          إسم العميل</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                            ID Number</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                            رقم الهوية</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Upload Attachments</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        رفع مرفقات</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Account Holder Name</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">اسم صاحب الحساب</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Account</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الحساب</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Bank Country</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">دولة البنك</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Bank</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">البنك</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Branch</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الفرع</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Email</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">البريد إلكتروني</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">IBAN</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Legal representative</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الممثل القانوني</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Mazad number</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">رقم مزاد</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Phone Number</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">رقم الهاتف</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Total Amount</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">المبلغ الإجمالي</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "<span>)</span>"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "<span>Client Payment Request(#</span>"
+msgstr "<span>طلب دفع العميل(#</span>"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__account
+msgid "Account"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Account Holder Name..."
+msgstr "اسم صاحب الحساب..."
+
+#. module: client_registration
+#: model:res.groups,name:client_registration.group_account_payable_creg
+msgid "Account Payable (CReg)"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__account_holder_name
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "Account holder name"
+msgstr "اسم صاحب الحساب"
+
+#. module: client_registration
+#: model:res.groups,name:client_registration.group_account_receivable_creg
+msgid "Account receivable (CReg)"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Account..."
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "Actions"
+msgstr "الإجراء"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "Add New"
+msgstr "إضافة جديد"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Are you sure to delete the document?"
+msgstr "هل أنت متأكد من حذف الملف? "
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Attachments"
+msgstr "المرفقات"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__bank_id
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__bank_name
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "Bank"
+msgstr "البنك"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__bank_country
+msgid "Bank Country"
+msgstr "دولة البنك"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Bank Information"
+msgstr "بيانات البنك"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Bank Name"
+msgstr "إسم البنك"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__branch_id
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__branch_name
+msgid "Branch"
+msgstr "الفرع"
+
+#. module: client_registration
+#: model:res.groups,name:client_registration.group_business_operation_approval_creg
+msgid "Business Operation Approval (CReg)"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Choose..."
+msgstr "إختر..."
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Client Info"
+msgstr "معلومات العميل"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_view_form
+msgid "Client Information"
+msgstr "معلومات العميل"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__client_name
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__client_name
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "Client Name"
+msgstr "إسم العميل"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Client Name..."
+msgstr "إسم العميل..."
+
+#. module: client_registration
+#: code:addons/client_registration/models/workflow_transition.py:0
+#, python-format
+msgid "Client Payment APPROVED"
+msgstr ""
+
+#. module: client_registration
+#: code:addons/client_registration/models/client_registration.py:0
+#, python-format
+msgid "Client Payment Assignment"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Client Payment Details"
+msgstr "تفاصيل دفع العميل"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Client Payment Request"
+msgstr "طلب دفع العميل"
+
+#. module: client_registration
+#: model:ir.ui.menu,name:client_registration.client_payment_menu_act
+#: model:ir.ui.menu,name:client_registration.client_payment_menu_root
+msgid "Client Payments"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model,name:client_registration.model_client_product
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__client_product_id
+msgid "Client Product"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__client_registration_id
+msgid "Client Registration"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Client name"
+msgstr "إسم العميل"
+
+#. module: client_registration
+#: model:ir.actions.act_window,name:client_registration.client_payment_action
+#: model:ir.model,name:client_registration.model_client_payment
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "Clients Payments"
+msgstr "دفع العملاء"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.inherit_portal_dashboard_layout
+msgid "Clients Registrations"
+msgstr "تسجيل العملاء"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_product__code
+msgid "Code"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__concerned_user_ids
+msgid "Concerned User"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_view_form
+msgid "Concerned Users"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__create_uid
+#: model:ir.model.fields,field_description:client_registration.field_client_product__create_uid
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__create_date
+#: model:ir.model.fields,field_description:client_registration.field_client_product__create_date
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Delete"
+msgstr "إحذف"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Delete Document"
+msgstr "حذف الملف"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__display_name
+#: model:ir.model.fields,field_description:client_registration.field_client_product__display_name
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Documents"
+msgstr "الملفات"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid ""
+"Drag Drop or <span class=\"t-text-cyan\">Choose File</span> To\n"
+"                                                        Upload"
+msgstr ""
+"إسحب و أفلت\n"
+"                                                                            أو <span class=\"t-text-cyan\">إختر\n"
+"                                                                            ملف</span> للتحميل"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__email
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Email..."
+msgstr "البريد الإلكتروني"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Finish"
+msgstr "إنهاء"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,help:client_registration.field_client_payment__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Go back to all requests"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__iban
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "IBAN"
+msgstr "الإيبان"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "IBAN..."
+msgstr "الإيبان..."
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__id
+#: model:ir.model.fields,field_description:client_registration.field_client_product__id
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__id
+msgid "ID"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__id_number
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "ID Number"
+msgstr "رقم الهوية"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "ID Number..."
+msgstr "رقم الهوية..."
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,help:client_registration.field_client_payment__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,help:client_registration.field_client_payment__message_needaction
+#: model:ir.model.fields,help:client_registration.field_client_payment__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,help:client_registration.field_client_payment__message_has_error
+#: model:ir.model.fields,help:client_registration.field_client_payment__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Invalid Or Not Exist Country Code"
+msgstr "رمز البلد غير صالح أو غير موجود"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__invoice_created
+msgid "Invoice Created"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__invoice_validated
+msgid "Invoice Validated"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__is_approved
+msgid "Is Approved"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__is_bank_added
+msgid "Is Bank Added"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__is_done
+msgid "Is Done"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__is_in_progress
+msgid "Is In Progress"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__is_visible
+msgid "Is Visible"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment____last_update
+#: model:ir.model.fields,field_description:client_registration.field_client_product____last_update
+#: model:ir.model.fields,field_description:client_registration.field_client_registration____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__last_step_created_at
+msgid "Last Step Create At"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__last_step_created_by
+msgid "Last Step Created By"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__write_uid
+#: model:ir.model.fields,field_description:client_registration.field_client_product__write_uid
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__write_date
+#: model:ir.model.fields,field_description:client_registration.field_client_product__write_date
+#: model:ir.model.fields,field_description:client_registration.field_client_registration__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__legal_representative
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "Legal representative"
+msgstr "الممثل القانوني"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Legal representative..."
+msgstr "الممثل القانوني..."
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__mazad_number
+msgid "Mazad Number"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Mazad number"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Mazad number (125+532425+2574)..."
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Message and communication history"
+msgstr "تاريخ الرسائل والاتصالات"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_product__name
+msgid "Name"
+msgstr ""
+
+#. module: client_registration
+#: code:addons/client_registration/models/client_registration.py:0
+#: code:addons/client_registration/models/client_registration.py:0
+#: code:addons/client_registration/models/client_registration.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "New Client Payment Request"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Next"
+msgstr "التالي"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "No attachments have been added."
+msgstr "لم تتم إضافة أية مرفقات."
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,help:client_registration.field_client_payment__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,help:client_registration.field_client_payment__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,help:client_registration.field_client_payment__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__phone_number
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Phone Number..."
+msgstr "رقم الهاتف..."
+
+#. module: client_registration
+#: model:res.groups,name:client_registration.group_product_manager_creg
+msgid "Product Manager (CReg)"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__state
+msgid "Request Service Status"
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Required attachments:"
+msgstr "المرفقات المطلوبة:"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__sequence
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "Sequence"
+msgstr "الرقم التسلسلي"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "State"
+msgstr "الحالة"
+
+#. module: client_registration
+#: model:ir.model.fields,help:client_registration.field_client_payment__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Thank You!"
+msgstr ""
+
+#. module: client_registration
+#: code:addons/client_registration/controllers/main.py:0
+#, python-format
+msgid ""
+"The attachment does not exist or you do not have the rights to access it."
+msgstr ""
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "There are no clients payments."
+msgstr ""
+
+#. module: client_registration
+#: code:addons/client_registration/models/client_registration.py:0
+#, python-format
+msgid "This client payment request is pending your action: sequence"
+msgstr ""
+
+#. module: client_registration
+#: code:addons/client_registration/models/workflow_transition.py:0
+#, python-format
+msgid "This client payment request was approved: %s"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__total_amount
+msgid "Total Amount"
+msgstr "المبلغ الإجمالي"
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.new_client_payment_modal
+msgid "Total Amount..."
+msgstr "المبلغ الإجمالي..."
+
+#. module: client_registration
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_details
+#: model_terms:ir.ui.view,arch_db:client_registration.client_payment_list
+msgid "Total amount"
+msgstr "المبلغ الإجمالي"
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__traceability_actors_ids
+msgid "Traceability Actors"
+msgstr ""
+
+#. module: client_registration
+#: model:res.groups,name:client_registration.group_treasury_approval_creg
+msgid "Treasury Approval (CReg)"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,help:client_registration.field_client_payment__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,field_description:client_registration.field_client_payment__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model.fields,help:client_registration.field_client_payment__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model,name:client_registration.model_workflow_transition
+msgid "Workflow Transition"
+msgstr ""
+
+#. module: client_registration
+#: model:ir.model,name:client_registration.model_client_registration
+msgid "client.registration"
+msgstr ""

@@ -1,0 +1,2688 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* thiqah_portal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20220210\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-13 13:21+0000\n"
+"PO-Revision-Date: 2023-11-13 13:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "#Goal"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "#Revenue"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "#Value"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "3,7/5"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.submission_succeed_ir_ui_view
+#: model_terms:website.page,arch_db:thiqah_portal.submission_succeed
+msgid ""
+"<br/> Your Service\n"
+"                                Request"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid ""
+"<em class=\"font-weight-normal text-muted\">Requests\n"
+"                                                in\n"
+"                                                Status:</em>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid ""
+"<em class=\"text-muted \">\n"
+"                                                    <small>No description</small>\n"
+"                                                </em>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"<i class=\"bx bx-bell fs-22\"/>\n"
+"                <span class=\"position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger\">\n"
+"                    3<span class=\"visually-hidden\">unread messages</span>\n"
+"                </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_service_request_page
+msgid ""
+"<i class=\"fa fa-download\"/>\n"
+"                                            Download"
+msgstr ""
+"<i class=\"fa fa-download\"/>\n"
+"                                            تحميل"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_service_request_page
+msgid ""
+"<i class=\"fa fa-fw fa-comments\"/>\n"
+"                                            <b>Send message</b>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.submission_succeed_lead_ir_ui_view
+#: model_terms:website.page,arch_db:thiqah_portal.submission_succeed_lead
+msgid ""
+"<i class=\"fa fa-map-marker fa-fw mr-2\"/>\n"
+"                                                <span class=\"o_force_ltr\">Olaya St, As Sahafah,\n"
+"                                                    Riyadh 13321</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.submission_succeed_lead_ir_ui_view
+#: model_terms:website.page,arch_db:thiqah_portal.submission_succeed_lead
+msgid ""
+"<i class=\"fa fa-phone fa-fw mr-2\"/>\n"
+"                                                <span class=\"o_force_ltr\">+966 9200 09575</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_service_request_page
+msgid ""
+"<i class=\"fa fa-print\"/>\n"
+"                                            Print"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid "<small>#</small>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid ""
+"<span class=\"_font_size _shadow\">\n"
+"                                                    Budget:\n"
+"                                                </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid ""
+"<span class=\"_font_size _shadow\">\n"
+"                                                    Spending:\n"
+"                                                </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid "<span class=\"_font_size _shadow\">End Date</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid "<span class=\"_font_size _shadow\">Start Date</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid "<span class=\"_font_size m-l-10 _shadow\">Timeline</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid ""
+"<span class=\"_font_size\">\n"
+"                                                        Persons\n"
+"                                                    </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ressources_dashboard
+msgid ""
+"<span class=\"_font_size\">\n"
+"                Persons\n"
+"            </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "<span class=\"badge badge-soft-light fs-13\"> 4 New</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.request_status
+msgid "<span class=\"body2 mx-2 font-weight-bold\">Currently:</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.request_attachment_followup
+msgid "<span class=\"body2 t-text-dark-gray font-weight-bold\">Description</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.request_attachment_followup
+msgid "<span class=\"body2 t-text-dark-gray font-weight-bold\">Document</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid ""
+"<span class=\"body2 t-text-gray mt24\">Your service request has been added "
+"succesfully.</span>"
+msgstr "<span class=\"body2 t-text-gray mt24\">تم إضافة طلب الخدمة بنجاح.</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"body2\">The data below shows the data of all clients.</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            Actual Revenue\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            الإيرادات الفعلية\n"
+"                                                            </span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            Acutal Available Balance</span>"
+msgstr ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            الرصيد الفعلي المتاح</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            Available\n"
+"                                                                Projects Budget\n"
+"                                                            </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            Balance After Commitment\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            الرصيد المتاح بعد الالتزامات\n"
+"                                                            </span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            Margin\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            هامش الربح\n"
+"                                                            </span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            Number\n"
+"                                                                of BRs\n"
+"                                                            </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            Total Of HC\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                           إجمالي رأس المال البشري\n"
+"                                                            </span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            Total POS\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            إجمالي أوامر الشراء\n"
+"                                                            </span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            Total Utilization With Margin and VAT\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            جميع المصروفات \n"
+"                                                            </span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            VAT\n"
+"                                                            </span>"
+msgstr ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                            ضريبة القيمة المضافة\n"
+"                                                            </span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"<span class=\"caption t-text-gray text-uppercase\">\n"
+"                                                           Commitment from Available Projects Budget\n"
+"                                                            </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"caption t-text-gray text-uppercase\">Highest Score:</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"caption t-text-gray text-uppercase\">LOWest Score:</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"caption t-text-gray text-uppercase\">NPS</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"caption t-text-gray text-uppercase\">Overall CSAT</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid ""
+"<span class=\"caption t-text-gray\">\n"
+"                                                        Number Of Freelance Requests\n"
+"                                                        </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid ""
+"<span class=\"caption t-text-gray\">\n"
+"                                                        Number Of Leads/Opportunities</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid ""
+"<span class=\"caption t-text-gray\">\n"
+"                                                        Number Of Partner Inquiries\n"
+"                                                        </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid ""
+"<span class=\"caption t-text-gray\">\n"
+"                                                        Number Of Service Requests</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "<span class=\"card-header heading-5\">Actual Cost</span>"
+msgstr "<span class=\"card-header heading-5\">التكلفة الفعلية</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "<span class=\"card-header heading-5\">By Department</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "<span class=\"card-header heading-5\">By User</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "<span class=\"card-header heading-5\">Commitments</span>"
+msgstr "<span class=\"card-header heading-5\">الالتزامات</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "<span class=\"card-header heading-5\">Contract</span>"
+msgstr "<span class=\"card-header heading-5\">العقود</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "<span class=\"card-header heading-5\">Invoices</span>"
+msgstr "<span class=\"card-header heading-5\">الفواتير</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"client-name\">Client Four</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"client-name\">Client One</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"client-name\">Client Three</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"client-name\">Client Tow</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"client-name\">Project Four</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"client-name\">Project One</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"client-name\">Project Three</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"client-name\">Project Tow</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.submission_succeed_lead_ir_ui_view
+#: model_terms:website.page,arch_db:thiqah_portal.submission_succeed_lead
+msgid ""
+"<span class=\"fa fa-check-circle\"/>\n"
+"                                            <span>We will contact you <b>very soon</b>. </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid ""
+"<span class=\"font-weight-bold\"> Overall </span>\n"
+"                                        <span>SAR 320,000,000 </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid ""
+"<span class=\"font-weight-bold\"> PTD Margin</span>\n"
+"                                        <span>SAR 29,424,439 (11.5%)</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid ""
+"<span class=\"font-weight-bold\"> Thiqah \n"
+"                                        </span>\n"
+"                                        <span>SAR 160,000,000 (50%)</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid ""
+"<span class=\"font-weight-bold\">Values</span>\n"
+"                                        <span>SAR 255,177,127</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "<span class=\"h2 font-weight-bold blue-text\">Company</span>"
+msgstr "<span class=\"h2 font-weight-bold blue-text\">الشركة</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "<span class=\"h2 font-weight-bold blue-text\">Email</span>"
+msgstr "<span class=\"h2 font-weight-bold blue-text\">البريد الإلكتروني</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "<span class=\"h2 font-weight-bold blue-text\">First Name</span>"
+msgstr "<span class=\"h2 font-weight-bold blue-text\">الاسم الأول</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "<span class=\"h2 font-weight-bold blue-text\">Last Name</span>"
+msgstr "<span class=\"h2 font-weight-bold blue-text\">اسم العائلة</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "<span class=\"h2 font-weight-bold blue-text\">Note</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "<span class=\"h2 font-weight-bold blue-text\">Phone Number</span>"
+msgstr "<span class=\"h2 font-weight-bold blue-text\">رقم الجوال</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid ""
+"<span class=\"heading-1 text-right\" style=\"width:100%\">\n"
+"                                    65%\n"
+"                                </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid ""
+"<span class=\"heading-1 text-right\">\n"
+"                                    65%\n"
+"                                </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid ""
+"<span class=\"heading-1 text-right\">\n"
+"                                    87%\n"
+"                                </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid "<span class=\"heading-5\">By Client</span>"
+msgstr "<span class=\"heading-5\">حسب العميل</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid "<span class=\"heading-5\">By Creation Date</span>"
+msgstr "<span class=\"heading-5\">حسب تاريخ الانشاء</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid "<span class=\"heading-5\">Requests By Category</span>"
+msgstr "<span class=\"heading-5\">حسب النوع</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"heading-7\">12%</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span class=\"heading-7\">4%</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid ""
+"<span class=\"ml16 caption t-text-cyan text-uppercase\">\n"
+"                                                    Late <br/> Requests</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-cyan text-uppercase\">\n"
+"                                                    الطلبات <br/>المتأخرة </span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.department_task_dashboard_id
+msgid ""
+"<span class=\"ml16 caption t-text-cyan text-uppercase\">\n"
+"                                                    Requiring <br/> actions</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-cyan text-uppercase\">\n"
+"                                                    تحتاج <br/> إجراء</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid ""
+"<span class=\"ml16 caption t-text-purple text-uppercase\">\n"
+"                                                    Active <br/> Requests</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-purple text-uppercase\">\n"
+"                                                    الطلبات <br/> النشطة</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.department_task_dashboard_id
+msgid ""
+"<span class=\"ml16 caption t-text-purple text-uppercase\">\n"
+"                                                    Draft <br/> Requests</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-purple text-uppercase\">\n"
+"                                                    الطلبات <br/> المسودة</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid ""
+"<span class=\"ml16 caption t-text-turquoise text-uppercase\">\n"
+"                                                    Requests <br/> Due Today</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-turquoise text-uppercase\">\n"
+"                                                    طلبات <br/> تتطلب إجراء</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.department_task_dashboard_id
+msgid ""
+"<span class=\"ml16 caption t-text-turquoise text-uppercase\">\n"
+"                                                    Service <br/> requests</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-turquoise text-uppercase\">خدماتي</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid ""
+"<span class=\"ml16 caption text-uppercase t-text-dark-blue\">\n"
+"                                                    SLA </span>"
+msgstr ""
+"<span class=\"ml16 caption text-uppercase t-text-dark-blue\">\n"
+"                                                    إس إل إي </span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                            Attachment(s)</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                            Description</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                            الوصف</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                        Attachment(s)</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                        Description</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                            الوصف</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Client</span>\n"
+"                                        <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        العميل</span>\n"
+"                                        <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Department</span>\n"
+"                                        <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        الادارة</span>\n"
+"                                        <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Description</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        الوصف</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Document\n"
+"                                                        Description</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        وصف\n"
+"                                                        المرفقات</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Project</span>\n"
+"                                        <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        المشروع</span>\n"
+"                                        <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Remarks</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        الملاحظات</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    Upload Attachments</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    رفع المرفقات</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">Request\n"
+"                                                        Date</span>\n"
+"                                        <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">تاريخ\n"
+"                                                        الطلب</span>\n"
+"                                        <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid ""
+"<span class=\"s_website_form_label_content\">Service\n"
+"                                                        Catalog</span>\n"
+"                                        <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">نوع\n"
+"                                                        الخدمة</span>\n"
+"                                        <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid ""
+"<span id=\"message_justification\">\n"
+"                <i class=\"fa fa-exclamation-triangle custom_exclamation\"/>\n"
+"Sorry, this stage need a justification. </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_wizard_checkout
+msgid ""
+"<span style=\"color:white;font-weight:900;\">\n"
+"                        Need HR APPROVAL\n"
+"            </span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"<span>\n"
+"                                                <i class=\"mdi mdi-clock-outline\"/> 10 hrs ago</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"<span>\n"
+"                                                <i class=\"mdi mdi-clock-outline\"/> 2 hrs ago</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"<span>\n"
+"                                                <i class=\"mdi mdi-clock-outline\"/> 3 days ago</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"<span>\n"
+"                                                <i class=\"mdi mdi-clock-outline\"/> 30 min ago</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"<span>\n"
+"                                                <i class=\"mdi mdi-clock-outline\"/> 4 hrs ago</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"<span>\n"
+"                                                <i class=\"mdi mdi-clock-outline\"/> 48 min ago</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"<span>\n"
+"                                                <i class=\"mdi mdi-clock-outline\"/> Just 30 sec\n"
+"                                                ago</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid "<span>$</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid "<span>Details</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span>End User CES</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span>End Users CSAT</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "<span>End Users NPS</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.candidate_language_template
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "<span>English</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid "<span>Financials</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid ""
+"<span>Please check the date,\n"
+"                                                            it seems to be a later\n"
+"                                                            date.</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid "<span>Requests</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.candidate_language_template
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "<span>العربية</span>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.tracking_section
+msgid "<strong class=\"col-lg-6 spacing\">Actual Working Date</strong>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.tracking_section
+msgid "<strong class=\"col-lg-6 spacing\">Remaining Day</strong>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.tracking_section
+msgid "<strong class=\"col-lg-6 spacing\">SLA End Date</strong>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.tracking_section
+msgid "<strong class=\"col-lg-6 spacing\">SLA</strong>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_service_request_page
+msgid ""
+"<strong class=\"text-muted\">\n"
+"                                       Created By\n"
+"                                    </strong>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.actions.client,name:thiqah_portal.aahd_dashboard_tag_action
+#: model:ir.ui.menu,name:thiqah_portal.menu_thiqah_aahd_sales_dashboard
+msgid "Aahd Sales Dashboard"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_access_denied_page
+msgid "Access Denied"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid "Actions"
+msgstr "إجراء"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"Actual\n"
+"                                                    Revenue"
+msgstr "الإيرادات الفعلية"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Actual Available Balance"
+msgstr "الرصيد الفعلي الحالي"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Actual Revenue"
+msgstr "الإيرادات الفعلية"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid "Add"
+msgstr "إضافة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Add New"
+msgstr "إضافة جديد"
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/chatter.xml:0
+#, python-format
+msgid "Add attachment"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "Alerts"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "All"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "All (4)"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "All Clients"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal._portal_dashboard
+msgid "All Projects"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "All Times"
+msgstr "الكل"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "AllClients"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#, python-format
+msgid ""
+"An error occurred. Your changes have not been saved, try again later.Please "
+"refresh and try again."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "Angela Bernier"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"Answered to your comment on the cash\n"
+"                                                flow forecast's\n"
+"                                                graph 🔔."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+msgid ""
+"Approve\n"
+"                                                                Justification"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.request_status
+msgid "Approved"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Are you sure you wish to proceed?"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "As the project manager, you cannot modify this request at this stage."
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__assign_number
+msgid "Assign To Number"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__assign_to
+msgid "Assing To"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model,name:thiqah_portal.model_ir_attachment
+msgid "Attachment"
+msgstr "مرفق"
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/chatter.xml:0
+#, python-format
+msgid "Avatar"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Back"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Balance After Commitment"
+msgstr "الرصيد المتاح بعد الالتزامات"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "Billed"
+msgstr "المفوتر"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "Billed without VAT"
+msgstr "المفوتر من دون ضريبة القيمة المضافة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid ""
+"Budget\n"
+"                                                            value"
+msgstr "قيمة الميزانية"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "Budget Value"
+msgstr "قيمة الميزانية"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Business Services Project (PA)"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "By Category"
+msgstr "حسب الفئة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "By Client"
+msgstr "حسب العميل"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "By Client Filter"
+msgstr "فلتر حسب العميل"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "By Department"
+msgstr "حسب الإدارة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "By Period"
+msgstr "حسب الفترة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid "By Sla Indicator"
+msgstr "حسب مؤشرات   إس ال اي"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "By User"
+msgstr "حسب المستخدم"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Choose Project"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.select_catalog
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.select_department
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.select_partner
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.select_project
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid "Choose..."
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+#, python-format
+msgid "Client"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid "Close"
+msgstr "إغلاق"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "Collected"
+msgstr "المبالغ المحصلة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.aahd_generate_lead
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_portal_searchbar
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_service_request_page
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ressources_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Contact"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Copyright &amp;copy;"
+msgstr "العلامة التجارية وجميع الحقوق محفوظة &amp;copy;"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "Cost Plan"
+msgstr "خطة التكاليف"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__create_uid
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__create_uid
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Created by"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__create_date
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__create_date
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Created on"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid "Current Requests"
+msgstr "الطلبات الحالية"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.request_status
+msgid "Current Status of this Service Request"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__current_step
+msgid "Current Step"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.department_task_dashboard_id
+msgid "Current requests"
+msgstr "الطلبات الحالية"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Customer Centricity"
+msgstr "التمحور حول العميل"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Customer Centricity Analytics"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Dashboard User"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/chatter.xml:0
+#, python-format
+msgid "Delete"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+#, python-format
+msgid "Department"
+msgstr "الادارة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Description"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Digital Statistics"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Discard"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__display_name
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Distribution"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.request_attachment_followup
+msgid "Documents"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_service_request_page
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_portal_searchbar
+msgid "Download"
+msgstr "تحميل"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.department_task_dashboard_id
+msgid "Draft Requests"
+msgstr "الطلبات المسودة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+msgid ""
+"Drag Drop\n"
+"                                                                            or <span class=\"t-text-cyan\">Choose\n"
+"                                                                            File</span> To Upload"
+msgstr ""
+"إسحب و أفلت\n"
+"                                                                            أو <span class=\"t-text-cyan\">إختر\n"
+"                                                                            ملف</span> للتحميل"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+msgid ""
+"Drag Drop or <span class=\"t-text-cyan\">Choose\n"
+"                                                                            File</span> To Upload"
+msgstr ""
+"إسحب و أفلت أو<span class=\"t-text-cyan\">إختر\n"
+"                                                                            ملف</span> للتحميل"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid ""
+"Drag Drop or <span class=\"t-text-cyan\">Choose File</span> To\n"
+"                                                    Upload"
+msgstr ""
+"إسحب و أفلت أو<span class=\"t-text-cyan\">إختر ملف</span> \n"
+"                                                    للتحميل"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "Due"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.aahd_generate_lead
+msgid "Email..."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Empty"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "End Users Operational indicators (Ivanti)"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "Enter Company Name"
+msgstr "أدخل اسم الشركة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "Enter Email"
+msgstr "أدخل البريد الإلكتروني"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "Enter First Name"
+msgstr "أدخل الاسم الأول"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "Enter Last Name"
+msgstr "أدخل اسم العائلة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "Enter Phone Number"
+msgstr "أدخل رقم الجوال"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Escalation Tickets (Executive CRM)"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "Example label"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Filter"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_portal_searchbar
+msgid "Filter By"
+msgstr "تصفية حسب"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "Filter by"
+msgstr "تصفية حسب"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Financial Dashboard"
+msgstr "لوحة تحكم المالية"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Financials for Business Services"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Financials for Smart Product"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#, python-format
+msgid "First"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_mail_mail__for_approve_reject
+#: model:ir.model.fields,field_description:thiqah_portal.field_mail_message__for_approve_reject
+msgid "For Approve Reject"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Freelance Payments"
+msgstr "دفع العمل الحر"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Freelance Requests"
+msgstr "العمل الحر"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Freelance Requests (TOP 5)"
+msgstr "طلبات العمل الحر (أعلى 5)"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__partner_from
+msgid "From"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid "Go back to all requests"
+msgstr "العودة إلى جميع الطلبات"
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Goal"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid "Good morning,"
+msgstr "أهلا،"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_portal_searchbar
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.submission_succeed_ir_ui_view
+#: model_terms:website.page,arch_db:thiqah_portal.submission_succeed
+msgid "Hello"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid ""
+"Here’s where you’ll view a summary of your status, priorities, workload, and\n"
+"                    more"
+msgstr ""
+"في ما يلي المكان الذي ستعرض فيه ملخصا لحالتك وأولوياتك وعبء العمل والمزيد"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "Hey! You have no any notifications"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_service_request_page
+msgid "History"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Home"
+msgstr "الرئيسية"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__id
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__id
+msgid "ID"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/chatter.xml:0
+#, python-format
+msgid "Internal"
+msgstr "داخلي"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__is_triggered
+msgid "Is Triggered"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "James Lemire"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Justification"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "KDM Satisfaction (Marketing Research)"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "Kenneth Brown"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Label"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#, python-format
+msgid "Last"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Last 3 Month"
+msgstr "آخر 3 أشهر"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Last 6 Month"
+msgstr "آخر 6 أشهر"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request____last_update
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Last Month"
+msgstr "آخر شهر"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__last_step
+msgid "Last Step"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__last_step_created_at
+msgid "Last Step Create At"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__last_step_created_by
+msgid "Last Step Created By"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__write_uid
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__write_date
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Last Week"
+msgstr "الأسبوع الأخير"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Last Year"
+msgstr "السنة الأخيرة"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Last month"
+msgstr "الشهر الماضي"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Last week"
+msgstr "الاسبوع الماضي"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Last year"
+msgstr "السنة الأخيرة"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "Late"
+msgstr "متأخر"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Leads &amp; Opportunities (TOP 5)"
+msgstr "الفرص"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "Liability"
+msgstr "التزامات"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Log in (TOP 5)"
+msgstr "الدخول على النظام (أعلى 5 )"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Logo"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "MISC"
+msgstr "مصاريف النثريات"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "MP"
+msgstr "الموظفين"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Managed by"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+#, python-format
+msgid "Margin"
+msgstr "هامش الربح"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "Margin ($)"
+msgstr "هامش الربح ($)"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "Margin (%)"
+msgstr "هامش الربح (%)"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Marketing Activities (CRM)"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "Maureen Gibson"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"Mentionned you in his comment on 📃\n"
+"                                                invoice #12501."
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model,name:thiqah_portal.model_mail_message
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__message_id
+msgid "Message"
+msgstr "الرسالة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Message and communication history"
+msgstr "تاريخ الرسائل والاتصالات"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "Messages"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Monthly Growth"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Monthly Revenue"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "N/A"
+msgstr "غير متوفر"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.aahd_generate_lead
+msgid "Name..."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+msgid "New Service Requests"
+msgstr "طلب خدمة جديد"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Newest"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.pager_custom
+#, python-format
+msgid "Next"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.request_status
+msgid "Next:"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notes_request
+msgid "No Remarks"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.request_attachment_followup
+msgid "No attachments have been added."
+msgstr "لم تتم إضافة أية مرفقات."
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "No justifications have been added."
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Non-digital Statistics"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "None"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "Note..."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notes_request
+msgid "Notes"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "Notifications"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Number Of Freelance Requests"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Number Of Leads/Opportunities"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Number Of Partner Inquiries"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Number Of Service Requests"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Oldest"
+msgstr "الأقدم"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "On Time"
+msgstr "في الوقت"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Opportunities Business Cases (CRM)"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Opportunities Received"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Opportunity Value"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "POS"
+msgstr "أوامر الشراء"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Partner Enquiries (TOP 5)"
+msgstr "استفسارات الشركاء (أعلى 5)"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.aahd_generate_lead
+msgid "Phone Number..."
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#, python-format
+msgid "Please fill in the form correctly."
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#, python-format
+msgid "Please refresh and try again."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.pager_custom
+msgid "Prev"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#, python-format
+msgid "Previous"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_service_request_page
+msgid "Print"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__process_name
+msgid "Process Name"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Product Debt"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Product Project Status (EPMO)"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+#, python-format
+msgid "Project"
+msgstr "مشروع"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid "Project Details"
+msgstr "تفاصيل المشاريع"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Project Management"
+msgstr "إدارة المشاريع"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal._portal_dashboard
+msgid "Project Managment"
+msgstr "إدارة المشاريع"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Project accountant"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal._portal_dashboard
+msgid "Projects"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Projects Summary"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "Projects value"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/chatter.xml:0
+#, python-format
+msgid "Public"
+msgstr "عام"
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#, python-format
+msgid "Qualtiy Winning Rate"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Quantity Winning Rate"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#, python-format
+msgid "Recently Awarded Projects"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.aahd_generate_lead
+msgid "Register Your Interset"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+msgid "Reject"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+msgid ""
+"Reject\n"
+"                                                            Justification"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__related_code
+msgid "Related Code"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_actions
+msgid "Request"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid "Request By Status"
+msgstr "الطلبات حسب الحالة"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__date
+msgid "Request Date"
+msgstr "تاريخ الطلب"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__service_request_id
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid "Request ID"
+msgstr "معرف الطلب"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid "Requester"
+msgstr "مقدم الطلب"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid "Requests By Department"
+msgstr "حسب الادارة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_requests_dashboard
+msgid "Requests analysis"
+msgstr "تحليل الطلبات"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_res_users__requiring_action_id
+msgid "Requiring Action"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.actions.server,name:thiqah_portal.requiring_action_cron_ir_actions_server
+#: model:ir.cron,cron_name:thiqah_portal.requiring_action_cron
+#: model:ir.cron,name:thiqah_portal.requiring_action_cron
+msgid "Requiring Action Cron Job"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.department_task_dashboard_id
+msgid "Requiring Actions"
+msgstr "تحتاج إجراء"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid "SLA"
+msgstr "إس ال اي"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid ""
+"SLA\n"
+"                                                Indicator"
+msgstr "مستوى الخدمة"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_portal_searchbar
+msgid "Search"
+msgstr "إبحث"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Search in All"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Search in Client"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Search in Departments"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Search in Projects"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Search in Requests"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Search in Service Catalog(s)"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Search in Status"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.dashboard_portal_user
+msgid ""
+"Service\n"
+"                                                        Requests"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid ""
+"Service\n"
+"                                            Catalog"
+msgstr "نوع الطلب"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__service_catalog
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+#, python-format
+msgid "Service Catalog"
+msgstr "نوع الطلب"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "Service Request REJECTED"
+msgstr "طلب خدمة مرفرض"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.department_task_dashboard_id
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid "Service Requests"
+msgstr "خدماتي"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Service Requests (TOP 5)"
+msgstr "طلبات الخدمة (أعلى 5)"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__service_status
+msgid "Service Status"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/models/ir_attachment.py:0
+#: code:addons/thiqah_portal/models/ir_attachment.py:0
+#, python-format
+msgid "Sorry, you are not allowed to access this document."
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#, python-format
+msgid "Sorry, you are not allowed to do this action."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_access_denied_page
+msgid "Sorry, you do not have permission to access this page."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_portal_searchbar
+msgid "Sort By"
+msgstr "ترتيب حسب"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.request_status
+#, python-format
+msgid "Status"
+msgstr "الحالة"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__subject
+msgid "Subject"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_candidate_form
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_template
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_candidate_form
+msgid "Submit"
+msgstr "إرسال"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Summary"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "THIQAH. All rights reserved."
+msgstr "THIQAH."
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "TOP 10 Projects"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.department_task_dashboard_id
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+msgid "Task Dashboard"
+msgstr "لوحة الأعمال"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.submission_succeed_ir_ui_view
+#: model_terms:website.page,arch_db:thiqah_portal.submission_succeed
+msgid "Thank You!"
+msgstr "شكرا  !"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.submission_succeed_lead_ir_ui_view
+#: model_terms:website.page,arch_db:thiqah_portal.submission_succeed_lead
+msgid "Thank you for your interest!"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.ahad_submission_succeed
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_submission_succeed
+msgid "Thank you for your submission"
+msgstr "شكرا لتقديمك"
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#, python-format
+msgid "The form seems correct.."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.my_requests_dashbaord
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_my_requests
+msgid "There are currently no Requests for your account."
+msgstr "لا يوجد حاليا أي طلبات لحسابك."
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.draft_request_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.project_details_requests
+msgid "There are currently no draft requests for your account."
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/chatter.xml:0
+#, python-format
+msgid "There is no comments."
+msgstr "لا يوجد تعليقات."
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "There is no employee related to the current user !"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.submission_succeed_lead_ir_ui_view
+#: model_terms:website.page,arch_db:thiqah_portal.submission_succeed_lead
+msgid "Thiqah Business Services HQ"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model,name:thiqah_portal.model_thiqah_portal_draft_request
+msgid "Thiqah Draft Request"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "This Quarter"
+msgstr "هذا الربع"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.readonly_field
+msgid ""
+"This field is readonly (associated with the\n"
+"                project).You can update it in Project Managment."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid ""
+"This field is readonly (associated with the Department).You can update it in\n"
+"                        Project Managment."
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "This month"
+msgstr "هذا الشهر"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "This request was rejected:  By "
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "This week"
+msgstr "هذا الاسبوع"
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#, python-format
+msgid "This year"
+msgstr "هذه السنة"
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_draft_request__partner_to
+msgid "To"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/portal.py:0
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+#, python-format
+msgid "Today"
+msgstr "اليوم"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_portal_searchbar
+msgid "Toggle filters"
+msgstr ""
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "Total"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Total # of Digital"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Total # of Non-digital"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "Total POS"
+msgstr "إجمالي أوامر الشراء"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Total Utilization With Margin And Vat"
+msgstr "جميع المصروفات "
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+msgid "Total of HC"
+msgstr "إجمالي رأس المال البشري"
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Total of Opportunities"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.tracking_section
+msgid "Tracking Section"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.customer_centricity
+msgid "Transparency"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__type
+msgid "Type"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/chatter.xml:0
+#, python-format
+msgid "Type your message here..."
+msgstr "اكتب رسالتك هنا..."
+
+#. module: thiqah_portal
+#: code:addons/thiqah_portal/controllers/main.py:0
+#: code:addons/thiqah_portal/controllers/main.py:0
+#, python-format
+msgid "Un-billed Revenues"
+msgstr "إيراد مستحق غير مفوتر"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Update My Request"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid "Update Request"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__user_ids
+msgid "User"
+msgstr ""
+
+#. module: thiqah_portal
+#: model:ir.model,name:thiqah_portal.model_res_users
+#: model:ir.model.fields,field_description:thiqah_portal.field_thiqah_portal_requiring_action__users_ids
+msgid "Users"
+msgstr "المستخدمون"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.portal_dashboard_layout
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Utilization Report"
+msgstr "تقرير الاستخدام"
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "VAT"
+msgstr "ضريبة القيمة المضافة "
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.financial_dashboard
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.utilization_report_dashboard_template
+msgid "Value"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "Value Winning Rate"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"View All\n"
+"                                    Messages <i class=\"ri-arrow-right-line align-middle\"/>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"View All\n"
+"                                    Notifications <i class=\"ri-arrow-right-line align-middle\"/>"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "We talked about a project on linkedin."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_home_page
+msgid "Welcome back,"
+msgstr "مرحبًا بك من جديد"
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/aahd.xml:0
+#: code:addons/thiqah_portal/static/src/xml/aahd_sales_dashboard.xml:0
+#, python-format
+msgid "YTD Summary"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_wizard_checkout
+msgid "You"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_followup
+msgid ""
+"You cannot change the status because you're considered as customer. "
+"<br/>Please Contact the administrator of the contacts management in the "
+"backend."
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#, python-format
+msgid ""
+"You cannot delete the request because it has already been discussed in the "
+"replies area."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"You have received <b class=\"text-success\">20</b> new messages in the\n"
+"                                                conversation"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid ""
+"Your <b>Elite</b> author\n"
+"                                                Graphic Optimization <span class=\"text-secondary\">\n"
+"                                                reward</span> is ready!"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.thiqah_home_page
+msgid "Your journey starts here."
+msgstr "رحلتك تبدأ هنا."
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/chatter.xml:0
+#, python-format
+msgid "avatar"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.service_request_wizard_checkout
+msgid "by"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.submission_succeed_ir_ui_view
+#: model_terms:website.page,arch_db:thiqah_portal.submission_succeed
+msgid "has been added <b>successfully</b>"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#: code:addons/thiqah_portal/static/src/js/service_request.js:0
+#, python-format
+msgid "message"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.providers_inherit
+msgid "or"
+msgstr "أو"
+
+#. module: thiqah_portal
+#: model:ir.model,name:thiqah_portal.model_thiqah_portal_requiring_action
+msgid "thiqah.portal.requiring.action"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.notifications_dropdown
+msgid "user-pic"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.aahd_generate_lead
+msgid "الإسم..."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.aahd_generate_lead
+msgid "البريد الإلكتروني..."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.aahd_generate_lead
+msgid "تأكيد"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/chatter.xml:0
+#, python-format
+msgid "داخلي"
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.aahd_generate_lead
+msgid "رقم الجوّال أو الهاتف القار..."
+msgstr ""
+
+#. module: thiqah_portal
+#: model_terms:ir.ui.view,arch_db:thiqah_portal.aahd_generate_lead
+msgid "سجّل إهتمامك"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/chatter.xml:0
+#, python-format
+msgid "عام"
+msgstr ""
+
+#. module: thiqah_portal
+#. openerp-web
+#: code:addons/thiqah_portal/static/src/xml/chatter.xml:0
+#, python-format
+msgid "لا يوجد تعليقات."
+msgstr ""

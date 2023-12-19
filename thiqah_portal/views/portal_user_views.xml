@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="ressources_dashboard" name="Ressouces In Dashboard User Portal">
+        <div>
+            <span class="_font_size">
+                Persons
+            </span>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-6 mb-1">
+                    <div class="row">
+                        <t t-foreach="project.resource_ids" t-as="ressource">
+                            <div class="tool" t-att-data-tip="ressource.user_id.name">
+                                <div class="col flex-grow-0 pr-3">
+                                    <img class="rounded-circle o_portal_contact_img _tooltip" t-attf-src="#{image_data_uri(ressource.user_id.avatar_1024)}" alt="Contact" />
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="dashboard_portal_user" name="Dashboard Portal User">
+        <t t-call="website.layout">
+            <div class="dashboard_user_class">
+                <div class="container">
+                    <div class="row">
+                        <t t-foreach="all_projects" t-as="project">
+                            <!-- <div class="col-sm">
+                                <div class="card card-margin">
+                                    <div class="card-header no-border">
+                                        <h5 class="card-title ">
+                                            <div class="row mb-4">
+                                                <div class="col-lg-10">
+                                                    <div class="row">
+                                                        <div class="col flex-grow-0 pr-3">
+                                                            <img class="rounded-circle o_portal_contact_img" t-attf-src="#{image_data_uri(project.partner_id.avatar_1024)}" alt="Contact"/>
+                                                        </div>
+                                                        <div class="col pl-sm-0">
+                                                            <span class="_font_size">
+                                                                <t t-esc="project.name" />
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </h5>
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <div class="container">
+                                            <div class="row ">
+                                                <div class="col-sm">
+                                                    <div class="col">
+                                                        <span class="_font_size">Start Date</span>
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="badge badge-dark-blue _font_size">
+                                                            <t t-esc="project.date_start"/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="icon">
+                                                        <div class="arrow"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="col">
+                                                        <span class="_font_size">End Date</span>
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="badge badge-amulet _font_size">
+                                                            <t t-esc="project.date"/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row spacing-into-card ">
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <h5 class="text-left">
+                                                                <span class="_font_size m-l-10">Timeline</span>
+                                                            </h5>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <h5 class="m-b-30 f-w-700 text-right">
+                                                                <span class="text-c-green m-l-10">+                                                                    <t t-esc="project.progress_percent"/>
+                                                                </span>
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-c-red" t-attf-style="width:{{ project.progress_percent }}"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row spacing-into-card ">
+                                                <div t-if="not is_html_empty(project.description)" class="col" t-field="project.description"/>
+                                                <div t-else="" class="col">
+                                                    <em class="text-muted">
+                                                        <small>No description</small>
+                                                    </em>
+                                                </div>
+                                            </div>
+                                            <div class="row spacing-into-card ">
+                                                <div class="col-sm">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <span class="_font_size">
+                                                                    Budget
+                                                            </span>
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="_font_size">
+                                                                <t t-esc="project.project_value"/>
+                                                                <span>$</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <span class="_font_size">
+                                                                    Spending
+                                                            </span>
+                                                        </div>
+                                                        <div class="col">
+                                                            <span class="_font_size">
+                                                                <t t-esc="project.total_margin_vat"/>
+                                                                <span>$</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row spacing-into-card _ressources_dashboard">
+                                                <t t-call="thiqah_portal.ressources_dashboard"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <a t-attf-href="/my/requests?project_id={{ project.id if project.requests_count > 0 else 0}}" t-attf-class="btn _font_size badge badge-cyan-thiqah #{'disabled' if
+                            project.requests_count == 0 else ''}" style="color:white">
+                                                    <span>
+                                                        <t t-esc="project.requests_count"/>
+                                                            Service Requests
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <a t-attf-href="/my/requests/dashboard?project_id={{ project.id if project.requests_count > 0 else
+                            0}} " t-attf-class="btn btn-primary btn-sm fa fa-tachometer float-right
+                            #{'disabled' if project.requests_count == 0 else ''}" id="right" style="color:white">
+                                                            <span>Requests</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <a t-attf-href="/my/financial/dashboard?project_id={{ project.id if project.requests_count > 0 else
+                            0}}" t-attf-class="btn btn-primary btn-sm fa fa-tachometer float-right
+                            #{'disabled' if project.requests_count == 0 else ''}" id="right" style="color:white">
+                                                            <span>Financials</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <a t-attf-class="btn btn-primary btn-sm fa fa-info float-right #{'disabled' if
+                            project.requests_count == 0 else ''}" id="right" style="color:white">
+                                                            <span>Details</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="col-md col-sm col-lg-6 card_spacing">
+                                <div class="card card-margin">
+                                    <div class="card-header no-border">
+                                        <h5 class="card-title ">
+                                            <div class="row mb-4">
+                                                <div class="col-lg-10">
+                                                    <div class="row">
+                                                        <div class="col flex-grow-0 pr-3">
+                                                            <img class="rounded-circle o_portal_contact_img" t-attf-src="#{image_data_uri(project.partner_id.avatar_1024)}" alt="Contact" />
+                                                        </div>
+                                                        <div class="col pl-sm-0">
+                                                            <span class="_font_size">
+                                                                <t t-esc="project.name" />
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </h5>
+                                    </div>
+                                    <div class="card-body pt-0">
+                                        <div class="flex-container">
+                                            <div>
+                                                <span class="_font_size _shadow">Start Date</span>
+                                                <span class="badge badge-dark-blue _font_size">
+                                                    <t t-esc="project.date_start" />
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <div class="icon">
+                                                    <div class="arrow"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span class="_font_size _shadow">End Date</span>
+                                                <span class="badge badge-amulet _font_size">
+                                                    <t t-esc="project.date" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-container">
+                                            <div>
+                                                <h5 class="text-left">
+                                                    <span class="_font_size m-l-10 _shadow">Timeline</span>
+                                                </h5>
+                                            </div>
+                                            <div>
+                                                <h5 class="m-b-30 f-w-700 text-right">
+                                                    <span class="text-c-green m-l-10">
+                                                        <t t-esc="project.progress_percent" />
+                                                    </span>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                        <div class="flex-container">
+                                            <div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-c-red" t-attf-style="width:{{ project.progress_percent }}"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-container description-spacing">
+                                            <div t-if="not is_html_empty(project.description)" class="text-left" t-field="project.description" />
+                                            <div t-else="" class="text-left">
+                                                <em class="text-muted ">
+                                                    <small>No description</small>
+                                                </em>
+                                            </div>
+                                        </div>
+                                        <div class="flex-container">
+                                            <div class="text-left">
+                                                <span class="_font_size _shadow">
+                                                    Budget:
+                                                </span>
+                                                <span class="_font_size money_space">
+                                                    <t t-esc="project.project_value" />
+                                                    <span>$</span>
+                                                </span>
+                                            </div>
+                                            <div class="text-left">
+                                                <span class="_font_size _shadow">
+                                                    Spending:
+                                                </span>
+                                                <span class="_font_size money_space">
+                                                    <t t-esc="project.total_margin_vat" />
+                                                    <span>$</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="border-left-card">
+                                            <div class="flex-container">
+                                                <div class="text-left">
+                                                    <span class="_font_size">
+                                                        Persons
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="flex-persons">
+                                                    <t t-foreach="project.resource_ids" t-as="ressource">
+                                                        <div class="tool" t-att-data-tip="ressource.user_id.name">
+                                                            <img class="rounded-circle o_portal_contact_img _tooltip" t-attf-src="#{image_data_uri(ressource.user_id.avatar_1024)}" alt="Contact" />
+                                                        </div>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <div class="flex-container">
+                                            <div class="text-left" style="flex-basis: 200px;">
+                                                <a t-attf-href="/my/requests?project_id={{ project.id if project.requests_count > 0 else 0}}" t-attf-class="btn _font_size badge badge-cyan-thiqah service-count #{'disabled' if project.requests_count == 0 else ''}" style="color:white">
+                                                    <span>
+                                                        <t t-esc="project.requests_count" />
+ Service
+                                                        Requests </span>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a t-attf-href="/my/requests/dashboard?project_id={{ project.id if project.requests_count > 0 else 0}} " t-attf-class="btn btn-primary btn-sm  #{'disabled' if project.requests_count == 0 else ''}" id="right" style="color:white">
+                                                    <span>Requests</span>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a t-attf-href="/my/financial/dashboard?project_id={{ project.id if project.requests_count > 0 else 0}}" t-attf-class="btn btn-primary btn-sm   #{'disabled' if project.requests_count == 0 else ''}" id="right" style="color:white">
+                                                    <span>Financials</span>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <a t-attf-class="btn btn-primary btn-sm #{'disabled' if project.requests_count == 0 else ''}" id="right" style="color:white">
+                                                    <span>Details</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="project_details_requests" name="Draft Requests Task Dashboard">
+
+        <div id="draft_request_error" class="alert alert-info d-none">
+            There are currently no draft requests for your account.
+        </div>
+        <t>
+            <div class="table-responsive">
+                <table id="projects_details_table" class="table w-100">
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="service_requests_dashboard" name="Service Requests Dashboard">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="container-fluid">
+                <div class="content-header mb72">
+                    <h1 class="heading-1" style="line-height: 100%;">Good morning, <t t-esc="user_id.name" />
+                    </h1>
+                    <p class="body1">
+                    Here’s where you’ll view a summary of your status, priorities, workload, and
+                    more
+                    </p>
+                </div>
+                <div class="row" id="dashboard_requests_cards" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                    <div class="col">
+                        <div class="card w-100 card-wrapper">
+                            <div class="card-header heading-4 d-flex align-items-center">
+                                Current Requests
+                            </div>
+                            <div class="card-block">
+                                <div class="row">
+                                    <div class="col-xl-3 col-md-6" id="active_request_dashboard">
+                                        <!-- Active Requests -->
+                                        <div class="card card-data request-active">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-fill d-flex align-items-center">
+                                                    <sapn class="mb-0 heading-2">
+                                                        <t t-esc="active_requests_count" />
+                                                    </sapn>
+                                                    <span class="ml16 caption t-text-purple text-uppercase">
+                                                        Active <br></br> Requests</span>
+                                                    <input type="hidden" name="status_request" value="is_active" />
+                                                </div>
+                                                <a href="/my/requests?criteria=is_active" class="rounded-circle t-custom-bg-purple">
+                                                    <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6" id="late_request_dashboard">
+                                        <!-- Late Requests -->
+                                        <div class="card card-data request-late">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-fill d-flex align-items-center">
+                                                    <sapn class="mb-0 heading-2">
+                                                        <t t-esc="late_requests_count" />
+                                                    </sapn>
+                                                    <span class="ml16 caption t-text-cyan text-uppercase">
+                                                        Late <br></br> Requests</span>
+                                                    <input type="hidden" name="status_request" value="is_active" />
+                                                </div>
+                                                <a href="/my/requests?criteria=is_late" class="rounded-circle t-custom-bg-cyan">
+                                                    <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6" id="requests_today">
+                                        <!-- Today Requests -->
+                                        <div class="card card-data request-today">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-fill d-flex align-items-center">
+                                                    <sapn class="mb-0 heading-2">
+                                                        <t t-esc="requests_due_today" />
+                                                    </sapn>
+                                                    <span class="ml16 caption t-text-turquoise text-uppercase">
+                                                        Requests <br></br> Due Today</span>
+                                                    <input type="hidden" name="status_request" value="is_active" />
+                                                </div>
+                                                <a href="/my/requests?criteria=is_due_date" class="rounded-circle t-custom-bg-turquoise">
+                                                    <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-6" id="sla_request_dashboard">
+                                        <!-- SLA Requests -->
+                                        <div class="card card-data request-sla">
+                                            <div class="d-flex align-items-center">
+                                                <div class="flex-fill d-flex align-items-center">
+                                                    <sapn class="mb-0 heading-2">
+                                                        <t t-esc="sla_percent" />
+                                                    </sapn>
+                                                    <span class="ml16 caption text-uppercase t-text-dark-blue">
+                                                        SLA </span>
+                                                    <input type="hidden" name="status_request" value="is_active" />
+                                                </div>
+                                                <a href="/my/requests?criteria=is_on_time" class="rounded-circle t-custom-bg-dark-blue">
+                                                    <img class="rounded-circle with-arrow" style="width:12px;height:10px" src="/thiqah_portal/static/src/img/right-arrow.svg" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row requests_dashboard_class">
+                    <t t-set="active_requests_count" t-value="active_requests_count" />
+                    <t t-set="late_requests_count" t-value="late_requests_count" />
+                    <t t-set="requests_due_today" t-value="requests_due_today" />
+                    <div class="col">
+                        <div class="card w-100 card-wrapper mt48">
+                            <div class="card-header heading-4 d-flex align-items-center">
+                                Requests analysis
+                            </div>
+                            <div class="card-block pb-0 px-0">
+                                <div class="row">
+                                    <div class="col-xl-4 col-md-6">
+    
+                                        <div class="card border-0">
+                                            <div class="bg-transparent border-0 card-header heading-5">
+                                                Request By Status
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="chart-container">
+                                                    <canvas id="by_status" width="240" height="240"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6">
+                                        <div class="card border-0">
+                                            <div class="bg-transparent border-0 card-header heading-5">
+                                                Requests By Department
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="chart-container">
+                                                    <canvas id="requests_by_department" width="240" height="240"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-md-6">
+                                        <div class="card border-0">
+                                            <div class="bg-transparent border-0 card-header heading-5">
+                                                By Sla Indicator
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="chart-container">
+                                                    <canvas id="by_sla_indicator" width="240" height="240"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h-divider mt48 mb48"></div>
+                            <div class="card-body">
+                                <span class="heading-5">Requests By Category</span>
+                                <div class="chart-container">
+                                    <canvas id="by_service_category" class="mt56"></canvas>
+                                </div>
+                            </div>
+                            <div class="h-divider mt48 mb48"></div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                        <span class="heading-5">By Creation Date</span>
+                                        <canvas id="by_creation_date" class="mt56"></canvas>
+                                    </div>
+                                    <div class="col-lg-6 mt-4 mt-lg-0" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,thiqah_project.group_portal_department,base.group_portal">
+                                        <span class="heading-5">By Client</span>
+                                        <canvas id="by_client" class="mt56"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card card-wrapper w-100 mt48">
+                            <div class="card-header heading-4 d-flex align-items-center">
+                                Project Details
+                            </div>
+                            <div class="card-block">
+                                <div class="details_projects_requests" t-if="not is_customer" groups="thiqah_crm.thiqah_group_ceo,project.group_project_manager,thiqah_project.project_manager_group,base.group_portal">
+                                    <t t-call="thiqah_portal.project_details_requests" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="thiqah_home_page" name="Home Page">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <div class="container-fluid">
+                <div class="content-header mb72">
+                    <h1 class="heading-1" style="line-height: 100%;">Welcome back, <t t-esc="user_id.name" />
+                    </h1>
+                    <p class="body1">
+                        Your journey starts here.
+                    </p>
+                </div>
+            </div>
+            <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="thiqah_candidate_form" name="Thiqah Candidate Form">
+        <style>
+            body {
+                background-image: url('/thiqah_portal/static/src/img/thiqah_background.png');
+            }
+            .blue-text{
+                color: #00B1E6;
+            }
+        </style>
+        <t t-set="no_header" t-value="True" />
+        <t t-set="no_footer" t-value="True" />
+        <t t-call="website.layout">
+            <t t-call="thiqah_portal.candidate_language_template"/>
+            <div class="form_container">
+                <div class="container-fluid">
+                    <img src="/thiqah_portal/static/src/img/thiqah_brand.png" style="position: absolute;top:10px;left:10px;" width="200px"/>
+                </div>
+                <div class="justify-content-center" style="margin-top: 100px;">
+                    <div class="col-12 text-center">
+                        <img src="/thiqah_portal/static/src/img/thiqah_logo.png" width="300px"/>
+                    </div>
+                </div>
+                <form action="/lead/thiqah/submit" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="d-flex align-items-center flex-column">
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="first_name">
+                                <span class="h2 font-weight-bold blue-text">First Name</span>
+                            </label>
+                            <input required="1" type="text" class="form-control" placeholder="Enter First Name" name="first_name"/>
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="last_name">
+                                <span class="h2 font-weight-bold blue-text">Last Name</span>
+                            </label>
+                            <input required="1" type="text" class="form-control" placeholder="Enter Last Name" name="last_name"/>
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="company">
+                                <span class="h2 font-weight-bold blue-text">Company</span>
+                            </label>
+                            <input required="1" type="text" class="form-control" placeholder="Enter Company Name" name="company"/>
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="phone">
+                                <span class="h2 font-weight-bold blue-text">Phone Number</span>
+                            </label>
+                            <input required="1" type="text" class="form-control" placeholder="Enter Phone Number" name="phone"/>
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="email">
+                                <span class="h2 font-weight-bold blue-text">Email</span>
+                            </label>
+                            <input required="1" type="email" class="form-control" placeholder="Enter Email" name="email"/>
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="note">
+                                <span class="h2 font-weight-bold blue-text">Note</span>
+                            </label>
+                            <textarea class="form-control" placeholder="Note..." name="note"/>
+                        </div>
+                        <div class="col-10 mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block justify-content-center" style="text-align: center;">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <template id="thiqah_submission_succeed" name="Thiqah Candidate Form">
+        <style>
+            body {
+                background-image: url('/thiqah_portal/static/src/img/thiqah_background.png');
+            }
+            .blue-text{
+                color: #00B1E6;
+            }
+        </style>
+        <script>
+            if ( window.history.replaceState ) {
+              window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
+        <t t-set="no_header" t-value="True" />
+        <t t-set="no_footer" t-value="True" />
+        <t t-call="website.layout">
+            <div class="form_container">
+                <div class="container-fluid">
+                    <img src="/thiqah_portal/static/src/img/thiqah_brand.png" style="position: absolute;top:10px;left:10px;" width="200px"/>
+                </div>
+                <div class="justify-content-center" style="margin-top: 100px;">
+                    <div class="col-12 text-center">
+                        <img src="/thiqah_portal/static/src/img/thiqah_logo.png" width="300px"/>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5 pt-5 blue-text">
+                    <h1>Thank you for your submission</h1>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="ahad_candidate_form" name="Ahad Candidate Form">
+        <style>
+            body {
+                background-image: url('/thiqah_portal/static/src/img/ahad_background.png');
+            }
+            .blue-text{
+                color: #00B1E6;
+            }
+        </style>
+        <t t-set="no_header" t-value="True" />
+        <t t-set="no_footer" t-value="True" />
+        <t t-call="website.layout">
+            <t t-call="thiqah_portal.candidate_language_template"/>
+            <div class="form_container">
+                <div class="container-fluid">
+                    <img src="/thiqah_portal/static/src/img/ahad_brand.png" style="position: absolute;top:0px;left:0px;" width="170px"/>
+                </div>
+                <div class="justify-content-center" style="margin-top: 170px;">
+                    <div class="col-12 text-center">
+                        <img src="/thiqah_portal/static/src/img/ahad_logo.png" width="300px"/>
+                    </div>
+                </div>
+                <form action="/lead/ahad/submit" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="d-flex align-items-center flex-column">
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="first_name">
+                                <span class="h2 font-weight-bold blue-text">First Name</span>
+                            </label>
+                            <input required="1" type="text" class="form-control" placeholder="Enter First Name" name="first_name"/>
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="last_name">
+                                <span class="h2 font-weight-bold blue-text">Last Name</span>
+                            </label>
+                            <input required="1" type="text" class="form-control" placeholder="Enter Last Name" name="last_name"/>
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="company">
+                                <span class="h2 font-weight-bold blue-text">Company</span>
+                            </label>
+                            <input required="1" type="text" class="form-control" placeholder="Enter Company Name" name="company"/>
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="phone">
+                                <span class="h2 font-weight-bold blue-text">Phone Number</span>
+                            </label>
+                            <input required="1" type="text" class="form-control" placeholder="Enter Phone Number" name="phone"/>
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="email">
+                                <span class="h2 font-weight-bold blue-text">Email</span>
+                            </label>
+                            <input required="1" type="email" class="form-control" placeholder="Enter Email" name="email"/>
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label class="s_website_form_label heading-7" for="note">
+                                <span class="h2 font-weight-bold blue-text">Note</span>
+                            </label>
+                            <textarea class="form-control" placeholder="Note..." name="note"/>
+                        </div>
+                        <div class="col-10 mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block justify-content-center" style="text-align: center;">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </t>
+    </template>
+
+    <template id="ahad_submission_succeed" name="Ahad Candidate Form">
+        <style>
+            body {
+                background-image: url('/thiqah_portal/static/src/img/ahad_background.png');
+            }
+            .blue-text{
+                color: #00B1E6;
+            }
+        </style>
+        <script>
+            if ( window.history.replaceState ) {
+              window.history.replaceState( null, null, window.location.href );
+            }
+        </script>
+        <t t-set="no_header" t-value="True" />
+        <t t-set="no_footer" t-value="True" />
+        <t t-call="website.layout">
+            <div class="form_container">
+                <div class="container-fluid">
+                    <img src="/thiqah_portal/static/src/img/ahad_brand.png" style="position: absolute;top:0px;left:0px;" width="170px"/>
+                </div>
+                <div class="justify-content-center" style="margin-top: 170px;">
+                    <div class="col-12 text-center">
+                        <img src="/thiqah_portal/static/src/img/ahad_logo.png" width="300px"/>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5 pt-5 blue-text">
+                    <h1>Thank you for your submission</h1>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="candidate_language_template" name="Candidate Langauge Template">
+        <div class="d-flex align-items-center d-flex justify-content-center" style="position: absolute;top:10px;right:0px;">
+            <t t-set="active_lang" t-value="list(filter(lambda lg : lg[0] == lang, languages))[0]"/>
+            <t t-if="active_lang[0] == 'en_US'">
+                <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code='ar_001')" role="menuitem" class="js_change_lang nav-link log-lang-link h3">
+                    <span>العربية</span>
+                </a>
+            </t>
+            <t t-else="active_lang[0] == 'ar_001'">
+                <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang_code='en_US')" role="menuitem" class="js_change_lang nav-link log-lang-link h3">
+                    <span>English</span>
+                </a>
+            </t>
+        </div>
+    </template>
+
+</odoo>

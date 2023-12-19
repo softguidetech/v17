@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="thiqah_project.project_department_tree" model="ir.ui.view">
+        <field name="name">thiqah_project.project_department.tree</field>
+        <field name="model">thiqah_project.project_department</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+
+                <field name="name" />
+                <field name="email" widget="email"/>
+
+            </tree>
+        </field>
+    </record>
+
+</odoo>

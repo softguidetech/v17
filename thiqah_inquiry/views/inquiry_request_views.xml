@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- inquiry.request tree view -->
+    <record id="inquiry_request_view_tree" model="ir.ui.view">
+        <field name="name">inquiry_request.view.tree</field>
+        <field name="model">inquiry.request</field>
+        <field name="arch" type="xml">
+            <tree >
+                <field name="sequence"/>
+                <field name="create_uid" />
+                <field name="partner_portfolio" />
+            </tree>
+        </field>
+    </record>
+
+
+
+    <!-- inquiry.request form view -->
+    <record id="inquiry_request_view_form" model="ir.ui.view">
+        <field name="name">inquiry.request.view.form</field>
+        <field name="model">inquiry.request</field>
+        <field name="arch" type="xml">
+            <form string="" create="false" edit="false">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sequence" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="create_uid" string="RM Name" />
+                            <field name="partner_portfolio" />
+                            <field name="partner_id" />
+                            <field name="section" />
+                            <field name="department_id" />
+                        </group>
+                        <group>
+                            <field name="create_date" />
+                            <field name="request_type" />
+                            <field name="urgency" />
+                            <field name="due_date" />
+                            <field name="user_id"/>
+                            <field name="sla_id" readonly="1" groups="base.group_no_one"/>
+                            <field name="sla_due_date" readonly="1" groups="base.group_no_one"/>
+                            <field name="close_date" readonly="1" groups="base.group_no_one"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description" />
+                    </group>
+                    <notebook>
+                        <page name="concerned_users" string="Concerned Users" groups="base.group_no_one">
+                            <field name="concerned_user_ids" readonly="1">
+                                <tree>
+                                    <field name="login"/>
+                                    <field name="email"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- inquiry.request action window -->
+    <record id="inquiry_request_action" model="ir.actions.act_window">
+        <field name="name">Inquiries Requests</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">inquiry.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

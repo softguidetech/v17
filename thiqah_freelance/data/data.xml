@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="thiqah_entity" model="res.entity">
+            <field name="name">Thiqah</field>
+            <field name="code">thiqah</field>
+            <field name="full_name">Thiqah Business Services Co.</field>
+        </record>
+
+        <record id="ahad_entity" model="res.entity">
+            <field name="name">Ahad</field>
+            <field name="code">ahad</field>
+            <field name="full_name">AHAD Business unit</field>
+        </record>
+
+        <!-- Oracle CONFIG -->
+        <record id="oracle_config" model="oracle.config">
+            <field name="name">Oracle Config Test</field>
+            <field name="url">https://oic-fahadalshehri.integration.ocp.oraclecloud.com</field>
+            <field name="list_banks_endpoint">/ic/api/integration/v1/flows/rest/BANKSLIST/1.0/freelancer/</field>
+            <field name="freelance_endpoint">/ic/api/integration/v1/flows/rest/CREATEFREELANCER/1.0/freelancer</field>
+            <field name="create_banks_endpoint">/ic/api/integration/v1/flows/rest/CREATEEXTERNALBANKACCOUNTS/1.0/freelancer</field>
+            <field name="create_invoice_endpoint">/ic/api/integration/v1/flows/rest/CREATEINVOICES/1.0/freelancer</field>
+            <field name="validate_invoice_endpoint">/ic/api/integration/v1/flows/rest/VALIDATEINVOICE/1.0/freelancer</field>
+            <field name="create_supplier_endpoint">/ic/api/integration/v1/flows/rest/SUPPLIERREGISTRATION/1.0/OIC</field>
+            <field name="create_supplier_bank_endpoint">/ic/api/integration/v1/flows/rest/CREATESUPPLIERBANKACCOUNTS/1.0/OIC</field>
+            <field name="create_supplier_invoice_endpoint">/ic/api/integration/v1/flows/rest/CREATESUPPLIERINVOICES/1.0/OIC</field>
+            <field name="update_supplier_endpoint">/ic/api/integration/v1/flows/rest/UPDATESUPPLIER/1.0/OIC/</field>
+            <field name="user_name">erpintegration@thiqah.sa</field>
+            <field name="password">Thiqah@2023@2024</field>
+        </record>
+
+    </data>
+</odoo>

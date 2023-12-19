@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- oracle.config tree view -->
+    <record id="oracle_config_view_tree" model="ir.ui.view">
+        <field name="name">oracle.config.view.tree</field>
+        <field name="model">oracle.config</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="name"/>
+                <field name="url"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- oracle.config form view -->
+    <record id="oracle_config_view_form" model="ir.ui.view">
+        <field name="name">oracle.config.view.form</field>
+        <field name="model">oracle.config</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="url"/>
+                            <field name="list_banks_endpoint"/>
+                            <field name="freelance_endpoint"/>
+                            <field name="create_banks_endpoint"/>
+                            <field name="create_supplier_endpoint"/>
+                            <field name="create_supplier_bank_endpoint"/>
+                        </group>
+                        <group>
+                            <field name="create_invoice_endpoint"/>
+                            <field name="validate_invoice_endpoint"/>
+                            <field name="create_supplier_invoice_endpoint"/>
+                            <field name="update_supplier_endpoint"/>
+                            <field name="user_name"/>
+                            <field name="password"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- oracle.config action window -->
+    <record id="oracle_config_action" model="ir.actions.act_window">
+        <field name="name">Oracle Config</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">oracle.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

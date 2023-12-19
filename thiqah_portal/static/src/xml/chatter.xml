@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="portal.Chatter">
+        <t t-jquery="hr" t-operation="replace">
+        </t>
+    </t>
+    <t t-extend="portal.Composer">
+        <t t-jquery=".media" t-operation="replace">
+            <div class="media flex-column">
+                <div class="align-items-center d-flex">
+                    <img alt="Avatar" class="o_portal_chatter_avatar rounded-circle s-40" t-attf-src="/web/image/res.partner/#{widget.options['partner_id']}/avatar_128/50x50" t-if="!widget.options['is_user_public'] or !widget.options['token']"/>
+                    <div class="username body1"></div>
+                </div>
+                <div class="media-body mt-3 w-100">
+                    <div class="o_portal_chatter_composer_input">
+                        <div class="o_portal_chatter_composer_body mb32">
+                            <textarea rows="4" name="message" class="form-control body2" placeholder="Type your message here..."></textarea>
+                            <div class="o_portal_chatter_attachments mt-3"/>
+                            <div class="d-flex justify-content-end mt8">
+                                <t t-esc="widget.currentLang"/>
+                                <button class="bg-transparent btn o_portal_chatter_attachment_btn rounded-pill t-btn-outile-gray t-text-black" type="button" title="Add attachment">
+                                    <span></span>
+                                    <i class="fa fa-paperclip ml-2" style="transform: rotate(90deg);" />
+                                </button>
+                                <button t-attf-data-action="/mail/chatter_post" class="ml-3 border-0 btn o_portal_chatter_composer_btn rounded-pill t-custom-bg-dark-blue text-white" type="submit"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-none">
+                        <input type="file" class="o_portal_chatter_file_input" multiple="multiple"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+
+    <t t-extend="portal.chatter_messages">
+        <t t-jquery=".o_portal_chatter_messages" t-operation="replace">
+            <div class="o_portal_chatter_messages">
+                <t t-if="widget.get('messages').length &gt; 0">
+                    <t t-foreach="widget.get('messages') || []" t-as="message">
+                        <div class="media mb24 flex-column o_portal_chatter_message" t-att-id="'message-' + message.id">
+                            <div class="align-items-center d-flex justify-content-between w-100">
+                                <div class="align-items-center d-flex">
+                                    <img class="o_portal_chatter_avatar rounded-circle" t-att-src="message.author_avatar_url" alt="avatar"/>
+                                    <div class="align-items-center d-flex flex-fill justify-content-between o_portal_chatter_message_title">
+                                        <h5 class='body1 mb-0'>
+                                            <t t-esc="message.author_id[1]"/>
+                                        </h5>
+                                        <p class="ml-3 d-flex align-items-center o_portal_chatter_puslished_date body2 t-text-gray">
+                                            <img src="/thiqah_portal/static/src/img/icn_calendar.svg" class="mr-2" />
+                                            <t t-esc="message.published_date_str"/>
+                                            <img src="/thiqah_portal/static/src/img/icn_clock.svg" class="ml-3 mr-2" />
+                                            <t t-esc="message.published_time_str"/>
+                                        </p>
+                                    </div>
+                                </div>
+                                <t t-call="portal.chatter_internal_toggle" t-if="widget.options['is_user_employee']"/>
+                            </div>
+                            <div class="body2 media-body mt-3 t-text-gray">
+                                <t t-out="message.body"/>
+                                <div class="o_portal_chatter_attachments">
+                                    <t t-call="portal.Chatter.Attachments">
+                                        <t t-set="attachments" t-value="message.attachment_ids"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+                <t t-else="">
+                    <span t-if="widget.currentLang == 'ar'" class="body2">لا يوجد تعليقات.</span>
+                    <span t-if="widget.currentLang == 'en'" class="body2">There is no comments.</span>
+                </t>
+            </div>
+
+
+        </t>
+    </t>
+    <t t-extend="portal.Chatter.Attachments">
+        <t t-jquery=".row" t-operation="replace">
+            <div t-if="attachments.length" class="row">
+                <div t-foreach="attachments" t-as="attachment" class="col">
+                    <div class="o_portal_chatter_attachment mb-2 position-relative text-center" t-att-data-id="attachment.id">
+                        <button t-if="showDelete and attachment.state == 'pending'" class="o_portal_chatter_attachment_delete btn btn-sm btn-outline-danger" title="Delete">
+                            <i class="fa fa-times"/>
+                        </button>
+                        <a t-attf-href="/web/content/#{attachment.id}?download=true&amp;access_token=#{attachment.access_token}" class="d-flex flex-column align-items-center body2 mt24" target="_blank">
+                            <div class='oe_attachment_embedded o_image' t-att-title="attachment.name" t-att-data-mimetype="attachment.mimetype"/>
+                            <div class='o_portal_chatter_attachment_name'>
+                                <t t-esc='attachment.name'/>
+                            </div>
+
+                            <div class="ml-3" t-att-title="attachment.name" style="background-image:url('/thiqah_portal/static/src/img/button-download.svg');width: 32px;height: 32px;"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+
+    <t t-extend="portal.chatter_internal_toggle">
+        <t t-jquery='div[t-attf-class*="float-right "]' t-operation="replace">
+            <div t-attf-class="float-right o_portal_chatter_js_is_internal #{message.is_internal and 'o_portal_message_internal_on' or 'o_portal_message_internal_off'}" t-att-data-message-id="message.id" t-att-data-is-internal="message.is_internal">
+                <button class="btn rounded-circle t-btn-outile-black btn-danger bg-transparent t-text-black">
+                    <t t-if="widget.currentLang == 'ar'">
+                        داخلي
+                    </t>
+                    <t t-if="widget.currentLang == 'en'">
+                        Internal
+                    </t>
+                </button>
+                <button class="btn rounded-circle btn-secondary btn-success">
+                    <t t-if="widget.currentLang == 'ar'">
+                        عام
+                    </t>
+                    <t t-if="widget.currentLang == 'en'">
+                        Public
+                    </t>
+                </button>
+            </div>
+        </t>
+    </t>
+</templates>

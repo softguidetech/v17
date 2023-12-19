@@ -1,0 +1,169 @@
+// ------------------------------------------------------------------
+// Tanseek
+// ------------------------------------------------------------------
+
+@font-face {
+  font-family: "TanseekModernProArabic";
+  src: url(/thiqah_theme/static/src/fonts/TanseekModernProArabic-Light.woff2)
+      format("woff2"),
+    url(/thiqah_theme/static/src/fonts/Tanseek-Modern-Pro-Arabic-Light.ttf)
+      format("truetype");
+  font-weight: 300;
+  font-style: Light;
+}
+@font-face {
+  font-family: "TanseekModernProArabic";
+  src: url(/thiqah_theme/static/src/fonts/TanseekModernProArabic-Medium.woff2)
+      format("woff2"),
+    url(/thiqah_theme/static/src/fonts/TanseekModernProArabic-Medium.ttf)
+      format("truetype");
+  font-weight: 400;
+  font-style: Medium;
+}
+@font-face {
+  font-family: "TanseekModernProArabic";
+  src: url(/thiqah_theme/static/src/fonts/Tanseek-Modern-Pro-Arabic-Bold.woff2)
+      format("woff2"),
+    url(/thiqah_theme/static/src/fonts/Tanseek-Modern-Pro-Arabic-Bold.ttf)
+      format("truetype");
+  font-weight: 700;
+  font-style: Bold;
+}
+.o_thiqah_dashboard {
+  .bootstrap-select > select {
+    left: 0 !important;
+    width: 100% !important;
+  }
+  background-color: #fff !important;
+
+  .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(
+      .input-group-btn
+    ) {
+    width: auto !important;
+  }
+  .bootstrap-select {
+    background-color: transparent;
+    .dropdown-toggle {
+      border-radius: 50px !important;
+      color: #798793;
+      .filter-option {
+        margin-right: 10px;
+      }
+    }
+    .dropdown-item.active.selected {
+      &::before {
+        display: none;
+      }
+    }
+  }
+  font-family: "TanseekModernProArabic", sans-serif !important;
+  line-height: 1 !important;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6 {
+    font-family: "TanseekModernProArabic", sans-serif !important;
+    margin: 0;
+  }
+  .danger-badge {
+    background-color: #ffe4e6;
+    color: #d23f3a;
+  }
+  .card {
+    background-color: #fff !important;
+    border-radius: 16px !important;
+    border: none !important;
+    box-shadow: 0px 6px 70px 16px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    .card-body {
+      background-color: white !important;
+    }
+  }
+  #_aahad {
+    .table-responsive {
+      height: 300px;
+    }
+  }
+  .aahd-cards {
+    .card {
+      padding: 40px 24px !important;
+      position: relative;
+      flex-direction: row;
+      justify-content: space-between;
+      .goal_span,
+      .arrow_span,
+      .margin_span_two {
+        border-radius: 8px;
+        position: absolute;
+        top: 25px;
+        right: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 32px;
+      }
+      .goal_span {
+        padding: 0 6px;
+        span {
+          font-weight: 700;
+          margin-left: 6px;
+        }
+      }
+      .arrow_span {
+        width: 32px;
+      }
+    }
+  }
+  .wathq-badge {
+    padding: 0 15px;
+    background-color: #117dbc !important;
+    color: #fff;
+    border-radius: 8px;
+  }
+  #table_awarded.table-bordered {
+    border-collapse: separate;
+    border-spacing: 0;
+    tr:last-child td:first-child {
+      border-bottom-left-radius: 10px;
+    }
+    tr:last-child td:last-child {
+      border-bottom-right-radius: 10px;
+    }
+    th {
+      height: 40px;
+      padding: 8px !important;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    td {
+      border: 1px solid #e7ebee !important;
+      padding-left: 24px !important;
+    }
+  }
+  @media (max-width: 520px) {
+    .aahd-cards {
+      .card {
+        flex-direction: column;
+        max-height: inherit !important;
+        height: auto !important;
+        padding: 1.5rem !important;
+        gap: 20px;
+      }
+    }
+  }
+}
+@media (min-width: 1440px) {
+  .container,
+  .o_container_small {
+    max-width: 1376px;
+  }
+}

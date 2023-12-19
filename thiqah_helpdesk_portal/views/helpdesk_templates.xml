@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="portal_my_helpdesk_home" name="My Portal">
+        <t t-call="portal.portal_layout">
+            <t t-set="my_details" t-value="True"/>
+            <div class="o_portal_my_helpdesk_home">
+                <div class="oe_structure" id="oe_structure_portal_my_helpdesk_home_1"/>
+                <h3>Tickets</h3>
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 float-right">
+                        <a href="/new/helpdesk/ticket" class="btn btn-light" type="button">
+                            <i class="fa fa-plus-circle"/>
+                            Create Ticket
+                        </a>
+                    </div>
+                </div>
+
+                <div class="o_portal_docs row">
+
+                    <t t-call="portal.portal_docs_entry">
+                        <t t-set="title">All Tickets</t>
+                        <t t-set="url" t-value="'/my/tickets'"/>
+                        <t t-set="count" t-value="all_tickets if all_tickets else '0'"/>
+
+                        <t t-set="icon" t-value="'fa fa-ticket'"/>
+                    </t>
+
+                    <t t-foreach="tickets_stage_ids" t-as="stage">
+                        <t t-call="portal.portal_docs_entry">
+                            <t t-set="title">
+                                <t t-esc="stage.name"/>
+                                Tickets
+                            </t>
+                            <t t-set="url" t-value="'/my/tickets?search_in=status&amp;search='+stage.name"/>
+                            <t t-set="count" t-value="stage.count_my_tickets if stage.count_my_tickets else '0'"/>
+                            <t t-set="icon" t-value="stage.icon if stage.icon else 'fa fa-ticket'"/>
+                        </t>
+                    </t>
+
+                </div>
+            </div>
+            <div class="oe_structure" id="oe_structure_portal_my_helpdesk_home_2"/>
+        </t>
+    </template>
+
+
+    <!-- <template id="helpdesk.portal_my_home_helpdesk_ticket" name="Portal My Home : Helpdesk Ticket" inherit_id="portal.portal_my_home" priority="40">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">All Tickets</t>
+                <t t-set="url" t-value="'/my/helpdesk/home'"/>
+                <t t-set="placeholder_count" t-value="'ticket_count'"/>
+
+                <t t-set="icon" t-value="'fa fa-ticket'"/>
+            </t>
+        </xpath>
+    </template> -->
+
+    <function model="ir.model.fields" name="formbuilder_whitelist">
+        <value>helpdesk.ticket</value>
+        <value eval="['ticket_type_id','sector_id','sales_team_id','partner_position',
+        'responsible_name','responsible_mobile','user_id','partner_id',
+        'responsible_mobile','responsible_name','customer_position']"/>
+    </function>
+
+
+    <template id="thiqah_website_helpdesk_team" inherit_id="website_helpdesk.team" name="Helpdesk: team">
+<!--        <xpath expr="//div[@class='navbar-brand']" position="replace">-->
+<!--            <div class="navbar-brand">Tickets</div>-->
+<!--        </xpath>-->
+
+<!--        <xpath expr="//div[@id='website_published_button']" position="replace">-->
+<!--            <div class="row justify-content-end mb-5" id="website_published_button" groups="helpdesk.group_helpdesk_manager">-->
+<!--                &lt;!&ndash;  <t t-call="website.publish_management">-->
+<!--                     <t t-set="object" t-value="team"/>-->
+<!--                     <t t-set="publish_edit" t-value="True"/>-->
+<!--                     <t t-set="action" t-value="'helpdesk.helpdesk_team_action'"/>-->
+<!--                     <t t-set="menu" t-value="env.ref('helpdesk.menu_helpdesk_root').id"/>-->
+<!--                 </t> &ndash;&gt;-->
+<!--            </div>-->
+
+<!--        </xpath>-->
+<!--        <xpath expr="//div[@id='o-helpdesk-teams-navbar-collapse']" position="replace">-->
+
+<!--            <div class="collapse navbar-collapse" id="o-helpdesk-teams-navbar-collapse">-->
+<!--                &lt;!&ndash; <t t-if="many_teams"> <ul class="navbar-nav nav-tabs team_menu">-->
+<!--                    <t t-foreach="teams" t-as="tteam"> <t t-set="active" t-value="'active' if-->
+<!--                    team == tteam else ''"/> <li class="nav-item"> <a t-attf-href="/helpdesk/#{slug(tteam)}" t-attf-class="nav-link #{active}"> <span t-field="tteam.name"/> </a> </li>-->
+<!--                    </t> </ul> </t> </div> &ndash;&gt;-->
+<!--            </div>-->
+
+<!--        </xpath>-->
+    </template>
+
+
+    <template id="thiqah_ticket_submit_ticket_form" name="Helpdesk: Submit a Ticket Form">
+        <div class="container">
+            <h2 class="text-muted">
+                Submit a Ticket
+            </h2>
+            <span class="hidden" data-for="helpdesk_ticket_form" t-att-data-values="{'team_id': team and team.id or False}"/>
+            <div id="helpdesk_section">
+                <section id="forms" class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                    <div class="container">
+                        <form id="helpdesk_ticket_form" action="/website/form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-model_name="helpdesk.ticket" data-success-mode="redirect" data-success-page="/your-ticket-has-been-submitted" data-editable-form="false" hide-change-model="true">
+                            <div class="s_website_form_rows row s_col_no_bgcolor">
+                                <div class="form-group col-12 s_website_form_field s_website_form_required s_website_form_model_required" data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="helpdesk3">
+                                            <span class="s_website_form_label_content">Subject</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input id="helpdesk3" type="text" class="form-control s_website_form_input" name="name" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required s_website_form_model_required">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="ticket_type_id">
+                                            <span class="s_website_form_label_content">Ticket Type</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+
+                                            <select name="ticket_type_id" id="ticket_type_id" required="1" data-placeholder="Select your ticket type..." class="form-control o_website_form_input">
+                                                <option value="">Choose...</option>
+                                                <t t-foreach="ticket_types or []" t-as="ticket_type">
+                                                    <option t-att-for-sp ="ticket_type.for_sp_manager" t-att-code="ticket_type.code" t-att-value="ticket_type.id">
+                                                        <t t-esc="ticket_type.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="div_exist_customer" class="form-group col-12 s_website_form_field s_website_form_model_required" data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px">
+                                            <span class="s_website_form_label_content">Existing Customer</span>
+                                        </label>
+                                        <div class="col-sm-1 col-xs-1">
+                                            <input id="exist_customer" type="checkbox" value="True" checked="checked" class="form-control s_website_form_input"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 is_sector s_website_form_field s_website_form_required s_website_form_model_required" data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="helpdesk1">
+                                            <span class="s_website_form_label_content">Sector*</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+
+                                            <select name="sector_id" id="sector_id" data-placeholder="Select your ticket sector..." class="form-control o_website_form_input">
+                                                <option value="">Choose...</option>
+                                                <t t-foreach="sectors or []" t-as="sector">
+                                                    <option t-att-value="sector.id">
+                                                        <t t-esc="sector.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input_customer form-group col-12 s_website_form_field" data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="helpdesk11">
+                                            <span class="s_website_form_label_content">Customer</span>
+                                            <span class="s_website_form_mark s_website_form_dnone input_customer">*
+                                            </span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <select name="partner_id" id="partner_id" data-placeholder="Select your ticket type..." class="form-control o_website_form_input">
+                                                <option value="">Choose...</option>
+                                                <!--                                                <t t-foreach="customers or []" t-as="customer">-->
+                                                <!--                                                    <option t-att-value="customer.id">-->
+                                                <!--                                                        <t t-esc="customer.name"/>-->
+                                                <!--                                                    </option>-->
+                                                <!--                                                </t>-->
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="customer_name form-group col-12 s_website_form_field d-none" data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="helpdesk1">
+                                            <span class="s_website_form_label_content">Customer Name</span>
+                                            <span class="s_website_form_mark customer_name">*</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input id="helpdesk1" type="text" class="form-control s_website_form_input" name="partner_name"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="customer_email form-group col-12 s_website_form_field d-none" data-type="email" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="helpdesk2">
+                                            <span class="s_website_form_label_content">Customer Email</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input id="helpdesk2" type='email' class='form-control s_website_form_input' name="partner_email"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input_position form-group col-12 d-none" data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="customer_position">
+                                            <span class="s_website_form_label_content">Customer Position</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input id="customer_position" type="text" class="form-control s_website_form_input" name="customer_position"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="responsible_name form-group col-12 s_website_form_field" data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="responsible_name">
+                                            <span class="s_website_form_label_content">Responsible Name</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input id="responsible_name" type="text" class="form-control s_website_form_input" name="responsible_name"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="responsible_mobile form-group col-12 s_website_form_field" data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="responsible_mobile">
+                                            <span class="s_website_form_label_content">Responsible Mobile</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input id="responsible_name" type="text" class="form-control s_website_form_input" name="responsible_mobile"/>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required" data-type="text" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="helpdesk14">
+                                            <span class="s_website_form_label_content">Description</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <textarea id="helpdesk14" class="form-control s_website_form_input" name="description" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 s_website_form_field s_website_form_dnone" data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="helpdesk13">
+                                            <span class="s_website_form_label_content">Assigned To</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input id="user_id" type="hidden" class="form-control s_website_form_input" name="user_id"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 s_website_form_field s_website_form_custom" data-type="binary" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="helpdesk5">
+                                            <span class="s_website_form_label_content">Attachment(s)</span>
+                                            <span id="required_attachment" class="s_website_form_mark s_website_form_dnone">*
+                                            </span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input id="helpdesk5" type="file" name="attachments" class="form-control s_website_form_input" multiple="true" accept="image/*,application/pdf,video/*"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 s_website_form_field s_website_form_dnone">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-auto s_website_form_label" style="width: 200px" for="helpdesk6">
+                                            <span class="s_website_form_label_content">Team</span>
+                                        </label>
+                                        <div class="col-sm col-xs-12">
+                                            <input id="helpdesk6" type="hidden" class="form-control s_website_form_input" name="team_id"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--                                <div class="form-group text-center mt32 submit_ticket col-12 s_website_form_submit">-->
+                                <!--                                    <button class="btn btn-primary submit_ticket">Submit Ticket</button>-->
+                                <!--                                </div>-->
+                                <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                                    <div style="width: 200px;" class="s_website_form_label"/>
+                                    <a href="#" role="button" class="btn btn-primary btn-lg s_website_form_send">Submit
+                                    </a>
+                                    <span id="s_website_form_result"></span>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </template>
+
+
+    <template id="website_helpdesk_form_team" name="Website Helpdesk Form Team" inherit_id="website_helpdesk.team">
+        <xpath expr="//div[@id='wrap']//div[1]/div[3]" position="inside">
+            <t t-call="thiqah_helpdesk_portal.thiqah_ticket_submit_ticket_form"/>
+
+        </xpath>
+    </template>
+
+
+</odoo>

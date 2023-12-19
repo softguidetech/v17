@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="client_registration.inherit_portal_dashboard_layout" inherit_id="thiqah_portal.portal_dashboard_layout">
+        <xpath expr="//div[hasclass('sb-sidenav-menu')]//a[@href='/my/projects']" position="after">
+            <a t-if="request.env.user.check_service_access('client_registration')" class="nav-link d-flex align-items-center" href="/my/client_registration" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) ==
+                unslug_url('/my/client_registration') else ''}">
+                <svg width="16" height="17" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.404 16.25h11.003c1.453 0 2.145-.437 2.145-1.4 0-2.294-2.897-5.611-7.642-5.611-4.753 0-7.65 3.317-7.65 5.61 0 .964.691 1.401 2.144 1.401Zm-.411-1.322c-.228 0-.324-.06-.324-.245 0-1.435 2.223-4.122 6.241-4.122 4.01 0 6.232 2.687 6.232 4.122 0 .184-.087.245-.314.245H1.992ZM7.91 8.153c2.083 0 3.782-1.855 3.782-4.114 0-2.24-1.69-4-3.782-4C5.836.04 4.13 1.833 4.13 4.057c.008 2.25 1.698 4.096 3.781 4.096Zm0-1.321c-1.278 0-2.372-1.226-2.372-2.775 0-1.523 1.077-2.696 2.372-2.696 1.304 0 2.372 1.155 2.372 2.678 0 1.55-1.085 2.793-2.372 2.793Z" />
+                </svg>
+                Clients Registrations
+            </a>
+            <a t-if="request.env.user.check_service_access('client_payment')" class="nav-link d-flex align-items-center" href="/my/client_payment" t-attf-class="nav-link d-flex align-items-center #{'active' if unslug_url(request.httprequest.path) ==
+                unslug_url('/my/client_payment') else ''}">
+                <svg width="16" height="17" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.404 16.25h11.003c1.453 0 2.145-.437 2.145-1.4 0-2.294-2.897-5.611-7.642-5.611-4.753 0-7.65 3.317-7.65 5.61 0 .964.691 1.401 2.144 1.401Zm-.411-1.322c-.228 0-.324-.06-.324-.245 0-1.435 2.223-4.122 6.241-4.122 4.01 0 6.232 2.687 6.232 4.122 0 .184-.087.245-.314.245H1.992ZM7.91 8.153c2.083 0 3.782-1.855 3.782-4.114 0-2.24-1.69-4-3.782-4C5.836.04 4.13 1.833 4.13 4.057c.008 2.25 1.698 4.096 3.781 4.096Zm0-1.321c-1.278 0-2.372-1.226-2.372-2.775 0-1.523 1.077-2.696 2.372-2.696 1.304 0 2.372 1.155 2.372 2.678 0 1.55-1.085 2.793-2.372 2.793Z" />
+                </svg>
+                Clients Payments
+            </a>
+        </xpath>
+    </template>
+
+</odoo>

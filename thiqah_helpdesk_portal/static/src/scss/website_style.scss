@@ -1,0 +1,26 @@
+div#footer {
+    display: none;
+}
+.o_footer .o_footer_copyright {
+    background-color: $mk-appbar-background !important;
+}
+.o_brand_promotion {
+    display: none;
+}
+
+.btn-fill-primary, .btn-primary {
+    color: #FFFFFF;
+    background-color: $o-brand-primary;
+    border-color: $o-brand-primary;
+}
+.btn-link {
+    color: $o-brand-primary;
+}
+.o_cc1 .btn-fill-secondary, .navbar-light .btn-fill-secondary, #wrapwrap.o_header_overlay > header:not(.o_header_affixed):not(.o_top_menu_collapse_shown) > .navbar .btn-fill-secondary, .o_cc1 .btn-secondary, .navbar-light .btn-secondary, #wrapwrap.o_header_overlay > header:not(.o_header_affixed):not(.o_top_menu_collapse_shown) > .navbar .btn-secondary, .o_colored_level .o_cc1 .btn-fill-secondary, .o_colored_level .navbar-light .btn-fill-secondary, .o_colored_level #wrapwrap.o_header_overlay > header:not(.o_header_affixed):not(.o_top_menu_collapse_shown) > .navbar .btn-fill-secondary, .o_colored_level .o_cc1 .btn-secondary, .o_colored_level .navbar-light .btn-secondary, .o_colored_level #wrapwrap.o_header_overlay > header:not(.o_header_affixed):not(.o_top_menu_collapse_shown) > .navbar .btn-secondary {
+    color: #FFFFFF;
+    background-color: $o-brand-primary;
+    border-color: $o-brand-primary;
+}
+.o_cc1 a:not(.btn):hover, .navbar-light a:not(.btn):hover, #wrapwrap.o_header_overlay > header:not(.o_header_affixed):not(.o_top_menu_collapse_shown) > .navbar a:not(.btn):hover, .o_cc1 .btn-link:hover, .navbar-light .btn-link:hover, #wrapwrap.o_header_overlay > header:not(.o_header_affixed):not(.o_top_menu_collapse_shown) > .navbar .btn-link:hover, .o_colored_level .o_cc1 a:not(.btn):hover, .o_colored_level .navbar-light a:not(.btn):hover, .o_colored_level #wrapwrap.o_header_overlay > header:not(.o_header_affixed):not(.o_top_menu_collapse_shown) > .navbar a:not(.btn):hover, .o_colored_level .o_cc1 .btn-link:hover, .o_colored_level .navbar-light .btn-link:hover, .o_colored_level #wrapwrap.o_header_overlay > header:not(.o_header_affixed):not(.o_top_menu_collapse_shown) > .navbar .btn-link:hover {
+    color: $o-brand-primary;
+}

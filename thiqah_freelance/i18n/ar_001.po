@@ -1,0 +1,3136 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* thiqah_freelance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20220210\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-29 10:27+0000\n"
+"PO-Revision-Date: 2023-10-29 10:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__event_count
+msgid "# Events"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__meeting_count
+msgid "# Meetings"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__task_count
+msgid "# Tasks"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_justificaion
+msgid ""
+"*If the request is not aligned with the strategy plan, please fill the "
+"second one \"the sector annual plan\"."
+msgstr ""
+"*إذا لم يكن الطلب متوافقًا مع الخطة الإستراتيجية، فيرجى ملء النموذج الثاني "
+"'الخطة السنوية للقطاع'."
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_terms_conditions
+msgid ""
+"1-The contract has a maximum term of one year.\n"
+"                            2-The project scope needs to be within the mandates and duties of the department and unit.\n"
+"                            3-The project only has one \"freelance\" employee at a time.\n"
+"                            4-Ensure that the KPIs and scope of freelance and consulting services are different throughout the same \"one-year\" timeframe.\n"
+"                            5-Procurement rules apply to the freelance requirement for education, experience, and accreditation."
+msgstr ""
+"1-العقد لديه مدة أقصاها سنة واحدة.\n"
+"                            2-يجب أن يكون نطاق المشروع ضمن صلاحيات وواجبات الإدارة والوحدة.\n"
+"                            3-يحتوي المشروع على موظف 'عمل حر' واحد فقط كل مرة.\n"
+"                            4-تأكد من أن مؤشرات الأداء الرئيسية ونطاق خدمات العمل الحر والخدمات الاستشارية مختلفة خلال نفس الإطار الزمني 'لمدة عام واحد'.\n"
+"                            5-تنطبق قواعد المشتريات على متطلبات العمل الحر فيما يتعلق بالتعليم والخبرة والاعتماد."
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#, python-format
+msgid "<h5>Access Denied. Please contact your administrator!</h5>"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_list
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "<small>#</small>"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_add_success_modal
+msgid ""
+"<span class=\"body2 t-text-gray mt24\">Your freelance request has been added"
+" succesfully.</span>"
+msgstr "<span class=\"body2 t-text-gray mt24\">لقد تم إضافة طلبكم بنجاح</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"body2 t-text-gray mt24\">Your freelancer request has been "
+"added succesfully.</span>"
+msgstr "<span class=\"body2 t-text-gray mt24\">لقد تم إضافة طلبكم بنجاح</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+msgid "<span class=\"item_header\">Deliverable Outcome</span>"
+msgstr "<span class=\"item_header\">النتائج القابلة للإنجاز</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid "<span class=\"item_header\">Freelancer Request</span>"
+msgstr "<span class=\"item_header\">طلب عمل حر</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+msgid "<span class=\"item_header\">Freelancer Workforce Request</span>"
+msgstr "<span class=\"item_header\">القوى العاملة لطلب العمل الحر</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+msgid "<span class=\"item_header\">Function Breakdown</span>"
+msgstr "<span class=\"item_header\">تفصيل المهمة</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+msgid "<span class=\"item_header\">Organizational Implications</span>"
+msgstr "<span class=\"item_header\">الآثار التنظيمية</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+msgid "<span class=\"item_header\">Request Justification</span>"
+msgstr "<span class=\"item_header\">مبررات الطلب</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid "<span class=\"item_header\">Terms and Conditions</span>"
+msgstr "<span class=\"item_header\">الشروط و الأحكام</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid ""
+"<span class=\"ml16 caption t-text-cyan text-uppercase\">\n"
+"                                                    Draft</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-cyan text-uppercase\">\n"
+"                                                    مسودة</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid ""
+"<span class=\"ml16 caption t-text-purple text-uppercase\">\n"
+"                                                    All</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-purple text-uppercase\">\n"
+"                                                    الكل</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid ""
+"<span class=\"ml16 caption t-text-turquoise text-uppercase\">\n"
+"                                                   Confirmed</span>"
+msgstr ""
+"<span class=\"ml16 caption t-text-turquoise text-uppercase\">\n"
+"                                                   مؤكدة</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid ""
+"<span class=\"ml16 caption text-uppercase t-text-dark-blue\">\n"
+"                                                    Paid </span>"
+msgstr ""
+"<span class=\"ml16 caption text-uppercase t-text-dark-blue\">\n"
+"                                                    مدفوعة </span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                        Adjust Amount Justification\n"
+"                                                                    </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                        تبرير تعديل المبلغ\n"
+"                                                                    </span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                        Amount\n"
+"                                                                    </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                                        المبلغ\n"
+"                                                                    </span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                            First Name</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                            الاسم الأول</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        Upload Attachments</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                        رفع مرفقات</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_requests_actions
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    Description\n"
+"                                                </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    الوصف\n"
+"                                                </span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_requests_actions
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    OD Duration Recommendation\n"
+"                                                </span>"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_requests_actions
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    OD Expected Total Cost Recommendation\n"
+"                                                </span>"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_requests_actions
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    Recommendation\n"
+"                                                </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    التوصية\n"
+"                                                </span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    Withholding Tax Comment\n"
+"                                                </span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">\n"
+"                                                    تعليق ضريبة الاستقطاع\n"
+"                                                </span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Account</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الحساب</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Bank Country</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">دولة البنك</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Bank</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">البنك</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Beneficiary Name</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">إسم المستفيد</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Branch</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الفرع</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid ""
+"<span class=\"s_website_form_label_content\">Client Name</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">إسم العميل</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_deliverable_outcome
+msgid ""
+"<span class=\"s_website_form_label_content\">Deliverable Outcome</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">النتائج القابلة للإنجاز</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_function_breakdown
+msgid ""
+"<span class=\"s_website_form_label_content\">Deliverable</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">التسليم</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Department</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الإدارة</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">E-mail</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">البريد إلكتروني</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">End Date</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">تاريخ النهاية</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid ""
+"<span class=\"s_website_form_label_content\">Entity</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الكيان</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Entity</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الكيان</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Expected Total Cost</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">التكلفة الإجمالية المتوقعة</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_function_breakdown
+msgid ""
+"<span class=\"s_website_form_label_content\">Function</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الوظيفة</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_terms_conditions
+msgid ""
+"<span class=\"s_website_form_label_content\">I read and accpet the terms and conditions.</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">لقد قرأت الشروط والأحكام وأوافق عليها.</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">IBAN</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">رقم الآيبان</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">ID Number</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">رقم الهوية</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">ID type</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">نوع الهوية</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_function_breakdown
+msgid ""
+"<span class=\"s_website_form_label_content\">KPIs of unit</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">مؤشرات الأداء الرئيسية للوحدة</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Last Name</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">اسم العائلة</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_justificaion
+msgid ""
+"<span class=\"s_website_form_label_content\">List the justification that this request is aligned with THIQAH strategy?</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">اذكر مبررات هذا الطلب التي تتوافق مع استراتيجية ثقة؟</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_justificaion
+msgid ""
+"<span class=\"s_website_form_label_content\">List the justification that this request is aligned with the sector annual plan/goals ?</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">اذكر مبررات توافق هذا الطلب مع الخطة/الأهداف السنوية للقطاع؟</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_justificaion
+msgid ""
+"<span class=\"s_website_form_label_content\">List the objective that will be achieved through the requested ?</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">اذكر الهدف الذي سيتم تحقيقه من خلال المطلوب ؟</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Mobile Number</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">رقم الهاتف الجوال</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Nationality</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الجنسية</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_organizational_implications
+msgid ""
+"<span class=\"s_website_form_label_content\">Please explain why current Manpower, without this change/ addition request, is not capable of achieving the strategic initiatives in question:</span>\n"
+"                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">يرجى توضيح سبب عدم قدرة القوى العاملة الحالية ، بدون طلب التغيير / الإضافة هذا، على تحقيق المبادرات الاستراتيجية المعنية:</span>\n"
+"                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_organizational_implications
+msgid ""
+"<span class=\"s_website_form_label_content\">Please explain why the current manpower cant undertake the requested objective or roles &amp; responsibility:</span>\n"
+"                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">يرجى توضيح سبب عدم قدرة القوى العاملة الحالية على القيام بالهدف المطلوب أو الأدوار والمسؤولية:</span>\n"
+"                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Project End Date</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">تاريخ نهاية المشروع</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid ""
+"<span class=\"s_website_form_label_content\">Project Name</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">إسم المشروع</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Project Name</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">إسم المشروع</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid ""
+"<span class=\"s_website_form_label_content\">Project Number</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">رقم المشروع</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Project Start Date</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">تاريخ بداية المشروع</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Request Date</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">تاريخ الطلب</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Request Duration in Months</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">مدة الطلب بالأشهر</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Request Type</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">نوع الطلب</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid ""
+"<span class=\"s_website_form_label_content\">Request description</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">وصف الطلب</span>\n"
+"                                                        <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Request description</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">وصف الطلب</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Salary</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">الراتب</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Section</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">القسم</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid ""
+"<span class=\"s_website_form_label_content\">Sector</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">القطاع</span>\n"
+"                            <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"<span class=\"s_website_form_label_content\">Start Date</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+msgstr ""
+"<span class=\"s_website_form_label_content\">تاريخ البداية</span>\n"
+"                                                <span class=\"s_website_form_mark\">*</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_terms_conditions
+msgid "<span class=\"s_website_form_label_content\">Terms and Conditions</span>"
+msgstr "<span class=\"s_website_form_label_content\">الشروط و الأحكام</span>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "<span>)</span>"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid ""
+"<span>*If the request is not aligned with the strategy plan, please fill the"
+" second one “the sector annual plan”.​</span><br/><br/>"
+msgstr ""
+"<span>*إذا لم يكن الطلب متوافقًا مع الخطة الإستراتيجية، فيرجى ملء النموذج "
+"الثاني 'الخطة السنوية للقطاع'.​</span><br/><br/>"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "<span>Freelance Request(#</span>"
+msgstr "<span>طلب عمل حر (#</span>"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__account
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Account"
+msgstr "الحساب"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__account_manager_id
+msgid "Account Manager"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Account..."
+msgstr "الحساب..."
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_organizational_implications
+msgid "Action"
+msgstr " الإجراء"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_needaction
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_needaction
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_list
+msgid "Actions"
+msgstr "الإجراء"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__active
+msgid "Active"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__active_lang_count
+msgid "Active Lang Count"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__activity_ids
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__activity_ids
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__activity_exception_decoration
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__activity_exception_decoration
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__activity_state
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__activity_state
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__activity_type_icon
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__activity_type_icon
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_organizational_implications
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_list
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Add"
+msgstr "إضافة"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_requests_actions
+msgid "Add Freelancer Details"
+msgstr "إضافة تفاصيل طالب عمل حر"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_organizational_implications
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Add New"
+msgstr "إضافة جديد"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields.selection,name:thiqah_freelance.selection__freelance_request__request_type__add_functions_tasks
+msgid "Additional Functions/Tasks"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid "Additional functions/Tasks"
+msgstr "وظائف / مهام إضافية"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__additional_info
+msgid "Additional info"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__type
+msgid "Address Type"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Adjust"
+msgstr "تعديل"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Adjust Amount"
+msgstr "تعديل المبلغ"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__ahad_client_name
+msgid "Ahad Client Name"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid "Ahad Freelance Request"
+msgstr "طلب عمل حر 'عهد'"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Ahad Freelancer Request"
+msgstr "طلب عمل حر 'عهد'"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__ahad_project_name
+msgid "Ahad Project Name"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__ahad_project_number
+msgid "Ahad Project Number"
+msgstr ""
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#, python-format
+msgid "All"
+msgstr "الكل"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__lang
+msgid ""
+"All the emails and documents sent to this contact will be translated in this"
+" language."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__amount
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__justification
+msgid "Amount Adjust Justification"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__api_freelancer_name
+msgid "Api Freelancer Name"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__api_supplier_site_id
+msgid "Api Supplier Site"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Are you sure to confirm?"
+msgstr "هل أنت متأكد من التأكيد؟"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Are you sure to proceed payment?"
+msgstr "هل أنت متأكد من متابعة الدفع؟"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_attachment_count
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_attachment_count
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Attachments"
+msgstr "المرفقات"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__authorized_person_info
+msgid "Authorized Person info"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.actions.server,name:thiqah_freelance.generate_workorder_cron_ir_actions_server
+#: model:ir.cron,cron_name:thiqah_freelance.generate_workorder_cron
+#: model:ir.cron,name:thiqah_freelance.generate_workorder_cron
+msgid "Auto Generate Workorder"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__avatar_1920
+msgid "Avatar"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__avatar_1024
+msgid "Avatar 1024"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__avatar_128
+msgid "Avatar 128"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__avatar_256
+msgid "Avatar 256"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__avatar_512
+msgid "Avatar 512"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid "Back"
+msgstr "العودة"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__bank_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__bank_name
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Bank"
+msgstr "البنك"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__bank_country
+msgid "Bank Country"
+msgstr "دولة البنك"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_application_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Bank Information"
+msgstr "معلومات البنك"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__bank_ids
+msgid "Banks"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__barcode
+msgid "Barcode"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__beneficiary_name
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Beneficiary Name"
+msgstr "إسم المستفيد"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Beneficiary Name..."
+msgstr "إسم المستفيد..."
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_blacklisted
+msgid "Blacklist"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__mobile_blacklisted
+msgid "Blacklisted Phone Is Mobile"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__phone_blacklisted
+msgid "Blacklisted Phone is Phone"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_bounce
+msgid "Bounce"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__branch_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__branch_name
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Branch"
+msgstr "الفرع"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__cr_number
+msgid "CR Number"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__can_publish
+msgid "Can Publish"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__can_see_utilization_report
+msgid "Can See Utilization Report"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__channel_ids
+msgid "Channels"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__is_company
+msgid "Check if the contact is a company, otherwise it is a person"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__employee
+msgid "Check this box if this contact is an Employee."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__chief_id
+msgid "Chief Of SP"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Choose..."
+msgstr "إختر..."
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__city
+msgid "City"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Client Name"
+msgstr "إسم العميل"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid "Client Name..."
+msgstr "إسم العميل..."
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__client_status_id
+msgid "Client Status"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_requests_actions
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Close"
+msgstr "غلق"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__code
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__entity_code
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__entity_code
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__entity_code
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_entity__code
+msgid "Code"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__color
+msgid "Color Index"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__commercial_partner_id
+msgid "Commercial Entity"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__company_id
+msgid "Company"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__company_name
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__cr_company_name
+msgid "Company Name"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__commercial_company_name
+msgid "Company Name Entity"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__company_strategy_justif
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Company Strategy justification"
+msgstr "مبررات استراتيجية الشركة"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__company_type
+msgid "Company Type"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__partner_gid
+msgid "Company database ID"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__contact_address
+msgid "Complete Address"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__concerned_user_ids
+msgid "Concerned User"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Concerned Users"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_requests_actions
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: model:ir.model.fields.selection,name:thiqah_freelance.selection__freelance_workorder__state__confirmed
+#, python-format
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: thiqah_freelance
+#: model:ir.model,name:thiqah_freelance.model_res_partner
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__child_ids
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__contact_address_complete
+msgid "Contact Address Complete"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_application_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Contract Information"
+msgstr "معلومات العقد"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__message_bounce
+msgid "Counter of the number of bounced emails for this contact"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__country_id
+msgid "Country"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__country_code
+msgid "Country Code"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__create_banks_endpoint
+msgid "Create Banks Endpoint"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__create_invoice_endpoint
+msgid "Create Invoice Endpoint"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+msgid "Create Request"
+msgstr "إنشاء طلب"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__create_uid
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_impact_unit__create_uid
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__create_uid
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__create_uid
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__create_uid
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_entity__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__create_date
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_impact_unit__create_date
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__create_date
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__create_date
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__create_date
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_entity__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__credit_limit
+msgid "Credit Limit"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__current_manpower_limit
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Current Manpower Limit"
+msgstr "الحد الحالي للقوى العاملة"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__current_manpower_weakness
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Current Manpower Weakness"
+msgstr "نقاط ضعف القوى العاملة الحالية"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__date
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_list
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__date_from
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Date From"
+msgstr "التاريخ من"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__date_to
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Date To"
+msgstr "التاريخ إلى"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__deliverable
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Deliverable"
+msgstr "التسليم"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_deliverable_outcome
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Deliverable Outcome"
+msgstr "النتائج القابلة للإنجاز"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__deliverable_outcome
+msgid "Deliverable Outcome​"
+msgstr "النتائج القابلة للإنجاز"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Deliverable outcome"
+msgstr "النتائج القابلة للإنجاز"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Deliverable outcome​"
+msgstr "النتائج القابلة للإنجاز"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Delivrable"
+msgstr "التسليم"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_impact_unit__department_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__department_id
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_list
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Department"
+msgstr "الإدارة"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__deputy_id
+msgid "Deputy"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__request_description
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__description
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Description"
+msgstr "الوصف"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__display_name
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_impact_unit__display_name
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__display_name
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__display_name
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__display_name
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_entity__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__document_count
+msgid "Document Count"
+msgstr ""
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: model:ir.model.fields.selection,name:thiqah_freelance.selection__freelance_workorder__state__draft
+#, python-format
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid ""
+"Drag Drop or <span class=\"t-text-cyan\">Choose File</span> To\n"
+"                                                        Upload"
+msgstr ""
+"إسحب و أفلت أو<span class=\"t-text-cyan\">إختر\n"
+"                                                                            ملف</span> للتحميل"
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__due_date
+#, python-format
+msgid "Due Date"
+msgstr "تاريخ الإستحقاق"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__duration
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Duration"
+msgstr "المدة"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__email
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "E-mail"
+msgstr "البريد إلكتروني"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "E-mail..."
+msgstr "البريد إلكتروني..."
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__partner_share
+msgid ""
+"Either customer (not a user), either shared user. Indicated the current "
+"partner is a customer without access or with a limited access created for "
+"sharing data."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__employee
+msgid "Employee"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__employee_ids
+msgid "Employees"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__employees_count
+msgid "Employees Count"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__end_date
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "End Date"
+msgstr "تاريخ النهاية"
+
+#. module: thiqah_freelance
+#: model:ir.actions.act_window,name:thiqah_freelance.res_entity_action
+#: model:ir.model,name:thiqah_freelance.model_res_entity
+#: model:ir.ui.menu,name:thiqah_freelance.entity_menu_act
+msgid "Entities"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__entity_id
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_list
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Entity"
+msgstr "الكيان"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__expected_total_cost
+msgid "Expected Total Cost"
+msgstr "التكلفة الإجمالية المتوقعة"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid "Expected Total Cost..."
+msgstr "التكلفة الإجمالية المتوقعة..."
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__expired
+msgid "Expired"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields.selection,name:thiqah_freelance.selection__freelance_request__request_type__extend_project
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid "Extend Project"
+msgstr "تمديد مشروع"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__phone_sanitized
+msgid ""
+"Field used to store sanitized phone number. Helps speeding up searches and "
+"comparisons."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Finish"
+msgstr "إنهاء"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__first_name
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "First Name"
+msgstr "الاسم الأول"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "First Name..."
+msgstr "الاسم الأول..."
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_follower_ids
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_follower_ids
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_partner_ids
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_partner_ids
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__activity_type_icon
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__activity_type_icon
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__email_formatted
+msgid "Format email address \"Name <email@domain>\""
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__email_formatted
+msgid "Formatted Email"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.ui.menu,name:thiqah_freelance.freelance_menu_root
+msgid "Freelance"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.actions.act_window,name:thiqah_freelance.freelance_application_action
+msgid "Freelance Application"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__freelance_application_ids
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Freelance Applications"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__freelance_endpoint
+msgid "Freelance Endpoint"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:res.groups,name:thiqah_freelance.group_freelance_finance
+msgid "Freelance Finance"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:res.groups,name:thiqah_freelance.group_freelance_finance_business_partner
+msgid "Freelance Finance Business Partner"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:res.groups,name:thiqah_freelance.group_freelance_hr_operations
+msgid "Freelance HR Operations"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model,name:thiqah_freelance.model_freelance_impact_unit
+msgid "Freelance Impacted Unit"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:res.groups,name:thiqah_freelance.group_freelance_officer
+msgid "Freelance Officer"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Freelance Payments"
+msgstr "دفع العمل الحر"
+
+#. module: thiqah_freelance
+#: model:ir.model,name:thiqah_freelance.model_freelance_request
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_impact_unit__request_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__frequest_id
+msgid "Freelance Request"
+msgstr ""
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/models/workflow_transition.py:0
+#, python-format
+msgid "Freelance Request APPROVED"
+msgstr "طلب عمل حر معمد"
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/models/freelance_request.py:0
+#, python-format
+msgid "Freelance Request Assignment"
+msgstr "تعيين طلب عمل حر"
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#, python-format
+msgid "Freelance Request REJECTED"
+msgstr "طلب عمل حر مرفوض"
+
+#. module: thiqah_freelance
+#: model:ir.actions.act_window,name:thiqah_freelance.freelance_request_action
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_list
+msgid "Freelance Requests"
+msgstr "طلبات العمل الحر"
+
+#. module: thiqah_freelance
+#: model:ir.actions.act_window,name:thiqah_freelance.freelance_workorder_action_window
+#: model:res.groups,name:thiqah_freelance.group_freelance_workorder
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_workorder_form_view
+msgid "Freelance Workorder"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.ui.menu,name:thiqah_freelance.freelance_application_menu_act
+msgid "Freelance applications"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__request_id
+msgid "Freelance request"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.ui.menu,name:thiqah_freelance.freelance_request_menu_act
+msgid "Freelance requests"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.ui.menu,name:thiqah_freelance.freelance_workorder_menu_act
+msgid "Freelance workorders"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__freelancer_id
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Freelancer"
+msgstr "طالب العمل الحر"
+
+#. module: thiqah_freelance
+#: model:ir.model,name:thiqah_freelance.model_freelance_application
+msgid "Freelancer Application"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__freelancer_count
+msgid "Freelancer Count"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Freelancer Details"
+msgstr "تفاصيل طالب العمل الحر"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Freelancer Details List"
+msgstr "قائمة تفاصيل طلاب العمل الحر"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Freelancer Workforce Request"
+msgstr "القوى العاملة لطلب العمل الحر"
+
+#. module: thiqah_freelance
+#: model:ir.model,name:thiqah_freelance.model_freelance_workorder
+msgid "Freelancer Workorder"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Freelancers"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__full_name
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_entity__full_name
+msgid "Full Name"
+msgstr "الإسم الكامل"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__function
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Function"
+msgstr "وظيفة"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_function_breakdown
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Function Breakdown"
+msgstr "تفصيل المهمة"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Function Breakdown​"
+msgstr "تفصيل المهمة"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Function will be preformed"
+msgstr "سيتم تنفيذ الوظائف"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Functions"
+msgstr "الوظائف"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_impact_unit__operation
+msgid "Functions will be performed"
+msgstr "سيتم تنفيذالوظائف "
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_organizational_implications
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+msgid "Functions will be preformed"
+msgstr "سيتم تنفيذالوظائف "
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__partner_latitude
+msgid "Geo Latitude"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__partner_longitude
+msgid "Geo Longitude"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Go back to all freelance requests"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_add_success_modal
+msgid "Go back to all requests"
+msgstr "الرجوع لكل الطلبات"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__has_message
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__has_message
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__iap_enrich_info
+msgid "IAP Enrich Info"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__iap_enrich_info
+msgid "IAP response stored as a JSON string"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__iban
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "IBAN"
+msgstr "رقم الآيبان"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "IBAN..."
+msgstr "رقم الآيبان..."
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_impact_unit__id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_entity__id
+msgid "ID"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__id_number
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "ID Number"
+msgstr "رقم الهوية"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "ID Number..."
+msgstr "...رقم الهوية"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__id_type
+msgid "ID Type"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "ID type"
+msgstr "نوع الهوية"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__im_status
+msgid "IM Status"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_account_manager
+msgid "IS Account developer"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_business_developer
+msgid "IS Business developer"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_chief
+msgid "IS Chief"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_customer
+msgid "IS Customer"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_deputy
+msgid "IS Deputy"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_sp_manager
+msgid "IS SP Manager"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__activity_exception_icon
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__activity_exception_icon
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__activity_exception_icon
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__activity_exception_icon
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__message_needaction
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__message_unread
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__message_needaction
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__message_unread
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__message_needaction
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__message_has_error
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__message_has_sms_error
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__message_has_error
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__message_has_sms_error
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__message_has_error
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__team_id
+msgid ""
+"If set, this Sales Team will be used for sales and assignments related to "
+"this partner"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__is_blacklisted
+msgid ""
+"If the email address is on the blacklist, the contact won't receive mass "
+"mailing anymore, from any list"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__phone_sanitized_blacklisted
+msgid ""
+"If the sanitized phone number is on the blacklist, the contact won't receive"
+" mass mailing sms anymore, from any list"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__image_1920
+msgid "Image"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__image_1024
+msgid "Image 1024"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__image_256
+msgid "Image 256"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__image_512
+msgid "Image 512"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__impacted_unit_ids
+msgid "Impacted Units"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+msgid "Impacting Department"
+msgstr "قسم التأثير"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__mobile_blacklisted
+msgid ""
+"Indicates if a blacklisted sanitized phone number is a mobile number. Helps "
+"distinguish which number is blacklisted             when there is both a "
+"mobile and phone field in a model."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__phone_blacklisted
+msgid ""
+"Indicates if a blacklisted sanitized phone number is a phone number. Helps "
+"distinguish which number is blacklisted             when there is both a "
+"mobile and phone field in a model."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__industry_id
+msgid "Industry"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Invalid Or Not Exist Country Code"
+msgstr "رمز البلد غير صالح أو غير موجود"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__type
+msgid ""
+"Invoice & Delivery addresses are used in sales orders. Private addresses are"
+" only visible by authorized users."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__is_approved
+msgid "Is Approved"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_bank_added
+msgid "Is Bank Added"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_director_finance
+msgid "Is Director Finance"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__is_done
+msgid "Is Done"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_is_follower
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_is_follower
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_freelancer
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_partner__is_freelancer
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_users__is_freelancer
+msgid "Is Freelancer"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__is_freelance_fully_added
+msgid "Is Freelancer Fully Added?"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__is_in_progress
+msgid "Is In Progress"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_published
+msgid "Is Published"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__is_visible
+msgid "Is Visible"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_vp
+msgid "Is Vp"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__is_company
+msgid "Is a Company"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__function
+msgid "Job Position"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__justification_text
+msgid "Justification Text"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__lang
+msgid "Language"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application____last_update
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_impact_unit____last_update
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request____last_update
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder____last_update
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config____last_update
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_entity____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__last_name
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Last Name..."
+msgstr "اسم العائلة..."
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__last_step_created_at
+msgid "Last Step Create At"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__last_step_created_by
+msgid "Last Step Created By"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__write_uid
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_impact_unit__write_uid
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__write_uid
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__write_uid
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__write_uid
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_entity__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__write_date
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_impact_unit__write_date
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__write_date
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__write_date
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__write_date
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_entity__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__last_workorder_date
+msgid "Last Workorder Date"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__calendar_last_notif_ack
+msgid "Last notification marked as read from base Calendar"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__level
+msgid "Level"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__list_banks_endpoint
+msgid "List Banks Endpoint"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid ""
+"List the justification that this request is aligned with THIQAH strategy?"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid ""
+"List the justification that this request is aligned with the sector annual "
+"plan/goals?"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_main_attachment_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_main_attachment_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__image_medium
+msgid "Medium-sized image"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__meeting_ids
+msgid "Meetings"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_has_error
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_has_error
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_ids
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_ids
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__mobile
+msgid "Mobile"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__mobile_number
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Mobile Number"
+msgstr "رقم الهاتف الجوال"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Mobile Number..."
+msgstr "...رقم الهاتف الجوال"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__my_activity_date_deadline
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__my_activity_date_deadline
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__name
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__name
+#: model:ir.model.fields,field_description:thiqah_freelance.field_res_entity__name
+msgid "Name"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields.selection,name:thiqah_freelance.selection__freelance_application__id_type__national_id
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "National ID"
+msgstr "الهوية الوطنية"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__nationality_id
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Nationality"
+msgstr "الجنسية"
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/models/freelance_request.py:0
+#: code:addons/thiqah_freelance/models/freelance_request.py:0
+#: code:addons/thiqah_freelance/models/freelance_request.py:0
+#: code:addons/thiqah_freelance/models/freelance_workorder.py:0
+#: code:addons/thiqah_freelance/models/freelance_workorder.py:0
+#: code:addons/thiqah_freelance/models/freelance_workorder.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid "New Ahad Freelance Request"
+msgstr "طلب عمل حر جديد عهد"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_add_success_modal
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+msgid "New Freelance Request"
+msgstr "طلب عمل حر جديد"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "New Freelancer Request"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields.selection,name:thiqah_freelance.selection__freelance_request__request_type__new_project
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid "New Project"
+msgstr "مشروع جديد"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Next"
+msgstr "التالي"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+msgid ""
+"Next\n"
+"                                                Step"
+msgstr ""
+"الخطوة\n"
+"                                                التالية"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid ""
+"Next\n"
+"                                            Step"
+msgstr ""
+"الخطوة\n"
+"                                                التالية"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__activity_calendar_event_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__activity_calendar_event_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__activity_date_deadline
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__activity_date_deadline
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__activity_summary
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__activity_summary
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__activity_type_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__activity_type_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__email_normalized
+msgid "Normalized Email"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__comment
+msgid "Notes"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_needaction_counter
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_needaction_counter
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_has_error_counter
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_has_error_counter
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__event_count
+msgid "Number of events the partner has participated."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__message_needaction_counter
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__message_needaction_counter
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__message_has_error_counter
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__message_has_error_counter
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__message_unread_counter
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__message_unread_counter
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__ocn_token
+msgid "OCN Token"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__od_duration
+msgid "OD Duration"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "OD Duration In Months"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__od_cost
+msgid "OD Expected Cost"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "OD Expected Total Cost"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:res.groups,name:thiqah_freelance.group_freelance_hr
+msgid "OD Freelance"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__od_recommendation
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_requests_actions
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "OD Recommendation"
+msgstr "توصية التطوير التنظيمي"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "OD Recommendations"
+msgstr "توصيات التطوير التنظيمي"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__opportunity_ids
+msgid "Opportunities"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__opportunity_count
+msgid "Opportunity"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.actions.act_window,name:thiqah_freelance.oracle_config_action
+#: model:ir.ui.menu,name:thiqah_freelance.oracle_config_menu_act
+msgid "Oracle Config"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Organizational Implications"
+msgstr "الآثار التنظيمية"
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: model:ir.model.fields.selection,name:thiqah_freelance.selection__freelance_workorder__state__paid
+#, python-format
+msgid "Paid"
+msgstr "مدفوعة"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__parent_name
+msgid "Parent name"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__same_vat_partner_id
+msgid "Partner with same Tax ID"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields.selection,name:thiqah_freelance.selection__freelance_application__id_type__passport
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Passport"
+msgstr "جواز سفر"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Payments By Status"
+msgstr "المدفوعات حسب الحالة"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_application_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Personal Info"
+msgstr "معلومات شخصية"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__phone_sanitized_blacklisted
+msgid "Phone Blacklisted"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__phone_mobile_search
+msgid "Phone/Mobile"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Please Identity the freelancer to be added."
+msgstr "يرجى تحديد هوية طالب العمل الحر المراد إضافته."
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_organizational_implications
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid ""
+"Please Identity whose the department will be impact from new "
+"project/additional workload"
+msgstr "يرجى تحديد الإدارة التي ستتأثر من المشروع الجديد / عبء العمل الإضافي"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid ""
+"Please explain why current Manpower, without this change/addition request, "
+"is not capable of achieving the strategic initiatives in question"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid ""
+"Please explain why the current manpower cant undertake the requested "
+"objective or roles and responsibility​"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__category_portfolio_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__team_id
+msgid "Portfolio"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid "Previous Step"
+msgstr "الخطوة السابقة"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__property_product_pricelist
+msgid "Pricelist"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Proceed"
+msgstr "المتابعة"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__project_end_date
+msgid "Project End Date"
+msgstr "تاريخ نهاية المشروع"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Project Information if applicable​"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__project_name
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__project_name
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Project Name"
+msgstr "إسم المشروع"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid "Project Name..."
+msgstr "إسم المشروع"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Project Number"
+msgstr "رقم المشروع"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid "Project Number..."
+msgstr "رقم المشروع..."
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__project_start_date
+msgid "Project Start Date"
+msgstr "تاريخ بداية المشروع"
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__ref
+#, python-format
+msgid "Reference"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_requests_actions
+msgid "Reject"
+msgstr "رفض"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_requests_actions
+msgid "Reject Justification"
+msgstr "مبررات الرفض"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__parent_id
+msgid "Related Company"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__employee_ids
+msgid "Related employees based on their private address"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Request  Justification"
+msgstr ""
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__request_date
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#, python-format
+msgid "Request Date"
+msgstr "تاريخ الطلب"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Request Description"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid "Request Duration"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Request Duration in Months"
+msgstr "مدة الطلب بالأشهر"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__request_duration
+msgid "Request Duration in months"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Request Expected Total Cost"
+msgstr "التكلفة الإجمالية المتوقعة للطلب"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_justificaion
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Request Justification"
+msgstr "مبررات الطلب"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__state
+msgid "Request Service Status"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__request_type
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Request Type"
+msgstr "نوع الطلب"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Request description"
+msgstr "وصف الطلب"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid "Request description..."
+msgstr "وصف الطلب..."
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_list
+msgid "Requester"
+msgstr "مقدم الطلب"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "Requesting party information"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__request_achievement
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Requset Objective Acheivement"
+msgstr "مدى تقدم هدف الطلب"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__activity_user_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__activity_user_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__website_id
+msgid "Restrict publishing to this website."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__sla_ids
+msgid "SLA Policies"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_has_sms_error
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_has_sms_error
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__sp_manager_id
+msgid "SP Manager"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__salary
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Salary"
+msgstr "الراتب"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Salary..."
+msgstr "الراتب..."
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__user_id
+msgid "Salesperson"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__phone_sanitized
+msgid "Sanitized Number"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__iap_search_domain
+msgid "Search Domain / Email"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_application_view_search
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_search
+msgid "Search Freelancer"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__section
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Section"
+msgstr "القسم"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid "Section..."
+msgstr "القسم..."
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__sector
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Sector"
+msgstr "القطاع"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__sector_goal_justif
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Sector Goals Justification"
+msgstr "مبررات أهداف القطاع"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__sector_type
+msgid "Sector Type"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelancer_workforce_request
+msgid "Sector..."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__self
+msgid "Self"
+msgstr "القطاع..."
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_form_ahad
+msgid "Send"
+msgstr "إرسال"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__sequence
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__sequence
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_list
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Sequence"
+msgstr "الرقم التسلسلي"
+
+#. module: thiqah_freelance
+#: model:ir.ui.menu,name:thiqah_freelance.config_menu
+msgid "Settings"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__partner_share
+msgid "Share Partner"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__shown_in_portal
+msgid "Shown In Portal"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__signup_expiration
+msgid "Signup Expiration"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__signup_token
+msgid "Signup Token"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__signup_type
+msgid "Signup Token Type"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__signup_valid
+msgid "Signup Token is Valid"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__signup_url
+msgid "Signup URL"
+msgstr ""
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#, python-format
+msgid "Something went wrong!"
+msgstr "حدث خطأ ما!"
+
+#. module: thiqah_freelance
+#. openerp-web
+#: code:addons/thiqah_freelance/static/src/js/add_freelance_request.js:0
+#, python-format
+msgid "Sorry, you are not allowed to do this action."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__stakeholder_email
+msgid "Stakeholder Email"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__stakeholder_name
+msgid "Stakeholder Name"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__start_date
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Start Date"
+msgstr "تاريخ البداية"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__state_id
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__state
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_list
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "State"
+msgstr "الحالة"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__activity_state
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__activity_state
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__street
+msgid "Street"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__street2
+msgid "Street2"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__subordinate_to
+msgid "Subordinate To"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__category_id
+msgid "Tags"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__task_ids
+msgid "Tasks"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__vat
+msgid "Tax ID"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__phone
+msgid "Telephone"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_terms_conditions
+msgid "Terms and Conditions"
+msgstr "الشروط و الأحكام"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_add_success_modal
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Thank You!"
+msgstr "شكرا!"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__country_code
+msgid ""
+"The ISO country code in two chars. \n"
+"You can use this field for quick search."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__vat
+msgid ""
+"The Tax Identification Number. Complete it if the contact is subjected to "
+"government taxes. Used in some legal statements."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__website_url
+msgid "The full URL to access the document through the website."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__user_id
+msgid "The internal user in charge of this contact."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_list
+msgid "There are no freelance requests."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "There are no freelance workorder."
+msgstr "لا يوجد أمر عمل للعمل الحر."
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/controllers/freelance_portal.py:0
+#, python-format
+msgid "This  freelance request was rejected:  By "
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__email_normalized
+msgid ""
+"This field is used to search on email address as the primary email field can"
+" contain more than strictly an email address."
+msgstr ""
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/models/freelance_request.py:0
+#, python-format
+msgid "This freelance request is pending your action: sequence"
+msgstr ""
+
+#. module: thiqah_freelance
+#: code:addons/thiqah_freelance/models/workflow_transition.py:0
+#, python-format
+msgid "This freelance request was approved: %s"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__property_product_pricelist
+msgid ""
+"This pricelist will be used, instead of the default one, for sales to the "
+"current partner"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__ticket_count
+msgid "Tickets"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__tz
+msgid "Timezone"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__tz_offset
+msgid "Timezone offset"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__title
+msgid "Title"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__traceability_actors_ids
+msgid "Traceability Actors"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__activity_exception_decoration
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__activity_exception_decoration
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__url
+msgid "URL"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__unit_kpi
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Unit KPIs"
+msgstr "مؤشرات الأداء الرئيسية للوحدة"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_organizational_implications
+msgid "Units"
+msgstr "الوحدات"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_unread
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_unread
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__message_unread_counter
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__message_unread_counter
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__barcode
+msgid "Use a barcode to identify this contact."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancers_form_ahad
+msgid "Use the button below to add new freelancer application"
+msgstr "إستخدم الزر أدناه لإضافة طالب عمل حر جديد"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_organizational_implications
+msgid ""
+"Use the button below to add new position to\n"
+"                            this section"
+msgstr "إستخدم الزر أدناه لإضافة موضع جديد إلى هذا القسم"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__ocn_token
+msgid "Used for sending notification to registered devices"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__user_name
+msgid "User Name"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__user_ids
+msgid "Users"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__vb_account_id
+msgid "VB"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__validate_invoice_endpoint
+msgid "Validate Invoice Endpoint"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__website_published
+msgid "Visible on current website"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__visitor_ids
+msgid "Visitors"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__website_id
+msgid "Website"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__website
+msgid "Website Link"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__website_message_ids
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_request__website_message_ids
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_workorder__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__website_url
+msgid "Website URL"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__website_message_ids
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_request__website_message_ids
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_workorder__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,help:thiqah_freelance.field_freelance_application__tz
+msgid ""
+"When printing documents and exporting/importing data, time values are computed according to this timezone.\n"
+"If the timezone is not set, UTC (Coordinated Universal Time) is used.\n"
+"Anywhere else, time values are computed according to the time offset of your web client."
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__withholding_tax_comment
+msgid "Withholding Tax Comment"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelancer_details_modal
+msgid "Withholding Tax Included"
+msgstr "ضريبة الاستقطاع مشمولة"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__withholding_tax
+msgid "Withholding tax"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model,name:thiqah_freelance.model_workflow_transition
+msgid "Workflow Transition"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model,name:thiqah_freelance.model_workflow_transition_validation
+msgid "Workflow Transition Validation"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Workorder Confirm Payment"
+msgstr "تأكيد دفع أمر العمل"
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_workorder
+msgid "Workorder Payment"
+msgstr "دفع أمر العمل"
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_freelance_application__zip
+msgid "Zip"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.freelance_request_view_form
+msgid "list the objective that will be achieved through the requested?​"
+msgstr ""
+
+#. module: thiqah_freelance
+#. openerp-web
+#: code:addons/thiqah_freelance/static/src/js/add_freelance_request.js:0
+#, python-format
+msgid "message"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model,name:thiqah_freelance.model_oracle_config
+msgid "oracle.config"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:ir.model.fields,field_description:thiqah_freelance.field_oracle_config__password
+msgid "password"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model:res.groups,comment:thiqah_freelance.group_freelance_officer
+msgid "user with this group access all data related freelance requests"
+msgstr ""
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "No attachments have been added."
+msgstr "لم تتم إضافة أية مرفقات."
+
+#. module: thiqah_freelance
+#: model_terms:ir.ui.view,arch_db:thiqah_freelance.portal_freelance_request_details
+msgid "Documents"
+msgstr "المستندات"

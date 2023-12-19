@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1"> <!--
+        Partner code Sequences
+        -->
+        <record id="acount_manager_seqs" model="ir.sequence">
+            <field name="code">account.manager.code</field>
+            <field name="name">account manager code</field>
+            <field name="prefix">AC</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="4" name="padding"/>
+        </record>
+        
+        <record id="sp_manager_seqs" model="ir.sequence">
+            <field name="code">sp.manager.code</field>
+            <field name="name">sp manager code</field>
+            <field name="prefix">SP</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+             <field eval="4" name="padding"/>
+        </record>
+        
+        <record id="customer_seqs" model="ir.sequence">
+            <field name="code">customer.code</field>
+            <field name="name">customer code</field>
+            <field name="prefix">C</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+             <field eval="4" name="padding"/>
+        </record>
+</data>
+</odoo>

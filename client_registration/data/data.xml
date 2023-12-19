@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="saso" model="client.product">
+            <field name="name">SASO</field>
+            <field name="code">saso</field>
+        </record>
+        <record id="emazad_company" model="client.product">
+            <field name="name">Emazad Company</field>
+            <field name="code">emazad_company</field>
+        </record>
+        <record id="emazad_individual" model="client.product">
+            <field name="name">Emazad Individual</field>
+            <field name="code">emazad_individual</field>
+        </record>
+    
+    </data>
+    
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<odoo>
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value
+                eval="[('module', '=', 'odoo_microsoft_account'), ('name', '=', 'provider_microsoft')]" />
+        </function>
+        <value eval="{'noupdate': False}" />
+    </function>
+
+    <data noupdate="0">
+        <record id="provider_microsoft" model="auth.oauth.provider">
+            <field name="name">Microsoft OAuth2</field>
+            <field name="client_id">27d789cb-5ef2-412b-a01f-8eed136c0768</field>
+            <field name="secret_key">tmM7Q~uVJ00wCSqwEhZ8khOHyvfPSmysTIObE</field>
+            <field name="enabled">True</field>
+            <!-- Note: For the Security Reasons Microsoft change there
+            AuthEndpoint if note work then please look at the API Explorer
+            for API Change -->
+            <field name="auth_endpoint">
+                https://login.microsoftonline.com/common/oauth2/v2.0/authorize</field>
+            <field name="scope">offline_access User.Read Mail.Read User.ReadWrite.All
+                Contacts.ReadWrite Calendars.ReadWrite</field>
+            <field name="validation_endpoint">
+                https://login.microsoftonline.com/common/oauth2/v2.0/token</field>
+            <field name="data_endpoint">graph.microsoft.com</field>
+            <field name="body">Log in with Microsoft</field>
+            <field name="css_class">microsoft-login</field>
+        </record>
+    </data>
+
+</odoo>

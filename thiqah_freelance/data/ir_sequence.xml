@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="freelance_request_sequence" model="ir.sequence">
+            <field name="name">Freelance Request</field>
+            <field name="code">freelance.request</field>
+            <field name="prefix">FR-</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="freelance_workorder_sequence" model="ir.sequence">
+            <field name="name">Freelance Workorder</field>
+            <field name="code">freelance.workorder</field>
+            <field name="prefix">FWO-</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    
+    </data>
+</odoo>

@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- freelance.application tree view -->
+    <record id="freelance_application_view_tree" model="ir.ui.view">
+        <field name="name">freelance.application.view.tree</field>
+        <field name="model">freelance.application</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="full_name"/>
+                <field name="email"/>
+                <field name="salary"/>
+                <field name="bank_name"/>
+                <field name="nationality_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- freelance.application search view -->
+    <record id="freelance_application_view_search" model="ir.ui.view">
+        <field name="name">freelance.application.view.search</field>
+        <field name="model">freelance.application</field>
+        <field name="arch" type="xml">
+            <search string="Search Freelancer">
+
+            </search>
+        </field>
+    </record>
+
+    <!-- freelance.application form view -->
+    <record id="freelance_application_view_form" model="ir.ui.view">
+        <field name="name">freelance.application.view.form</field>
+        <field name="model">freelance.application</field>
+        <field name="arch" type="xml">
+            <form string="" create="false" edit="false">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="full_name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <separator string="Personal Info" colspan="2" />
+                        <group>
+                            <field name="first_name" required="1"/>
+                            <field name="id_type" required="1"/>
+                            <field name="mobile_number" required="1" />
+                            <field name="email" required="1" />
+                        </group>
+                        <group>
+                            <field name="last_name" required="1"/>
+                            <field name="id_number" required="1"/>
+                            <field name="nationality_id" required="1" />
+                            <field name="partner_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <separator string="Contract Information" colspan="2"/>
+                        <field name="company_id" invisible="1"/>
+                        <group>
+                            <field name="start_date" required="1"/>
+                            <field name="salary" required="1" widget="monetary" />
+                        </group>
+                        <group>
+                            <field name="end_date" required="1"/>
+                            <field name="withholding_tax" widget="boolean_toggle" readonly="1" invisible = "entity_code != 'ahad'" />
+                        </group>
+                        <group>
+                            <field name="entity_code" invisible="1" />
+                            <field name="withholding_tax_comment" invisible = "entity_code != 'ahad'" />
+                        </group>
+                    </group>
+                    <group>
+                        <field name="address" />
+                    </group>
+                    <group>
+                        <separator string="Bank Information" colspan="2"/>
+                        <group>
+                            <field name="bank_country" required="1"/>
+                            <field name="account" required="1"/>
+                            <field name="beneficiary_name" required="1"/>
+                        </group>
+                        <group>
+                            <field name="bank_name" required="1"/>
+                            <field name="branch_name" required="1"/>
+                            <field name="iban" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- freelance.application action window -->
+    <record id="freelance_application_action" model="ir.actions.act_window">
+        <field name="name">Freelance Application</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">freelance.application</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

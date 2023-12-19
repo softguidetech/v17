@@ -1,0 +1,1268 @@
+<odoo>
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value
+                eval="[('module', '=', 'base'), ('name', 'in', ['ad','ae','af','ag','ai','al','am','ao','aq','ar','as','at','au','aw','ax','az','ba','bb','bd','be','bf','bg','bh','bi','bj','bl','bm','bn','bo','bq','br','bs','bt','bv','bw','by','bz','ca','cc','cf','cd','cg','ch','ci','ck','cl','cm','cn','co','cr','cu','cv','cw','cx','cy','cz','de','dj','dk','dm','do','dz','ec','ee','eg','eh','er','es','et','fi','fj','fk','fm','fo','fr','ga','gd','ge','gf','gh','gi','gg','gl','gm','gn','gp','gq','gr','gs','gt','gu','gw','gy','hk','hm','hn','hr','ht','hu','id','ie','il','im','in','io','iq','ir','is','it','je','jm','jo','jp','ke','kg','kh','ki','km','kn','kp','kr','kw','ky','kz','la','lb','lc','li','lk','lr','ls','lt','lu','lv','ly','ma','mc','md','me','mf','mg','mh','mk','ml','mm','mn','mo','mp','mq','mr','ms','mt','mu','mv','mw','mx','my','mz','na','nc','ne','nf','ng','ni','nl','no','np','nr','nu','nz','om','pa','pe','pf','pg','ph','pk','pl','pm','pn','pr','ps','pt','pw','py','qa','re','ro','rs','ru','rw','sa','sb','sc','sd','se','sg','sh','si','sj','sk','sl','sm','sn','so','sr','ss','st','sv','sx','sy','sz','tc','td','tf','tg','th','tj','tk','tm','tn','to','tl','tr','tt','tv','tw','tz','ua','ug','uk','um','us','uy','uz','va','vc','ve','vg','vi','vn','vu','wf','ws','ye','yt','za','zm','zw','xk'])]" />
+        </function>
+        <value eval="{'noupdate': False}" />
+    </function>
+    <data>
+        <record id="base.ad" model="res.country">
+            <field name="nationality_en">Andorran</field>
+            <field name="nationality_ar">أندوري</field>
+        </record>
+
+        <record id="base.ae" model="res.country">
+            <field name="nationality_en">Emirati</field>
+            <field name="nationality_ar">إماراتي</field>
+        </record>
+
+        <record id="base.af" model="res.country">
+            <field name="nationality_en">Afghan</field>
+            <field name="nationality_ar">أفغاني</field>
+        </record>
+
+        <record id="base.ag" model="res.country">
+            <field name="nationality_en">Antiguan</field>
+            <field name="nationality_ar">أنتيغوان</field>
+        </record>
+
+        <record id="base.ai" model="res.country">
+            <field name="nationality_en">Anguillan</field>
+            <field name="nationality_ar">أنغيلي</field>
+        </record>
+
+        <record id="base.al" model="res.country">
+            <field name="nationality_en">Albanian</field>
+            <field name="nationality_ar">ألباني</field>
+        </record>
+
+        <record id="base.am" model="res.country">
+            <field name="nationality_en">Armenian</field>
+            <field name="nationality_ar">أرميني</field>
+        </record>
+
+        <record id="base.ao" model="res.country">
+            <field name="nationality_en">Angolan</field>
+            <field name="nationality_ar">أنغولي</field>
+        </record>
+
+        <record id="base.aq" model="res.country">
+            <field name="nationality_en">Antarctican</field>
+            <field name="nationality_ar">أنتاركتي</field>
+        </record>
+
+        <record id="base.ar" model="res.country">
+            <field name="nationality_en">Argentine</field>
+            <field name="nationality_ar">أرجنتيني</field>
+        </record>
+
+        <record id="base.as" model="res.country">
+            <field name="nationality_en">American Samoan</field>
+            <field name="nationality_ar">ساموا أمريكي</field>
+        </record>
+
+        <record id="base.at" model="res.country">
+            <field name="nationality_en">Austrian</field>
+            <field name="nationality_ar">نمساوي</field>
+        </record>
+
+        <record id="base.au" model="res.country">
+            <field name="nationality_en">Australian</field>
+            <field name="nationality_ar">أسترالي</field>
+        </record>
+
+        <record id="base.aw" model="res.country">
+            <field name="nationality_en">Aruban</field>
+            <field name="nationality_ar">أروبي</field>
+        </record>
+
+        <record id="base.ax" model="res.country">
+            <field name="nationality_en">Åland Islander</field>
+            <field name="nationality_ar">جزر آلاند</field>
+        </record>
+
+        <record id="base.az" model="res.country">
+            <field name="nationality_en">Azerbaijani</field>
+            <field name="nationality_ar">أذربيجاني</field>
+        </record>
+
+        <record id="base.ba" model="res.country">
+            <field name="nationality_en">Bosnian</field>
+            <field name="nationality_ar">بوسني</field>
+        </record>
+
+        <record id="base.bb" model="res.country">
+            <field name="nationality_en">Barbadian</field>
+            <field name="nationality_ar">برباديان</field>
+        </record>
+
+        <record id="base.bd" model="res.country">
+            <field name="nationality_en">Bangladeshi</field>
+            <field name="nationality_ar">بنغلاديشي</field>
+        </record>
+
+        <record id="base.be" model="res.country">
+            <field name="nationality_en">Belgian</field>
+            <field name="nationality_ar">بلجيكي</field>
+        </record>
+
+        <record id="base.bf" model="res.country">
+            <field name="nationality_en">Burkinabé</field>
+            <field name="nationality_ar">بوركيني</field>
+        </record>
+
+        <record id="base.bg" model="res.country">
+            <field name="nationality_en">Bulgarian</field>
+            <field name="nationality_ar">بلغاري</field>
+        </record>
+
+        <record id="base.bh" model="res.country">
+            <field name="nationality_en">Bahraini</field>
+            <field name="nationality_ar">بحريني</field>
+        </record>
+
+        <record id="base.bi" model="res.country">
+            <field name="nationality_en">Burundian</field>
+            <field name="nationality_ar">بوروندي</field>
+        </record>
+
+        <record id="base.bj" model="res.country">
+            <field name="nationality_en">Beninese</field>
+            <field name="nationality_ar">بنيني</field>
+        </record>
+
+        <record id="base.bl" model="res.country">
+            <field name="nationality_en">Barthélemois</field>
+            <field name="nationality_ar">برثلميوس</field>
+        </record>
+
+        <record id="base.bm" model="res.country">
+            <field name="nationality_en">Bermudian</field>
+            <field name="nationality_ar">برمودي</field>
+        </record>
+
+        <record id="base.bn" model="res.country">
+            <field name="nationality_en">Bruneian</field>
+            <field name="nationality_ar">بروناي</field>
+        </record>
+
+        <record id="base.bo" model="res.country">
+            <field name="nationality_en">Bolivian</field>
+            <field name="nationality_ar">بوليفي</field>
+        </record>
+
+        <record id="base.bq" model="res.country">
+            <field name="nationality_en">Bonairean</field>
+            <field name="nationality_ar">بونيري</field>
+        </record>
+
+        <record id="base.br" model="res.country">
+            <field name="nationality_en">Brazilian</field>
+            <field name="nationality_ar">برازيلي</field>
+        </record>
+
+        <record id="base.bs" model="res.country">
+            <field name="nationality_en">Bahamian</field>
+            <field name="nationality_ar">باهامي</field>
+        </record>
+
+        <record id="base.bt" model="res.country">
+            <field name="nationality_en">Bhutanese</field>
+            <field name="nationality_ar">بوتاني</field>
+        </record>
+
+        <record id="base.bv" model="res.country">
+            <field name="nationality_en">Bouvet Islander</field>
+            <field name="nationality_ar">جزيرة بوفيه</field>
+        </record>
+
+        <record id="base.bw" model="res.country">
+            <field name="nationality_en">Motswana (singular), Batswana (plural)</field>
+            <field name="nationality_ar">بوتسواني</field>
+        </record>
+
+        <record id="base.by" model="res.country">
+            <field name="nationality_en">Belarusian</field>
+            <field name="nationality_ar">بيلاروسي</field>
+        </record>
+
+        <record id="base.bz" model="res.country">
+            <field name="nationality_en">Belizean</field>
+            <field name="nationality_ar">بليزي</field>
+        </record>
+
+        <record id="base.ca" model="res.country">
+            <field name="nationality_en">Canadian</field>
+            <field name="nationality_ar">كندي</field>
+        </record>
+
+        <record id="base.cc" model="res.country">
+            <field name="nationality_en">Cocos Islander</field>
+            <field name="nationality_ar">جزر كوكوس</field>
+        </record>
+
+        <record id="base.cf" model="res.country">
+            <field name="nationality_en">Central African</field>
+            <field name="nationality_ar">وسط أفريقي</field>
+        </record>
+
+        <record id="base.cd" model="res.country">
+            <field name="nationality_en">Congolese</field>
+            <field name="nationality_ar">كونغولي</field>
+        </record>
+
+        <record id="base.cg" model="res.country">
+            <field name="nationality_en">Congolese</field>
+            <field name="nationality_ar">كونغولي</field>
+        </record>
+
+        <record id="base.ch" model="res.country">
+            <field name="nationality_en">Swiss</field>
+            <field name="nationality_ar">سويسري</field>
+        </record>
+
+        <record id="base.ci" model="res.country">
+            <field name="nationality_en">Ivorian</field>
+            <field name="nationality_ar">إيفواري</field>
+        </record>
+
+        <record id="base.ck" model="res.country">
+            <field name="nationality_en">Cook Islander</field>
+            <field name="nationality_ar">جزر كوك</field>
+        </record>
+
+        <record id="base.cl" model="res.country">
+            <field name="nationality_en">Chilean</field>
+            <field name="nationality_ar">تشيلي</field>
+        </record>
+
+        <record id="base.cm" model="res.country">
+            <field name="nationality_en">Cameroonian</field>
+            <field name="nationality_ar">كاميروني</field>
+        </record>
+
+        <record id="base.cn" model="res.country">
+            <field name="nationality_en">Chinese</field>
+            <field name="nationality_ar">صيني</field>
+        </record>
+
+        <record id="base.co" model="res.country">
+            <field name="nationality_en">Colombian</field>
+            <field name="nationality_ar">كولومبياني</field>
+        </record>
+
+        <record id="base.cr" model="res.country">
+            <field name="nationality_en">Costa Rican</field>
+            <field name="nationality_ar">كوستاريكي</field>
+        </record>
+
+        <record id="base.cu" model="res.country">
+            <field name="nationality_en">Cuban</field>
+            <field name="nationality_ar">كوبي</field>
+        </record>
+
+        <record id="base.cv" model="res.country">
+            <field name="nationality_en">Cape Verdean</field>
+            <field name="nationality_ar">كيب فيردي</field>
+        </record>
+
+        <record id="base.cw" model="res.country">
+            <field name="nationality_en">Curaçaoan</field>
+            <field name="nationality_ar">كوراساوي</field>
+        </record>
+
+        <record id="base.cx" model="res.country">
+            <field name="nationality_en">Christmas Islander</field>
+            <field name="nationality_ar">جزيرة الكريسماس</field>
+        </record>
+
+        <record id="base.cy" model="res.country">
+            <field name="nationality_en">Cypriot</field>
+            <field name="nationality_ar">قبرصي</field>
+        </record>
+
+        <record id="base.cz" model="res.country">
+            <field name="nationality_en">Czech</field>
+            <field name="nationality_ar">تشيكي</field>
+        </record>
+
+        <record id="base.de" model="res.country">
+            <field name="nationality_en">German</field>
+            <field name="nationality_ar">ألماني</field>
+        </record>
+
+        <record id="base.dj" model="res.country">
+            <field name="nationality_en">Djiboutian</field>
+            <field name="nationality_ar">جيبوتي</field>
+        </record>
+
+        <record id="base.dk" model="res.country">
+            <field name="nationality_en">Danish</field>
+            <field name="nationality_ar">دانماركي</field>
+        </record>
+
+        <record id="base.dm" model="res.country">
+            <field name="nationality_en">Dominican</field>
+            <field name="nationality_ar">دومينيكاني</field>
+        </record>
+
+        <record id="base.do" model="res.country">
+            <field name="nationality_en">Dominican</field>
+            <field name="nationality_ar">دومينيكاني</field>
+        </record>
+
+        <record id="base.dz" model="res.country">
+            <field name="nationality_en">Algerian</field>
+            <field name="nationality_ar">جزائري</field>
+        </record>
+
+        <record id="base.ec" model="res.country">
+            <field name="nationality_en">Ecuadorian</field>
+            <field name="nationality_ar">إكوادوري</field>
+        </record>
+
+        <record id="base.ee" model="res.country">
+            <field name="nationality_en">Estonian</field>
+            <field name="nationality_ar">إستوني</field>
+        </record>
+
+        <record id="base.eg" model="res.country">
+            <field name="nationality_en">Egyptian</field>
+            <field name="nationality_ar">مصري</field>
+        </record>
+
+        <record id="base.eh" model="res.country">
+            <field name="nationality_en">Sahrawi</field>
+            <field name="nationality_ar">صحراوي</field>
+        </record>
+
+        <record id="base.er" model="res.country">
+            <field name="nationality_en">Eritrean</field>
+            <field name="nationality_ar">إريتري</field>
+        </record>
+
+        <record id="base.es" model="res.country">
+            <field name="nationality_en">Spanish</field>
+            <field name="nationality_ar">إسباني</field>
+        </record>
+
+        <record id="base.et" model="res.country">
+            <field name="nationality_en">Ethiopian</field>
+            <field name="nationality_ar">إثيوبي</field>
+        </record>
+
+        <record id="base.fi" model="res.country">
+            <field name="nationality_en">Finnish</field>
+            <field name="nationality_ar">فنلندي</field>
+        </record>
+
+        <record id="base.fj" model="res.country">
+            <field name="nationality_en">Fijian</field>
+            <field name="nationality_ar">فيجي</field>
+        </record>
+
+        <record id="base.fk" model="res.country">
+            <field name="nationality_en">Falkland Islander</field>
+            <field name="nationality_ar">جزيرة فوكلاند</field>
+        </record>
+
+        <record id="base.fm" model="res.country">
+            <field name="nationality_en">Micronesian</field>
+            <field name="nationality_ar">ميكرونيزي</field>
+        </record>
+
+        <record id="base.fo" model="res.country">
+            <field name="nationality_en">Faroese</field>
+            <field name="nationality_ar">فاروي</field>
+        </record>
+
+        <record id="base.fr" model="res.country">
+            <field name="nationality_en">French</field>
+            <field name="nationality_ar">فرنسي</field>
+        </record>
+
+        <record id="base.ga" model="res.country">
+            <field name="nationality_en">Gabonese</field>
+            <field name="nationality_ar">جابوني</field>
+        </record>
+
+        <record id="base.gd" model="res.country">
+            <field name="nationality_en">Grenadian</field>
+            <field name="nationality_ar">غرينادي</field>
+        </record>
+
+        <record id="base.ge" model="res.country">
+            <field name="nationality_en">Georgian</field>
+            <field name="nationality_ar">جورجي</field>
+        </record>
+
+        <record id="base.gf" model="res.country">
+            <field name="nationality_en">French Guianese</field>
+            <field name="nationality_ar">غياني فرنسي</field>
+        </record>
+
+        <record id="base.gh" model="res.country">
+            <field name="nationality_en">Ghanaian</field>
+            <field name="nationality_ar">غاني</field>
+        </record>
+
+        <record id="base.gi" model="res.country">
+            <field name="nationality_en">Gibraltarian</field>
+            <field name="nationality_ar">جبل طارقي</field>
+        </record>
+
+        <record id="base.gg" model="res.country">
+            <field name="nationality_en">Guernseyman, Guernseywoman</field>
+            <field name="nationality_ar">غيرنزي، غويرنزي</field>
+        </record>
+
+        <record id="base.gl" model="res.country">
+            <field name="nationality_en">Greenlandic</field>
+            <field name="nationality_ar">جرينلاندي</field>
+        </record>
+
+        <record id="base.gm" model="res.country">
+            <field name="nationality_en">Gambian</field>
+            <field name="nationality_ar">غامبياني</field>
+        </record>
+
+        <record id="base.gn" model="res.country">
+            <field name="nationality_en">Guinean</field>
+            <field name="nationality_ar">غيني</field>
+        </record>
+
+        <record id="base.gp" model="res.country">
+            <field name="nationality_en">Guadeloupean</field>
+            <field name="nationality_ar">جزر غوادلوب</field>
+        </record>
+
+        <record id="base.gq" model="res.country">
+            <field name="nationality_en">Equatorial Guinean</field>
+            <field name="nationality_ar">غيني الإستوائي</field>
+        </record>
+
+        <record id="base.gr" model="res.country">
+            <field name="nationality_en">Greek</field>
+            <field name="nationality_ar">يوناني</field>
+        </record>
+
+        <record id="base.gs" model="res.country">
+            <field name="nationality_en">South Georgia and the South Sandwich Islander</field>
+            <field name="nationality_ar">جنوب جورجيا وجزر ساندويتش الجنوبية</field>
+        </record>
+
+        <record id="base.gt" model="res.country">
+            <field name="nationality_en">Guatemalan</field>
+            <field name="nationality_ar">غواتيمالي</field>
+        </record>
+
+        <record id="base.gu" model="res.country">
+            <field name="nationality_en">Guamanian</field>
+            <field name="nationality_ar">غوامي</field>
+        </record>
+
+        <record id="base.gw" model="res.country">
+            <field name="nationality_en">Guinea-Bissauan</field>
+            <field name="nationality_ar">غيني بيساوي</field>
+        </record>
+
+        <record id="base.gy" model="res.country">
+            <field name="nationality_en">Guyanese</field>
+            <field name="nationality_ar">غياني</field>
+        </record>
+
+        <record id="base.hk" model="res.country">
+            <field name="nationality_en">Hong Konger</field>
+            <field name="nationality_ar">هونغ كونغي</field>
+        </record>
+
+        <record id="base.hm" model="res.country">
+            <field name="nationality_en">Heard and McDonald Islander</field>
+            <field name="nationality_ar">هيرد وجزيرة ماكدونالد</field>
+        </record>
+
+        <record id="base.hn" model="res.country">
+            <field name="nationality_en">Honduran</field>
+            <field name="nationality_ar">هندوراسي</field>
+        </record>
+
+        <record id="base.hr" model="res.country">
+            <field name="nationality_en">Croatian</field>
+            <field name="nationality_ar">كرواتي</field>
+        </record>
+
+        <record id="base.ht" model="res.country">
+            <field name="nationality_en">Haitian</field>
+            <field name="nationality_ar">هايتي</field>
+        </record>
+
+        <record id="base.hu" model="res.country">
+            <field name="nationality_en">Hungarian</field>
+            <field name="nationality_ar">هنغاري</field>
+        </record>
+
+        <record id="base.id" model="res.country">
+            <field name="nationality_en">Indonesian</field>
+            <field name="nationality_ar">إندونيسي</field>
+        </record>
+
+        <record id="base.ie" model="res.country">
+            <field name="nationality_en">Irish</field>
+            <field name="nationality_ar">أيرلندي</field>
+        </record>
+
+        <record id="base.il" model="res.country">
+            <field name="nationality_en">Israeli</field>
+            <field name="nationality_ar">إسرائيلي</field>
+        </record>
+
+        <record id="base.im" model="res.country">
+            <field name="nationality_en">Manx</field>
+            <field name="nationality_ar">مانكس</field>
+        </record>
+
+        <record id="base.in" model="res.country">
+            <field name="nationality_en">Indian</field>
+            <field name="nationality_ar">هندي</field>
+        </record>
+
+        <record id="base.io" model="res.country">
+            <field name="nationality_en">British Indian Ocean Territory</field>
+            <field name="nationality_ar">إقليم المحيط الهندي البريطاني</field>
+        </record>
+
+        <record id="base.iq" model="res.country">
+            <field name="nationality_en">Iraqi</field>
+            <field name="nationality_ar">عراقي</field>
+        </record>
+
+        <record id="base.ir" model="res.country">
+            <field name="nationality_en">Iranian</field>
+            <field name="nationality_ar">إيراني</field>
+        </record>
+
+        <record id="base.is" model="res.country">
+            <field name="nationality_en">Icelander</field>
+            <field name="nationality_ar">آيسلندي</field>
+        </record>
+
+        <record id="base.it" model="res.country">
+            <field name="nationality_en">Italian</field>
+            <field name="nationality_ar">إيطالي</field>
+        </record>
+
+        <record id="base.je" model="res.country">
+            <field name="nationality_en">Jerseyman, Jerseywoman</field>
+            <field name="nationality_ar">جيرسيمان، جيرسيومان</field>
+        </record>
+
+        <record id="base.jm" model="res.country">
+            <field name="nationality_en">Jamaican</field>
+            <field name="nationality_ar">جامايكي</field>
+        </record>
+
+        <record id="base.jo" model="res.country">
+            <field name="nationality_en">Jordanian</field>
+            <field name="nationality_ar">أردني</field>
+        </record>
+
+        <record id="base.jp" model="res.country">
+            <field name="nationality_en">Japanese</field>
+            <field name="nationality_ar">ياباني</field>
+        </record>
+
+        <record id="base.ke" model="res.country">
+            <field name="nationality_en">Kenyan</field>
+            <field name="nationality_ar">كيني</field>
+        </record>
+
+        <record id="base.kg" model="res.country">
+            <field name="nationality_en">Kyrgyzstani</field>
+            <field name="nationality_ar">قيرغيزستاني</field>
+        </record>
+
+        <record id="base.kh" model="res.country">
+            <field name="nationality_en">Cambodian</field>
+            <field name="nationality_ar">كمبودي</field>
+        </record>
+
+        <record id="base.ki" model="res.country">
+            <field name="nationality_en">I-Kiribati</field>
+            <field name="nationality_ar">إي-كيريباتي</field>
+        </record>
+
+        <record id="base.km" model="res.country">
+            <field name="nationality_en">Comorian</field>
+            <field name="nationality_ar">قمري</field>
+        </record>
+
+        <record id="base.kn" model="res.country">
+            <field name="nationality_en">Kittitian</field>
+            <field name="nationality_ar">كيتيتيان</field>
+        </record>
+
+        <record id="base.kp" model="res.country">
+            <field name="nationality_en">North Korean</field>
+            <field name="nationality_ar">كوري شمالي</field>
+        </record>
+
+        <record id="base.kr" model="res.country">
+            <field name="nationality_en">South Korean</field>
+            <field name="nationality_ar">كوري جنوبي</field>
+        </record>
+
+        <record id="base.kw" model="res.country">
+            <field name="nationality_en">Kuwaiti</field>
+            <field name="nationality_ar">كويتي</field>
+        </record>
+
+        <record id="base.ky" model="res.country">
+            <field name="nationality_en">Caymanian</field>
+            <field name="nationality_ar">جزر كايمان</field>
+        </record>
+
+        <record id="base.kz" model="res.country">
+            <field name="nationality_en">Kazakhstani</field>
+            <field name="nationality_ar">كازاخستاني</field>
+        </record>
+
+        <record id="base.la" model="res.country">
+            <field name="nationality_en">Laotian</field>
+            <field name="nationality_ar">لاوسي</field>
+        </record>
+
+        <record id="base.lb" model="res.country">
+            <field name="nationality_en">Lebanese</field>
+            <field name="nationality_ar">لبناني</field>
+        </record>
+
+        <record id="base.lc" model="res.country">
+            <field name="nationality_en">Saint Lucian</field>
+            <field name="nationality_ar">سانت لوسيان</field>
+        </record>
+
+        <record id="base.li" model="res.country">
+            <field name="nationality_en">Liechtensteiner</field>
+            <field name="nationality_ar">ليختنشتايني</field>
+        </record>
+
+        <record id="base.lk" model="res.country">
+            <field name="nationality_en">Sri Lankan</field>
+            <field name="nationality_ar">سريلانكي</field>
+        </record>
+
+        <record id="base.lr" model="res.country">
+            <field name="nationality_en">Liberian</field>
+            <field name="nationality_ar">ليبيري</field>
+        </record>
+
+        <record id="base.ls" model="res.country">
+            <field name="nationality_en">Mosotho</field>
+            <field name="nationality_ar">ليسوتو</field>
+        </record>
+
+        <record id="base.lt" model="res.country">
+            <field name="nationality_en">Lithuanian</field>
+            <field name="nationality_ar">ليتواني</field>
+        </record>
+
+        <record id="base.lu" model="res.country">
+            <field name="nationality_en">Luxembourger</field>
+            <field name="nationality_ar">لوكسمبورغي</field>
+        </record>
+
+        <record id="base.lv" model="res.country">
+            <field name="nationality_en">Latvian</field>
+            <field name="nationality_ar">لاتفي</field>
+        </record>
+
+        <record id="base.ly" model="res.country">
+            <field name="nationality_en">Libyan</field>
+            <field name="nationality_ar">ليبي</field>
+        </record>
+
+        <record id="base.ma" model="res.country">
+            <field name="nationality_en">Moroccan</field>
+            <field name="nationality_ar">مغربي</field>
+        </record>
+
+        <record id="base.mc" model="res.country">
+            <field name="nationality_en">Monegasque</field>
+            <field name="nationality_ar">موناكوي</field>
+        </record>
+
+        <record id="base.md" model="res.country">
+            <field name="nationality_en">Moldovan</field>
+            <field name="nationality_ar">مولدوفي</field>
+        </record>
+
+        <record id="base.me" model="res.country">
+            <field name="nationality_en">Montenegrin</field>
+            <field name="nationality_ar">مونتنيغرين</field>
+        </record>
+
+        <record id="base.mf" model="res.country">
+            <field name="nationality_en">Saint-Martinoise</field>
+            <field name="nationality_ar">سانت مارتينويز</field>
+        </record>
+
+        <record id="base.mg" model="res.country">
+            <field name="nationality_en">Malagasy</field>
+            <field name="nationality_ar">مدغشقري</field>
+        </record>
+
+        <record id="base.mh" model="res.country">
+            <field name="nationality_en">Marshallese</field>
+            <field name="nationality_ar">مارشالي</field>
+        </record>
+
+        <record id="base.mk" model="res.country">
+            <field name="nationality_en">Macedonian</field>
+            <field name="nationality_ar">مقدوني</field>
+        </record>
+
+        <record id="base.ml" model="res.country">
+            <field name="nationality_en">Malian</field>
+            <field name="nationality_ar">مالي</field>
+        </record>
+
+        <record id="base.mm" model="res.country">
+            <field name="nationality_en">Burmese</field>
+            <field name="nationality_ar">بورمي</field>
+        </record>
+
+        <record id="base.mn" model="res.country">
+            <field name="nationality_en">Mongolian</field>
+            <field name="nationality_ar">منغولي</field>
+        </record>
+
+        <record id="base.mo" model="res.country">
+            <field name="nationality_en">Macanese</field>
+            <field name="nationality_ar">مكاوي</field>
+        </record>
+
+        <record id="base.mp" model="res.country">
+            <field name="nationality_en">Northern Mariana Islander</field>
+            <field name="nationality_ar">جزر ماريانا الشمالية</field>
+        </record>
+
+        <record id="base.mq" model="res.country">
+            <field name="nationality_en">Martinican</field>
+            <field name="nationality_ar">مارتينيكي</field>
+        </record>
+
+        <record id="base.mr" model="res.country">
+            <field name="nationality_en">Mauritanian</field>
+            <field name="nationality_ar">موريتاني</field>
+        </record>
+
+        <record id="base.ms" model="res.country">
+            <field name="nationality_en">Montserratian</field>
+            <field name="nationality_ar">مونتسراتي</field>
+        </record>
+
+        <record id="base.mt" model="res.country">
+            <field name="nationality_en">Maltese</field>
+            <field name="nationality_ar">مالطي</field>
+        </record>
+
+        <record id="base.mu" model="res.country">
+            <field name="nationality_en">Mauritian</field>
+            <field name="nationality_ar">موريشيان</field>
+        </record>
+
+        <record id="base.mv" model="res.country">
+            <field name="nationality_en">Maldivian</field>
+            <field name="nationality_ar">مالديفي</field>
+        </record>
+
+        <record id="base.mw" model="res.country">
+            <field name="nationality_en">Malawian</field>
+            <field name="nationality_ar">مالاوي</field>
+        </record>
+
+        <record id="base.mx" model="res.country">
+            <field name="nationality_en">Mexican</field>
+            <field name="nationality_ar">مكسيكي</field>
+        </record>
+
+        <record id="base.my" model="res.country">
+            <field name="nationality_en">Malaysian</field>
+            <field name="nationality_ar">ماليزي</field>
+        </record>
+
+        <record id="base.mz" model="res.country">
+            <field name="nationality_en">Mozambican</field>
+            <field name="nationality_ar">موزمبيقي</field>
+        </record>
+
+        <record id="base.na" model="res.country">
+            <field name="nationality_en">Namibian</field>
+            <field name="nationality_ar">ناميبياني</field>
+        </record>
+
+        <record id="base.nc" model="res.country">
+            <field name="nationality_en">New Caledonian</field>
+            <field name="nationality_ar">كاليدوني جديد</field>
+        </record>
+
+        <record id="base.ne" model="res.country">
+            <field name="nationality_en">Nigerien</field>
+            <field name="nationality_ar">نيجيري</field>
+        </record>
+
+        <record id="base.nf" model="res.country">
+            <field name="nationality_en">Norfolk Islander</field>
+            <field name="nationality_ar">نورفولك</field>
+        </record>
+
+        <record id="base.ng" model="res.country">
+            <field name="nationality_en">Nigerian</field>
+            <field name="nationality_ar">نيجيريان</field>
+        </record>
+
+        <record id="base.ni" model="res.country">
+            <field name="nationality_en">Nicaraguan</field>
+            <field name="nationality_ar">نيكاراغوي</field>
+        </record>
+
+        <record id="base.nl" model="res.country">
+            <field name="nationality_en">Dutch</field>
+            <field name="nationality_ar">هولندي</field>
+        </record>
+
+        <record id="base.no" model="res.country">
+            <field name="nationality_en">Norwegian</field>
+            <field name="nationality_ar">نرويجي</field>
+        </record>
+
+        <record id="base.np" model="res.country">
+            <field name="nationality_en">Nepali</field>
+            <field name="nationality_ar">نيبالي</field>
+        </record>
+
+        <record id="base.nr" model="res.country">
+            <field name="nationality_en">Nauruan</field>
+            <field name="nationality_ar">ناوروي</field>
+        </record>
+
+        <record id="base.nu" model="res.country">
+            <field name="nationality_en">Niuean</field>
+            <field name="nationality_ar">نيويي</field>
+        </record>
+
+        <record id="base.nz" model="res.country">
+            <field name="nationality_en">New Zealander</field>
+            <field name="nationality_ar">نيوزيلندي</field>
+        </record>
+
+        <record id="base.om" model="res.country">
+            <field name="nationality_en">Omani</field>
+            <field name="nationality_ar">عماني</field>
+        </record>
+
+        <record id="base.pa" model="res.country">
+            <field name="nationality_en">Panamanian</field>
+            <field name="nationality_ar">بنمي</field>
+        </record>
+
+        <record id="base.pe" model="res.country">
+            <field name="nationality_en">Peruvian</field>
+            <field name="nationality_ar">بيروفي</field>
+        </record>
+
+        <record id="base.pf" model="res.country">
+            <field name="nationality_en">French Polynesian</field>
+            <field name="nationality_ar">بولينيزي فرنسي</field>
+        </record>
+
+        <record id="base.pg" model="res.country">
+            <field name="nationality_en">Papua New Guinean</field>
+            <field name="nationality_ar">بابوا غينيا الجديدة</field>
+        </record>
+
+        <record id="base.ph" model="res.country">
+            <field name="nationality_en">Filipino</field>
+            <field name="nationality_ar">فلبيني</field>
+        </record>
+
+        <record id="base.pk" model="res.country">
+            <field name="nationality_en">Pakistani</field>
+            <field name="nationality_ar">باكستاني</field>
+        </record>
+
+        <record id="base.pl" model="res.country">
+            <field name="nationality_en">Polish</field>
+            <field name="nationality_ar">بولندي</field>
+        </record>
+
+        <record id="base.pm" model="res.country">
+            <field name="nationality_en">Saint-Pierrais</field>
+            <field name="nationality_ar">سانت بييري</field>
+        </record>
+
+        <record id="base.pn" model="res.country">
+            <field name="nationality_en">Pitcairn Islander</field>
+            <field name="nationality_ar">جزيرة بيتكيرن</field>
+        </record>
+
+        <record id="base.pr" model="res.country">
+            <field name="nationality_en">Puerto Rican</field>
+            <field name="nationality_ar">بورتوريكي</field>
+        </record>
+
+        <record id="base.ps" model="res.country">
+            <field name="nationality_en">Palestinian</field>
+            <field name="nationality_ar">فلسطيني</field>
+        </record>
+
+        <record id="base.pt" model="res.country">
+            <field name="nationality_en">Portuguese</field>
+            <field name="nationality_ar">برتغالي</field>
+        </record>
+
+        <record id="base.pw" model="res.country">
+            <field name="nationality_en">Palauan</field>
+            <field name="nationality_ar">بالاوي</field>
+        </record>
+
+        <record id="base.py" model="res.country">
+            <field name="nationality_en">Paraguayan</field>
+            <field name="nationality_ar">باراغواياني</field>
+        </record>
+
+        <record id="base.qa" model="res.country">
+            <field name="nationality_en">Qatari</field>
+            <field name="nationality_ar">قطري</field>
+        </record>
+
+        <record id="base.re" model="res.country">
+            <field name="nationality_en">Réunionese</field>
+            <field name="nationality_ar">ريونيوني</field>
+        </record>
+
+        <record id="base.ro" model="res.country">
+            <field name="nationality_en">Romanian</field>
+            <field name="nationality_ar">روماني</field>
+        </record>
+
+        <record id="base.rs" model="res.country">
+            <field name="nationality_en">Serbian</field>
+            <field name="nationality_ar">صربي</field>
+        </record>
+
+        <record id="base.ru" model="res.country">
+            <field name="nationality_en">Russian</field>
+            <field name="nationality_ar">روسي</field>
+        </record>
+
+        <record id="base.rw" model="res.country">
+            <field name="nationality_en">Rwandan</field>
+            <field name="nationality_ar">رواندي</field>
+        </record>
+
+        <record id="base.sa" model="res.country">
+            <field name="nationality_en">Saudi Arabian</field>
+            <field name="nationality_ar">سعودي</field>
+        </record>
+
+        <record id="base.sb" model="res.country">
+            <field name="nationality_en">Solomon Islander</field>
+            <field name="nationality_ar">جزر سليمان</field>
+        </record>
+
+        <record id="base.sc" model="res.country">
+            <field name="nationality_en">Seychellois</field>
+            <field name="nationality_ar">سيشيلي</field>
+        </record>
+
+        <record id="base.sd" model="res.country">
+            <field name="nationality_en">Sudanese</field>
+            <field name="nationality_ar">سوداني</field>
+        </record>
+
+        <record id="base.se" model="res.country">
+            <field name="nationality_en">Swedish</field>
+            <field name="nationality_ar">سويدي</field>
+        </record>
+
+        <record id="base.sg" model="res.country">
+            <field name="nationality_en">Singaporean</field>
+            <field name="nationality_ar">سنغافوري</field>
+        </record>
+
+        <record id="base.sh" model="res.country">
+            <field name="nationality_en">Saint Helenian</field>
+            <field name="nationality_ar">سانت هيلينيان</field>
+        </record>
+
+        <record id="base.si" model="res.country">
+            <field name="nationality_en">Slovenian</field>
+            <field name="nationality_ar">سلوفيني</field>
+        </record>
+
+        <record id="base.sj" model="res.country">
+            <field name="nationality_en">Svalbardian</field>
+            <field name="nationality_ar">سفالباردي</field>
+        </record>
+
+        <record id="base.sk" model="res.country">
+            <field name="nationality_en">Slovak</field>
+            <field name="nationality_ar">سلوفاكي</field>
+        </record>
+
+        <record id="base.sl" model="res.country">
+            <field name="nationality_en">Sierra Leonean</field>
+            <field name="nationality_ar">سيراليوني</field>
+        </record>
+
+        <record id="base.sm" model="res.country">
+            <field name="nationality_en">Sammarinese</field>
+            <field name="nationality_ar">ساماريني</field>
+        </record>
+
+        <record id="base.sn" model="res.country">
+            <field name="nationality_en">Senegalese</field>
+            <field name="nationality_ar">سنغالي</field>
+        </record>
+
+        <record id="base.so" model="res.country">
+            <field name="nationality_en">Somali</field>
+            <field name="nationality_ar">صومالي</field>
+        </record>
+
+        <record id="base.sr" model="res.country">
+            <field name="nationality_en">Surinamese</field>
+            <field name="nationality_ar">سورينامي</field>
+        </record>
+
+        <record id="base.ss" model="res.country">
+            <field name="nationality_en">South Sudanese</field>
+            <field name="nationality_ar">جنوب السوداني</field>
+        </record>
+
+        <record id="base.st" model="res.country">
+            <field name="nationality_en">São Toméan</field>
+            <field name="nationality_ar">ساو توميان</field>
+        </record>
+
+        <record id="base.sv" model="res.country">
+            <field name="nationality_en">Salvadoran</field>
+            <field name="nationality_ar">سلفادوري</field>
+        </record>
+
+        <record id="base.sx" model="res.country">
+            <field name="nationality_en">Sint Maartenian</field>
+            <field name="nationality_ar">سينت مارتنيان</field>
+        </record>
+
+        <record id="base.sy" model="res.country">
+            <field name="nationality_en">Syrian</field>
+            <field name="nationality_ar">سوري</field>
+        </record>
+
+        <record id="base.sz" model="res.country">
+            <field name="nationality_en">Swazi</field>
+            <field name="nationality_ar">سوازي</field>
+        </record>
+
+        <record id="base.tc" model="res.country">
+            <field name="nationality_en">Turks and Caicos Islander</field>
+            <field name="nationality_ar">توركس وكايكوسي</field>
+        </record>
+
+        <record id="base.td" model="res.country">
+            <field name="nationality_en">Chadian</field>
+            <field name="nationality_ar">تشادي</field>
+        </record>
+
+        <record id="base.tf" model="res.country">
+            <field name="nationality_en">French Southern and Antarctic Land</field>
+            <field name="nationality_ar">الأراضي الفرنسية الجنوبية والأنتاركتية</field>
+        </record>
+
+        <record id="base.tg" model="res.country">
+            <field name="nationality_en">Togolese</field>
+            <field name="nationality_ar">توغولي</field>
+        </record>
+
+        <record id="base.th" model="res.country">
+            <field name="nationality_en">Thai</field>
+            <field name="nationality_ar">تايلاندي</field>
+        </record>
+
+        <record id="base.tj" model="res.country">
+            <field name="nationality_en">Tajikistani</field>
+            <field name="nationality_ar">طاجيكستاني</field>
+        </record>
+
+        <record id="base.tk" model="res.country">
+            <field name="nationality_en">Tokelauan</field>
+            <field name="nationality_ar">توكيلو</field>
+        </record>
+
+        <record id="base.tm" model="res.country">
+            <field name="nationality_en">Turkmen</field>
+            <field name="nationality_ar">تركماني</field>
+        </record>
+
+        <record id="base.tn" model="res.country">
+            <field name="nationality_en">Tunisian</field>
+            <field name="nationality_ar">تونسي</field>
+        </record>
+
+        <record id="base.to" model="res.country">
+            <field name="nationality_en">Tongan</field>
+            <field name="nationality_ar">تونغاني</field>
+        </record>
+
+        <record id="base.tl" model="res.country">
+            <field name="nationality_en">Timorese</field>
+            <field name="nationality_ar">تيموري</field>
+        </record>
+
+        <record id="base.tr" model="res.country">
+            <field name="nationality_en">Turkish</field>
+            <field name="nationality_ar">تركي</field>
+        </record>
+
+        <record id="base.tt" model="res.country">
+            <field name="nationality_en">Trinidadian</field>
+            <field name="nationality_ar">ترينيدادي</field>
+        </record>
+
+        <record id="base.tv" model="res.country">
+            <field name="nationality_en">Tuvaluan</field>
+            <field name="nationality_ar">توفالوي</field>
+        </record>
+
+        <record id="base.tw" model="res.country">
+            <field name="nationality_en">Taiwanese</field>
+            <field name="nationality_ar">تايواني</field>
+        </record>
+
+        <record id="base.tz" model="res.country">
+            <field name="nationality_en">Tanzanian</field>
+            <field name="nationality_ar">تنزاني</field>
+        </record>
+
+        <record id="base.ua" model="res.country">
+            <field name="nationality_en">Ukrainian</field>
+            <field name="nationality_ar">أوكراني</field>
+        </record>
+
+        <record id="base.ug" model="res.country">
+            <field name="nationality_en">Ugandan</field>
+            <field name="nationality_ar">أوغندي</field>
+        </record>
+
+        <record id="base.uk" model="res.country">
+            <field name="nationality_en">British</field>
+            <field name="nationality_ar">بريطاني</field>
+        </record>
+
+        <record id="base.um" model="res.country">
+            <field name="nationality_en">United States Minor Outlying Islands</field>
+            <field name="nationality_ar">جزر الولايات المتحدة البعيدة الصغرى</field>
+        </record>
+
+        <record id="base.us" model="res.country">
+            <field name="nationality_en">American</field>
+            <field name="nationality_ar">أمريكي</field>
+        </record>
+
+        <record id="base.uy" model="res.country">
+            <field name="nationality_en">Uruguayan</field>
+            <field name="nationality_ar">أوروغواياني</field>
+        </record>
+
+        <record id="base.uz" model="res.country">
+            <field name="nationality_en">Uzbekistani</field>
+            <field name="nationality_ar">أوزبكيستاني</field>
+        </record>
+
+        <record id="base.va" model="res.country">
+            <field name="nationality_en">Vatican</field>
+            <field name="nationality_ar">فاتيكان</field>
+        </record>
+
+        <record id="base.vc" model="res.country">
+            <field name="nationality_en">Saint Vincentian</field>
+            <field name="nationality_ar">سانت فينسينت والغرينادين</field>
+        </record>
+
+        <record id="base.ve" model="res.country">
+            <field name="nationality_en">Venezuelan</field>
+            <field name="nationality_ar">فنزويلي</field>
+        </record>
+
+        <record id="base.vg" model="res.country">
+            <field name="nationality_en">British Virgin Islander</field>
+            <field name="nationality_ar">جزر فيرجن البريطانية</field>
+        </record>
+
+        <record id="base.vi" model="res.country">
+            <field name="nationality_en">U.S. Virgin Islander</field>
+            <field name="nationality_ar">جزر فيرجن الأمريكية</field>
+        </record>
+
+        <record id="base.vn" model="res.country">
+            <field name="nationality_en">Vietnamese</field>
+            <field name="nationality_ar">فيتنامي</field>
+        </record>
+
+        <record id="base.vu" model="res.country">
+            <field name="nationality_en">Ni-Vanuatu</field>
+            <field name="nationality_ar">ني فانواتي</field>
+        </record>
+
+        <record id="base.wf" model="res.country">
+            <field name="nationality_en">Wallis and Futuna Islander</field>
+            <field name="nationality_ar">جزيرة والس وفوتونا</field>
+        </record>
+
+        <record id="base.ws" model="res.country">
+            <field name="nationality_en">Samoan</field>
+            <field name="nationality_ar">سامواني</field>
+        </record>
+
+        <record id="base.ye" model="res.country">
+            <field name="nationality_en">Yemeni</field>
+            <field name="nationality_ar">يمني</field>
+        </record>
+
+        <record id="base.yt" model="res.country">
+            <field name="nationality_en">Mahoran</field>
+            <field name="nationality_ar">ماهوري</field>
+        </record>
+
+        <record id="base.za" model="res.country">
+            <field name="nationality_en">South African</field>
+            <field name="nationality_ar">جنوب أفريقي</field>
+        </record>
+
+        <record id="base.zm" model="res.country">
+            <field name="nationality_en">Zambian</field>
+            <field name="nationality_ar">زامبي</field>
+        </record>
+
+        <record id="base.zw" model="res.country">
+            <field name="nationality_en">Zimbabwean</field>
+            <field name="nationality_ar">زمبابوي</field>
+        </record>
+
+        <record id="base.xk" model="res.country">
+            <field name="nationality_en">Kosovan</field>
+            <field name="nationality_ar">كوسوفي</field>
+        </record>
+
+    </data>
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value
+                eval="[('module', '=', 'base'), ('name', 'in', ['ad','ae','af','ag','ai','al','am','ao','aq','ar','as','at','au','aw','ax','az','ba','bb','bd','be','bf','bg','bh','bi','bj','bl','bm','bn','bo','bq','br','bs','bt','bv','bw','by','bz','ca','cc','cf','cd','cg','ch','ci','ck','cl','cm','cn','co','cr','cu','cv','cw','cx','cy','cz','de','dj','dk','dm','do','dz','ec','ee','eg','eh','er','es','et','fi','fj','fk','fm','fo','fr','ga','gd','ge','gf','gh','gi','gg','gl','gm','gn','gp','gq','gr','gs','gt','gu','gw','gy','hk','hm','hn','hr','ht','hu','id','ie','il','im','in','io','iq','ir','is','it','je','jm','jo','jp','ke','kg','kh','ki','km','kn','kp','kr','kw','ky','kz','la','lb','lc','li','lk','lr','ls','lt','lu','lv','ly','ma','mc','md','me','mf','mg','mh','mk','ml','mm','mn','mo','mp','mq','mr','ms','mt','mu','mv','mw','mx','my','mz','na','nc','ne','nf','ng','ni','nl','no','np','nr','nu','nz','om','pa','pe','pf','pg','ph','pk','pl','pm','pn','pr','ps','pt','pw','py','qa','re','ro','rs','ru','rw','sa','sb','sc','sd','se','sg','sh','si','sj','sk','sl','sm','sn','so','sr','ss','st','sv','sx','sy','sz','tc','td','tf','tg','th','tj','tk','tm','tn','to','tl','tr','tt','tv','tw','tz','ua','ug','uk','um','us','uy','uz','va','vc','ve','vg','vi','vn','vu','wf','ws','ye','yt','za','zm','zw','xk'])]" />
+        </function>
+        <value eval="{'noupdate': True}" />
+    </function>
+</odoo>

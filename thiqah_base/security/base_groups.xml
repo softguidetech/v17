@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Business Development Category -->
+		<record id="thiqah_bd_category" model="ir.module.category">
+			<field name="description">Helps you handle your Business Development Levels.</field>
+			<field name="sequence">1</field>
+			<field name="name">Business Development</field>
+		</record>
+
+		<record id="thiqah_workflow_category" model="ir.module.category">
+			<field name="description">Helps you handle your workflow access</field>
+			<field name="sequence">2</field>
+			<field name="name">Workflow Access</field>
+		</record>
+
+        <record id="group_hr_business_partner" model="res.groups">
+			<field name="name">HR Business Partner</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+		</record>
+
+        <record id="group_hr_business_operation" model="res.groups">
+			<field name="name">HR Business Operation</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+		</record>
+
+		<record id="group_hr_head" model="res.groups">
+			<field name="name">Head Of HR</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+			<field name="implied_ids" eval="[(4, ref('hr.group_hr_manager'))]" />
+		</record>
+
+		<record id="group_government_relations" model="res.groups">
+			<field name="name">Government Relations</field>
+			<field name="category_id" ref="thiqah_base.thiqah_workflow_category" />
+		</record>
+    
+</odoo>

@@ -1,0 +1,44 @@
+div[data-key="general_settings"] div.icon{
+    background: url(/thiqah_brands/static/src/img/Icons_Settings.png) no-repeat center !important;
+    background-size: contain !important;
+}
+div[data-key="crm"] div.icon{
+   background: url(/thiqah_brands/static/src/img/Icons_CRM.png) no-repeat center !important;
+  background-size: contain !important;
+}
+div[data-key="social"] div.icon{
+   background: url(/thiqah_brands/static/src/img/Icons_Social_Marketing.png) no-repeat center !important;
+   background-size: contain !important;
+}
+
+div[data-key="project"] div.icon{
+   background: url(/thiqah_brands/static/src/img/Icons_Project.png) no-repeat center !important;
+   background-size: contain !important;
+}
+/*
+div[data-key="hr_timesheet"] div.icon{
+   background: url(/thiqah_brands/static/src/img/Icons_Timesheet.png) no-repeat center !important;
+   background-size: contain !important;
+}
+*/
+div[data-key="event"] div.icon{
+   background: url(/thiqah_brands/static/src/img/Icons_Events.png) no-repeat center !important;
+   background-size: contain !important;
+}
+div[data-key="documents"] div.icon{
+   background: url(/thiqah_brands/static/src/img/Icons_Documents.png) no-repeat center !important;
+   background-size: contain !important;
+}
+div[data-key="website"] div.icon{
+   background: url(/thiqah_brands/static/src/img/Icons_Website.png) no-repeat center !important;
+   background-size: contain !important;
+}
+div[data-key="mass_mailing"] div.icon{
+   background: url(/thiqah_brands/static/src/img/Icons_Email_Marketing.png) no-repeat center !important;
+   background-size: contain !important;
+}
+
+div[data-key="hr"] div.icon{
+   background: url(/thiqah_brands/static/src/img/Icons_Contacts.png) no-repeat center !important;
+  background-size: contain !important;
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- TAGS TREE VIEW + MUTI_EDIT -->
+    <record id="thiqah_crm_tag_tree" model="ir.ui.view">
+        <field name="name">thiqah.tag.stage.tree</field>
+        <field name="model">thiqah.crm.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Tags" editable="bottom" sample="1">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="thiqah_crm_tag_action" model="ir.actions.act_window">
+        <field name="name">Thiqah CRM Tags</field>
+        <field name="res_model">thiqah.crm.tag</field>
+        <field name="view_id" ref="thiqah_crm.thiqah_crm_tag_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            Set a new tag in your opportunity card
+            </p>
+            <p>
+                Tag allow the concerned people to identify the new opportunity and which of them need action.
+            </p>
+        </field>
+    </record>
+
+</odoo>

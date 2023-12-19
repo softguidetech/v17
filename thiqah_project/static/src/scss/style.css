@@ -1,0 +1,138 @@
+.wizard,
+.wizard .nav-tabs,
+.wizard .nav-tabs .nav-item {
+  position: relative;
+}
+
+.wizard .nav-tabs:after {
+  content: "";
+  width: 90%;
+  border-bottom: solid 2px #ccc;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 54%;
+  z-index: -1;
+}
+
+.wizard .nav-tabs .nav-item .nav-link {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 6%;
+  background: white;
+  border: 2px solid #ccc;
+  color: #ccc;
+  z-index: 10;
+}
+
+.wizard .nav-tabs .nav-item .nav-link:hover {
+  color: #333;
+  border: 2px solid #333;
+}
+
+.wizard .nav-tabs .nav-item .nav-link.active {
+  background: #fff;
+  border: 2px solid #0dcaf0;
+  color: #0dcaf0;
+}
+
+.wizard .nav-tabs .nav-item .nav-link:after {
+  content: " ";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  opacity: 0;
+  margin: 0 auto;
+  bottom: 0px;
+  border: 5px solid transparent;
+  border-bottom-color: #0dcaf0;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+}
+
+.nav-tabs .nav-item .nav-link.active:after {
+  content: " ";
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  opacity: 1;
+  margin: 0 auto;
+  bottom: 0px;
+  border: 10px solid transparent;
+  border-bottom-color: #0dcaf0;
+}
+
+.wizard .nav-tabs .nav-item .nav-link svg {
+  font-size: 25px;
+}
+
+div#myTabContent {
+  padding-top: 20px;
+}
+
+#myTab.spacing {
+  margin-bottom: 3px;
+}
+
+.add_project_box {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.add_project_box .container {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 15px 15px 15px 15px;
+}
+
+.add_project_box .summary_project {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #c7ecee;
+  height: 59px;
+  padding-top: 16px;
+  font-size: 1.2rem;
+}
+
+.add_project_box .form-group > .form-control {
+  border: 0;
+  border-bottom: 4mm ridge rgba(211, 220, 50, 0.6);
+}
+
+.add_project_box .form-group > .form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: #888888;
+}
+
+.add_project_box .form-group {
+  margin-bottom: 12px;
+}
+
+.add_project_box label {
+  font-weight: normal;
+  margin-bottom: 2px;
+}
+
+.add_project_box div#subscription_info {
+  margin: 13px 10px 10px 10px;
+}
+
+.add_data_button,
+.update_data_button {
+  width: 100%;
+  padding: 3px 3px 3px 3px;
+}
+
+
+#deliverableValueOutput {
+  margin-left: 400px;
+}
+
+.item_header {
+  color: #7f8c8d;
+  font-weight: bold;
+}
+/*# sourceMappingURL=style.css.map */

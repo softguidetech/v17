@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="thiqah_legal_action" model="ir.actions.client">
+            <field name="name">Legal Dashboard</field>
+            <field name="tag">ThiqahLegalDashboard</field>
+        </record>
+
+
+        <record id="dashboard_bd_action" model="ir.actions.client">
+            <field name="name">Thiqah BD Dashboard</field>
+            <field name="tag">ThiqahDashboardBd</field>
+        </record>
+        
+
+        <menuitem id="menu_legal_dashboard" name="Legal Dashboard" sequence="3" parent="crm.crm_menu_root" action="thiqah_legal_action" groups="thiqah_crm.legal_team_group_" />
+        <menuitem id="menu_bd_dashboard" name="BD Dashboard" sequence="1" parent="crm.crm_menu_report" action="dashboard_bd_action"/>
+
+    </data>
+</odoo>

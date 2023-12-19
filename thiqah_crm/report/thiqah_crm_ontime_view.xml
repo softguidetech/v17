@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="thiqah_report_ontime_wizard" model="ir.ui.view">
+			<field name="name">On Time Report</field>
+			<field name="model">thiqah.ontime.report</field>
+			<field name="arch" type="xml">
+				<form string="Opportunities Status">
+
+					<p> Print On Time Report</p>
+					<group>
+						<field name="customer_ids" widget="many2many_tags" />
+					</group>
+					<footer>
+						<button string="Print" name="action_report_print"
+							type="object" default_focus="1" class="btn-primary"
+							data-hotkey="q" />
+						<button string="Cancel" class="btn-secondary"
+							special="cancel" data-hotkey="z" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+
+		<template id="report_thiqah_on_time_tickets_document">
+			<t t-set="o" t-value="o.with_context(lang=lang)" />
+
+			<div class="page page_batch_report_tickets">
+				<br />
+				<t t-set="result"
+					t-value="o.get_thiqah_tickets_on_time_report_data()" />
+				<h2 class="ml-5" style="color:#7030a0;">
+					<strong>On Time Tickets</strong>
+				</h2>
+				<br />
+				<div class="row float-right" style="width:80%;">
+					<div class="col-4">
+					</div>
+					<div class="col-3 text-center">
+						<div class="bgsubmit"
+							style="height:50px;color:#fff;border-top-left-radius: 5px;border-top-right-radius: 5px;">
+							<strong>Total # of Tickets</strong>
+						</div>
+						<div class=""
+							style="height:50px;background-color:#f2f2f2;color:#000;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+							<strong t-esc="result['total_tickets']" />
+						</div>
+					</div>
+					<div class="col-3 text-center">
+						<div class="bgsubmit"
+							style="height:50px;color:#fff;border-top-left-radius: 5px;border-top-right-radius: 5px;">
+							<strong>Total On Time Tickets</strong>
+						</div>
+						<div class=""
+							style="height:50px;background-color:#f2f2f2;color:#000;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;">
+							<strong t-esc="result['total_ontime_tickets']" />
+						</div>
+					</div>
+				</div>
+				<br />
+				<br />
+<div class="mt-2" />
+				<table>
+
+					<thead class="bgsubmit"
+						style="margin-top:5%; display: table-header-group;">
+
+						<th class="col25 text-center" style="color:#fff;">
+							<h2 class="mt-2">Ticket</h2>
+						</th>
+						<th class="col20 text-center" style="color:#fff;">
+							<h2 class="mt-2"> Customer</h2>
+						</th>
+						<th class="col15 text-center" style="color:#fff;">
+							<h2 class="mt-2"> Status</h2>
+						</th>
+						<th class="col25 text-center" style="color:#fff;">
+							<h2 class="mt-2"> SLA Policy</h2>
+						</th>
+
+						<th class="col10 text-center" style="color:#fff;">
+							<h2 class="mt-2"> Closed On Time</h2>
+						</th>
+
+					</thead>
+
+
+
+					<tbody class="data"
+						style="background-color: #f2f2f2 !important;">
+						
+						<t t-foreach="result['data']" t-as="data">
+							<tr class=""
+								style="background-color: #f2f2f2 !important;">
+								<th class="col25 valproj bdsubmit text-center mr-1">
+									<span t-esc="data['name']" />
+								</th>
+								<th class="col20 valproj bdsubmit text-center mr-1">
+									<span t-esc="data['customer']" />
+								</th>
+								<th class="col15 valproj bdsubmit text-center mr-1">
+									<span t-esc="data['ticket_stage']" />
+								</th>
+
+								<th class="col25 valproj bdsubmit text-center mr-1">
+									<t t-if="data['sla_policies']"
+										t-foreach="data['sla_policies']" t-as="sla">
+										<span t-esc="sla['sla_name']" />
+										<br />
+									</t>
+									<t t-else="">
+										<span>--</span>
+									</t>
+								</th>
+								<th class="col10 valproj bdsubmit text-center mr-1">
+									<t t-if="data['sla_policies']"
+										t-foreach="data['sla_policies']" t-as="sla">
+										<span t-esc="sla['sla_status']" />
+										<br />
+									</t>
+									<t t-else="">
+										<span>--</span>
+									</t>
+								</th>
+
+
+
+							</tr>
+							
+						</t>
+					</tbody>
+
+</table>
+
+
+
+					<div class="mt-2" />
+
+
+				</div>
+
+
+
+
+		</template>
+
+
+
+
+
+
+
+
+
+
+		<record id="action_thiqah_report_ontime_wizard"
+			model="ir.actions.act_window">
+			<field name="name">On Time Report</field>
+			<field name="res_model">thiqah.ontime.report</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="thiqah_report_ontime_wizard" />
+			<field name="target">new</field>
+			<field name="binding_model_id"
+				ref="helpdesk.model_helpdesk_ticket" />
+			<field name="binding_view_types">list</field>
+		</record>
+	</data>
+</odoo>

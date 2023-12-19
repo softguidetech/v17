@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="client_payment_view_tree" model="ir.ui.view">
+        <field name="name">client.payment.view.tree</field>
+        <field name="model">client.payment</field>
+        <field name="arch" type="xml">
+            <tree create="true" edit="true">
+                <field name="sequence"/>
+                <field name="client_name"/>
+                <field name="legal_representative"/>
+                <field name="total_amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- client.registration tree view -->
+    <record id="client_registration_view_tree" model="ir.ui.view">
+        <field name="name">client.registration.view.tree</field>
+        <field name="model">client.registration</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="client_name"/>
+                <field name="bank_country"/>
+                <field name="bank_name"/>
+                <field name="branch_name"/>
+                <field name="create_uid"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="client_payment_view_form" model="ir.ui.view">
+        <field name="name">client.payment.view.form</field>
+        <field name="model">client.payment</field>
+        <field name="arch" type="xml">
+            <form create="true" edit="true">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sequence" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <separator string="Client Information" colspan="2" />
+                        <group>
+                            <field name="client_name" />
+                            <field name="legal_representative" />
+                            <field name="currency_id" invisible="1"/>
+                            <field name="total_amount" widget="monetary"/>
+                        </group>
+                        <group>
+                            <field name="client_registration_id" />
+                            <field name="client_product_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="concerned_users" string="Concerned Users" groups="base.group_no_one">
+                            <field name="concerned_user_ids" readonly="1">
+                                <tree>
+                                    <field name="login"/>
+                                    <field name="email"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- client.registration form view -->
+    <record id="client_registration_view_form" model="ir.ui.view">
+        <field name="name">client.registration.view.form</field>
+        <field name="model">client.registration</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="client_name"/>
+                            <field name="site_name"/>
+                            <field name="bank_country"/>
+                            <field name="bank_name"/>
+                            <field name="create_uid"/>
+                        </group>
+                        <group>
+                            <field name="branch_name"/>
+                            <field name="account"/>
+                            <field name="account_holder_name"/>
+                            <field name="iban"/>
+                            <field name="client_product_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="concerned_users" string="Concerned Users" groups="base.group_no_one">
+                            <field name="concerned_user_ids" readonly="1">
+                                <tree>
+                                    <field name="login"/>
+                                    <field name="email"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- client.payment action window -->
+    <record id="client_payment_action" model="ir.actions.act_window">
+        <field name="name">Clients Payments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">client.payment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- client.registration action window -->
+    <record id="client_registration_action" model="ir.actions.act_window">
+        <field name="name">Client Registration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">client.registration</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

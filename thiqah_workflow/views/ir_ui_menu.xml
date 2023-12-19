@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Workflow Editor -->
+
+    <menuitem name="Workflow Editor" id="workflow_menu" groups="base.group_system" action="workflow_action" web_icon="thiqah_workflow,static/src/img/Icons_Workflow.png" sequence="-1"/>
+
+    <menuitem name="Workflow" id="workflow_main_menu" groups="base.group_system" parent="workflow_menu" action="workflow_action" sequence="-1"/>
+
+
+</odoo>

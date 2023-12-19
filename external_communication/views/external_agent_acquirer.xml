@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="external_agent_acquirer_tree" model="ir.ui.view">
+        <field name="name">external_agent_acquirer.tree</field>
+        <field name="model">external.agent.acquirer</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="name" />
+                <field name="provider" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="external_agent_acquirer_form" model="ir.ui.view">
+        <field name="name">external_agent_acquirer.form</field>
+        <field name="model">external.agent.acquirer</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="do_action" type="object" string="DO ACTION"/>
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button class="oe_stat_button" type="object" name="action_view_endpoint" icon="fa-calendar">
+                            <field string="Endpoints" name="endpoint_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name" />
+                    </group>
+
+                    <group>
+                        <field name="provider" />
+                    </group>
+
+                    <group>
+                        <field name="state" />
+                    </group>
+
+                    <group>
+                        <field name="onboarding_url" />
+                        <field name="authorization_type" />
+                    </group>
+
+<!--                    <group attrs="{'invisible':[('authorization_type','!=','api_key')]}">-->
+                    <group invisible="authorization_type != 'api_key'">
+                        <field name="api_key_key" string="API Key"/>
+                        <field name="api_key_value" string="API Value"/>
+                    </group>
+
+<!--                    <group attrs="{'invisible':[('authorization_type','!=','bearer_token')]}">-->
+                    <group  invisible="authorization_type != 'bearer_token'">
+                        <field name="bearer_token" />
+                    </group>
+
+<!--                    <group attrs="{'invisible':[('authorization_type','!=','basic_auth')]}">-->
+                    <group invisible="authorization_type != 'basic_auth'">
+                        <field name="username" />
+                        <field name="password" />
+                    </group>
+
+                    <notebook>
+                        <page name="endpoints" string="Endpoints">
+                            <field name="endpoint_ids">
+                                <tree editable="bottom">
+                                    <field name="uri" />
+                                    <field name="type" />
+                                </tree>
+                            </field>
+                        </page>
+<!--                        <page name="parmaters" string="Parmaters" attrs="{'invisible':[('authorization_type','!=','query_params')]}">-->
+                        <page name="parmaters" string="Parmaters" invisible="authorization_type != 'query_params'">
+                            <field name="query_params_ids">
+                                <tree editable="bottom">
+                                    <field name="key" />
+                                    <field name="value" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+</odoo>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="notification_menuitem" name="Portal Notifications" parent="mail.mail_menu_technical" sequence="1" action="notification_actions"/>
+
+</odoo>

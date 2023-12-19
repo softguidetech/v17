@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!-- Leads -->
+	<record model='ir.ui.menu' id='crm.crm_menu_leads'>
+		<field name="groups_id" eval="[(6, 0, [ref('sales_team.group_sale_manager'),ref('thiqah_crm.aahd_bd_group'),ref('thiqah_crm.marketing_development_group'),ref('thiqah_crm.sp_link_crm_group') ])]"/>
+	</record>
+
+	<record model='ir.ui.menu' id='crm.crm_menu_report'>
+		<field name="groups_id" eval="[(6, 0, [ref('sales_team.group_sale_manager')])]"/>
+	</record>
+
+	<record id="thiqah_crm.action_ict_window" model="ir.actions.act_window">
+		<field name="name">ICT Setting</field>
+		<field name="res_model">crm.lead.ict</field>
+		<field name="view_mode">tree,form</field>
+
+	</record>
+
+	<record id="thiqah_crm.action_sectors_of_interest_window" model="ir.actions.act_window">
+		<field name="name">Sectors Of Interest Setting</field>
+		<field name="res_model">crm.lead.sectors_of_interest</field>
+		<field name="view_mode">tree,form</field>
+
+	</record>
+	<record id="thiqah_crm.action_types_of_services_provided_window" model="ir.actions.act_window">
+		<field name="name">Types of services provided</field>
+		<field name="res_model">crm.lead.types_of_services_provided</field>
+		<field name="view_mode">tree,form</field>
+
+	</record>
+
+	<!-- CRM -->
+	<menuitem id="crm.crm_menu_root" name="CRM" groups="sales_team.group_sale_salesman,thiqah_crm.sp_link_crm_group,thiqah_crm.aahd_bd_group,thiqah_crm.marketing_development_group" />
+	<menuitem id="crm.crm_menu_sales" name="Sales" parent="crm.crm_menu_root" sequence="1" groups="sales_team.group_sale_manager,thiqah_crm.aahd_bd_group,thiqah_crm.sp_link_crm_group,thiqah_crm.aahd_bd_group,thiqah_crm.marketing_development_group" />
+
+	<!-- Pipeline -->
+	<menuitem id="crm.menu_crm_opportunities" name="Aahd Pipeline" parent="crm.crm_menu_sales" action="crm.action_your_pipeline" sequence="0" groups="thiqah_crm.group_thiqah_aahd_leadsource,thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_vb_grp,thiqah_crm.group_thiqah_aahd_presalesteam,thiqah_crm.group_thiqah_aahd_sales_team_grp,group_thiqah_aahd_evaluation_manager,thiqah_crm.group_thiqah_aahd_evaluation_member_grp,thiqah_crm.aahd_bd_group" />
+
+	<menuitem id="menu_crm_bd_opportunities" name="Thiqah Pipeline" parent="crm.crm_menu_sales" groups="thiqah_crm.group_thiqah_bd_team_members,thiqah_crm.sp_link_crm_group,thiqah_crm.marketing_development_group" action="crm_lead_bd_leads" sequence="1" />
+
+	<!-- LEADS (MAIN USER MENU) -->
+	<!-- <menuitem id="crm.crm_menu_leads" name="Leads" parent="crm.crm_menu_root" groups="crm.group_use_lead,thiqah_crm.sp_link_crm_group" sequence="5" /> -->
+
+	<!-- <menuitem id="bd_crm_menu_leads" name="BD Leads" parent="crm.crm_menu_leads" action="bd_crm_lead_all_leads" groups="group_thiqah_bd_team_members,thiqah_crm.sp_link_crm_group" sequence="1" /> -->
+
+
+	<!-- <menuitem id="aahd_crm_menu_leads" name="Aahd Leads" parent="crm.crm_menu_leads" action="aahd_crm_lead_all_leads" groups="thiqah_crm.group_thiqah_aahd_leadsource,thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_vb_grp,thiqah_crm.group_thiqah_aahd_presalesteam,thiqah_crm.group_thiqah_aahd_sales_team_grp,group_thiqah_aahd_evaluation_manager,thiqah_crm.aahd_bd_group" sequence="2" /> -->
+
+	<menuitem id="all_crm_menu_leads" name="Leads/Ideas" parent="crm.crm_menu_leads" action="crm.crm_lead_all_leads" sequence="0" />
+	<!-- <menuitem id="all_crm_menu_leads" name="Leads/Ideas" parent="crm.crm_menu_leads" action="crm.crm_lead_all_leads" groups="base.group_system,thiqah_crm.sp_team_group" sequence="0" /> -->
+	<menuitem id="all_crm_menu_events" name="Events" parent="crm.crm_menu_leads" action="thiqah_crm.action_view_crm_lead_event" groups="base.group_system,thiqah_crm.sp_team_group" sequence="10" />
+
+
+	<menuitem id="crm.crm_team_config" name="Portfolio" parent="crm.crm_menu_config" action="sales_team.crm_team_action_config" sequence="5" />
+
+	<menuitem id="crm.types_of_services_provided" name="Types of services provided" parent="crm.crm_menu_config" action="thiqah_crm.action_types_of_services_provided_window" sequence="5" />
+
+	<menuitem id="crm.crm_sectors_of_interest" name="Sectors Of Interest" parent="crm.crm_menu_config" action="thiqah_crm.action_sectors_of_interest_window" sequence="5" />
+
+	<menuitem id="crm.crm_ict" name="ICT Setting" parent="crm.crm_menu_config" action="thiqah_crm.action_ict_window" sequence="5" />
+
+	<!-- CONFIG -->
+	<!-- CONFIGURATION -->
+	<menuitem id="crm.crm_menu_config" name="Configuration" parent="crm.crm_menu_root" action="crm.action_your_pipeline" sequence="25" groups="thiqah_crm.group_thiqah_bd_team_members" />
+
+	<menuitem id="menu_crm_lead_stage_thiqah" name="Lead Stages" sequence="0" parent="crm.menu_crm_config_lead" action="thiqah_crm.thiqah_crm_lead_action"/>
+	<menuitem id="menu_crm_lead_tag_thiqah" name="Thiqah Tags" sequence="3" parent="crm.menu_crm_config_lead" action="thiqah_crm.thiqah_crm_tag_action"/>
+
+	<menuitem id="menu_crm_client_status_act" name="Client Status" sequence="7" parent="crm.crm_menu_config" action="action_thiqah_client_status" />
+
+	<menuitem id="menu_crm_opportunity_channels_act" name="Opportunity Channels" sequence="8" parent="crm.crm_menu_config" action="thiqah_opportunity_channels_action" />
+
+	<menuitem id="menu_crm_services_act" name="Services" sequence="9" parent="crm.crm_menu_config" action="product.product_template_action_all" />
+
+	<menuitem id="menu_crm_stackeholder_act" name="Stackeholders" sequence="10" parent="crm.crm_menu_config" action="thiqah_res_stakeholder_action" />
+
+	<menuitem id="menu_crm_opp_size_act" name="Opportunity Size" sequence="10" parent="crm.crm_menu_config" action="thiqah_opportunity_size_action" />
+
+	<menuitem id="menu_crm_sp_manager_act" name="SP Manager" sequence="10" parent="crm.crm_menu_config" action="thiqah_sp_manager_action" />
+
+	<menuitem id="menu_crm_lead_source_act" name="Lead Source" sequence="10" parent="crm.crm_menu_config" action="thiqah_lead_source_action" />
+
+	<menuitem id="menu_crm_internal_status_act" name="Internal Status" sequence="10" parent="crm.crm_menu_config" action="thiqah_internal_status_action" />
+
+	<!-- Report -->
+	<menuitem id="menu_thiqah_aahd_sales_dashboard" name="Wathiq Dashboard" sequence="0" parent="crm.crm_menu_report" action="thiqah_crm_action_dashboard" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" />
+
+	<menuitem id="menu_thiqah_crm_sp_dashboardd_all_data" name="SP Dashboard" sequence="0" parent="crm.crm_menu_report" action="thiqah_crm_action_dashboard_all_data" groups="thiqah_crm.group_thiqah_sp_dashboard" />
+
+	<menuitem id="menu_thiqah_ontime_data" name="On Time Report" sequence="0" parent="crm.crm_menu_report" action="action_thiqah_report_ontime_wizard" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" />
+
+	<menuitem id="menu_thiqah_opportunities_status_report" name="Opportunities Status" sequence="0" parent="crm.crm_menu_report" action="action_thiqah_report_Opportunities_wizard" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" />
+
+	<!-- CRM REPORTING ODOO -->
+	<menuitem id="crm.crm_menu_forecast" name="Forecast" parent="crm.crm_menu_report" action="crm.action_opportunity_forecast" sequence="1" groups="base.group_system" />
+
+	<menuitem id="crm.crm_opportunity_report_menu_lead" name="Leads" parent="crm.crm_menu_report" action="crm.crm_opportunity_report_action_lead" groups="base.group_system" sequence="2" />
+
+	<menuitem id="crm.crm_opportunity_report_menu" name="Pipeline" parent="crm.crm_menu_report" action="crm.crm_opportunity_report_action" sequence="3" groups="base.group_system" />
+
+	<menuitem id="crm.crm_activity_report_menu" name="Activities" parent="crm.crm_menu_report" action="crm.crm_activity_report_action" sequence="4" groups="base.group_system" />
+
+
+	<!-- Contacts -->
+	<menuitem id="menu_portfolio_category_form" action="thiqah_portfolio_category_action" name="Portfolio Category" sequence="1" parent="contacts.res_partner_menu_config"/>
+
+
+	<!-- For the Legal Team -->
+	<menuitem name="Legal and Contracts" id="leagal_team_menu" parent="crm.crm_menu_root" sequence="1" groups="thiqah_crm.legal_team_group_" />
+	<menuitem name="Legal actions" id="leagal_actions_menu" parent="leagal_team_menu" sequence="0" action="thiqah_crm.legal_team_action" groups="thiqah_crm.legal_team_group_" />
+	<menuitem name="Contracts" id="contracts_menu" parent="leagal_team_menu" sequence="1" action="thiqah_crm.crm_contract_action" groups="thiqah_crm.legal_team_group_" />
+
+</odoo>

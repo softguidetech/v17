@@ -1,0 +1,757 @@
+<?xml version="1.0"?>
+<odoo>
+	<record id="thiqah_aahd_crm_lead_view_form" model="ir.ui.view">
+		<field name="name">crm.lead.form.aahd</field>
+		<field name="model">crm.lead</field>
+		<field name="arch" type="xml">
+			<form class="o_lead_opportunity_form" js_class="crm_form">
+				<header>
+					<!-- ['|','&amp',('stage_is_proposal', '=', False),('stage_is_proposal', '=', False),'|',('active','=',False), ('probability', '=', 100), ('type', '=', 'lead')] -->
+					<!-- <button name="action_set_won_rainbowman" string="Won" type="object" class="oe_highlight" data-hotkey="w" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" title="Mark as won" attrs="{'invisible': [('stage_is_proposal', '=', False),'|','|', ('active','=',False), ('probability', '=', 100), ('type', '=', 'lead')]}" /> -->
+					<button name="action_set_won_rainbowman" string="Won" type="object" class="oe_highlight" data-hotkey="w" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" title="Mark as won" invisible="not stage_is_submitted"/>
+					<button name="action_set_archived" string="Archive" type="object" class="oe_highlight" title="Mark as Archived" invisible="is_global_archived"/>
+					<!-- <button name="action_set_won_rainbowman" string="Won" type="object" class="oe_highlight" confirm="This action will adjust the winning date to the start time of the action. This will affect the reports, are you sure?" data-hotkey="w" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" title="Mark as won" attrs="{'invisible': [('stage_is_submitted', '!=', True)]}" /> -->
+
+					<!-- <button name="%(crm.crm_lead_lost_action)d" string="Lost" data-hotkey="l" title="Mark as lost" type="action" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" context="{'default_lead_id': active_id}" attrs="{'invisible': [('stage_is_proposal', '=', False),'|', ('type', '=', 'lead'),('active', '=', False),('probability', '&lt;', 100)]}" /> -->
+<!--					<button name="%(crm.crm_lead_lost_action)d" string="Lost" data-hotkey="l" title="Mark as lost" type="action" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" context="{'default_lead_id': active_id}" attrs="{'invisible': [('stage_is_proposal', '=', False),('stage_is_submitted', '=', False)]}" />-->
+					<button name="%(crm.crm_lead_lost_action)d" string="Lost" data-hotkey="l" title="Mark as lost" type="action" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" context="{'default_lead_id': active_id}" invisible="not stage_is_proposal and not stage_is_submitted"/>
+<!--					<button name="%(crm.action_crm_lead2opportunity_partner)d" string="Convert to Opportunity" type="action" help="Convert to Opportunity" class="oe_highlight"  attrs="{'invisible': ['|', ('type', '=', 'opportunity'), ('active', '=', False)]}" data-hotkey="v" />-->
+					<button name="%(crm.action_crm_lead2opportunity_partner)d" string="Convert to Opportunity" type="action" help="Convert to Opportunity" class="oe_highlight" invisible="type == 'opportunity' or active" data-hotkey="v" />
+					<button name="toggle_active" string="Restore" type="object" data-hotkey="z" invisible="probability &gt; 0 or active"  />
+<!--					<button name="action_set_lost" string="Lost" type="object" data-hotkey="l" title="Mark as lost" attrs="{'invisible': ['|', ('type', '=', 'opportunity'), '&amp;', ('probability', '=', 0), ('active', '=', False)]}" />-->
+					<button name="action_set_lost" string="Lost" type="object" data-hotkey="l" title="Mark as lost" invisible="type == 'opportunity' and  probability == 0 or active" />
+
+					<button name="set_to_first_stage" string="Reopen" type="object" title="Reopen To first Stage" invisible="not stage_is_overdue"/>
+					<button name="need_legal_approval" string="Send To Legal Team" type="object" title="Legal Approval" invisible="not stage_is_won or need_legal_action"/>
+<!--					<button name="action_set_next_stage" string="Next Stage" type="object" title="Next Stage" attrs="{'invisible': ['|','|','|',('stage_visible','=',False),('type', '=', 'lead'), ('active', '=', False),('stage_is_submitted', '=', True)]}" />-->
+					<button name="action_set_next_stage" string="Next Stage" type="object" title="Next Stage" invisible="not stage_visible or type == 'lead' or not active or stage_is_submitted" />
+<!--					<button name="action_cancel" string="Cancel" type="object" title="Cancel" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" attrs="{'invisible': ['|',('stage_is_proposal', '=',False),('proposal_status','=', 'cancelled')]}"/>-->
+					<button name="action_cancel" string="Cancel" type="object" title="Cancel" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" invisible="not stage_is_proposal or proposal_status == 'cancelled'"/>
+<!--					<button name="cancel_submission" string="Cancel" type="object" title="Cancel" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" attrs="{'invisible': ['|',('stage_is_submitted', '=',False),('submission_status','=', 'cancelled')]}"/>-->
+					<button name="cancel_submission" string="Cancel" type="object" title="Cancel" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" invisible="not stage_is_proposal or proposal_status == 'cancelled'"/>
+
+					<field name="stage_for_etmd" invisible="1"/>
+					<field name="stage_client_direct" invisible="1"/>
+					<field name="stage_opp_source" invisible="1"/>
+
+					<field name="stage_id_domain" invisible="1"/>
+					<field name="stage_domain_ids" invisible="1"/>
+					<!-- <field name="stage_id" widget="statusbar" options="{ 'fold_field': 'fold'}" domain="[('for_aahd','=',True),('is_invisible_wathiq','=',False),('opp_source','in',('for_two',opportunity_channel_opp_source))]" attrs="{'invisible': ['|','|',('opportunity_channel_opp_source','=',False),('active', '=', False), ('type', '=', 'lead')]}" /> -->
+					<field name="stage_id" widget="statusbar" options="{ 'fold_field': 'fold'}" domain="[('id', 'in', stage_domain_ids)]" invisible="not opportunity_channel_opp_source or not active or type == 'lead'"/>
+<!--					<field name="stage_id" widget="statusbar" options="{ 'fold_field': 'fold'}" domain="[('id', 'in', stage_domain_ids)]" attrs="{'invisible': ['|','|',('opportunity_channel_opp_source','=',False),('active', '=', False), ('type', '=', 'lead')]}" />-->
+					<!-- ('opportunity_channel_opp_source','!=',opportunity_channel_opp_source), -->
+
+				</header>
+				<header>
+
+<!--					<button name="under_development_opportunity_proposal" class="fa fa-send text-primary" type="object" string="Send Proposal To sales Team" groups="thiqah_crm.group_thiqah_aahd_presalesteam" title="Under development" attrs="{'invisible': ['|','|', ('active', '=', False), ('stage_is_proposal', '=', False), ('proposal_status', 'in', ('under_development','submitted'))]}" />-->
+					<button name="under_development_opportunity_proposal" class="fa fa-send text-primary" type="object" string="Send Proposal To sales Team" groups="thiqah_crm.group_thiqah_aahd_presalesteam" title="Under development" invisible="not active or not stage_is_proposal or proposal_status in ['under_development','submitted']" />
+
+<!--					<button name="action_submission" class="fa fa-send text-primary" type="object" string="Submission" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" title="Submit Opportunity Proposal" attrs="{'invisible': ['|',('proposal_status', '!=', 'under_development'),('stage_is_submitted', '=', True)]}" />-->
+					<button name="action_submission" class="fa fa-send text-primary" type="object" string="Submission" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" title="Submit Opportunity Proposal" invisible="proposal_status != 'under_development' or stage_is_submitted"/>
+
+<!--					<button name="awarded_opportunity_proposal" class="fa fa-check text-success" type="object" string="Award Proposal" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" title="Award Opportunity Proposal" attrs="{'invisible': ['|','|', ('active', '=', False), ('stage_is_proposal', '=', False), ('proposal_status', '!=', 'submitted')]}" />-->
+					<button name="awarded_opportunity_proposal" class="fa fa-check text-success" type="object" string="Award Proposal" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" title="Award Opportunity Proposal" invisible="not active or not stage_is_proposal or proposal_status != 'submitted'"/>
+
+<!--					<button name="rejected_opportunity_proposal" class="fa fa-close text-danger" type="object" string="Reject Proposal" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" title="Reject Opportunity Proposal" attrs="{'invisible': ['|','|', ('active', '=', False), ('stage_is_proposal', '=', False), ('proposal_status', '!=', 'submitted')]}" />-->
+					<button name="rejected_opportunity_proposal" class="fa fa-close text-danger" type="object" string="Reject Proposal" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" title="Reject Opportunity Proposal" invisible="not active or not stage_is_proposal or proposal_status != 'submitted'" />
+
+					<field name="stage_is_proposal" invisible="1" />
+
+					<field name="stage_is_won" invisible="1" />
+					<field name="proposal_status" invisible="1" />
+					<field name="submission_status" invisible="1" />
+
+<!--					<field name="proposal_status" widget="statusbar" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" attrs="{'invisible': ['|','|', ('active', '=', False), ('stage_is_proposal', '=', False), ('type', '=', 'lead')]}" />-->
+					<field name="proposal_status" widget="statusbar" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" invisible="not active or not stage_is_proposal or type == 'lead'"/>
+
+					<field name="submission_status" widget="statusbar" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" invisible="not active or not stage_is_proposal or type == 'lead'"/>
+
+
+<!--					<button name="award_submission" class="fa fa-check text-success" type="object" string="Award" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" title="Award Opportunity" attrs="{'invisible': ['|','|',('active', '=', False),('stage_is_submitted', '=', False),('submission_status','=','awarded')]}" />-->
+					<button name="award_submission" class="fa fa-check text-success" type="object" string="Award" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" title="Award Opportunity" invisible="not active or not stage_is_proposal or submission_status == 'awarded'"/>
+<!--					<button name="reject_submission" class="fa fa-close text-danger" type="object" string="Reject" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" title="Award Opportunity" attrs="{'invisible': ['|','|',('active', '=', False), ('stage_is_submitted', '=', False),('submission_status','=','rejected')]}" />-->
+					<button name="reject_submission" class="fa fa-close text-danger" type="object" string="Reject" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp,thiqah_crm.group_thiqah_aahd_sales_team_grp,thiqah_crm.group_thiqah_aahd_vb_grp" title="Award Opportunity" invisible="not active or not stage_is_proposal or submission_status == 'rejected'"/>
+
+
+					<field name="stage_is_brochure_evaluation" invisible="1" />
+
+<!--					<button name="preparing_evaluation" class="fa fa-tasks text-primary" type="object" string="Preparing Evaluation" groups="thiqah_crm.group_thiqah_aahd_evaluation_member_grp" title="Preparing Evaluation" attrs="{'invisible': ['|','|', ('active', '=', False), ('stage_is_brochure_evaluation', '=', False), ('brochure_evaluation_status', 'in', ('prepare_doc','accepted','rejected','participation_decision'))]}" />-->
+					<button name="preparing_evaluation" class="fa fa-tasks text-primary" type="object" string="Preparing Evaluation" groups="thiqah_crm.group_thiqah_aahd_evaluation_member_grp" title="Preparing Evaluation" invisible="not active or not stage_is_brochure_evaluation or brochure_evaluation_status in ['prepare_doc','accepted','rejected','participation_decision']" />
+
+					<button name="participation_decision" class="fa fa-handshake-o text-primary" type="object" string="Participate Decision" groups="thiqah_crm.group_thiqah_aahd_evaluation_manager" title="Participate Decision" invisible="not active or not stage_is_brochure_evaluation or brochure_evaluation_status != 'prepare_doc'"/>
+<!--					<button name="participation_decision" class="fa fa-handshake-o text-primary" type="object" string="Participate Decision" groups="thiqah_crm.group_thiqah_aahd_evaluation_manager" title="Participate Decision" attrs="{'invisible': ['|','|', ('active', '=', False), ('stage_is_brochure_evaluation', '=', False), ('brochure_evaluation_status', '!=', 'prepare_doc')]}" />-->
+
+<!--					<button name="accept_decision" class="fa fa-check text-success" type="object" invisible="1" string="Accept Decision" groups="thiqah_crm.group_thiqah_aahd_evaluation_manager" title="Accept Decision" attrs="{'invisible': ['|','|', ('active', '=', False), ('stage_is_brochure_evaluation', '=', False), ('brochure_evaluation_status', 'in', ('accepted','rejected','prepare_doc'))]}" />-->
+					<button name="accept_decision" class="fa fa-check text-success" type="object" invisible="1" string="Accept Decision" groups="thiqah_crm.group_thiqah_aahd_evaluation_manager" title="Accept Decision"/>
+
+<!--					<button name="reject_decision" class="fa fa-close text-danger" type="object" invisible="1" string="Refuse Decision" groups="thiqah_crm.group_thiqah_aahd_evaluation_manager" title="Refuse Decision" attrs="{'invisible': ['|','|', ('active', '=', False), ('stage_is_brochure_evaluation', '=', False), ('brochure_evaluation_status', 'in', ('accepted','rejected','prepare_doc'))]}" />-->
+					<button name="reject_decision" class="fa fa-close text-danger" type="object" invisible="1" string="Refuse Decision" groups="thiqah_crm.group_thiqah_aahd_evaluation_manager" title="Refuse Decision"/>
+
+<!--					<field name="brochure_evaluation_status" widget="statusbar" attrs="{'invisible': ['|','|', '|',('active', '=', False), ('stage_is_brochure_evaluation', '=', False), ('type', '=', 'lead'),('is_wathiq','=',True)]}" />-->
+					<field name="brochure_evaluation_status" widget="statusbar" invisible="not active or not stage_is_brochure_evaluation or type == 'lead' or is_wathiq"/>
+
+				</header>
+				<sheet>
+					<field name="need_legal_action" invisible="1" />
+					<field name="active" invisible="1" />
+					<field name="for_aahd" invisible="1" />
+					<field name="for_bd" invisible="1" />
+					<field name="stage_visible" invisible="1" />
+					<field name="stage_is_overdue" invisible="1" />
+					<field name="stage_is_submitted" invisible="1" />
+					<field name="is_opportunity_won" invisible="1" />
+					<field name="is_opportunity_won" invisible="1" />
+					<field name="product_is_wathiq" invisible="1" />
+					<field name="is_archived" invisible="1" />
+					<field name="is_global_archived" invisible="1" />
+
+					<div class="oe_button_box" name="button_box">
+						<button name="action_schedule_meeting" type="object" context="{'partner_id': partner_id}" class="oe_stat_button" icon="fa-calendar" invisible="type == 'lead'">
+<!--							context="{'partner_id': partner_id}"-->
+							<div class="o_stat_info">
+								<field name="duplicate_lead_count" class="o_stat_value" />
+								<span class="o_stat_text" invisible="duplicate_lead_count &lt; 2"> Meetings</span>
+								<span class="o_stat_text" invisible="duplicate_lead_count &gt; 1"> Meeting</span>
+<!--								<field name="calendar_event_count" class="o_stat_value" />-->
+<!--								<span class="o_stat_text" attrs="{'invisible': [('calendar_event_count', '&lt;', 2)]}"> Meetings</span>-->
+<!--								<span class="o_stat_text" attrs="{'invisible': [('calendar_event_count', '&gt;', 1)]}"> Meeting</span>-->
+							</div>
+						</button>
+
+						<!-- Extension -->
+						<button class="oe_stat_button" name="action_link_project" type="object" icon="fa-cogs" groups="project.group_project_manager,thiqah_crm.legal_team_group_">
+							<div class="o_field_widget o_stat_info">
+								<span class="o_stat_value">
+									<field name="project_count" nolabel="1"/>
+								</span>
+								<span class="o_stat_text">
+                                    Projects
+								</span>
+							</div>
+						</button>
+
+<!--						<button name="action_show_potential_duplicates" type="object" class="oe_stat_button" icon="fa-star" attrs="{'invisible': [('duplicate_lead_count', '&lt;', 1)]}">-->
+						<button name="action_show_potential_duplicates" type="object" class="oe_stat_button" icon="fa-star" invisible="duplicate_lead_count &lt; 1">
+							<div class="o_stat_info">
+								<field name="duplicate_lead_count" class="o_stat_value" />
+<!--								<span class="o_stat_text" attrs="{'invisible': [('duplicate_lead_count', '&lt;', 2)]}">Similar Leads</span>-->
+								<span class="o_stat_text" invisible="duplicate_lead_count &lt; 2">Similar Leads</span>
+<!--								<span class="o_stat_text" attrs="{'invisible': [('duplicate_lead_count', '&gt;', 1)]}">Similar Lead</span>-->
+								<span class="o_stat_text" invisible="duplicate_lead_count &gt; 1">Similar Lead</span>
+							</div>
+						</button>
+						<button name="action_show_approval_request" type="object" class="oe_stat_button" icon="fa-star" invisible="not visible_approval_request">
+							<div class="o_stat_info">
+								<field name="visible_approval_request" invisible="1" />
+								<span class="o_stat_text">Approval Request</span>
+							</div>
+						</button>
+					</div>
+
+<!--					<div attrs="{'invisible': [('need_legal_action','!=',True)]}" class="badge-pill badge-warning float-right _contract_status">-->
+					<div invisible="not need_legal_action" class="badge-pill badge-warning float-right _contract_status">
+						<field name="legal_state" readonly="1" groups="thiqah_crm.group_thiqah_aahd_sales_manager_grp" invisible="not stage_is_won"/>
+					</div>
+
+<!--					<widget name="web_ribbon" title="Lost" bg_color="bg-danger" attrs="{'invisible': ['|', ('probability', '&gt;', 0), ('active', '=', True)]}" />-->
+					<widget name="web_ribbon" title="Lost" bg_color="bg-danger" invisible="probability &gt; 0 or active"/>
+					<widget name="web_ribbon" title="Won" invisible="probability &lt; 100"/>
+					<widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="not is_global_archived"/>
+
+					<div class="oe_title">
+<!--						<label for="name" string="Lead" attrs="{'invisible': [('type', '=', 'opportunity')]}" />-->
+						<label for="name" string="Lead" invisible="type == 'opportunity'" />
+<!--						<label for="name" attrs="{'invisible': [('type', '=', 'lead')]}" />-->
+						<label for="name" invisible="type == 'lead'" />
+						<h1>
+							<field class="o_text_overflow" name="name" placeholder="e.g. Product Pricing" />
+						</h1>
+						<h2 class="o_row no-gutters align-items-end">
+							<div class="col"  invisible="type == 'lead'">
+								<label for="expected_revenue" class="oe_edit_only" />
+								<div class="o_row">
+									<field name="company_currency" invisible="1" />
+									<field name="expected_revenue" class="oe_inline" widget='monetary' required="1" options="{'currency_field': 'company_currency'}" />
+									<span class="oe_grey p-2" groups="crm.group_use_recurring_revenues"> + </span>
+									<span class="oe_grey p-2" groups="!crm.group_use_recurring_revenues"> at </span>
+								</div>
+							</div>
+							<div class="col"  invisible="type == 'lead'" groups="crm.group_use_recurring_revenues">
+								<div class="o_row">
+									<field name="recurring_revenue" class="pr-2 oe_inline" widget="monetary" options="{'currency_field': 'company_currency'}" />
+								</div>
+							</div>
+							<div class="col"  invisible="type == 'lead'" groups="crm.group_use_recurring_revenues">
+								<div class="o_row">
+<!--									<field name="recurring_plan" class="oe_inline" placeholder="E.g. Monthly" attrs="{'required': [('recurring_revenue', '!=', 0)]}" options="{'no_create': True, 'no_open': True}" />-->
+									<field name="recurring_plan" class="oe_inline" placeholder="E.g. Monthly" required="recurring_revenue != 0" options="{'no_create': True, 'no_open': True}" />
+									<span class="oe_grey p-2"> at </span>
+								</div>
+							</div>
+							<div class="col">
+								<div class="oe_edit_only d-flex align-items-center">
+									<label for="probability" />
+									<button class="btn btn-link" name="action_set_automated_probability" type="object" invisible="is_automated_probability">
+										<i class="fa fa-gear" role="img" title="Switch to automatic probability" aria-label="Switch to automatic probability"></i>
+									</button>
+									<small class="oe_grey h6 mb0" invisible="is_automated_probability">
+										<field class="mb0" name="automated_probability" force_save="1" />
+										%%
+									</small>
+								</div>
+								<div id="probability" class="o_row d-flex">
+									<field name="is_automated_probability" invisible="1" />
+									<field name="probability" widget="float" class="oe_inline" />
+									<span class="oe_grey"> %%</span>
+								</div>
+							</div>
+						</h2>
+					</div>
+					<group>
+						<group>
+							<field name="won_revenue" widget='monetary' options="{'currency_field': 'company_currency'}" invisible="type == 'lead'" />
+						</group>
+						<group>
+							<field name="proposal_deadline" required="1" />
+							<field name="expected_revenue" required="1" />
+							<field name="proposal_submitted_datetime" invisible="not proposal_submitted_datetime"/>
+						</group>
+					</group>
+
+
+					<group>
+						<group name="lead_partner" invisible="type == 'opportunity'">
+							<!-- Preload all the partner's information -->
+							<field name="partner_id" options="{'no_create_edit': True}" context="{
+                                        'default_name': contact_name,
+                                        'default_title': title,
+                                        'default_street': street,
+                                        'default_street2': street2,
+                                        'default_city': city,
+                                        'default_state_id': state_id,
+                                        'default_zip': zip,
+                                        'default_country_id': country_id,
+                                        'default_function': function,
+                                        'default_phone': phone,
+                                        'default_mobile': mobile,
+                                        'default_email': email_from,
+                                        'default_user_id': user_id,
+                                        'default_team_id': team_id,
+                                        'default_website': website,
+                                        'show_vat': True
+                                    }" groups="base.group_no_one" />
+							<field name="partner_name" />
+
+
+							<label for="street" string="Address" />
+							<div class="o_address_format">
+								<field name="street" placeholder="Street..." class="o_address_street" />
+								<field name="street2" placeholder="Street 2..." class="o_address_street" />
+								<field name="city" placeholder="City" class="o_address_city" />
+								<field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}' />
+								<field name="zip" placeholder="ZIP" class="o_address_zip" />
+								<field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}' />
+							</div>
+							<field name="website" widget="url" placeholder="e.g. https://www.odoo.com" />
+							<field name="lang_id" />
+						</group>
+
+<!--						<group name="opportunity_partner"  attrs="{'invisible': ['|',('type', '=', 'lead'),('stage_is_brochure_evaluation', '=', True)]}">-->
+						<group name="opportunity_partner" invisible="type == 'lead' or stage_is_brochure_evaluation">
+							<field name="partner_id" options="{'no_create_edit': True}" string="Customer" context="{'res_partner_search_mode': type == 'opportunity' and 'customer' or False,
+                                        'default_name': contact_name or partner_name,
+                                        'default_street': street,
+                                        'default_is_company': type == 'opportunity' and contact_name == False,
+                                        'default_company_name': type == 'opportunity' and partner_name,
+                                        'default_street2': street2,
+                                        'default_city': city,
+                                        'default_title': title,
+                                        'default_state_id': state_id,
+                                        'default_zip': zip,
+                                        'default_country_id': country_id,
+                                        'default_function': function,
+                                        'default_phone': phone,
+                                        'default_mobile': mobile,
+                                        'default_email': email_from,
+                                        'default_user_id': user_id,
+                                        'default_team_id': team_id,
+                                        'default_website': website,
+                                        'show_vat': True,
+                                    }" />
+							<field name="category_portfolio_id" string="Sector" options="{'no_create_edit': True,'no_create': True}" invisible="not partner_id"/>
+<!--							attrs="{'invisible':[('partner_id','=',False)]}"-->
+							<field name="sp_manager_id" invisible="not category_portfolio_id"/>
+							<field name="deputy_id" invisible="not category_portfolio_id"/>
+							<field name="chief_id" invisible="not category_portfolio_id"/>
+
+							<field name="vb_account_id" options="{'no_create_edit': True}" invisible="1"/>
+
+							<field name="account_manager_id" options="{'no_create_edit': True}" invisible="1"/>
+
+							<field name="is_blacklisted" invisible="1" />
+							<field name="partner_is_blacklisted" invisible="1" />
+							<field name="phone_blacklisted" invisible="1" />
+							<field name="mobile_blacklisted" invisible="1" />
+							<field name="email_state" invisible="1" />
+							<field name="phone_state" invisible="1" />
+							<field name="partner_email_update" invisible="1" />
+							<field name="partner_phone_update" invisible="1" />
+							<label for="email_from" class="oe_inline" />
+							<div class="o_row o_row_readonly">
+<!--								<button name="mail_action_blacklist_remove" class="fa fa-ban text-danger" title="This email is blacklisted for mass mailings. Click to unblacklist." type="object" context="{'default_email': email_from}" groups="base.group_user" attrs="{'invisible': [('is_blacklisted', '=', False)]}" />-->
+								<button name="mail_action_blacklist_remove" class="fa fa-ban text-danger" title="This email is blacklisted for mass mailings. Click to unblacklist." type="object" context="{'default_email': email_from}" groups="base.group_user" invisible="not is_blacklisted"/>
+								<field name="email_from" string="Email" widget="email" />
+<!--								<span class="fa fa-exclamation-triangle text-warningportf oe_edit_only" title="By saving this change, the customer email will also be updated." attrs="{'invisible': [('partner_email_update', '=', False)]}" />-->
+								<span class="fa fa-exclamation-triangle text-warningportf oe_edit_only" title="By saving this change, the customer email will also be updated." invisible="not partner_email_update" />
+							</div>
+							<label for="phone" class="oe_inline" />
+							<div class="o_row o_row_readonly">
+								<button name="phone_action_blacklist_remove" class="fa fa-ban text-danger" title="This phone number is blacklisted for SMS Marketing. Click to unblacklist." type="object" context="{'default_phone': phone}" groups="base.group_user" invisible="not phone_blacklisted"/>
+								<field name="phone" widget="phone" />
+<!--								<span class="fa fa-exclamation-triangle text-warning oe_edit_only" title="By saving this change, the customer phone number will also be updated." attrs="{'invisible': [('partner_phone_update', '=', False)]}" />-->
+								<span class="fa fa-exclamation-triangle text-warning oe_edit_only" title="By saving this change, the customer phone number will also be updated." invisible="not partner_phone_update"/>
+							</div>
+						</group>
+						<group name="lead_info" invisible="type == 'opportunity'">
+							<label for="contact_name" />
+							<div class="o_row">
+								<field name="contact_name" />
+								<field name="title" placeholder="Title" domain="[]" options='{"no_open": True}' />
+							</div>
+							<field name="is_blacklisted" invisible="1" />
+							<field name="phone_blacklisted" invisible="1" />
+							<field name="email_state" invisible="1" />
+							<field name="phone_state" invisible="1" />
+							<field name="partner_email_update" invisible="1" />
+							<field name="partner_phone_update" invisible="1" />
+							<label for="email_from_group_lead_info" class="oe_inline" />
+							<div class="o_row o_row_readonly">
+								<button name="mail_action_blacklist_remove" class="fa fa-ban text-danger" title="This email is blacklisted for mass mailings. Click to unblacklist." type="object" context="{'default_email': email_from}" groups="base.group_user" invisible="not is_blacklisted"/>
+								<field name="email_from" id="email_from_group_lead_info" string="Email" widget="email" />
+								<span class="fa fa-exclamation-triangle text-warning oe_edit_only" title="By saving this change, the customer email will also be updated." invisible="not partner_email_update"/>
+							</div>
+							<field name="email_cc" groups="base.group_no_one" />
+							<field name="function" />
+							<label for="phone_group_lead_info" class="oe_inline" />
+							<div class="o_row o_row_readonly">
+								<button name="phone_action_blacklist_remove" class="fa fa-ban text-danger" title="This phone number is blacklisted for SMS Marketing. Click to unblacklist." type="object" context="{'default_phone': phone}" groups="base.group_user" invisible="not phone_blacklisted"/>
+								<field name="phone" id="phone_group_lead_info" widget="phone" />
+								<span class="fa fa-exclamation-triangle text-warning oe_edit_only" title="By saving this change, the customer phone number will also be updated." invisible="not partner_phone_update"/>
+							</div>
+							<label for="mobile" class="oe_inline" />
+							<div class="o_row o_row_readonly">
+								<button name="phone_action_blacklist_remove" class="fa fa-ban text-danger" title="This phone number is blacklisted for SMS Marketing. Click to unblacklist." type="object" context="{'default_phone': mobile}" groups="base.group_user" invisible="not mobile_blacklisted"/>
+								<field name="mobile" widget="phone" string="Mobile" />
+							</div>
+						</group>
+						<group invisible="type == 'lead'">
+							<field name="date_deadline" />
+							<field name="priority" widget="priority" />
+							<field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" />
+						</group>
+						<group>
+							<field name="user_id" options="{'no_create_edit': True}" context="{'default_sales_team_id': team_id}" widget="many2one_avatar_user" />
+							<field name="pre_saleperson_id" options="{'no_create_edit': True}" context="{'default_sales_team_id': team_id}" widget="many2one_avatar_user" />
+							<field name="team_id" options="{'no_create_edit': True}" />
+							<field name="type" invisible="1" />
+						</group>
+						<group name="lead_priority" invisible="type == 'opportunity'">
+							<field name="priority" widget="priority" />
+							<field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" />
+						</group>
+						<group name="opportunity_info" invisible="type == 'lead'">
+<!--							<field name="lost_reason" attrs="{'invisible': [('active', '=', True)]}" />-->
+							<field name="lost_reason_id" invisible="active"/>
+							<field name="date_conversion" invisible="1" />
+							<field name="company_id" groups="base.group_multi_company" invisible="1" />
+							<field name="company_id" invisible="1" />
+							<field name="user_company_ids" invisible="1" />
+						</group>
+					</group>
+
+					<group>
+						<group>
+							<!-- <field name="is_wathiq" attrs="{'invisible': [('stage_is_brochure_evaluation', '=', True)]}" /> -->
+							<field name="is_wathiq"/>
+<!--							<field name="service_type" widget="radio" attrs="{'invisible': ['|',('is_wathiq', '=', False),('stage_is_brochure_evaluation', '=', True)]}" />-->
+							<field name="service_type" widget="radio" invisible="not is_wathiq or stage_is_brochure_evaluation"/>
+							<!-- <field name="product_ids" widget="many2many_tags" options="{'no_create_edit': True}" attrs="{'invisible': [('stage_is_brochure_evaluation', '=', True)]}" context="{'default_detailed_type':'service'}" string="Services" /> -->
+							<!-- <field name="product_for_filter_id" options="{'no_create_edit': True}" attrs="{'invisible': [('stage_is_brochure_evaluation', '=', True)]}" context="{'default_detailed_type':'service'}" string="Services" /> -->
+							<field name="product_for_filter_id" options="{'no_create_edit': True}" context="{'default_detailed_type':'service'}" string="Services" />
+							<!-- Duplicate call of the date_open_won to ensure the domain with more efficiency -->
+<!--							<field name="date_open_won" attrs="{'invisible': [('stage_is_submitted', '!=', True)],'readonly':[('is_opportunity_won', '=', True)]}"/>-->
+							<field name="date_open_won" invisible="not stage_is_submitted" readonly="is_opportunity_won"/>
+<!--							<field name="date_open_won" attrs="{'invisible': [('is_opportunity_won', '!=', True)],'required': [('is_opportunity_won', '=', True)]}"/>-->
+							<field name="date_open_won" invisible="not is_opportunity_won" readonly="is_opportunity_won"/>
+							<!-- 'readonly':[('is_opportunity_won', '=', True)] -->
+						</group>
+						<group>
+<!--							<field name="wathiq_email" widget="email" attrs="{'invisible': ['|',('is_wathiq', '=', False),('stage_is_brochure_evaluation', '=', True)]}" />-->
+							 <field name="wathiq_email" widget="email" invisible="not is_wathiq or stage_is_brochure_evaluation"/>
+<!--							<field name="opportunity_channel_id" domain="[('for_aahd','=',True)]" options="{'no_create_edit': True}" attrs="{'required': [('is_wathiq', '=', False)]}"/>-->
+							<field name="opportunity_channel_id" domain="[('for_aahd','=',True)]" options="{'no_create_edit': True}" required="not is_wathiq"/>
+							<!-- <field name="opportunity_channel_id" domain="[('for_aahd','=',True)]" options="{'no_create_edit': True}" attrs="{'invisible':[('is_wathiq','=',False)],'required': [('is_wathiq', '=', False)]}"/> -->
+							<field name="aahd_source" string="Source" options="{'no_create_edit': True}" required="not is_wathiq"/>
+							<field name="client_status_id" options="{'no_create_edit': True}" />
+							<field name="stage_for_aahd" invisible="1" />
+							<field name="opportunity_channel_opp_source" invisible="1" options="{'no_create_edit': True}" />
+							<!-- <field name="profit_margin" groups="thiqah_crm.group_thiqah_aahd_evaluation_manager" attrs="{'invisible':[('is_opportunity_won','=',True)],'readonly':[('is_wathiq', '=', True)]}"/> -->
+							<field name="profit_margin" options="{'min': 1}" required="1"  groups="thiqah_crm.group_thiqah_aahd_evaluation_manager" />
+							<!-- <field name="profit_margin" groups="thiqah_crm.group_thiqah_aahd_evaluation_manager" attrs="{'invisible':[('is_opportunity_won','!=',True)],'readonly':[('is_wathiq', '=', True)]}"/> -->
+							<!-- <field name="profit_margin" groups="thiqah_crm.group_thiqah_aahd_evaluation_manager" attrs="{'invisible': [('stage_is_won', '=', True)]}"/> -->
+						</group>
+					</group>
+
+					<notebook>
+						<page string="Internal Notes" name="internal_notes">
+							<field name="description" placeholder="Add a description..." />
+						</page>
+						<page name="extra" string="Extra Info" invisible="type == 'opportunity'">
+							<group>
+								<group string="Email" groups="base.group_no_one">
+									<field name="message_bounce" readonly="1" />
+								</group>
+								<group string="Tracking" name="categorization">
+									<field name="company_id" invisible="1" groups="base.group_multi_company" options="{'no_create': True}" />
+									<field name="company_id" invisible="1" options="{'no_create': True}" />
+									<field name="campaign_id" options="{'no_create_edit': True}" />
+									<field name="medium_id" options="{'no_create_edit': True}" />
+									<field name="source_id" options="{'no_create_edit': True}" />
+									<field name="referred" />
+								</group>
+								<group string="Analysis">
+									<field name="date_open" />
+									<field name="date_closed" />
+								</group>
+							</group>
+						</page>
+
+						<page name="lead" string="Extra Information" invisible="type == 'lead'">
+							<group>
+								<group string="Contact Information">
+									<field name="partner_name" />
+									<label for="street_page_lead" string="Address" />
+									<div class="o_address_format">
+										<field name="street" id="street_page_lead" placeholder="Street..." class="o_address_street" />
+										<field name="street2" placeholder="Street 2..." class="o_address_street" />
+										<field name="city" placeholder="City" class="o_address_city" />
+										<field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}' />
+										<field name="zip" placeholder="ZIP" class="o_address_zip" />
+										<field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}' />
+									</div>
+									<field name="website" widget="url" placeholder="e.g. https://www.odoo.com" />
+									<field name="lang_id" options="{'no_create': True}" />
+								</group>
+
+								<group class="mt48">
+									<label for="contact_name_page_lead" />
+									<div class="o_row">
+										<field name="contact_name" id="contact_name_page_lead" />
+										<field name="title" placeholder="Title" domain="[]" options='{"no_open": True}' />
+									</div>
+									<field name="function" />
+									<label for="mobile_page_lead" class="oe_inline" />
+									<div class="o_row o_row_readonly">
+										<button name="phone_action_blacklist_remove" class="fa fa-ban text-danger" title="This phone number is blacklisted for SMS Marketing. Click to unblacklist." type="object" context="{'default_phone': mobile}" groups="base.group_user" invisible="not mobile_blacklisted"/>
+										<field name="mobile" id="mobile_page_lead" widget="phone" />
+									</div>
+								</group>
+								<group string="Marketing">
+									<field name="campaign_id" options="{'no_create_edit': True}" />
+									<field name="medium_id" options="{'no_create_edit': True}" />
+									<!-- <field name="source_id" options="{'no_create_edit': True}" /> -->
+								</group>
+								<group string="Misc" name="Misc">
+									<field name="day_open" groups="base.group_no_one" />
+									<field name="day_close" groups="base.group_no_one" />
+									<field name="referred" />
+									<field name="type" invisible="1" />
+								</group>
+
+							</group>
+						</page>
+						<page name="proposal_details" string="Proposal Details" invisible="not stage_is_proposal">
+							<group>
+								<field name="project_date_deadline"  />
+							</group>
+							<group>
+								<field name="project_execution_time" />
+							</group>
+							<group>
+								<field name="scoop_details" />
+							</group>
+						</page>
+
+						<page name="evaluation_details" string="Evaluation Details" invisible="not stage_is_brochure_evaluation">
+							<separator string="About The Opportunity" />
+							<group name="opportunity_partner" invisible="type == 'lead' or not stage_is_brochure_evaluation">
+								<field name="partner_id" widget="res_partner_many2one" string="Customer" options="{'no_create_edit': True}" context="{'res_partner_search_mode': type == 'opportunity' and 'customer' or False,
+                                        'default_name': contact_name or partner_name,
+                                        'default_street': street,
+                                        'default_is_company': type == 'opportunity' and contact_name == False,
+                                        'default_company_name': type == 'opportunity' and partner_name,
+                                        'default_street2': street2,
+                                        'default_city': city,
+                                        'default_title': title,
+                                        'default_state_id': state_id,
+                                        'default_zip': zip,
+                                        'default_country_id': country_id,
+                                        'default_function': function,
+                                        'default_phone': phone,
+                                        'default_mobile': mobile,
+                                        'default_email': email_from,
+                                        'default_user_id': user_id,
+                                        'default_team_id': team_id,
+                                        'default_website': website,
+                                        'show_vat': True,
+                                    }" />
+								<field name="account_manager_id" options="{'no_create_edit': True}" />
+								<field name="is_blacklisted" invisible="1" />
+								<field name="partner_is_blacklisted" invisible="1" />
+								<field name="phone_blacklisted" invisible="1" />
+								<field name="mobile_blacklisted" invisible="1" />
+								<field name="email_state" invisible="1" />
+								<field name="phone_state" invisible="1" />
+								<field name="partner_email_update" invisible="1" />
+								<field name="partner_phone_update" invisible="1" />
+								<label for="email_from" class="oe_inline" />
+								<div class="o_row o_row_readonly">
+									<button name="mail_action_blacklist_remove" class="fa fa-ban text-danger" title="This email is blacklisted for mass mailings. Click to unblacklist." type="object" context="{'default_email': email_from}" groups="base.group_user" invisible="not is_blacklisted" />
+									<field name="email_from" string="Email" widget="email" />
+									<span class="fa fa-exclamation-triangle text-warning oe_edit_only" title="By saving this change, the customer email will also be updated." invisible="not partner_email_update" />
+								</div>
+								<label for="phone" class="oe_inline" />
+								<div class="o_row o_row_readonly">
+									<button name="phone_action_blacklist_remove" class="fa fa-ban text-danger" title="This phone number is blacklisted for SMS Marketing. Click to unblacklist." type="object" context="{'default_phone': phone}" groups="base.group_user" invisible="not phone_blacklisted" />
+									<field name="phone" widget="phone" />
+									<span class="fa fa-exclamation-triangle text-warning oe_edit_only" title="By saving this change, the customer phone number will also be updated." invisible="not partner_phone_update"/>
+								</div>
+							</group>
+
+							<group>
+								<!-- <field name="product_ids" widget="many2many_tags" context="{'default_detailed_type':'service'}" string="Services" options="{'no_create': True}" /> -->
+								<field name="product_for_filter_id" options="{'no_create_edit': True}" required="for_aahd" context="{'default_detailed_type':'service'}" string="Services" />
+
+							</group>
+
+							<group>
+								<group>
+									<field name="expected_revenue" widget="monetary" options="{'currency_field': 'company_currency'}" />
+								</group>
+
+								<group>
+									<field name="project_execution_time" />
+								</group>
+							</group>
+							<group>
+								<field name="scoop_details" />
+							</group>
+
+							<separator string="Financial details" />
+							<group colspan="3">
+								<group>
+									<field name="operational_costs" widget="monetary" options="{'currency_field': 'company_currency'}"></field>
+								</group>
+								<!-- <group>
+									<field name="profit_margin"></field>
+								</group> -->
+
+								<group>
+									<field name="financial_offer_value" widget="monetary"></field>
+								</group>
+							</group>
+							<group>
+								<group>
+									<field name="cost_details" />
+								</group>
+								<group>
+									<field name="execution_direction" />
+								</group>
+							</group>
+							<separator string="Technical Evaluation" />
+							<div class="o_row">
+								<div class="col">
+									<div class="o_row">
+										<label for="work_area_value" />
+										<field name="work_area_value" />
+										:
+										<field name="work_area_value_max" class="oe_inline" />
+									</div>
+								</div>
+								<div class="col">
+									<div class="o_row">
+										<label for="project_risk_value" />
+										<field name="project_risk_value" />
+										:
+										<field name="project_risk_value_max" class="oe_inline" />
+									</div>
+								</div>
+								<div class="col">
+									<div class="o_row">
+										<label for="budget_and_margin_value" />
+										<field name="budget_and_margin_value" />
+										:
+										<field name="budget_and_margin_value_max" class="oe_inline" />
+									</div>
+								</div>
+								<div class="col">
+									<div class="o_row">
+										<label for="carrying_capacity_value" />
+										<field name="carrying_capacity_value" />
+										:
+										<field name="carrying_capacity_value_max" class="oe_inline" />
+									</div>
+								</div>
+							</div>
+							<div class="o_row">
+								<div class="col">
+									<div class="o_row">
+										<label for="duration_value" />
+										<field name="duration_value" />
+										:
+										<field name="duration_value_max" class="oe_inline" />
+									</div>
+								</div>
+								<!-- <div class="col">
+									<div class="o_row">
+										<label for="strategic_recommendations_value" />
+										<field name="strategic_recommendations_value" />
+										:
+										<field name="strategic_recommendations_value_max" class="oe_inline" />
+									</div>
+								</div> -->
+								<div class="col">
+									<div class="o_row">
+										<label for="partner_value" />
+										<field name="partner_value" />
+										:
+										<field name="partner_value_max" class="oe_inline" />
+									</div>
+								</div>
+								<div class="col">
+									<div class="o_row">
+										<label for="final_result" />
+										<field name="final_result" />
+										:
+										<field name="final_result_max" class="oe_inline" />
+									</div>
+								</div>
+								<div class="col">
+									<div class="o_row">
+									</div>
+								</div>
+							</div>
+
+
+
+
+
+							<separator string="Technical Recommendation" />
+							<group colspan="2">
+								<field name="technical_recommendation_notes" />
+							</group>
+							<group>
+								<field name="technical_recommendation" />
+							</group>
+							<group>
+								<field name="technical_recommendation_member_bc" />
+							</group>
+
+
+
+						</page>
+					</notebook>
+				</sheet>
+				<div class="oe_chatter">
+					<field name="message_follower_ids" />
+					<field name="activity_ids" />
+					<field name="message_ids" options="{'post_refresh': 'recipients'}" />
+				</div>
+			</form>
+		</field>
+	</record>
+
+
+
+	<record model="ir.actions.act_window" id="crm.crm_lead_action_pipeline">
+		<field name="name">Aahd Pipeline</field>
+		<field name="res_model">crm.lead</field>
+		<field name="view_mode">kanban,tree,graph,pivot,form,calendar,activity</field>
+		<field name="domain">[('for_aahd','=',True),('type','=','opportunity')]
+		</field>
+		<field name="context">{
+			'default_type': 'opportunity',
+			'search_default_assigned_to_me': 1,
+			'form_view_ref':'thiqah_crm.thiqah_aahd_crm_lead_view_form',
+			'default_for_aahd':True,
+			}
+		</field>
+		<field name="search_view_id" ref="crm.view_crm_case_opportunities_filter" />
+	</record>
+
+	<!-- Aahd Lead Menu -->
+	<record model="ir.actions.act_window" id="aahd_crm_lead_all_leads">
+		<field name="name">Aahd Leads</field>
+		<field name="res_model">crm.lead</field>
+		<field name="view_mode">tree,kanban,graph,pivot,calendar,form,activity</field>
+		<!-- <field name="domain">[('for_aahd','=',True),'|', ('type','=','lead')]</field> -->
+		<field name="domain">[('for_aahd','=',True),'|', ('type','=','lead'), ('type','=',False)]</field>
+		<field name="search_view_id" ref="crm.view_crm_case_leads_filter"/>
+		<field name="context">{
+                    'default_type':'lead',
+                    'search_default_type': 'lead',
+                    'search_default_to_process':1,
+                    'default_for_aahd':True,
+                }
+		</field>
+	</record>
+
+
+	<!-- Inherit The search view -->
+	<record model="ir.ui.view" id="crm_lead_archived_filter">
+		<field name="name">crm.lead.archived.custom.filter</field>
+		<field name="model">crm.lead</field>
+		<field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+		<field name="arch" type="xml">
+			<field name="tag_ids" position="after">
+				<field name="is_archived" invisible="1"/>
+			</field>
+			<xpath expr="//filter[@name='inactive']" position="after">
+				<filter string="Archived (Winning Opportunities)" name="thiqah_archived" domain="[('is_archived','=',True)]" />
+			</xpath>
+		</field>
+	</record>
+
+	<!-- <record id="view_crm_archived_filter" model="ir.ui.view">
+		<field name="name">crm.lead.search.archived</field>
+		<field name="model">crm.lead</field>
+		<field name="inherit_id" ref="crm.view_crm_case_leads_filter"/>
+		<field name="arch" type="xml">
+			<xpath expr="//filter[@name='activities_overdue']" position="after">
+				<filter string="Late Activities" name="activities_overdue" domain="[('is_archived','=',True)]" help="Show all archived opportunities."/>
+			</xpath>
+		</field>
+	</record> -->
+
+	<!-- For the Legal Team -->
+	<record id="legal_team_action" model="ir.actions.act_window">
+		<field name="name">Legal Team Actions</field>
+		<field name="res_model">crm.lead</field>
+		<field name="view_mode">tree,form</field>
+		<field name="domain">[('need_legal_action','=',True)]
+		</field>
+		<field name="context">{
+			'default_type': 'opportunity',
+			'form_view_ref':'thiqah_crm.legal_team_form_view',
+			'default_need_legal_action':True,
+			}
+		</field>
+		<field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('crm.crm_case_tree_view_oppor')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('legal_team_form_view')})]"/>
+	</record>
+
+	<!-- (0, 0, {'view_mode': 'tree', 'view_id': ref('crm.crm_case_tree_view_oppor')}, -->
+
+</odoo>

@@ -1,0 +1,25 @@
+
+
+//----------------------------------------------------------
+// Helper
+//----------------------------------------------------------
+
+$mk-brand-gradient: linear-gradient(to right bottom, $mk-brand-gradient-start, $mk-brand-gradient-end);
+
+
+//----------------------------------------------------------
+// Links
+//----------------------------------------------------------
+
+$link-color: darken($o-brand-primary, 8%);
+
+
+//----------------------------------------------------------
+// List View
+//----------------------------------------------------------
+
+$o-list-footer-bg-color: $o-brand-odoo;
+$o-enterprise-color:$o-brand-odoo;
+$o-enterprise-primary-color: $o-brand-primary;
+
+

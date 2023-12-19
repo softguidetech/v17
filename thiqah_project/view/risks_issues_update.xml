@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="risk_update_section" name="Add Risk In Update Section">
+        <div class="add_risk_update" id="add_risk_update">
+            <div class="add_project_box">
+
+                <div class="container">
+                    <input type="text" name="risk_new_ids" value="0" />
+                    <div id="risk_to_refresh">
+                        <div class="col">
+                            <!-- Risk Name  -->
+                            <div class="form-group col-12 s_website_form_field" data-type="text" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-auto s_website_form_label" style="width: 210px" for="name_add_update">
+                                        <span class="s_website_form_label_content">Name</span>
+                                        <!-- <span class="s_website_form_mark">*</span> -->
+                                    </label>
+                                    <div class="col-sm col-xs-12">
+                                        <input id="name_add_update" type="text" class="form-control s_website_form_input" name="name_add_update"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- Risk Description  -->
+                            <div class="form-group col-12 s_website_form_field" data-type="textarea" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-auto s_website_form_label" style="width: 210px" for="description_add_update">
+                                        <span class="s_website_form_label_content">Description</span>
+                                        <!-- <span class="s_website_form_mark">*</span> -->
+                                    </label>
+                                    <div class="col-sm col-xs-12">
+                                        <textarea id="description_add_update" type="text" class="form-control s_website_form_input" name="description_add_update"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col">
+                            <!-- Project Risk Type -->
+                            <div class="form-group col-12 s_website_form_field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-auto s_website_form_label" style="width: 210px" for="type_add_update_id">
+                                        <span class="s_website_form_label_content">Project Risk Type</span>
+                                        <!-- <span class="s_website_form_mark">*</span> -->
+                                    </label>
+
+                                    <div class="col-sm col-xs-12">
+                                        <select name="type_add_update_id" id="type_add_update_id" class="form-control o_website_form_input">
+                                            <option value="">Choose...</option>
+                                            <t t-foreach="risk_types or []" t-as="risk_type">
+                                                <option t-att-value="risk_type.id">
+                                                    <t t-esc="risk_type.name_en"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- Owner -->
+                            <div class="form-group col-12 s_website_form_field" data-type="text" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-auto s_website_form_label" style="width: 210px" for="owner_add_update">
+                                        <span class="s_website_form_label_content">Owner</span>
+                                        <!-- <span class="s_website_form_mark">*</span> -->
+                                    </label>
+                                    <div class="col-sm col-xs-12">
+                                        <input id="owner" type="text" class="form-control s_website_form_input" name="owner_add_update"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+                            <!-- Corrective action / Mitigation -->
+                            <div class="form-group col-12 s_website_form_field" data-type="text" data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-auto s_website_form_label" style="width: 210px" for="corrective_action_add_update">
+                                        <span class="s_website_form_label_content">Corrective action / Mitigation</span>
+                                        <!-- <span class="s_website_form_mark">*</span> -->
+                                    </label>
+                                    <div class="col-sm col-xs-12">
+                                        <textarea id="corrective_action" class="form-control s_website_form_input" name="corrective_action_add_update"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+                            <!-- Level of Impact -->
+                            <div class="form-group col-12 s_website_form_field"  data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-auto s_website_form_label" style="width: 210px" for="level_impact_add_update">
+                                        <span class="s_website_form_label_content">Level of Impact</span>
+                                        <!-- <span class="s_website_form_mark">*</span> -->
+                                    </label>
+                                    <div class="col-sm col-xs-12">
+                                        <select class="form-control" name="level_impact_add_update">
+                                            <option t-attf-value="low">Low</option>
+                                            <option t-attf-value="medium">Medium</option>
+                                            <option t-attf-value="high">High</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col">
+                            <!-- Risk Status -->
+                            <div class="form-group col-12 s_website_form_field"  data-name="Field">
+                                <div class="row s_col_no_resize s_col_no_bgcolor">
+                                    <label class="col-form-label col-auto s_website_form_label" style="width: 210px" for="status_add_update">
+                                        <span class="s_website_form_label_content">Risk Status</span>
+                                        <!-- <span class="s_website_form_mark">*</span> -->
+                                    </label>
+                                    <div class="col-sm col-xs-12">
+                                        <select class="form-control" name="status_add_update">
+                                            <option t-attf-value="open">Open</option>
+                                            <option t-attf-value="closed">Closed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button type="button" id="add_project_risk_update" class="btn btn-outline-info add_data_button">ADD</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </template>
+
+    <template id="risks_issues_update" name="Risks And Issues UPDATE">
+        <!-- <t t-call="website.layout">
+            <div class="container"> -->
+
+        <!-- In case , there are data -->
+        <div class="project_risk_update">
+            <input name="risks" type="text" t-att-value="risks"/>
+            <input name="project_id" type="hidden" t-att-value="project_project.id"/>
+
+            <div class="add_project_box">
+
+                <!-- <div class="text-right">
+                    <a t-attf-href="/my/projects/" class="btn btn-primary btn-circle m-1" style="background-color:#63cdda;">
+                        <i class="fa fa-th-list"></i>
+                    </a>
+                </div> -->
+
+                <div class="summary_project text-center">
+                            Risk and issues | <t t-esc="project_project.name"/>
+                </div>
+
+                <div class="container">
+
+                    <!-- <div class="col">
+                                <button id="update_risk_button" type="button" data-target="#update_risk_modal" class="btn btn-outline-info update_data_button">UPDATE</button>
+                            </div> -->
+
+                    <t t-call="thiqah_project.risk_update_section"/>
+
+                    <!-- Update Risk Modal -->
+                    <div class="modal" tabindex="-1" role="dialog" id="update_risk_modal">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Update Risk</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Are you sure you wish to proceed?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" id="update_risk_button" class="btn btn-primary">Confirm</button>
+                                    <button type="button" class="btn btn-light" data-dismiss="modal">Discard</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div t-attf-class="clearfix oe_login_buttons text-center mb-1">
+                        <a class="btn btn-primary btn-block update_data_button" data-target="#update_risk_modal" data-toggle="modal">
+                                    Update
+                        </a>
+                    </div>
+                    <!-- <div t-if="mode == 'edit' and not is_done" t-attf-class="clearfix oe_login_buttons text-center mb-1">
+                        <a class="btn btn-primary btn-block update_data_button" data-target="#update_risk_modal" data-toggle="modal">
+                                    Update
+                        </a>
+                    </div> -->
+
+                    <div t-att-class="active" id="info_state" class="alert alert-success text-center" role="status">
+                        <div id="details_info"></div>
+                    </div>
+
+                    <table class="table table-bordered" id="table_risk_body_update">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Owner</th>
+                                <th>Corrective Action</th>
+                                <th>Level of Impact</th>
+                                <th>Status</th>
+                                <th>Project Risk Type</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="risks_tbody_update">
+                            <div class="modal" tabindex="-1" role="dialog" id="delete_risk_update_confirm_modal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Delete Risk</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Are you sure you wish to proceed?</p>
+                                            <input name="risk_value" type="hidden" value="0"/>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a role="button" class="btn btn-danger delete_risk">Confirm</a>
+                                            <button type="button" class="btn btn-light" data-dismiss="modal">Discard</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <t t-foreach="project_project.risk_ids" t-as="risk">
+                                <tr t-att-id="risk.id">
+                                    <td>
+                                        <input type="text" class="form-control s_website_form_input name_risk_update" t-att-value="risk.name"/>
+                                    </td>
+                                    <td>
+                                        <textarea id="description_risk_update" class="form-control s_website_form_input description_risk_update">
+                                            <t t-esc="risk.description"/>
+                                        </textarea>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control s_website_form_input owner_risk_update" t-att-value="risk.description"/>
+
+                                    </td>
+                                    <td>
+                                        <textarea id="corrective_action_update" class="form-control s_website_form_input corrective_action_update">
+                                            <t t-esc="risk.corrective_action"/>
+                                        </textarea>
+                                    </td>
+                                    <td>
+                                        <select class="form-control level_impact_update" t-att-value="risk.level_impact">
+                                            <option t-attf-value="low">Low</option>
+                                            <option t-attf-value="medium">Medium</option>
+                                            <option t-attf-value="high">High</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control risk_status_update" t-att-value="risk.risk_status">
+                                            <option t-attf-value="open">Open</option>
+                                            <option t-attf-value="closed">Closed</option>
+                                        </select>
+
+                                    </td>
+                                    <td>
+                                        <select required="1" class="form-control o_website_form_input risk_type_id_update">
+                                            <option value="">Choose...</option>
+                                            <t t-foreach="risk_types or []" t-as="risk_type">
+                                                <option t-att-value="risk_type.id" t-att-selected="risk_type.id == risk.risk_type_id.id">
+                                                    <t t-esc="risk_type.name_en"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </td>
+
+                                    <td class="text-center">
+                                        <button class="btn btn-danger btn-circle btn-circle-sm m-1 open_modal" data-target="#delete_risk_update_confirm_modal" data-toggle="modal">
+                                            <i class="fa fa-trash-o"></i>
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            </t>
+
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- </div>
+        </t> -->
+    </template>
+</odoo>

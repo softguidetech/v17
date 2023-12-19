@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="seq_service_request" model="ir.sequence">
+        <field name="name">Request Service</field>
+        <field name="code">thiqah_project_service_request</field>
+        <field name="prefix"></field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="seq_project" model="ir.sequence">
+        <field name="name">Project</field>
+        <field name="code">thiqah_project_project</field>
+        <field name="prefix">Project-</field>
+        <field name="padding">2</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="seq_revenue_plan" model="ir.sequence">
+        <field name="name">Revenue Plan Sequence</field>
+        <field name="code">thiqah_revenue_plan</field>
+        <field name="prefix">INVOICE-</field>
+        <field name="padding">2</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="seq_project_deliverable" model="ir.sequence">
+        <field name="name">Project Deliverable Sequence</field>
+        <field name="code">thiqah_project_deliverable</field>
+        <field name="prefix">DELIVERABLE-</field>
+        <field name="padding">2</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="seq_project_utilization" model="ir.sequence">
+        <field name="name">Project Utilization Sequence</field>
+        <field name="code">thiqah_project_utilization</field>
+        <field name="prefix">UTILIZATION-</field>
+        <field name="padding">2</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <function model="ir.model.fields" name="formbuilder_whitelist">
+        <value>thiqah.project.service.request</value>
+        <value eval="[
+                'sequence', 'project_id', 'client_id','employee_id', 'partner_id',
+                'department_id', 'catalog_id', 'user_id', 'description', 'date_from', 'notes',
+                'document_description'
+            ]"/>
+    </function>
+
+
+    <function model="ir.model.fields" name="formbuilder_whitelist">
+        <value>project.project</value>
+        <value eval="[
+                'sequence', 'name','name_arabic','date_start','partner_id','user_id',
+                'date','project_value','project_status','currency_id','contract_type_id'
+                
+            ]"/>
+    </function>
+
+
+
+</odoo>

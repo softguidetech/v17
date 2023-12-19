@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="user_category_tree" model="ir.ui.view">
+        <field name="name">user.category.tree</field>
+        <field name="model">user.category</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" />
+                <field name="code" />
+            </tree>
+        </field>
+    </record>
+
+</odoo>

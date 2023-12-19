@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_external_user,thiqah_access_external_user,model_external_user,base.group_user,1,1,1,1
+access_res_groups_thiqah,res_groups_thiqah,model_res_groups,base.group_user,1,1,1,1
+access_user_category,user_category,model_user_category,base.group_user,1,1,1,1
+access_user_analysis_report,user_analysis_report,model_user_analysis_report,base.group_user,1,1,1,1
+all_access_user_service_access,all_access_user_service_access,model_user_service_access,,1,1,1,0

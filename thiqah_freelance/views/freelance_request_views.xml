@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- freelance.request tree view -->
+    <record id="freelance_request_view_tree" model="ir.ui.view">
+        <field name="name">freelance.request.view.tree</field>
+        <field name="model">freelance.request</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence"/>
+                <field name="request_date"/>
+                <field name="create_uid"/>
+                <field name="entity_id"/>
+                <field name="department_id"/>
+                <field name="project_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- freelance.request search view -->
+    <record id="freelance_request_view_search" model="ir.ui.view">
+        <field name="name">freelance.request.view.search</field>
+        <field name="model">freelance.request</field>
+        <field name="arch" type="xml">
+            <search string="Search Freelancer">
+                
+            </search>
+        </field>
+    </record>
+
+    <!-- freelance.request form view -->
+    <record id="freelance_request_view_form" model="ir.ui.view">
+        <field name="name">freelance.request.view.form</field>
+        <field name="model">freelance.request</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button class="oe_stat_button" type="object" name="action_open_freelancer" icon="fa-laptop">
+                            <field string="Freelancers" name="freelancer_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sequence" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <separator string="Requesting party information"/>
+                        <group>
+                            <field name="request_date" required="1"/>
+                            <field name="entity_id" required="1"/>
+                            <field name="department_id" required="1"/>
+                        </group>
+                        <group>
+                            <field name="request_duration" required="1"/>
+                            <field name="expected_total_cost" widget='monetary' options="{'currency_field': 'currency_id'}" required="1"/>
+                            <field name="sector" required="1"/>
+                            <field name="section" required="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <separator string="Request Type" colspan="2"/>
+                        <field name="request_type" required="1"/>
+                        <separator string="Request Description" colspan="2"/>
+                        <field name="request_description" required="1"/>
+                        <separator string="Project Information if applicable​" colspan="2"/>
+                        <field name="project_name"/>
+                        <field name="project_start_date"/>
+                        <field name="project_end_date"/>
+                    </group>
+                    <separator string="Request  Justification"/>
+                    <label for="company_strategy_justif" string="List the justification that this request is aligned with THIQAH strategy?"/>
+                    <field name="company_strategy_justif" required="1"/>
+                    <span>*If the request is not aligned with the strategy plan, please fill the second one “the sector annual plan”.​</span><br/><br/>
+                    <label for="sector_goal_justif" string="List the justification that this request is aligned with the sector annual plan/goals?"/>
+                    <field name="sector_goal_justif"/>
+                    <label for="request_achievement" string="list the objective that will be achieved through the requested?​"/>
+                    <field name="request_achievement"/>
+                    <separator string="Organizational Implications"/>
+                    <label for="current_manpower_limit" string="Please explain why current Manpower, without this change/addition request, is not capable of achieving the strategic initiatives in question"/>
+                    <field name="current_manpower_limit"/>
+                    <label for="current_manpower_weakness" string="Please explain why the current manpower cant undertake the requested objective or roles and responsibility​"/>
+                    <field name="current_manpower_weakness"/>
+                    <label for="impacted_unit_ids" string="Please Identity whose the department will be impact from new project/additional workload"/>
+                    <field name="impacted_unit_ids">
+                        <tree editable="bottom">
+                            <field name="department_id" required="1"/>
+                            <field name="operation" required="1"/>
+                        </tree>
+                    </field>
+                    <separator string="Function Breakdown​"/>
+                    <div class="address_format">
+                        <label for="function" string="Function" style="width: 30%" class="mr-4"/>
+                        <label for="unit_kpi" string="Unit KPIs" style="width: 30%" class="mr-4"/>
+                        <label for="deliverable" string="Delivrable" style="width: 30%" class=""/>
+                    </div>
+                    <div class="address_format">
+                        <field name="function" style="width: 30%" class="mr-4"/>
+                        <field name="unit_kpi" style="width: 30%" class="mr-4"/>
+                        <field name="deliverable" style="width: 30%" class=""/>
+                   </div>
+                   <separator string="Deliverable outcome​"/>
+                   <label for="deliverable_outcome" string="Deliverable outcome"/>
+                   <field name="deliverable_outcome"/>
+                   <notebook>
+                    <page name="concerned_users" string="Concerned Users" groups="base.group_no_one">
+                        <field name="concerned_user_ids" readonly="1">
+                            <tree>
+                                <field name="login"/>
+                                <field name="email"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="freelance_applications" string="Freelance Applications">
+                        <field name="freelance_application_ids"/>    
+                    </page>
+                    <page name="od_recommendations" string="OD Recommendations">
+                        <group>
+                            <field name="justification_text" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="od_recommendation"/>
+                            <field name="od_cost"/>
+                            <field name="od_duration"/>
+                        </group>
+                    </page>
+                </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- freelance.request action window -->
+    <record id="freelance_request_action" model="ir.actions.act_window">
+        <field name="name">Freelance Requests</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">freelance.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

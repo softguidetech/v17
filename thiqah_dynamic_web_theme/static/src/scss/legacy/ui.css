@@ -1,0 +1,5 @@
+.o_home_menu_background {
+  background: url(/web_enterprise/static/img/home-menu-bg-overlay.svg), -webkit-gradient(linear, right top, left bottom, from(#fff), to(#ededed));
+  background: url(/web_enterprise/static/img/home-menu-bg-overlay.svg), linear-gradient(to left bottom, #fff, #ededed);
+}
+/*# sourceMappingURL=ui.css.map */

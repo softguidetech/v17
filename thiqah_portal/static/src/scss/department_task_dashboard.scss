@@ -1,0 +1,39 @@
+#wrapwrap {
+  .task_dashboard_selector {
+    .dataTables_wrapper {
+      .datatable-header,
+      .dataTables_info {
+        display: none !important;
+      }
+    }
+    table.dataTable {
+      width: 100% !important;
+      #requests_task_department {
+        thead > tr > th.sorting::before,
+        thead > tr > th.sorting::after {
+          display: none !important;
+        }
+      }
+      td.dt-control:before {
+        box-shadow: none !important;
+        background-color: #117dbc !important;
+      }
+      .dt-hasChild.shown + tr {
+        > td {
+          padding: 0 !important;
+          table {
+            width: 100%;
+          }
+        }
+      }
+    }
+    :not(.global_data) {
+      .card.card-wrapper .card-block {
+        padding: 24px 0px !important;
+      }
+    }
+  }
+  .tr-collapse {
+    background-color: #f3fbff;
+  }
+}

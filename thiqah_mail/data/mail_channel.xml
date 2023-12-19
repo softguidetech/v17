@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    <record model="mail.channel" id="channel_change_status_assignees">-->
+    <record model="discuss.channel" id="channel_change_status_assignees">
+        <field name="name">Announcements</field>
+        <field name="description">General announcements for all tasks.</field>
+<!--        <field name="public">groups</field>-->
+        <field name="group_public_id" ref="project.group_project_manager"/>
+        <field name="group_ids" eval="[Command.link(ref('project.group_project_manager'))]"/>
+    </record>
+
+</odoo>

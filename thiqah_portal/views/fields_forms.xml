@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="select_partner" name="Select Partner">
+        <select name="partner_id" id="partner_id" data-placeholder="Select the client..." class="form-control o_website_form_input">
+            <option value="">Choose...</option>
+            <t t-foreach="customers or []" t-as="customer">
+                <!-- <option t-att-value="customer.id" t-att-selected="customer.id == customers[0].id"> -->
+                <option t-att-value="customer.id" t-att-selected="customer.id == service_request.client_id.id">
+                    <t t-esc="customer.name"/>
+                </option>
+            </t>
+        </select>
+    </template>
+
+    <template id="select_project" name="Select Project">
+        <select name="project_id" id="project_id" data-placeholder="Select the project..." class="form-control o_website_form_input">
+            <option value="">Choose...</option>
+            <t t-foreach="projects or []" t-as="project">
+                <option t-att-value="project.id" t-att-data-partner_id="project.partner_id.id" t-att-selected="project.id == service_request.project_id.id">
+                    <t t-esc="project.name"/>
+                </option>
+            </t>
+        </select>
+    </template>
+
+    <!-- <template id="select_project_accountant" name="Select Project Accountant">
+        <select name="project_accountant_id" id="project_accountant_id" data-placeholder="Select the project accountant..." class="form-control o_website_form_input">
+            <option value="">Choose...</option>
+            <t t-foreach="project_accountants or []" t-as="project_accountant">
+                <option t-att-value="project_accountant.id" t-att-selected="project_accountant.id == service_request.project_id.project_accountant_id.id">
+                    <t t-esc="project_accountant.name"/>
+                </option>
+            </t>
+        </select>
+    </template> -->
+
+    <!-- <template id="select_vp" name="Select VP">
+        <select name="vp_id" id="vp_id" data-placeholder="Select the project accountant..." class="form-control o_website_form_input">
+            <option value="">Choose...</option>
+            <t t-foreach="project_accountants or []" t-as="project_accountant">
+                <option t-att-value="project_accountant.id" t-att-selected="project_accountant.id == service_request.project_id.project_accountant_id.id">
+                    <t t-esc="project_accountant.name"/>
+                </option>
+            </t>
+        </select>
+    </template> -->
+
+    <template id="select_department" name="Select Department">
+        <select name="department_id" id="department_id" data-placeholder="Select the department..." class="form-control o_website_form_input">
+            <option value="">Choose...</option>
+            <t t-foreach="departmens or []" t-as="department">
+                <option t-att-value="department.id" t-att-selected="department.id == service_request.department_id.id">
+                    <t t-esc="department.name"/>
+                </option>
+            </t>
+        </select>
+    </template>
+
+    <template id="select_catalog" name="Select Service Catalog ">
+        <select name="catalog_id" id="catalog_id" data-placeholder="Select the service catalog..." class="form-control o_website_form_input">
+            <option value="">Choose...</option>
+            <t t-foreach="catalogs or []" t-as="catalog">
+                <option t-att-value="catalog.id" t-att-data-department_id="catalog.department_id.id" t-att-selected="catalog.id == service_request.catalog_id.id">
+                    <t t-esc="catalog.name_en"/>
+                </option>
+            </t>
+        </select>
+    </template>
+
+
+
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+       <!-- QWeb Reports -->
+       <record id="service_requests" model="ir.actions.report">
+              <field name="name">Service Requests Report Action</field>
+              <field name="model">thiqah.project.service.request</field>
+              <field name="report_type">qweb-pdf</field>
+              <field name="report_name">thiqah_project.report_service_request</field>
+              <field name="report_file">thiqah_project.report_service_request</field>
+              <field name="print_report_name">(object._get_report_base_filename())</field>
+              <field name="attachment">(object.state == 'posted') and ((object.name or 'INV').replace('/','_')+'.pdf')</field>
+              <field name="binding_model_id" ref="model_thiqah_project_service_request"/>
+              <field name="binding_type">report</field>
+              <!-- <field name="groups_id" eval="[(4, ref('account.group_account_invoice')),
+ (4, ref('account.group_account_readonly'))]"/> -->
+       </record>
+
+
+</odoo>
+
+
+

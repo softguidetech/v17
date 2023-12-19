@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="project.portal_layout" name="Portal layout: project menu entry" inherit_id="portal.portal_breadcrumbs" priority="40">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'project' or project_project" class="col-lg-2" t-attf-class="breadcrumb-item #{'active ' if not project else ''}">
+                <a t-attf-href="/my/projects">Projects</a>
+                <!-- <a t-if="project" t-attf-href="/my/projects?{{ keep_query() }}">Projects</a>
+                <t t-else="">Projects</t> -->
+            </li>
+            <li t-if="project_project" class="breadcrumb-item active">
+                <span t-field="project_project.sequence" />
+ (#                <span t-field="project_project.id" />
+                ) </li>
+            <li t-if="page_name == 'project_task' and project" class="breadcrumb-item active">
+                <a t-if="project" t-attf-href="/my/project/{{ project.id }}?{{ keep_query() }}">
+                    <t t-esc="project.name" />
+                </a>
+            </li>
+            <li t-elif="project" t-attf-class="breadcrumb-item #{'active ' if not project else ''} text-truncate col-8 col-lg-10">
+                <t t-esc="project.name" />
+            </li>
+            <li t-if="page_name == 'task' or (task and not project)" t-attf-class="breadcrumb-item #{'active ' if not task else ''}">
+                <a t-if="task" t-attf-href="/my/tasks?{{ keep_query() }}">Tasks</a>
+                <t t-else="">Tasks</t>
+            </li>
+            <li t-if="task" class="breadcrumb-item active text-truncate">
+                <span t-field="task.name" />
+            </li>
+        </xpath>
+    </template>
+
+    <!-- Project Managemet list view -->
+    <template id="project.portal_my_projects" name="My Projects">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="False" />
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="content-header col d-flex align-items-center justify-content-between mb72">
+                        <h1 class="heading-1 m-0" style="line-height: 100%;">Project Management</h1>
+                        <a t-if="request.env.user.check_service_access('project_management', 'create')" href="/project/form" role="button" class="btn btn-lg btn-secondary rounded-pill with-icon"> Add 
+                            <svg class="ml-2"
+                                xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none">
+                                <path fill="#fff" d="M.167 6c0 .346.29.63.629.63H5.37v4.574c0 .34.282.63.629.63.346 0 .636-.29.636-.63V6.629h4.568c.34 0 .63-.283.63-.63a.641.641 0 0 0-.63-.636H6.636V.796c0-.34-.29-.63-.636-.63-.347 0-.63.29-.63.63v4.567H.797c-.34 0-.63.29-.63.637Z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <t t-call="thiqah_portal.thiqah_portal_searchbar">
+                    <t t-set="download_excel" t-value="True" />
+                </t>
+                <div t-att-class="active" id="info_state" class="alert alert-success text-center" role="status">
+                    <div id="details_info"></div>
+                </div>
+
+                <t t-if="not projects">
+                    <div class="alert alert-warning mt8" role="alert">
+                        There are no projects.
+                    </div>
+                </t>
+
+                <t t-else="">
+                    <div class="t-shadow mt40 overflow-hidden" style="border-radius:16px">
+                        <t t-call="portal.portal_table">
+                            <t t-set="classes" t-value="'border-0 rounded-0'" />
+                            <div class="modal" tabindex="-1" role="dialog" id="delete_project_confirm_modal">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Delete Project</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Are you sure you wish to proceed?</p>
+                                            <input name="project_value" type="hidden" value="0" />
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a role="button" class="btn btn-danger delete_request">
+                                                Confirm</a>
+                                            <button type="button" class="btn btn-light" data-dismiss="modal">
+                                                Discard</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <t t-foreach="grouped_projects" t-as="projects">
+                                <thead>
+                                    <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                        <th class="text-left">Project Number</th>
+
+                                        <th class="">Name</th>
+
+                                        <th class="">Client</th>
+
+                                        <th class="">Requester</th>
+
+                                        <th class="">Request Date</th>
+
+                                        <th t-if="groupby != 'state'">Status</th>
+
+                                        <th t-else="groupby == 'state'">
+                                            <em class="font-weight-normal text-muted">Projects in
+                                                Status:</em>
+                                            <span t-field="projects[0].state" />
+                                        </th>
+
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <t t-foreach="projects" t-as="project">
+
+                                    <tr t-att-project_id="project.id" t-att-state="project.state if project.state else ''">
+                                        <td class="text-left">
+                                            <a href="#" class="text-700">
+                                                <small>#</small>
+                                                <t t-esc="project.thqiah_project_number" />
+                                            </a>
+                                        </td>
+
+                                        <td>
+                                            <a>
+                                                <span t-field="project.name" />
+                                            </a>
+                                        </td>
+
+                                        <td>
+                                            <a>
+                                                <span t-field="project.partner_id" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a>
+                                                <span t-field="project.service_catalog_id.name_en" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <span t-field="project.create_date" t-options="{'format':'MMM d, yyyy'}">
+                                            </span>
+                                        </td>
+                                        <td class="td-status">
+                                            <t t-if="project.state">
+                                                <span t-attf-class="badge badge-pill #{project.state in ['submitted','pending','rejected'] and 'badge-submitted' or 'badge-approved'}" t-field="project.state" />
+                                            </t>
+                                        </td>
+                                        <td class="td-actions">
+                                            <a t-attf-href="/my/projects/#{project.id}/?mode=change_status" class="btn btn-secondary rounded-pill btn-action align-items-center justify-content-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                                                    <path fill="#fff" d="M.67 3.609a.608.608 0 0 0 0 .907L4.157 7.93a.67.67 0 0 0 .447.196c.359 0 .603-.25.603-.602 0-.17-.061-.305-.176-.42L3.575 5.694l-1.26-1.09 1.564.068h9.047c.352 0 .602-.25.602-.61a.58.58 0 0 0-.602-.602H3.879l-1.564.061 1.26-1.083L5.03 1.022a.557.557 0 0 0 .176-.42c0-.351-.244-.595-.603-.595a.662.662 0 0 0-.447.19L.67 3.608Zm12.662 8.789a.62.62 0 0 0 0-.914L9.845 8.07a.698.698 0 0 0-.454-.19c-.359 0-.596.244-.596.596 0 .176.054.312.17.42l1.462 1.415 1.26 1.09-1.565-.067H1.076c-.352 0-.61.25-.61.602 0 .36.258.61.61.61h9.046l1.565-.068-1.26 1.09-1.462 1.409a.566.566 0 0 0-.17.426c0 .352.237.596.596.596a.698.698 0 0 0 .454-.19l3.487-3.412Z" />
+                                                </svg>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </t>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="project_wizard_checkout" name="Project Wizard Checkout">
+
+        <div t-if="has_states" class="service-request-wizard">
+            <div class="service-request-progress-wizard">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb m-0">
+                        <t t-foreach="states" t-as="state">
+                            <li t-attf-class="breadcrumb-item body3 #{'active t-text-dark-blue' if state == active_state else ''}" aria-current="page" t-esc="state"></li>
+                        </t>
+                    </ol>
+                </nav>
+                <!-- <ul class="list-group list-group-horizontal status-line">
+                    <t t-foreach="states" t-as="state">
+                        <li t-attf-class="te_highlighted_menu #{'active ' if state == active_state else ''}">
+                            <span class="te_highlighted_menu_span" t-esc="state" />
+                        </li>
+                    </t>
+                </ul> -->
+            </div>
+        </div>
+
+    </template>
+
+    <template id="basic_data_followup" name="Project Basic Data FollowUp">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="body2 m-0 t-text-dark-gray font-weight-bold">Project Name (English)</label>
+                <h4 class="text-700" t-field="project_project.name">
+                </h4>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="body2 m-0 t-text-dark-gray font-weight-bold">Project Number</label>
+                <h4 class="text-700" t-field="project_project.thqiah_project_number">
+                </h4>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="body2 m-0 t-text-dark-gray font-weight-bold">Project Name (Arabic)</label>
+                <h4 class="text-700" t-field="project_project.name_arabic">
+                </h4>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="body2 m-0 t-text-dark-gray font-weight-bold">Contract Type</label>
+                <h4 class="text-700" t-field="project_project.contract_type_id">
+                </h4>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="body2 m-0 t-text-dark-gray font-weight-bold">Client</label>
+                <h4 class="text-700" t-field="project_project.partner_id.name">
+                </h4>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="body2 m-0 t-text-dark-gray font-weight-bold">Project Manager</label>
+                <h4 class="text-700" t-field="project_project.user_id.name">
+                </h4>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="body2 m-0 t-text-dark-gray font-weight-bold">Start Date</label>
+                <h4 class="text-700" t-field="project_project.date_start">
+                </h4>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="body2 m-0 t-text-dark-gray font-weight-bold">Budget (value)</label>
+                <h4 class="text-700" t-field="project_project.project_value" t-options='{"widget": "monetary", "display_currency": request.env.company.currency_id}'>
+                </h4>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class="body2 m-0 t-text-dark-gray font-weight-bold">Completion Date</label>
+                <h4 class="text-700" t-field="project_project.date">
+                </h4>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="body2 m-0 t-text-dark-gray font-weight-bold">Duration</label>
+                <h4 class="text-700" t-field="project_project.duration">
+                </h4>
+            </div>
+        </div>
+        <!-- <div class="row mb-4" t-if="project_project.partner_id">
+            <strong class="col-lg-2">Client</strong>
+            <div t-if="mode in ('view','change_status') or is_done" class="col-lg-10">
+                <div class="row">
+                    <div class="col flex-grow-0 pr-3">
+                        <img class="rounded-circle o_portal_contact_img" t-attf-src="#{image_data_uri(project_project.partner_id.avatar_1024)}" alt="Contact" />
+                    </div>
+                    <div class="col pl-sm-0">
+                        <div t-field="project_project.partner_id" t-options='{"widget": "contact", "fields": ["name", "email"], "no_marker": true}' />
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    </template>
+
+    <template id="summary_project_followup" name="Project Summary Project FollowUp">
+        <div class="add_project_box">
+            <div class="form-row mb-3">
+                <h3 class="text-700 border-bottom col-12 pb-2">Main Information</h3>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Rev plan NA</label>
+                    <h4 class="text-700" t-field="project_project.rev_plan_na" t-if="project_project.rev_plan_na">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Contract Liability</label>
+                    <h4 class="text-700" t-field="project_project.contract_liability" t-if="project_project.contract_liability">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Total commitments</label>
+                    <h4 class="text-700" t-field="project_project.total_commitments" t-if="project_project.total_commitments">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">VAT</label>
+                    <h4 class="text-700" t-field="project_project.vat" t-if="project_project.vat">
+                    </h4>
+                </div>
+            </div>
+            <div class="form-row mb-3">
+                <h3 class="text-700 border-bottom col-12 pb-2">MP Actual Cost</h3>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Total of HC</label>
+                    <h4 class="text-700" t-field="project_project.number_headcount" t-if="project_project.number_headcount">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Actual cost (MP)</label>
+                    <h4 class="text-700" t-field="project_project.total_cost_mp" t-if="project_project.total_cost_mp">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Commitments “MP”</label>
+                    <h4 class="text-700" t-field="project_project.commitments_mp" t-if="project_project.commitments_mp">
+                    </h4>
+                </div>
+            </div>
+            <div class="form-row mb-3">
+                <h3 class="text-700 border-bottom col-12 pb-2">Project and Supply Actual Cost</h3>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Total Pos</label>
+                    <h4 class="text-700" t-field="project_project.number_of_pos" t-if="project_project.number_of_pos">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Actual Cost “Pos”</label>
+                    <h4 class="text-700" t-field="project_project.actual_cost_pos" t-if="project_project.actual_cost_pos">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Commitments “Pos”</label>
+                    <h4 class="text-700" t-field="project_project.commitments_pos" t-if="project_project.commitments_pos">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Cost plan “spending limit”</label>
+                    <h4 class="text-700" t-field="project_project.cost_spending_limit" t-if="project_project.cost_spending_limit">
+                    </h4>
+                </div>
+            </div>
+            <div class="form-row mb-3">
+                <h3 class="text-700 border-bottom col-12 pb-2">Miscellaneous Actual Cost</h3>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Actual Cost Miscellaneous</label>
+                    <h4 class="text-700" t-field="project_project.actual_total_miscellaneous" t-if="project_project.actual_total_miscellaneous">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Commitments Miscellaneous</label>
+                    <h4 class="text-700" t-field="project_project.commitments_miscellaneous" t-if="project_project.commitments_miscellaneous">
+                    </h4>
+                </div>
+            </div>
+            <div class="form-row mb-3">
+                <h3 class="text-700 border-bottom col-12 pb-2">Total utilization and Remaining balance</h3>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Balance after Commitment</label>
+                    <h4 class="text-700" t-field="project_project.available_budget" t-if="project_project.available_budget">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Actual Available Balance</label>
+                    <h4 class="text-700" t-field="project_project.remaining_balance" t-if="project_project.remaining_balance">
+                    </h4>
+                </div>
+            </div>
+            <div class="form-row mb-3">
+                <h3 class="text-700 border-bottom col-12 pb-2">Invoices</h3>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Billed Amount</label>
+                    <h4 class="text-700" t-field="project_project.billed_amount" t-if="project_project.billed_amount">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Collected Amount</label>
+                    <h4 class="text-700" t-field="project_project.collected_amount" t-if="project_project.collected_amount">
+                    </h4>
+                </div>
+                <div class="form-group m-0 col-md-4">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Billed amount “without VAT”</label>
+                    <h4 class="text-700" t-field="project_project.billed_amount_no_vat" t-if="project_project.billed_amount_no_vat">
+                    </h4>
+                </div>
+                <div class="form-group m-0 col-md-4">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Due Amount</label>
+                    <h4 class="text-700" t-field="project_project.vat" t-if="project_project.vat">
+                    </h4>
+                </div>
+                <div class="form-group m-0 col-md-4">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Contract as “unbilled revenues”</label>
+                    <h4 class="text-700" t-field="project_project.contract_unbilled_revenues" t-if="project_project.contract_unbilled_revenues">
+                    </h4>
+                </div>
+            </div>
+            <div class="form-row mb-3">
+                <h3 class="text-700 border-bottom col-12 pb-2">Acutal Cost</h3>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Margin %</label>
+                    <h4 class="text-700" t-field="project_project.margin_percent" t-if="project_project.margin_percent">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Total Actual Cost</label>
+                    <h4 class="text-700" t-field="project_project.actual_cost" t-if="project_project.actual_cost">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Margin</label>
+                    <h4 class="text-700" t-field="project_project.actual_margin_amount" t-if="project_project.actual_margin_amount">
+                    </h4>
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="body2 m-0 t-text-dark-gray font-weight-bold">Actual Revenue</label>
+                    <h4 class="text-700" t-field="project_project.actual_revenue" t-if="project_project.actual_revenue">
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="project_resources_followup" name="Project Ressources FollowUp">
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Resource Number</th>
+                                <th>Department</th>
+                                <th>User</th>
+                                <th>Other</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="project_project.resource_ids" t-as="resource">
+                                <tr>
+                                    <td>
+                                        <t t-esc="resource.resource_number" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="resource.department_id.name" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="resource.user_id.name" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="resource.other_resource" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="risk_issues_followup" name="Project Risk And Issues">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="table_projects">
+                        <thead>
+                            <tr>
+                                <th>Risk Number</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Owner</th>
+                                <th>Corrective Action</th>
+                                <th>Level of Impact</th>
+                                <th>Status</th>
+                                <th>Project Risk Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="project_project.risk_ids" t-as="risk">
+                                <tr>
+                                    <td>
+                                        <t t-esc="risk.risk_number" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="risk.name" />
+                                    </td>
+
+                                    <td>
+                                        <t t-esc="risk.description" />
+                                    </td>
+
+                                    <td>
+                                        <t t-esc="risk.owner" />
+                                    </td>
+
+                                    <td>
+                                        <t t-esc="risk.corrective_action" class="w-100" />
+                                    </td>
+
+                                    <td>
+                                        <t t-esc="risk.level_impact" />
+                                    </td>
+
+                                    <td>
+                                        <t t-esc="risk.risk_status" />
+                                    </td>
+
+                                    <td>
+                                        <t t-esc="risk.risk_type_id.name_en" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </template>
+
+    <template id="revenue_plans_followup" name="Revenue Plans FollowUp">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="table_projects">
+                        <thead>
+                            <tr>
+                                <th>Invoice Number</th>
+                                <th>Invoice Date</th>
+                                <th>Payment Date</th>
+                                <th>Amount Billed</th>
+                                <th>Amount Received</th>
+                                <th>Amount Due</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="project_project.revenue_plan_ids" t-as="revenue_plan">
+                                <tr>
+                                    <td>
+                                        <t t-esc="revenue_plan.invoice_number" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="revenue_plan.invoice_date" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="revenue_plan.payment_date" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="revenue_plan.amount_billed" />
+                                        <t t-esc="project_project.currency_id.name" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="revenue_plan.amount_received" />
+                                        <t t-esc="project_project.currency_id.name" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="revenue_plan.amount_due" />
+                                        <t t-esc="project_project.currency_id.name" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="revenue_plan.status" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+
+    <template id="project_deliverables_followup" name="Project Deliverables">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="table-responsive">
+
+                    <table class="table table-bordered" id="table_projects">
+                        <thead>
+                            <tr>
+                                <th>Deliverable Number</th>
+                                <th>Name</th>
+                                <th>Progress</th>
+                                <th>Due Date</th>
+                                <th>Delivered Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="project_project.deliverable_ids" t-as="deliverable">
+                                <tr>
+                                    <td>
+                                        <t t-esc="deliverable.deliverable_number" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="deliverable.name" />
+                                    </td>
+                                    <td>
+                                        <t t-set="progress_percent" t-value="deliverable.progress_percent" />
+                                        <t t-esc="progress_percent" />
+ % </td>
+                                    <td>
+                                        <t t-esc="deliverable.due_date" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="deliverable.delivered_date" />
+                                    </td>
+                                    <td>
+                                        <span t-field="deliverable.status" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+    <template id="project_utilizations_followup" name="Project Utilizations FollowUp">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="table_projects">
+                        <thead>
+                            <tr>
+                                <th>Utilization Number</th>
+                                <th>Planned Hours</th>
+                                <th>Actual Hours</th>
+                                <th>Forecasted Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="project_project.utilization_ids" t-as="utilization">
+                                <tr>
+                                    <td>
+                                        <t t-esc="utilization.utilization_number" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="utilization.planned_hours" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="utilization.actual_hours" />
+                                    </td>
+                                    <td>
+                                        <t t-esc="utilization.forecasted_hours" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+
+    <template id="project_documents_followup" name="Project Utilizations FollowUp">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="table_projects">
+                        <thead>
+                            <tr>
+                                <th>Document Name</th>
+                                <th>Document Preview</th>
+                                <!-- <th>Description</th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="document_ids" t-as="document">
+                                <tr>
+                                    <td>
+                                        <t t-esc="document.display_name" />
+                                    </td>
+                                    <td>
+                                        <a class="list-group-item-action d-flex align-items-center oe_attachments py-1 px-2" t-attf-href="/web/content/#{document.id}" target="_blank" data-no-post-process="">
+                                            <div class='oe_attachment_embedded o_image o_image_small mr-2 mr-lg-3' t-att-title="document.name" t-att-data-mimetype="document.mimetype" t-attf-data-src="/web/image/#{document.id}/50x40" />
+                                            <div class='oe_attachment_name text-truncate'>
+                                                <t t-esc='document.name' />
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <!-- <td>
+                                        <t t-esc="document.description"/>
+                                    </td> -->
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="projects_status_actions" name="Projects Chnag Actions">
+        <div class="projects_status_action_selector" t-if="has_states">
+
+            <div class="text-right" t-att-project_id="project_project.id">
+                <t t-foreach="actions" t-as="action">
+                    <t t-if="action[2] == active_state">
+                        <button class="btn btn-sm btn-secondary rounded-pill project_change_status" t-att-id="action[0]">
+                            <t t-esc="action[1]" />
+                        </button>
+                    </t>
+                </t>
+            </div>
+        </div>
+        <div t-att-class="active" id="info_status" class="alert alert-success text-center" role="status">
+            <div id="project_status_info"></div>
+        </div>
+    </template>
+
+    <template id="project_followup" name="Project FollowUp">
+        <t t-call="thiqah_portal.portal_dashboard_layout">
+            <t t-set="wrapwrap_classes" t-value="'o_portal_bg_dark'" />
+
+            <!-- <t t-set="o_portal_fullwidth_alert" groups="project.group_project_manager">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url" t-value="'/web#model=project.project&amp;id=%s&amp;view_type=form' % (project_project.id)" />
+                </t>
+            </t> -->
+
+            <div class="container-fluid">
+                <div class="row mb24 align-items-center">
+                    <div class="col-md-6 col-sm-8">
+                        <t t-call="thiqah_project.project_wizard_checkout"></t>
+                    </div>
+                    <div class="col-md-6 col-sm-4 mt-3 mt-sm-0">
+                        <t t-if="mode == 'change_status'" groups="project.group_project_manager" t-call="thiqah_project.projects_status_actions" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="_o_table_thiqah_project">
+                    <div class="row">
+                        <div class="col-lg-12 mx-auto">
+                            <!-- Accordion -->
+                            <div id="accordionProjectDetails" class="accordion">
+                                <t t-set="is_done" t-value="project_project.state == latest_status" />
+
+                                <!-- Accordion item 1 -->
+                                <div class="card border-0 mb32">
+                                    <div class="card-header t-custom-bg-light-gray heading-5 border-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true">
+                                        <span class="title">Main Information</span>
+                                        <span class="accicon float-right">
+                                            <svg class="rotate-icon"
+                                                xmlns="http://www.w3.org/2000/svg" width="14" height="8" fill="none">
+                                                <path fill="#0A0A0A" d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionProjectDetails" class="collapse show">
+                                        <div class="card-body ">
+                                            <t t-call="thiqah_project.basic_data_followup" />
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- Accordion item 2 -->
+                                <div class="card border-0 mb32">
+                                    <div class="card-header t-custom-bg-light-gray heading-5 border-0 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true">
+                                        <span class="title">Overall Summary</span>
+                                        <span class="accicon float-right">
+                                            <svg class="rotate-icon"
+                                                xmlns="http://www.w3.org/2000/svg" width="14" height="8" fill="none">
+                                                <path fill="#0A0A0A" d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionProjectDetails" class="collapse">
+                                        <div class="card-body ">
+                                            <t t-call="thiqah_project.summary_project_followup" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion item 3 -->
+                                <div class="card border-0 mb32">
+                                    <div class="card-header t-custom-bg-light-gray heading-5 border-0 collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true">
+                                        <span class="title">Resources</span>
+                                        <span class="accicon float-right">
+                                            <svg class="rotate-icon"
+                                                xmlns="http://www.w3.org/2000/svg" width="14" height="8" fill="none">
+                                                <path fill="#0A0A0A" d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionProjectDetails" class="collapse">
+                                        <div class="card-body ">
+                                            <t t-if="resource_ids" t-call="thiqah_project.project_resources_followup" />
+                                            <div t-else="" class="d-flex align-items-center justify-content-center">
+                                                <div class="heading-6">
+                                                    There is no Resources added.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Accordion item 4 -->
+                                <div class="card border-0 mb32">
+                                    <div class="card-header t-custom-bg-light-gray heading-5 border-0 collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true">
+                                        <span class="title">Risks and Issues</span>
+                                        <span class="accicon float-right">
+                                            <svg class="rotate-icon"
+                                                xmlns="http://www.w3.org/2000/svg" width="14" height="8" fill="none">
+                                                <path fill="#0A0A0A" d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div id="collapseFour" aria-labelledby="headingFour" data-parent="#accordionProjectDetails" class="collapse">
+                                        <div class="card-body ">
+                                            <t t-if="project_project.risk_ids" t-call="thiqah_project.risk_issues_followup" />
+                                            <div t-else="" class="d-flex align-items-center justify-content-center">
+                                                <div class="heading-6">
+                                                    There is no Risks and Issues added.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Accordion item 5 -->
+                                <div class="card border-0 mb32">
+                                    <div class="card-header t-custom-bg-light-gray heading-5 border-0 collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true">
+                                        <span class="title">Revenue Plans</span>
+                                        <span class="accicon float-right">
+                                            <svg class="rotate-icon"
+                                                xmlns="http://www.w3.org/2000/svg" width="14" height="8" fill="none">
+                                                <path fill="#0A0A0A" d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div id="collapseFive" aria-labelledby="headingFive" data-parent="#accordionProjectDetails" class="collapse">
+                                        <div class="card-body ">
+                                            <t t-if="project_project.revenue_plan_ids" t-call="thiqah_project.revenue_plans_followup" />
+                                            <div t-else="" class="d-flex align-items-center justify-content-center">
+                                                <div class="heading-6">
+                                                    There is no Revenue Plans added.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Accordion item 6 -->
+                                <div class="card border-0 mb32">
+                                    <div class="card-header t-custom-bg-light-gray heading-5 border-0 collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true">
+                                        <span class="title">Delivreables</span>
+                                        <span class="accicon float-right">
+                                            <svg class="rotate-icon"
+                                                xmlns="http://www.w3.org/2000/svg" width="14" height="8" fill="none">
+                                                <path fill="#0A0A0A" d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div id="collapseSix" aria-labelledby="headingSix" data-parent="#accordionProjectDetails" class="collapse">
+                                        <div class="card-body ">
+                                            <t t-if="project_project.deliverable_ids" t-call="thiqah_project.project_deliverables_followup" />
+                                            <div t-else="" class="d-flex align-items-center justify-content-center">
+                                                <div class="heading-6">
+                                                    There is no Delivreables added.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Accordion item 7 -->
+                                <div class="card border-0 mb32">
+                                    <div class="card-header t-custom-bg-light-gray heading-5 border-0 collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true">
+                                        <span class="title">Utilizations</span>
+                                        <span class="accicon float-right">
+                                            <svg class="rotate-icon"
+                                                xmlns="http://www.w3.org/2000/svg" width="14" height="8" fill="none">
+                                                <path fill="#0A0A0A" d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div id="collapseSeven" aria-labelledby="headingSeven" data-parent="#accordionProjectDetails" class="collapse">
+                                        <div class="card-body ">
+                                            <t t-if="project_project.utilization_ids" t-call="thiqah_project.project_utilizations_followup" />
+                                            <div t-else="" class="d-flex align-items-center justify-content-center">
+                                                <div class="heading-6">
+                                                    There is no Utilizations added.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion item 8 -->
+                                <div class="card border-0 mb32">
+                                    <div class="card-header t-custom-bg-light-gray heading-5 border-0 collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true">
+                                        <span class="title">Documents</span>
+                                        <span class="accicon float-right">
+                                            <svg class="rotate-icon"
+                                                xmlns="http://www.w3.org/2000/svg" width="14" height="8" fill="none">
+                                                <path fill="#0A0A0A" d="M.541 6.31a.676.676 0 0 0-.207.499c0 .399.3.698.699.698.2 0 .383-.069.498-.2l5.88-6.002H6.59l5.88 6.003c.123.13.307.2.499.2.399 0 .698-.3.698-.7 0-.199-.076-.375-.207-.498L7.52.23a.699.699 0 0 0-1.036 0L.54 6.31Z" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div id="collapseEight" aria-labelledby="headingEight" data-parent="#accordionProjectDetails" class="collapse">
+                                        <div class="card-body">
+                                            <t t-if="document_ids" t-call="thiqah_project.project_documents_followup" />
+                                            <div t-else="" class="d-flex align-items-center justify-content-center">
+                                                <div class="heading-6">
+                                                    There is no attached documents.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="o_portal_messages_container mt32">
+                    <h4 class="heading-4 mb40">
+                        <t t-if="lang[:2] == 'en'">
+                            Message and communication history
+                        </t>
+                        <t t-else="">
+                            تاريخ الرسائل والاتصالات
+                        </t>
+                    </h4>
+                    <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="project_project"/>
+                        <t t-set="pid" t-value="pid"/>
+                        <t t-set="hash" t-value="hash"/>
+                    </t>
+                </div>
+            </div>
+
+        </t>
+
+    </template>
+
+</odoo>

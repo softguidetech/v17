@@ -1,0 +1,262 @@
+$font-size-number: 35px;
+$font-size-text: 16px;
+$card-shadow-aahd: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+$max-width-aahd: 289px;
+$margin-left-aahd: 5px;
+$half-heigth-aahd: 196.5px;
+
+#_aahad {
+  .aahd_dahsboard_card {
+    background-color: #30b5e4;
+    border-radius: 8px;
+    color: white !important;
+    height: 40px;
+    margin-right: 2px;
+  }
+
+  .aahd-verticalcard {
+    // max-width: 50px;
+    height: 320px;
+    // left: -16px;
+    color: #fff;
+    background-color: #30b5e4;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    width: 44px;
+  }
+
+  .txtopprt {
+    transform: rotate(-90deg);
+    position: absolute;
+    color: #fff;
+    left: -37px;
+    right: -30px;
+    top: 35%;
+  }
+
+  .col-6 {
+    flex: 0 0 50%;
+    max-width: 39%;
+  }
+
+  h2.aahd-title {
+    font-size: 1.4rem;
+    padding-top: 6px;
+    color: white;
+  }
+
+  ._aahd_row_two,
+  ._aahd_row_non {
+    height: 400px;
+    // max-width: $max-width-aahd;
+    width: 308px;
+    margin-left: 2px;
+    margin-right: 2px;
+    box-shadow: $card-shadow-aahd;
+  }
+
+  ._aahd_row_non {
+    // height: 400px;
+    // max-width: $max-width-aahd;
+    // margin-left: 2px;
+    margin-right: -2px !important;
+    // box-shadow: $card-shadow-aahd;
+  }
+
+  ._aahd_row_first_chart_ {
+    padding-top: 11px;
+  }
+
+  .custom_card {
+    height: 400px !important;
+  }
+  .card {
+    box-shadow: $card-shadow-aahd !important;
+  }
+
+  #_total_opportunities {
+    font-size: $font-size-text;
+  }
+  .title-non_digital,
+  .title_digital,
+  .title_opportunity {
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding-top: 15px;
+    width: 100px;
+  }
+
+  .total_span_one,
+  .margin_span_one {
+    padding-top: 102px;
+    height: 180px;
+    font-size: 65px;
+    font-weight: 900;
+    color: #009abf;
+  }
+
+  .override_padding {
+    padding-top: 0px !important;
+  }
+
+  .total_span_two {
+    padding-top: 6px;
+    font-size: $font-size-text;
+  }
+
+  .margin_span_two {
+    padding-top: 42px;
+    font-size: 62px;
+    color: $purple;
+  }
+
+  ._aahd_row_distribution {
+    height: 400px;
+    // max-width: 640px;
+    margin-left: 7px;
+    box-shadow: $card-shadow-aahd;
+  }
+
+  ._aahd_row_non_digital,
+  ._aahd_row_digital,
+  ._aahd_row_opportunity {
+    height: 400px;
+    // max-width: 640px;
+    margin-left: -1px;
+    box-shadow: $card-shadow-aahd;
+  }
+
+  ._aahd_row_two_marign {
+    height: 400px;
+    // max-width: 640px;
+    margin-left: 1px;
+    margin-right: -3px;
+    box-shadow: $card-shadow-aahd;
+  }
+
+  .ytd_summary {
+    height: 320px;
+    overflow: auto;
+  }
+
+  ._aahd_row_first_chart {
+    height: $half-heigth-aahd;
+    padding-top: 10px;
+  }
+
+  ._aahd_row_second_chart,
+  .margin_span_two {
+    height: $half-heigth-aahd;
+    padding-top: 3px;
+  }
+
+  .margin_span_one {
+    height: $half-heigth-aahd;
+    padding-top: 72px;
+  }
+
+  .margin_span_one_ {
+    font-size: 65px;
+    font-weight: 900;
+    color: #009abf;
+    height: 154.5px;
+    padding-top: 72px;
+    height: 113px !important;
+  }
+
+  #goal_amount {
+    padding-top: 0px !important;
+  }
+  #revenues_won_stage {
+    height: 10px !important;
+    padding-top: 0px !important;
+    font-size: 65px;
+    font-weight: 900;
+    color: #009abf;
+  }
+
+  .goal_span {
+    font-size: 40px;
+    padding-top: 101px;
+
+    // color:$purple;
+  }
+
+  ._goal_first,
+  ._goal_second {
+    height: 144.5px;
+  }
+  #goal_percent {
+    color: #009abf;
+  }
+
+  .fa-sort-up {
+    color: green;
+  }
+
+  .fa-sort-down {
+    color: red;
+  }
+
+  ._card_ytd {
+    // margin-right: -240px;
+    border-right: 4px solid #5db2c7 !important;
+    border-left: 4px solid #5db2c7 !important;
+    // height: 288px;
+  }
+
+  #card_ytd_header {
+    background-color: #5db2c7 !important;
+    height: 35px;
+    font-size: 16px;
+    padding-top: 5px;
+    color: whitesmoke;
+  }
+
+  .opportunity_span_one {
+    padding-top: 50px;
+    font-size: 38px;
+    font-weight: 900;
+    color: #009abf;
+  }
+
+  .opportunity_span_two {
+    font-size: 20px;
+  }
+
+  .projects_awarded {
+    margin: 1px 85px;
+    font-size: 15px;
+  }
+  .container.awarded_class {
+    padding-top: 15px;
+  }
+  .awarded_padding {
+    padding-bottom: 3px;
+  }
+
+  .line-1 {
+    height: 1px;
+    // background: black;
+
+    border: none;
+    border-top: 3px dotted #c5c9c5;
+    background-color: #fff;
+    // width: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .line_min,
+  .line_max {
+    font-size: 22px;
+    color: #5db2c7;
+  }
+  ._aahd_row_first_chart.padding_custom {
+    padding-top: 18px;
+  }
+
+  .margin_bottom {
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="freelance_workorder_form_view" model="ir.ui.view">
+            <field name="name">view_freelance_workorder_form</field>
+            <field name="model">freelance.workorder</field>
+            <field name="arch" type="xml">
+                <form string="Freelance Workorder">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="sequence"/>
+                            <h4>
+                                <field name="sequence" readonly="1" save_force="1"/>
+                            </h4>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date_from" invisible = "state != 'draft'"/>
+                                <field name="date_to" invisible = "state != 'draft'"/>
+                                <field name="due_date" invisible = "state != 'draft'"/>
+                                <field name="duration" />
+                            </group>
+                            <group>
+                                <field name="frequest_id" options="{'no_create':True,'no_open':True}" invisible = "state != 'draft'"/>
+                                <field name="freelancer_id" options="{'no_create':True,'no_open':True}" invisible = "state != 'draft'"/>
+                                <field name="description" invisible = "state != 'draft'"/>
+                                <field name="amount" invisible = "state != 'draft'"/>
+                                <field name="justification" />
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_freelance_workorder_tree" model="ir.ui.view">
+            <field name="name">view_freelance_workorder_tree</field>
+            <field name="model">freelance.workorder</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence"/>
+                    <field name="freelancer_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="amount"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="freelance_workorder_action_window" model="ir.actions.act_window">
+            <field name="name">Freelance Workorder</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">freelance.workorder</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

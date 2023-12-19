@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!-- Top menu item -->
+	<menuitem id="base.menu_administration" name="Settings" web_icon="thiqah_brands,static/src/img/Icons_Settings.png" />
+
+	<menuitem id="base.menu_management" name="Apps" web_icon="thiqah_brands,static/src/img/Icons_Apps.png" />
+
+	<menuitem id="helpdesk.menu_helpdesk_root" name="Helpdesk" web_icon="thiqah_brands,static/src/img/Icons_Helpdesk.png" groups="base.group_system" />
+
+	<menuitem id="calendar.mail_menu_calendar" name="Calendar" web_icon="thiqah_brands,static/src/img/Icons_Calendar.png" groups="base.group_system" />
+
+
+	<menuitem id="crm.crm_menu_root" name="CRM" web_icon="thiqah_brands,static/src/img/Icons_CRM.png" />
+
+	<menuitem id="mail.menu_root_discuss" name="Discuss" web_icon="thiqah_brands,static/src/img/Icons_Discuss.png" groups="base.group_system" />
+
+	<menuitem id="documents.menu_root" name="Documents" web_icon="thiqah_brands,static/src/img/Icons_Documents.png" groups="base.group_system" />
+
+	<menuitem id="mass_mailing.mass_mailing_menu_root" name="Email Marketing" web_icon="thiqah_brands,static/src/img/Icons_Email_Marketing.png" groups="base.group_system" />
+
+	<menuitem id="event.event_main_menu" name="Events" web_icon="thiqah_brands,static/src/img/Icons_Events.png" />
+
+	<menuitem id="marketing_automation.marketing_automation_menu" name="Marketing Automation" web_icon="thiqah_brands,static/src/img/Icons_Marketing_Automation.png" />
+
+
+	<menuitem id="project.menu_main_pm" name="Project" web_icon="thiqah_brands,static/src/img/Icons_Project.png" />
+
+
+	<menuitem id="social.menu_social_global" name="Social Marketing" web_icon="thiqah_brands,static/src/img/Icons_Social_Marketing.png" groups="base.group_system" />
+
+	<menuitem id="website.menu_website_configuration" name="Website" sequence="95" groups="base.group_system" web_icon="thiqah_brands,static/src/img/Icons_Website.png" />
+
+	<menuitem id="approvals.approvals_menu_root" name="Approvals" groups="base.group_system" web_icon="thiqah_brands,static/src/img/Icons_Documents.png" action="approvals.approval_category_action_new_request" sequence="255" />
+
+	<menuitem id="hr.menu_hr_root" name="Employees" groups="hr.group_hr_manager,hr.group_hr_user,base.group_system" web_icon="thiqah_brands,static/src/img/Icons_Employees.png" sequence="185" />
+
+
+	<menuitem name="Contacts" id="contacts.menu_contacts" sequence="20" web_icon="thiqah_brands,static/src/img/Icons_Contacts.png" groups="base.group_user,base.group_partner_manager"/>
+
+
+	<menuitem id="helpdesk.helpdesk_ticket_menu_all" name="All Tickets" action="helpdesk.helpdesk_ticket_action_main_tree" groups="base.group_system" sequence="20" parent="helpdesk.helpdesk_ticket_menu_main"/>
+
+
+<!--	<menuitem id="note.menu_note_notes" name="Notes" sequence="15" action="note.action_note_note" web_icon="note,static/description/icon.png" groups="base.group_system">-->
+<!--		<menuitem id="note.menu_note_configuration" name="Configuration" sequence="100" groups="base.group_no_one">-->
+<!--			<menuitem id="note.menu_notes_stage" name="Stages" action="note.action_note_stage" sequence="21"/>-->
+<!--			<menuitem id="note.notes_tag_menu" action="note.note_tag_action" sequence="22"/>-->
+<!--		</menuitem>-->
+<!--	</menuitem>-->
+
+
+	<menuitem id="note.menu_note_notes" name="Notes" web_icon="thiqah_brands,static/src/img/Icons_Notes.png" />
+
+
+	<menuitem name="Workflow Editor" id="thiqah_workflow.workflow_menu" groups="base.group_system" action="thiqah_workflow.workflow_action" web_icon="thiqah_workflow,static/src/img/Icons_Workflow.png" sequence="-1"/>
+
+
+
+<!--	<record model='ir.ui.menu' id='note.menu_note_notes'>-->
+<!--		&lt;!&ndash; <field name="groups_id" eval="[(6,ref('thiqah_project.project_manager_group'))]"/> &ndash;&gt;-->
+<!--		<field name="groups_id" eval="[(6, 0, [ref('thiqah_project.project_manager_group')])]"/>-->
+<!--	</record>-->
+
+
+	<!-- <menuitem id="hr_timesheet.timesheet_menu_root" name="Timesheets" web_icon="thiqah_brands,static/src/img/Icons_Timesheet.png" /> -->
+</odoo>

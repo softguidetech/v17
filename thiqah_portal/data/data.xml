@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <function name="unlink" model="website.menu">
+        <value model="website.menu" eval="obj().search([('name', 'in', ['Service Requests','Dashboard',
+        'Dashboard User','Dashboard Requests','Financial Dashboard ','Task Dashboard',
+        'Customer Centricity','Generate Lead',])]).ids"/>
+    </function>
+
+</odoo>

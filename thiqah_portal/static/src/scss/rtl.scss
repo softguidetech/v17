@@ -1,0 +1,25 @@
+#wrapwrap {
+  &.o_rtl {
+    .dropdown-menu {
+      right: 0 !important;
+      left: auto !important;
+    }
+    #o_logout {
+      img {
+        transform: scaleX(-1);
+      }
+    }
+    .form-control-feedback-icon {
+      transform: translateX(-1);
+    }
+    .with-arrow {
+      transform: scaleX(-1);
+    }
+    .datepicker {
+      &.dropdown-menu {
+        left: 0 !important;
+        right: auto !important;
+      }
+    }
+  }
+}

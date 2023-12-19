@@ -1,0 +1,42 @@
+.o_home_menu .o_apps .o_app .o_caption {
+  color: black !important;
+  font-size: 20px;
+}
+
+.o_main_navbar {
+  border-bottom: 1px solid #0473bd;
+  background: -webkit-gradient(linear, right top, left bottom, from(#acdfef), to(#0473bd)) !important;
+  background: linear-gradient(to left bottom, #acdfef, #0473bd) !important;
+  color: white;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #0473bd;
+  border-color: #0473bd;
+}
+
+.dropdown-header {
+  color: #33b3e7;
+}
+
+.o_main_navbar .dropdown .dropdown-toggle:hover, .o_main_navbar .o_nav_entry:hover, .o_main_navbar > .o_menu_sections > div > a:hover, .o_main_navbar .o_menu_systray > div > a:hover {
+  background-color: #0473bd;
+}
+
+.dropdown-item, .dropdown-item-studio {
+  font-size: 20px;
+}
+
+.o_form_view .o_horizontal_separator:not(:empty) {
+  -webkit-box-shadow: 0 0 0;
+          box-shadow: 0 0 0;
+  font-weight: bold;
+  font-size: 17px;
+  color: #3693cc;
+}
+
+.o_form_view.o_form_editable .oe_title {
+  max-width: 90%;
+}
+/*# sourceMappingURL=style.css.map */

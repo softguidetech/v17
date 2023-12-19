@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="notification_actions" model="ir.actions.act_window">
+        <field name="name">Notifications</field>
+        <field name="res_model">notification.system</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

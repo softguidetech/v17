@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="report_thiqah_awarded_Opportunities_document">
+		<t t-set="o" t-value="o.with_context(lang=lang)" />
+
+		<div class="page page_batch_report_Opportunities">
+			<br />
+			<t t-set="proposal_data" t-value="o.get_thiqah_opportunities_proposal_data()"/>
+			<div class="arrow-steps clearfix row mr-2">
+
+				<div class="step currentaward col33 text-center" style="">
+					<h2> Awarded Opportunities</h2>
+				</div>
+				<div class="step col32 text-center clraward"
+					style="color:#36b4e5;background-color: #f2f2f2 !important;">
+					<h2>Submitted Opportunities</h2>
+				</div>
+				<div class="step col32 text-center clraward"
+					style="color:#36b4e5;background-color: #f2f2f2 !important;">
+					<h2> Potential Opportunities</h2>
+				</div>
+
+			</div>
+
+
+
+			<br />
+			<br />
+			<h2 class="ml-5" style="color:#7030a0;">
+				<strong>Bidding &amp; Direct Clients:</strong>
+			</h2>
+			<br />
+			<div class="row float-right" style="width:80%;">
+				<div class="col-4">
+				</div>
+				<div class="col-3 text-center">
+					<div class="bgaward"
+						style="height:50px;color:#fff;border-top-left-radius: 5px;border-top-right-radius: 5px;">
+						<strong>Total # of Awarded Opportunities</strong>
+					</div>
+					<div class=""
+						style="height:50px;background-color:#f2f2f2;color:#000;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;"><strong t-esc="proposal_data['count_awarded']"/></div>
+				</div>
+				<div class="col-3 text-center">
+					<div class="bgaward"
+						style="height:50px;color:#fff;border-top-left-radius: 5px;border-top-right-radius: 5px;">
+						<strong>Total Awarded Amount (approx.)</strong>
+					</div>
+					<div class=""
+						style="height:50px;background-color:#f2f2f2;color:#000;border-bottom-left-radius: 5px;border-bottom-right-radius: 5px;"><strong t-esc="proposal_data['awarded_total']"/></div>
+				</div>
+			</div>
+			<br />
+			<br />
+			<div class="row bgaward" style="margin-top:5%;">
+				<div class="col14 text-center" style="color:#fff;">
+					<h2 class="mt-2"> Customer</h2>
+				</div>
+				<div class="col14 text-center" style="color:#fff;">
+					<h2 class="mt-2"> Opportunity Name</h2>
+				</div>
+				<div class="col14 text-center" style="color:#fff;">
+					<h2 class="mt-2"> Account Manager</h2>
+				</div>
+				<div class="col14 text-center" style="color:#fff;">
+					<h2 class="mt-2"> Scoop Details</h2>
+				</div>
+				<div class="col10 text-center" style="color:#fff;">
+					<h2 class="mt-2"> Deadline</h2>
+				</div>
+				<div class="col10 text-center" style="color:#fff;">
+					<h2 class="mt-2"> Value in 2022</h2>
+				</div>
+				<div class="col10 text-center" style="color:#fff;">
+					<h2 class="mt-2"> Execution Time</h2>
+				</div>
+				<div class="col10 text-center" style="color:#fff;">
+					<h2 class="mt-2"> Total Amount</h2>
+				</div>
+			</div>
+			<br />
+			<div class="data" style="background-color: #f2f2f2 !important;">
+				<div class="mt-2" />
+				<t t-foreach="proposal_data['awarded_data']" t-as="data">
+					<div class="row" style="background-color: #f2f2f2 !important;">
+						<div class="col14 valproj bdaward text-center mr-1">
+							<span t-esc="data['customer']" />
+						</div>
+						<div class="col14 valproj bdaward text-center mr-1">
+							<span t-esc="data['opportunity_name']" />
+						</div>
+						<div class="col14 valproj bdaward text-center mr-1">
+							<span t-esc="data['account_manager']" />
+						</div>
+						<div class="col14 valproj bdaward text-center mr-1">
+							<span t-esc="data['scoop_details']" />
+						</div>
+						<div class="col10 valproj bdaward text-center mr-1">
+							<span t-esc="data['deadline']" />
+						</div>
+						<div class="col10 valproj bdaward text-center mr-1">
+							<span t-esc="data['revenue_2022']" />
+						</div>
+						<div class="col10 valproj bdaward text-center mr-1">
+							<span t-esc="data['execution_time']" />
+						</div>
+						<div class="col10 valproj bdaward text-center">
+							<span t-esc="data['total_revenue']" />
+						</div>
+					</div>
+					<div class="mt-2" />
+				</t>
+			</div>
+		</div>
+	</template>
+
+</odoo>

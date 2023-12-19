@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="crm_contract_tree" model="ir.ui.view">
+        <field name="name">contract.view.tree</field>
+        <field name="model">thiqah.contract</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="project_id" />
+                <field name="client_id" />
+                <field name="responsible_id" />
+                <field name="start_date" />
+                <field name="end_date" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_contract_form" model="ir.ui.view">
+        <field name="name">thiqah.contract.form</field>
+        <field name="model">thiqah.contract</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+<!--                    <button name="set_to_running" string="Set To running" type="object" class="oe_highlight" attrs="{'invisible': [('state', '=', 'running')]}" />-->
+                    <button name="set_to_running" string="Set To running" type="object" invisible="state == 'running'" class="oe_highlight"/>
+<!--                    <button name="set_to_pre_end" string="Set To Pre End" type="object" class="oe_highlight" attrs="{'invisible': [('state', '=', 'pre_end')]}" />-->
+                    <button name="set_to_pre_end" string="Set To Pre End" type="object" class="oe_highlight" invisible="state == 'pre_end'"/>
+<!--                    <button name="set_to_end" string="Close" type="object" class="oe_highlight" attrs="{'invisible': [('state', '=', 'end')]}" />-->
+                    <button name="set_to_end" string="Close" type="object" class="oe_highlight" invisible="state == 'end'"/>
+
+                    <field name="state" widget="statusbar" invisible="1"/>
+                    <field name="state" widget="statusbar" groups="thiqah_crm.legal_team_group_" />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" name="name_label"/>
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="project_id" />
+                    </group>
+
+                    <group>
+                        <group>
+                            <field name="client_id" />
+                        </group>
+
+
+                        <group>
+                            <field name="responsible_id" />
+                        </group>
+
+                    </group>
+
+                    <group>
+
+                        <group>
+                            <field name="start_date" />
+                        </group>
+
+                        <group>
+                            <field name="end_date" />
+                        </group>
+
+                    </group>
+
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="crm_contract_action" model="ir.actions.act_window">
+        <field name="name">Contacts</field>
+        <field name="res_model">thiqah.contract</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+</odoo>

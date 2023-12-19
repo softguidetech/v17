@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_agreement_doc">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="company" t-value="o.company_id"/>
+                    <t t-call="thiqah_freelance.freelance_header_footer">
+                        <t t-set="nationality" t-value="o.nationality_id.code"/>
+                        <t t-if="o.entity_code == 'ahad'">
+                            <t t-set="entity_email" t-value="'info@ahad.sa'"/>
+                            <t t-set="cr_number" t-value="'1010951364'"/>
+                            <t t-set="company_name_en" t-value="'Ahad Business Services Co.'"/>
+                            <t t-set="company_name_ar" t-value="'شركة عهد لخدمات الأعمال'"/>
+                            <t t-set="company_rep_en" t-value="'Firas Ghazi Almatrafi'"/>
+                            <t t-set="company_rep_ar" t-value="'فراس بن غازي المطرفي'"/>
+                            <t t-set="responsible_name_en" t-value="'Mr. Firas Ghazi Almatrafi in his capacity as the VP, Operation'"/>
+                            <t t-set="responsible_name_ar" t-value="'الاستاذ/  فراس بن غازي المطرفي بصفته نائب الرئيس التنفيذي لقطاع التشغيل'" />
+                        </t>
+                        <t t-if="o.entity_code == 'thiqah'">
+                            <t t-set="entity_email" t-value="'info@thiqah.sa'"/>
+                            <t t-set="cr_number" t-value="'1010332510'"/>
+                            <t t-set="company_name_en" t-value="'Thiqah Business Services Co.'"/>
+                            <t t-set="company_name_ar" t-value="'شركة ثقة لخدمات الأعمال'"/>
+                            <t t-set="company_rep_en" t-value="'Abdulaziz Abdullah Aldrees'"/>
+                            <t t-set="company_rep_ar" t-value="'عبدالعزيز بن عبدالله الدريس'"/>
+                            <t t-set="responsible_name_en" t-value="'Eng. Abdulaziz Abdullah Aldrees, in his capacity as the Procurement director and authorized signatory'"/>
+                            <t t-set="responsible_name_ar" t-value="'المهندس/ عبدالعزيز بن عبدالله الدريس بصفته المدير التنفيذي لإدارة المشتريات والعقود والمفوض بالتوقيع'"/>
+                        </t>
+                        <style type="text/css">
+                            .text-right-report {direction:rtl;text-align: right; width:50%}
+                            .text-left-report {text-align: left;width:50%}
+                            .borderless td, .borderless tr{
+                                border: none;
+                            }
+                            .text-cyan{
+                                color: #00b0f0 !important;
+                                font-weight: bold
+                            }
+                            .font-bold{
+                                font-weight: bold
+                            }
+                            .thiqah-header{
+                                position:absolute;
+                                top: -100px;
+                                left:0;
+                                z-index:9999;
+                                transform: translateY(-89px);
+                                -webkit-transform: translateY(-89px);
+                                -moz-transform: translateY(-89px);
+                                -o-transform: translateY(-89px);
+                                -ms-transform: translateY(-89px);
+                                 height: 450px;
+                            }
+                            
+                            .dflex {
+                                display: -webkit-box; /* wkhtmltopdf uses this one */
+                                display: -webkit-flex;
+                                display: flex;
+                                -webkit-box-pack: center; /* wkhtmltopdf uses this one */
+                                -webkit-justify-content: center;
+                                        justify-content: center;
+                            }
+                        </style>
+                        <div t-if="o.entity_code == 'thiqah'" class="w-100">
+                            <img src="/thiqah_freelance/static/src/img/thiqah-report.png" class="img-fluid"></img>
+                        </div>
+                        <div t-if="o.entity_code == 'ahad'" class="" style="height: 390px;width:auto;z-index:99999;">
+                            <img style="width:512px;heigh:386px" src="/thiqah_freelance/static/src/img/ahad-first-page.png"></img>
+                        </div>
+                        <div class="page" style="font-size: 20px !important;font-family:arial,sans-serif;color: #000;">
+                            <div class="row" style="page-break-after:always;">
+                                <div class="col-12">
+                                    <center>
+                                        <h2 class="heading-5" style="color:#00b0f0">اتفاقية تقديم أعمال حره
+                                        </h2>
+                                        <h2 class="heading-5">
+                                        AGREEMENT FOR <br/>
+                                        FREELANCE SERVICES 
+                                        </h2>
+                                    </center>
+                                    <div class="mx-auto text-center" style="transform: translateY(100px);
+                                    -webkit-transform: translateY(100px);
+                                    -moz-transform: translateY(100px);
+                                    -o-transform: translateY(100px);
+                                    -ms-transform: translateY(100px);">
+                                        <p>
+                                        الرياض – المملكة العربية السعودية
+                                        </p>
+                                        <p>
+                                        Riyadh - Kingdom of Saudi Arabia
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                                <table class="table table-sm o_main_table borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-left-report">
+                                                On this day <t t-esc="datetime.date.today()"/>
+                                                G, corresponding to <t t-esc="o.get_hijri_date(str(datetime.date.today()))"/>
+                                                H, this Agreement was concluded by and between:
+                                        </td>
+                                        <td class="text-right-report">
+                                                تم في هذا اليوم                                            <t t-esc="datetime.date.today().day"/>
+ من شهر                                            <t t-esc="datetime.date.today().month"/>
+ لعام                                            <t t-esc="datetime.date.today().year"/>
+م، الموافق لـ                                            <t t-esc="o.get_hijri_date(str(datetime.date.today())).split('/')[2]"/>
+ من شهر                                            <t t-esc="o.get_hijri_date(str(datetime.date.today())).split('/')[1]"/>
+ لعام                                            <t t-esc="o.get_hijri_date(str(datetime.date.today())).split('/')[0]"/>
+هـ ، إبرام هذه الاتفاقية بين كل من:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-left-report">
+                                            <span class="text-cyan">First Party: <t t-esc="company_name_en"/>
+                                            </span>, a limited liability company registered with the Commercial Registry in the Ministry of Commerce under No. <t t-esc="cr_number"/>, with the address thereof being located at: Riyadh – Olaya street, Alsahafah area, e-mail: <span style="color:#0070c0">
+                                            <t t-esc="entity_email"/>
+                                        </span>
+                                            represented for the purposes of this Agreement by <t t-esc="responsible_name_en"/>
+     Referred to hereinafter as the <b class="font-weight-bold">“First Party”</b> or <b class="font-weight-bold">“Company”</b>.
+                                </td>
+                                <td class="text-right-report">
+                                    <span class="text-cyan">الطرف الأول:                                        <t t-esc="company_name_ar"/>
+                                    </span>        
+                                        ، شركة ذات مسؤولية محدودة مسجلة في السجل التجاري في وزارة التجارة تحت الرقم: <t t-esc="cr_number"/>، ويقع عنوانها في: شارع العليا، حي الصحافة، الرياض، المملكة العربية السعودية،
+                                        بريد إلكتروني:                                    <span style="color:#0070c0">
+                                        <t t-esc="entity_email"/>
+                                    </span>
+                                        ويمثلها لغايات هذه الاتفاقية                                    <t t-esc="responsible_name_ar"/>
+     ويشار إليه فيما بعد بـ " الطرف الأول" أو" الشركة "
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-left-report">
+                                    <span class="text-cyan">Second Party: <t t-esc="o.full_name"/>
+                                    </span>, <t t-esc="o.nationality_id.nationality_en"/> national holding <t t-if="nationality == 'SA'">
+                                        National ID
+                                    </t>
+                                    <t t-else="">
+                                        Passport
+                                    </t>
+    number <t t-esc="o.id_number"/>
+                                        as a freelancer with the address thereof being located at <t t-esc="o.address"/>, e-mail: <span style="color:#0070c0">
+                            <t t-esc="o.email"/>
+                        </span> mobile number: <t t-esc="o.mobile_number"/>
+     referred to hereinafter as the “Second Party” or “Freelancer”.
+                    </td>
+                    <td class="text-right-report">
+                        <span class="text-cyan"> الطرف الثاني:                            <t t-esc="o.full_name"/>
+                        </span>
+                        <t t-esc="o.nationality_id.nationality_ar"/>
+         الجنسية <t t-if="nationality == 'SA'">
+            حامل بطاقة هوية وطنية
+         </t>
+         <t t-else="">
+            حامل بطاقة جواز 
+         </t> رقم :                        <t t-esc="o.id_number"/>
+     بصفته مقدم أعمال مستقل، ويقع عنوانه في: <t t-esc="o.address"/> ، بريد إلكتروني                        <span style="color:#0070c0">
+                            <t t-esc="o.email"/>
+                        </span> رقم الجوال:                        <t t-esc="o.mobile_number"/>
+     ويشار إليه فيما بعد بـ                        <b class="font-bold">" الطرف الثاني"</b> أو                        <b class="font-bold">" مقدم الأعمال "</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report text-cyan">
+                                    (The Parties are hereinafter referred to individually as "Party", and collectively as "Parties")
+                    </td>
+                    <td class="text-right-report text-cyan">
+                                    [يشار إلى كل طرف منفرداً بكلمة "الطرف"، ويشار إلى الطرفين معاً بكلمة "الطرفان"/ "الطرفين"]
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report text-cyan">
+                                                WHEREAS:
+                    </td>
+                    <td class="text-right-report text-cyan">
+                                                التمهيد :
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">
+                                                - Whereas, the Company wishes to engage the Freelancer for certain freelance services <b class="font-weight-bold">(the "Services")</b>, as described more fully in the <b class="font-weight-bold">Order Form.</b>
+                    </td>
+                    <td class="text-right-report">
+                                                - حيث ترغب الشركة في الاستعانة بخدمات مقدم الأعمال للحصول على بعض الأعمال و الخدمات                        <b class="font-weight-bold">("الخدمات")</b> ، كما هو موضح بشكل مفصل في وثيقة الطلب المشار إليها في الملحق (1)؛
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">
+                                                - Whereas, Freelancer has the skills, qualifications, and expertise required to provide the Services to the Company and wishes to render such Services to the Company.
+                    </td>
+                    <td class="text-right-report">
+                                                - وحيث أبدى الطرف الثاني موافقته بتقديم هذه الخدمات للطرف الأول ؛ و
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">
+                                                - Now, therefore, in consideration of the promises and covenants contained herein, the Parties agree as follows:
+                    </td>
+                    <td class="text-right-report">
+                                                - عليه و بالنظر إلى الشروط و الأحكام الواردة في هذه الاتفاقية، وبعدما أقر الطرفان بأنهما بكامل الأهلية المعتبرة شرعاً ونظاماً لهذا التصرف، اتفق الطرفان على ما يلي:
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">
+                        <div class="text-cyan">Article (1)	 Preamble</div>
+                                    Whereas section of this agreement mentioned above and any appendices attached to it shall be considered an integral part hereof and shall be read as such for all purposes.
+                    </td>
+                    <td class="text-right-report">
+                        <div class="text-cyan">المادة الأولى: المقدمة </div>
+                            يعتبر تمهيد الاتفاقية أعلاه والملاحق التابعة لها جزءاً لا يتجزأ من هذه الاتفاقية ومكملاً لها وتقرأ وتفسر معها كوحدة واحدة لكافة الغايات والمقاصد. 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">
+                        <div class="text-cyan">Article (2)	 Services under the agreement</div>
+                        <b class="font-weight-bold">(1)</b> The second party shall provide the services stipulated in the Order Form to the first party or any of his clients or Partners in accordance with the following steps:   
+                        <ol type="A">
+                            <li>The First Party will issue a Work order “appendix 1” outlining the scope of work (Services to be delivered), the receiving party, delivery time frame, and the financial sum that will be paid to the second party after completion and will send it to the Second Party’s address.</li>
+                            <li>The Second Party must accept the Order Form within five working days by signing it and sending it back to the first party.</li>
+                        </ol>
+                        <sapn class="font-weight-bold">(2)</sapn> Each Order Form should be treated individually regarding obligations and deliverables. The order documents shall be added to this Agreement.
+                    </td>
+                    <td class="text-right-report">
+                        <div class="text-cyan">المادة الثانية: الخدمات محل الاتفاقية</div>
+                        <b class="font-weight-bold">(1)</b> يقوم الطرف الثاني بتقديم الخدمات المنصوص عليها في وثيقة الطلب للطرف الأول أو أحد عملائه أو شركائه وذلك وفق الآلية التالية :
+                        <ol type="1">
+                            <li>يقوم الطرف الأول بإصدار وثيقة الطلب " ملحق رقم 1" موضحاً فيها نطاق العمل والطرف المتلقي للأعمال والمدة أوالمدد الزمنية المحددة لتنفيذها مع قيمة الأتعاب، ومن ثم إرسالها إلى عنوان الطرف الثاني المعتمد .</li>
+                            <li>يقوم الطرف الثاني بإبداء موافقته على الطلب خلال مدة لا تتجاوز خمسة أيام عمل عن طريق التوقيع على وثيقة الطلب.</li>
+                        </ol>
+                        <b class="font-weight-bold">(2)</b>يتم العمل على كل وثيقة طلب بشكل منفصل بجميع التزاماتها  وحقوقها ,وتضاف وثائق الطلب إلى هذه الاتفاقية .
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">
+                        <div class="text-cyan">Article (3) 	The Standing of the Second Party</div>
+                        <ol type="1">
+                            <li>The First Party hereby engages the Second Party as an independent service provider (Freelancer) for the provision of the services defined in Article (2). The Second Party is not considered as an employee, agent, or representative of the First Party, and as such the second party does not have any employment or other labor rights and/or entitlements the First Party</li>
+                            <li>This agreement does not constitute authorization for the second party to act as an agent for the first party or to act in the name of or on behalf of the first party.</li>
+                            <li>Nothing in this Agreement creates a direct relationship between both parties. The Second Party shall always be responsible for delivering the agreed services within the time set in the Order Form.</li>
+                        </ol>
+                    </td>
+                    <td class="text-right-report">
+                        <div class="text-cyan">المادة الثالثة:  صفة الطرف الثاني وأسلوب التعاقد معه</div>
+                        <ol type="1">
+                            <li>يتعاقد الطرف الأول مع الطرف الثاني بصفته مقدم خدمة مستقلاً لتقديم الخدمات موضوع هذه الاتفاقية والموضحة في المادة الثانية ، ولا يعد الطرف الثاني عاملاً ولا وكيلاً ولا ممثلاً للطرف الأول، كما ولا تترتب له أي مستحقات وظيفية له تجاه الطرف الأول.</li>
+                            <li>لا تعتبر هذه الاتفاقية تخويلاً للطرف الثاني بالتصرف كوكيل عن الطرف الأول أو التصرف باسم أو بالنيابة عن الطرف الأول.</li>
+                            <li>لا تنشئ هذه الاتفاقية أي علاقة مباشرة بين الطرف الأول والطرف الثاني، ويكون الطرف الثاني مسؤولاً عن كل ما يتعلق بتقديم الخدمات محل هذه الاتفاقية بالمدد الزمنية والوسائل المتفق عليها في وثيقة الطلب.</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">
+                        <div class="text-cyan">Article (4)	The Second Party Obligations</div>
+                                    In addition to the other obligations set out in this agreement   and the Order Form, the Second Party shall:
+                        <ol type="1">
+                            <li>Perform the Services mentioned in the Order Form with the standard of conduct expected from a professional, optimally skilled service provider, and in compliance with the laws and regulations of the Kingdom of Saudi Arabia and the First Party’s internal policies.</li>
+                            <li>Respond to and implement the first party's requests for services in accordance with the time frame specified by the first party in the order form.</li>
+                            <li>Maintain and renew all licenses, permits, and registrations that are needed for the fulfillment of its obligations hereunder.</li>
+                            <li>Coordinate with the representatives of the First Party and abide by their instructions.</li>
+                            <li t-if="nationality != 'SA'">The second party is committed to inform the first party upon entering the territory of the Kingdom of Saudi Arabia for any reason whatsoever, and to inform the first party of the reason for his presence, and in case that the first party is not informed of this, the contractual relationship is considered as terminated since the day of entry and the second party bears the responsibility of indemnifying the first party for the violations resulting therefrom.</li>
+                        </ol>
+                    </td>
+                    <td class="text-right-report">
+                        <div class="text-cyan">المادة الرابعة: التزامات الطرف الثاني</div>
+                                    بالإضافة إلى التزاماته الأخرى المنصوص عليها في هذه الاتفاقية و وثيقة الطلب يلتزم الطرف الثاني بما يلي:
+                        <ol type="1">
+                            <li>تنفيذ الأعمال الموكلة إليه بموجب أي وثيقة طلب بمستوى أداء لا يقل عن مستوى الأداء المتوقع من شخص محترف في مجال تقديم الخدمات المتعاقد عليها، وبما يتوافق مع الأنظمة واللوائح ذات العلاقة المعمول بها في المملكة العربية السعودية والسياسات الداخلية المتبعة لدى الطرف الأول.</li>
+                            <li>إجابة وتنفيذ طلبات الطرف الأول المتعلقة بالخدمات وفقاً للإطار الزمني الذي يحدده الطرف الأول في وثيقة الطلب.</li>
+                            <li>توفير و ضمان استدامة نفاذ كافة التصاريح والتراخيص والتسجيلات المهنية التي تكون لازمة لتنفيذ الأعمال التي ينفذها الطرف الثاني بموجب هذه الاتفاقية.</li>
+                            <li>التنسيق مع ممثلي الطرف الأول عند تنفيذ الخدمات المتعاقد عليها والالتزام بالمتطلبات والتعليمات التي يتلقونها من الممثلين المذكورين.</li>
+                            <li t-if="nationality != 'SA'">يلتزم الطرف الثاني بإبلاغ الطرف الأول عند دخوله أراضي المملكة العربية السعودية لأي سبب كان وإفادة الطرف الاول عن سبب حضوره، وفي حال لم يتم ابلاغ الطرف الأول بذلك فتعد العلاقة التعاقدية منتهية منذ الدخول ويتحمل الطرف الثاني تعويض الطرف الأول عن المخالفات المترتبة على ذلك</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">
+                        <div class="text-cyan">Article (5) 	Term and Renewal of the Agreement</div>
+                        <ol type="1">
+                            <li>This Agreement shall enter into force as of the date of its execution by both parties and shall remain in force for one Gregorian year, renews automatically unless one of the parties notifies the other (60) sixty days prior to its end.</li>
+                            <li>The First Party may terminate this Agreement within (10) days prior to the termination date.</li>
+                            <li>Any party shall end this agreement if the other party fails to commit to its responsibilities if the failing party did not response and fixes this failure within (10) ten working days from the date it has been notified. </li>
+                            <li>The termination of this agreement for any reason does not nullify any Valid Order Form and the Second Party shall commit to execute and deliver all valid Order Forms even after the termination of this Agreement. The First Party is committed to fulfilling these documents once he received the services that mentioned in the order document and delivered.</li>
+                        </ol>
+                    </td>
+                    <td class="text-right-report">
+                        <div class="text-cyan">المادة الخامسة: مدة الاتفاقية وتجديدها </div>
+                        <ol type="1">
+                            <li>تدخل هذه الاتفاقية حيز النفاذ اعتباراً من تاريخ توقيعها من الطرفين، وتستمر بالنفاذ لمدة سنة ميلادية واحدة، وتجدد تلقائياً لمدة أو مدد مماثلة ما لم يخطر أحد الطرفين الطرف الآخر برغبته عدم التجديد خلال مدة أقصاها (60) ستون يوماً من تاريخ انتهاءها.</li>
+                            <li>يحق للطرف الأول انهاء هذه الاتفاقية بموجب خطاب معدّ لهذا الغرض يوجه إلى الطرف الثاني خلال مدة لا تقل عن (10) أيام قبل تاريخ الانهاء.</li>
+                            <li>لأي من الطرفين فسخ هذه الاتفاقية حال ثبت تقصير الطرف الآخر بأحد أو جميع التزاماته المنصوص عليها إذا لم يتم تصويب الخطأ خلال مدة أقصاها (10) أيام عمل من تاريخ إشعاره بذلك.</li>
+                            <li>انتهاء هذه الاتفاقية لأي سبب كان لا يلغي  أو يؤثر على أي "وثيقة طلب" سارية المفعول ويجب على الطرف الثاني الالتزام بإنجاز وتسليم جميع وثائق الطلبات السارية حتى بعد انتهاء هذه الاتفاقية، ويلتزم الطرف الأول بالوفاء في الالتزامات المالية المتعلقة في وثيقة الطلب في حال انجاز الخدمات المشار إليها في وثقية الطلب وتسليمها حسب ما تم الاتفاق عليه.</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">
+                        <div class="text-cyan">Article (6) 	Financial Provisions</div>
+                        <ol type="1">
+                            <li>Financial dues are calculated for each Order form separately according to what is indicated in it from the scope of work to be carried out and the financial fees for those works. </li>
+                            <li>Financial entitlements set in the Order Form shall be paid after the completion of the required services within two (10) working days upon obtaining a report submitted by the first party. Financial entitlements are payable into the second party’s bank account as follow: 
+                                <br></br>
+                                <div class="font-weight-bold">Beneficiary name: <t t-esc="o.beneficiary_name"/>
+                                </div>
+                                <div class="font-weight-bold">Bank name: <t t-esc="o.bank_name"/>
+                                </div>
+                                <div class="font-weight-bold">IBAN number: <t t-esc="o.iban"/>
+                                </div>
+
+                            </li>
+                            <li>
+                                            The second party's financial dues for the services provided are calculated based on the actual completion of the services subject to this agreement and not on the duration.
+                            </li>
+                            <li>
+                                            If the second party shall travel to a place other than its place of residence specifically for delivering some or all its obligations as set in the ‘Order Form’, the first party shall bear all the costs of travel and accommodation after writing approval per to the first party’s policies.
+                            </li>
+                            <li>
+                                            The Fees detailed in the ‘Order Form’ is the total amounts payable by the First Party in return of all the works, licenses and services provided by the Second Party under this Contract and is inclusive of all costs and expenses sustained by the Second Party in course of the performance of the Services.
+                            </li>
+                            <li>The above-mentioned Fees includes all Taxes (Value Added Tax “VAT” and Withholding Tax “WHT” or any other taxes (if applicable).</li>
+                            <li>
+                                            The First Party is entitled to deduct the tax due imposed on the second party as per this contract and remit to the competent authorities on behalf of the Second Party as per the applicable laws.
+                            </li>
+                        </ol>
+                    </td>
+                    <td class="text-right-report">
+                        <div class="text-cyan">المادة السادسة: الأحكام المالية</div>
+                        <ol type="1">
+                            <li>يتم احتساب المستحقات المالية عن كل وثيقة طلب على حده بحسب ما هو موضح فيها من نطاق العمل المراد تنفيذه والأتعاب المالية مقابل تلك الأعمال.</li>
+                            <li>يقوم الطرف الأول بدفع  مستحقات الطرف الثاني المنصوص عليها في وثيقة الطلب بعد اتمام الأعمال الموكل بها الطرف الثاني وفقاً للتقرير المعتمد من قبل الطرف الأول لهذا الغرض، وذلك خلال (10) أيام عمل  من تاريخ إصدار التقرير، وتدفع المستحقات المالية لدى حساب الطرف الثاني بالتفاصيل التالية:
+                                <br></br>
+                                <div class="font-weight-700">اسم المستفيد:                                    <t t-esc="o.beneficiary_name"/>
+                                </div>
+                                <div class="font-weight-700">اسم البنك:                                    <t t-esc="o.bank_name"/>
+                                </div>
+                                <div class="font-weight-700">رقم الآيبان:                                    <t t-esc="o.iban"/>
+                                </div>
+                            </li>
+                            <li>
+                                        يجري احتساب مستحقات الطرف الثاني المالية نظير الخدمات المقدمة، على أساس الانجاز الفعلي للخدمات محل وثيقة الطلب وليس على أساس المدد الزمنية.
+                            </li>
+                            <li>
+                                        في حال تطلب تنفيذ الخدمات محل هذه الاتفاقية سفر الطرف الثاني إلى مكان آخر غير مكان إقامته خصيصاً لتنفيذ جزء أو جميع الأعمال المتفق عليها، فيتحمل الطرف الأول تكاليف السفر والإقامة وفقاً للسياسات الداخلية المتبعة لديه وبعد موافقته.
+                            </li>
+                            <li>
+                                        تشكل أتعاب الطرف الثاني المنصوص عليها في وثيقة الطلب إجمالي المبالغ المستحقة للطرف الثاني مقابل تقديم جميع الخدمات والرخص والأعمال المتفق عليها في هذا العقد ووثيقة الطلب المعنية، وتشمل الأتعاب المذكورة جميع الرسوم والمصاريف والتكاليف التي يتكبدها الطرف الثاني لقاء تقديم الخدمات المتفق عليها
+                            </li>
+                            <li>
+                                        الأتعاب المذكورة تشمل جميع الضرائب (بما في ذلك ضريبة القيمة المضافة وضرائب الاستقطاع وأية ضرائب اخرى (إن وجدت).
+                            </li>
+                            <li>
+                                        للطرف الأول الحق في استقطاع أية ضرائب قد تستحق وتفرض على الطرف الثاني لقاء هذا العقد وتحول هذه المبالغ للجهات المختصة نيابة عن الطرف الثاني وذلك بموجب الأنظمة السارية.  
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">
+                        <div class="text-cyan">Article (7) Intellectual Property Rights</div>
+                        <ol type="1">
+                            <li>All intellectual property rights under the laws of any jurisdiction and/or under any international convention over all works, designs, and/or materials that result from the performance of the Services shall be the sole property of the First Party without any additional consideration being payable to the Second Party, this shall include without limitation rights protectable under copyright, patent of invention, and industrial design laws,  as well as other intellectual property laws and legislations. In general, the intellectual production of the second party or that to which the same contribute shall be the sole right of the First Party and the Second Party shall execute all assignment deeds as needed to give effect to this Paragraph and shall provide equivalent assignments where the First Party so instructs, and in the text provided by the First Party.                                    </li>
+                            <li>Freelancer confirms on an on-going basis that: 
+                                <ol type="a">
+                                    <li>the receipt of the services by the Company does not infringe the intellectual property rights of any third party;</li>
+                                    <li>the deliverables are the original work of the relevant author, and have not been copied from any other work or material; and</li>
+                                    <li>freelancer has not licensed or assigned any rights of any nature in the deliverables to any third party.</li>
+                                </ol>
+                            </li>
+                            <li>
+                                            Freelancer acknowledges and agrees that it shall not be entitled to use any of the Company trademarks or brands or logos for any purpose without the Company prior written consent.
+                            </li>
+                            <li>
+                                            where freelancer is given consent to use the Company trademarks or brands or logos, freelancer shall use those trademarks or brands or logos strictly in accordance with applicable customer policies and any other conditions notified by customer.
+                            </li>
+                        </ol>
+                    </td>
+                    <td class="text-right-report">
+                        <div class="text-cyan">المادة السابعة:  الملكية الفكرية</div>
+                        <ol type="1">
+                            <li>تؤول جميع حقوق الملكية الفكرية التي تترتب في أي دولة أو بموجب أي اتفاقية دولية عن جميع المصنفات والأعمال والتصاميم التي تنتج عن تنفيذ الخدمات المتعاقد عليها بموجب هذه الاتفاقية إلى الطرف الأول دون عوض مالي إضافي للطرف الثاني، ويشمل ذلك – دون حصر – الحقوق التي تحمى بموجب قوانين حق المؤلف وحماية الاختراعات والتصاميم الصناعية وغير ذلك من أنظمة وتشريعات الملكية الفكرية، وبالعموم يؤول الإنتاج المعنوي والفكري الذي يقوم أو يساهم به الطرف الثاني إلى الطرف الأول بالكامل. ويلتزم الطرف الثاني بتحرير التنازلات القانونية المطلوبة عن الحقوق المشمولة بهذا البند كلما طلب منه الطرف الأول ذلك وبالصيغ القانونية التي يقررها الطرف الأول.</li>
+                            <li>يؤكد مقدم الأعمال بشكل مستمر على ما يلي:
+                                <ol type="1">
+                                    <li>
+                                                    استلام الشركة للخدمات لا ينتهك حقوق الملكية الفكرية لأي طرف ثالث؛ و
+                                    </li>
+                                    <li>أن المخرجات والخدمات هي الأعمال الأصلية للمؤلف المعني، ولم يتم نسخها من أي أعمال أو مواد أخرى؛ و</li>
+                                    <li>لم يقم مقدم الأعمال بترخيص أو إحالة ملكية أي حقوق من أي نوع في المخرجات إلى أي طرف ثالث.</li>
+                                </ol>
+                            </li>
+                            <li>
+                                        يقر مقدم الأعمال ويوافق بأنه لا يحق له استخدام أي من العلامات أو الأسماء أو الشعارات التجارية للشركة لأي غرض بدون الحصول على موافقة خطية مسبقة من الشركة.
+                            </li>
+                            <li>
+                                        في حالة حصول مقدم الأعمال على موافقة باستخدام أي من العلامات أو الأسماء أو الشعارات التجارية للشركة، يجب على مقدم الأعمال استخدام هذه العلامات أو الأسماء أو الشعارات التجارية فقط وفقا للسياسات المعمول بها لدى الشركة وأي شروط أخرى تقوم الشركة بتبليغها.
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">
+                        <div class="text-cyan">Article (8) General Provisions</div>
+                        <ol type="1">
+                            <li>This Agreement shall be subject, in its execution, performance, interpretation, and termination, to the laws of the Kingdom of Saudi Arabia. Parties shall exert their best efforts to amicably settle any dispute, difference, or claim arising in connection herewith, otherwise such dispute, difference, or claim shall be referred to the competent court in Riyadh, the Kingdom of Saudi Arabia.</li>
+                            <li t-if="nationality == 'SA'">
+                                            The second party acknowledges that he/she does not work for any government entity, and undertakes to disclose before contracting with any of the governmental entity. in addition, the second party bears all costs, compensations and responsibilities resulting from its failure to disclose in this regard.
+                            </li>
+                            <li t-if="nationality != 'SA'">
+                                The second party acknowledges that he/she does not work for any Saudi entity, whether in the public or private sectors, and undertakes to disclose before contracting with any of the mentioned. in addition, the second party bears all costs, compensations and responsibilities resulting from its failure to disclose in this regard.
+                            </li>
+                            <li>
+                                            The second party must sign a Confidentiality Undertaking and implement all the terms and conditions included therein. The Confidentiality Undertaking remains valid even after the expiry or termination of this agreement for any reason.
+                            </li>
+                            <li>
+                                            The Freelancer declares that its implementation and performance of the Services does not conflict with or contradict any contractual, fiduciary, or other duty or obligation that is bound by it. The Freelancer shall not accept any action from a third party or any other organizations or entities that may result in an actual or potential conflict of interest of the Freelancer or that is harmful to the business interests of the Company.
+                            </li>
+                            <li>
+                                            Any correspondence or communication between the two parties must be in writing and sent by e-mail or the other official communication channels approved by both parties and stipulated in the introduction of this agreement.
+                            </li>
+                            <li>
+                                            The First Party has the right to assign the services subject to the agreement to any third party.
+                            </li>
+                            <li>
+                                            This Agreement contains the entire agreement of the Parties concerning its subject and terminates the effect of all previous undertakings and offers exchanged between the Parties.
+                            </li>
+                            <li>
+                                            The Arabic text of this Agreement shall supersede the English translation thereof.
+                            </li>
+                        </ol>
+                    </td>
+                    <td class="text-right-report">
+                        <div class="text-cyan">المادة الثامنة: أحكام عامة</div>
+                        <ol type="1">
+                            <li>
+                                        تخضع هذه الاتفاقية في نشوئها وتنفيذها وتفسيرها وانقضائها لأحكام الأنظمة السارية في المملكة العربية السعودية، ويبذل الطرفان قصارى جهودهما في تسوية أي نزاع أو مطالبة أو خلاف يثور بين طرفي هذه الاتفاقية ودياً، بشأنه أو بشأن أي شرط من شروطه أو أي مطالبة بمقتضاه، وبخلاف ذلك يحال ما ذكر إلى المحكمة المختصة في مدينة الرياض المملكة العربية السعودية.
+                            </li>
+                            <li t-if="nationality == 'SA'">
+                                        يقر الطرف الثاني بأنه لا يعمل لدى أي جهة حكومية ويتعهد بالافصاح قبل التعاقد مع أي من الجهات الحكومية.  كما ويتحمل الطرف الثاني كافة التكاليف والتعويضات والمسؤوليات المترتبة على عدم افصاحه بهذا الشأن.
+                            </li>
+                            <li t-if="nationality != 'SA'">
+                                يقر الطرف الثاني بأنه لا يعمل لدى أي جهة سعودية سواء في القطاعين العام أو الخاص ويتعهد بالافصاح قبل التعاقد مع أي من الجهات المذكورة.  كما ويتحمل الطرف الثاني كافة التكاليف والتعويضات والمسؤوليات المترتبة على عدم افصاحه بهذا الشأن.
+                            </li>
+                            <li>
+                                        يلتزم الطرف الثاني بتوقيع تعهد المحافظة على السرية والإلتزام بكافة الشروط و الأحكام الواردة فيه، ويضل التعهد قائماً حتى بعد انهاء  أو انتهاء هذه الاتفاقية لأي سبب. 
+                            </li>
+                            <li>
+                                        يقر مقدم الأعمال أن تنفيذه وأداءه للخدمات لا يتعارض مع أو يخالف أي واجب أو التزام تعاقدي أو ائتماني أو أي واجب أو التزام آخر ملتزم به. ولا يجوز للمقدم الأعمال قبول أي عمل من طرف ثالث أو أي منظمات أو كيانات أخرى قد يؤدي إلى تضارب فعلي أو محتمل في مصالح مقدم الأعمال أو الذي يضر بالمصالح التجارية لشركة.
+                            </li>
+                            <li>
+                                        أي مراسلات أو اتصالات بين الطرفين يجب أن تكون كتابياً، كما يجب أن ترسل بالبريد الإلكتروني أو أدوات التواصل الرسمية المعتمدة لدى الطرفين والمنصوص عليها في مقدمة هذه الاتفاقية.
+                            </li>
+                            <li>
+                                        يحق للطرف الأول التنازل عن الخدمات محل الاتفاقية إلى أي طرف ثالث.
+                            </li>
+                            <li>
+                                        تضمن هذه الاتفاقية كامل اتفاق الطرفين فيما يتعلق بموضوعها، وتنهي هذه الاتفاقية أثر التعهدات والعروض السابقة المتبادلة بين الطرفين ما لم يجرِ تضمينها على نحو صريح في هذه الاتفاقية. 
+                            </li>
+                            <li>
+                                        يسود النص العربي لهذه الاتفاقية والملاحق التابعة لها على ترجمته الإنجليزية.
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report">IN WHITENESS WHEREOF, the Parties hereby execute the duplicate of this Agreement on date set out at the outset hereof.</td>
+                    <td class="text-right-report">وبما تقدم حرر الطرفان أصلي هذه الاتفاقية في التاريخ المبين أعلاه،</td>
+                </tr>
+                <tr>
+                    <td class="text-right-report">
+                        <div class="text-cyan">Signatures</div>
+                        <div class="font-bold">For the First Party</div>
+                    </td>
+                    <td class="text-left-report">
+                        <div class="text-cyan">التواقيع</div>
+                        <div class="font-bold">عن الطرف الأول</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left-report font-bold">Mr. <t t-esc="company_rep_en"/></td>
+                    <td class="text-right-report font-bold">الأستاذ/ <t t-esc="company_rep_ar"/></td>
+                </tr>
+                <tr>
+                    <td class="text-right-report">
+                        <div class="font-bold">For the Second Party</div>
+                    </td>
+                    <td class="text-left-report">
+                        <div class="font-bold">عن الطرف الثاني</div>
+                    </td>
+                </tr>
+                <tr style="page-break-after: always;">
+                    <td class="text-left-report font-bold" style="width:30% !important">Mr. <t t-esc="o.full_name"/></td>
+                    <td class="text-right-report font-bold" style="width:30% !important">الأستاذ/ <t t-esc="o.full_name"/></td>
+                </tr>
+                <t t-call="thiqah_freelance.appendix"/>
+            </tbody>
+        </table>
+</div>
+</t>
+</t>
+</t>
+</template>
+<template id="appendix" name="Contract Appendix">
+<table class="table mt-5">
+    <tbody>
+        <tr>
+            <td class="text-center font-bold">
+                        Appendix (1) Order Form
+            </td>
+            <td class="text-center font-bold">
+                        ملحق (1) نموذج وثيقة الطلب
+            </td>
+            </tr>
+            <tr>
+            <td class="text-left-report">
+            <div>
+                            On _______, Order Form No. (_____) was concluded between <span t-if="o.entity_code == 'thiqah'">Thiqah</span>
+            <span t-if="o.entity_code == 'ahad'">Ahad</span> Company, <span class="font-bold">"First Party,"</span> and _____ <span class="font-bod">" Second Party,"</span> as fully described in the AGREEMENT FOR FREELANCE SERVICES concluded on ______  the <span class="font-bold">“Main Agreement”</span> to authorize the second party to start executing the services in accordance with the details and conditions detailed below:
+            </div>
+            <div>
+            <div class="text-cyan">Article (1) Scope of work</div>
+                            Both parties agreed that the second party shall provide consultation in the field of_________ for _Client_
+            </div>
+            <div>
+            <div class="text-cyan">Article (2) Outcome</div>
+                            During the term of this form, the second party shall implement and submit the following outcomes:
+            <ol type="1">
+                <li>
+                                    ___________
+                </li>
+                <li>
+                                    ___________
+                </li>
+                <li>
+                                    ___________
+                </li>
+            </ol>
+            </div>
+            <div>
+            <div class="text-cyan">
+                                Article (3) Financial provisions
+            </div>
+            <ol type="1">
+                <li>
+                                    The second party shall be entitled for the services set in article (2) under this Order Form a total amount (_____ Saudi Riyal) _________ Saudi Riyals as a contractual fee for the full execution of the scope and requirements of this Order Form.
+                </li>
+                <li>
+                                    Financial entitlements are due and payable upon the completion of each delivery after the approval of the first party through a ‘Certificate of Completion’ issued by the first party and paid within two (2) weeks. Financial entitlements are payable into the second party’s bank account stated on article number 6 of the main Agreement.
+                </li>
+                <li>
+                                    The Second Party acknowledges that the amounts stipulated in paragraph (1) of this Article constitute its full financial dues for the services provided and discharges the Company from any other financial dues under this document.
+                </li>
+            </ol>
+            </div>
+            <div>
+            <div class="text-cyan">
+                                Article (4) Timelines
+            </div>
+            <ol type="1">
+                <li>
+                                    Both Parties have agreed that The Second Party shall execute all the requirements agreed on in article (2) within a maximum period of _____ starting from the date of this Order Form Where the Second Party shall deliver the scope as whole or partially over the course of time as instructed by the First Party throughout the engagement.
+                </li>
+                <li>
+                                    This Order form expires with the end of its period stipulated in Paragraph (1) of this Article. The continuation of the Second Party in providing services or carrying out works after the expiry of the period agreed upon in this Order Form in no case should it count as a renewal or extension of the term of this Order Form. Any renewal or extension of the period shall be made according to a separate Order Form.
+                </li>
+            </ol>
+            </div>
+            <div>
+            <div class="text-cyan">
+                                Article (5) Termination
+            </div>
+            <ol type="1">
+                <li>
+                                    The First Party has the right to terminate this Order Form within written notice (10) days prior to the termination date. 
+                </li>
+                <li>
+                                    The second party has the right to terminate this document in the event of valid justifications by means of a notice addressed to the second party within a period not less than (30) thirty days prior to the date of termination.
+                </li>
+                <li>
+                                    Both Parties are obliged to fulfill their obligations under the concerned Order Form prior to the termination. 
+                </li>
+            </ol>
+            </div>
+            <div class="mt-4">
+                            In witness whereof, the Parties’ representatives placed their hands on the duplicate of the Order Form.
+            </div>
+            </td>
+            <td class="text-right-report">
+            <div>
+                            تم في يوم _____ ، إبرام وثيقة الطلب رقم (_____) بين كل من شركة <span t-if="o.entity_code == 'thiqah'">ثقة</span>
+            <span t-if="o.entity_code == 'ahad'">عهد</span>
+            <span class="font-bold">" الطرف الأول"</span>  و ____________ <span class="font-bold">"الطرف الثاني"</span> والمفصلة بيانتهم في اتفاقية تقديم خدمات و أعمال المبرمة بتاريخ ______ <span class="font-bold">"الاتفاقية الأساسية “</span>وذلك لتعميد الطرف الثاني في البدء في تنفيذ الخدمات وفقاً لتفاصيل والشروط الموضحة أدناه :
+            </div>
+            <div>
+            <div class="text-cyan">المادة الأولى: نطاق العمل</div>
+                            اتفق الطرفان على نطاق العمل المطلوب تنفيذه من قبل الطرف الثاني في مجال___________  لدى _العميل_
+            </div>
+            <div>
+            <div class="text-cyan">المادة الثانية : المخرجات </div>
+                            يلتزم الطرف الثاني خلال مدة هذه الوثيقة بتنفيذ وتقديم المخرجات التالية :    
+            <ol type="1">
+                <li>
+                                    ___________
+                </li>
+                <li>
+                                    ___________
+                </li>
+                <li>
+                                    ___________
+                </li>
+            </ol>
+            </div>
+            <div>
+            <div class="text-cyan">
+                                المادة الثالثة: الأحكام المالية
+            </div>
+            <ol type="1">
+                <li>
+                                    يستحق الطرف الثاني نظير الخدمات المقدمة من قبله والموضحة في المادة الثانية من هذه الوثيقة مبلغاً وقدره  (_____ ريال سعودي ) _________ ريال سعودي فقط لا غير كأتعاب تعاقدية مقابل تنفيذ كامل نطاق عمل ومتطلبات هذه الوثيقة.
+                </li>
+                <li>
+                                    يتم دفع المستحقات المالية بعد تنفيذ كل جزئية من النطاق المطلوب وبعد الموافقة على انجازها من قبل الطرف الأول عبر اصدار شهادة انجاز يتم اصدارها من قبل الطرف الأول لهذا الغرض، وذلك خلال (10) أيام عمل من تاريخه. تدفع المستحقات المالية لدى حساب الطرف الثاني الموضح في المادة السادسة من الاتفاقية الاساسية.
+                </li>
+                <li>
+                                    يقر الطرف الثاني بأن المبالغ المالية المنصوص عليها في الفقرة (1) من هذه المادة تشكل كامل مستحقاته المالية  نظير الخدمات المقدمة من قبله كما يبرئ الشركة عن أي مستحقات مالية أخرى بموجب هذه الوثيقة.
+                </li>
+            </ol>
+            </div>
+            <div>
+            <div class="text-cyan">
+                                المادة الرابعة: المدد الزمنية
+            </div>
+            <ol type="1">
+                <li>
+                                    اتفق الطرفان على أن يقوم الطرف الثاني بتنفيذ جميع المتطلبات الموضحة في المادة الثانية من هذه الوثيقة خلال مدة زمنية لا تتجاوز _______ ميلادية كحد أقصى تبدأ من تاريخ هذه الوثيقة على أن يتم تسليم بعض الأجزاء بشكل تسلسلي بعد اتفاق الطرفين عليها اثناء سريان هذه المدة وبناءً على الحاجة التي قد تطرأ خلال سريان هذه الفترة. 
+                </li>
+                <li>
+                                    تنتهي وثيقة الطلب هذه بإنتهاء مدتها المنصوص عليها في الفقرة (1) من هذه المادة و استمرار الطرف الثاني في تقديم الخدمات أو تنفيذ أعمال بعد انتهاء المدة المتفق عليها في هذه الوثيقة لا يعد تجديد أو تمديد لمدة هذه الوثيقه بأي حال من الأحوال وأي تجديد أو تمديد للمدة يتم بموجد وثيقة طلب مستقلة .
+                </li>
+            </ol>
+            </div>
+            <div>
+            <div class="text-cyan">
+                                المادة الخامسة: الإنهاء
+            </div>
+            <ol type="1">
+                <li>
+                                    يحق للطرف الأول إنهاء هذه الوثيقة بواسطة إشعار يوجه للطرف الثاني خلال مدة لا تقل عن (10) عشرة أيام قبل تاريخ الإنهاء.
+                </li>
+                <li>
+                                    يحق للطرف الثاني إنهاء هذه الوثيقة في حال وجود مبررات مقبولة بواسطة إشعار يوجه للطرف الأول خلال مدة لا تقل عن (30) ثلاثون يوم قبل تاريخ الإنهاء،.
+                </li>
+                <li>
+                                    إنهاء هذه الوثيقة من قبل أي طرف لا يسقط حق الطرف الآخر بالحصول على الالتزامات المنوطة بأي طرف قبل الإنهاء.
+                </li>
+            </ol>
+            </div>
+            <div class="mt-4">
+                            اشهاداً على ما تقدم، حرر ممثلا الطرفين أصلي هذه الوثيقة، 
+            </div>
+            </td>
+            </tr>
+    </tbody>
+</table>
+</template>
+
+<record id="agreement_report_pdf" model="ir.actions.report">
+<field name="name">Agreement PDF</field>
+<field name="model">freelance.application</field>
+<field name="report_type">qweb-pdf</field>
+<field name="report_name">thiqah_freelance.report_agreement_doc</field>
+<field name="report_file">thiqah_freelance.report_agreement_doc</field>
+<field name="binding_model_id" ref="thiqah_freelance.model_freelance_application" />
+<field name="binding_type">report</field>
+<field name="print_report_name">object.full_name + ' Agreement Report'</field>
+<!-- <field name="paperformat_id" ref="thiqah_freelance.paperformat_freelance_appliction"/> -->
+</record>
+
+<template id="freelance_header_footer">
+    <t t-set="report_header_style" t-value="'height:90px'"/>
+    <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+        <div class="row">
+            <div class="d-flex justify-content-end o_background_header border-bottom-0 w-100">
+                <div class="logo" style="">
+                    <img t-if="o.entity_code == 'thiqah'" src="/thiqah_portal/static/src/img/thiqah_logo.png" alt="Logo"/>
+                    <img t-if="o.entity_code == 'ahad'" src="/thiqah_freelance/static/src/img/ahad-logo.png" alt="Logo"/>
+                </div>
+                </div>
+            </div>
+    </div>
+
+    <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout {{  'o_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+        <t t-out="0"/>
+    </div>
+
+    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+        <div class="border" style="height:65px">
+            <div style="height: 60px;width:470px;background:url('/thiqah_freelance/static/src/img/footer-thiqah.png') no-repeat 100% 0%" class="float-left" alt="Logo"/>
+        </div>
+    </div>
+</template>
+
+<!-- Paper Format -->
+<record id="paperformat_freelance_appliction" model="report.paperformat">
+<field name="name">Freelance Application</field>
+<field name="margin_left">0</field>
+<field name="margin_bottom">5</field>
+<field name="header_line" eval="False"/>
+</record>
+</data>
+</odoo>
