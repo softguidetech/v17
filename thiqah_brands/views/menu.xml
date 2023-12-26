@@ -50,7 +50,7 @@
 <!--	</menuitem>-->
 
 
-	<menuitem id="note.menu_note_notes" name="Notes" web_icon="thiqah_brands,static/src/img/Icons_Notes.png" />
+<!--	<menuitem id="note.menu_note_notes" name="Notes" web_icon="thiqah_brands,static/src/img/Icons_Notes.png" />-->
 
 
 	<menuitem name="Workflow Editor" id="thiqah_workflow.workflow_menu" groups="base.group_system" action="thiqah_workflow.workflow_action" web_icon="thiqah_workflow,static/src/img/Icons_Workflow.png" sequence="-1"/>

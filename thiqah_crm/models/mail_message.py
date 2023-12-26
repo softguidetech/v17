@@ -11,11 +11,12 @@ _logger = logging.getLogger(__name__)
 class MailThread(models.AbstractModel):
     _inherit = "mail.thread"
     
-    def _message_compute_author(self, author_id=None, email_from=None, raise_exception=True):
+    # def _message_compute_author(self, author_id=None, email_from=None, raise_exception=True):
+    def _message_compute_author(self, author_id=None, email_from=None, raise_on_email=True):
         """ Tool method computing author information for messages. Purpose is
         to ensure maximum coherence between author / current user / email_from
         when sending emails. """
-        author_id, email_from = super()._message_compute_author(author_id,email_from,raise_exception)
+        author_id, email_from = super()._message_compute_author(author_id,email_from,raise_on_email)
         smtp_server = self.env['ir.mail_server'].sudo().search([('active','=',True)], limit=1)
         email_from = "%s <%s>" %(self.env.user.company_id.name,smtp_server.smtp_user)
         email_from=email_from

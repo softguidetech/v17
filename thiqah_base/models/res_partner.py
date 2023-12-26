@@ -7,5 +7,7 @@ class Partner(models.Model):
     _inherit = 'res.partner'
 
     can_see_utilization_report = fields.Boolean(string='Can See Utilization Report', default=False)
-    name = fields.Char(index=True, translate=True)
+    name = fields.Char(index=True)
+    # name = fields.Char(index=True, translate=True)
+
 

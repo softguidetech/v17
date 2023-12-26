@@ -66,7 +66,7 @@
             'thiqah_portal/static/src/js/dashboard_layout.js',
             'thiqah_portal/static/src/js/customer_centricity.js',
             'thiqah_portal/static/src/scss/loader.scss',
-            
+
             # 'thiqah_portal/static/src/scss/variables.scss',
             'thiqah_portal/static/src/scss/dashboard_user.scss',
             'thiqah_portal/static/src/scss/customer_centricity.scss',
@@ -79,12 +79,12 @@
             'thiqah_portal/static/src/scss/rtl.scss',
             'thiqah_portal/static/src/scss/style.css',
         ],
-        'web.assets_backend': [
-            'thiqah_portal/static/src/scss/variables.scss',
-        ],
-        # 'web.assets_qweb': [
-        #     'thiqah_portal/static/src/xml/chatter.xml',
-        # ],
+    #     'web.assets_backend': [
+    #         'thiqah_portal/static/src/scss/variables.scss',
+    #     ],
+    #     # 'web.assets_qweb': [
+    #     #     'thiqah_portal/static/src/xml/chatter.xml',
+    #     # ],
        
     },
     'license': 'OEEL-1',

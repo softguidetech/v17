@@ -65,7 +65,8 @@ class ProjectExtension(models.Model):
     
     line_manager_id = fields.Many2one(related='user_id',string='',)
     hr_business_partner_id = fields.Many2one(
-        'res.users', string='HR Business Partner', domain=lambda self: [('groups_id.id', '=', self.env.ref('thiqah_base.group_hr_business_partner').id)])
+        'res.users', string='HR Business Partner')
+    # , domain = lambda self: [('groups_id.id', '=', self.env.ref('thiqah_base.group_hr_business_partner').id)]
 
     # Outil form record rule
     user_rule_id = fields.Many2one('res.users')

@@ -146,7 +146,7 @@ class WebsiteForms(form.WebsiteForm):
         # TODO: the selection criterion for choosing the user needs more absratcion.
         # knowing that we have chosen to treat the models case by case in order to avoid side effects.
 
-        
+
         record = request.env[model_name].sudo().with_context(
             mail_create_nosubscribe=True).create(values)
 
@@ -300,7 +300,7 @@ class WebsiteForms(form.WebsiteForm):
         values = self._prepare_portal_layout_values()
         return request.render("thiqah_helpdesk_portal.portal_my_helpdesk_home", values)
 
-
+#
 class WebsiteHelpdesk(WebsiteHelpdesk):
 
     def get_helpdesk_team_data(self, team, search=None):
@@ -525,7 +525,8 @@ class CustomerPortal(CustomerPortal):
         return request.render("helpdesk.portal_helpdesk_ticket", values)
 
     #  add controller submit ticket
-    @http.route(['/my/tickets/submit'], type='http', auth="user", website=True, method='POST')
+    # @http.route(['/my/tickets/submit'], type='http', auth="user", website=True, method='POST')
+    @http.route(['/my/tickets/submit'], type='http', auth="user", website=True)
     def portal_helpdesk_ticket_submit(self, **kw):
         partner_id = kw.get('partner_id') if kw.get('partner_id') else False
         category_portfolio_id = kw.get(
