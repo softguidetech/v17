@@ -11,16 +11,16 @@
 	</template>
 
 
-	<template id="thiqah_placeholder_header_call_to_action" inherit_id="website.placeholder_header_call_to_action">
-		<xpath expr="//section[@class='oe_unremovable oe_unmovable s_text_block']" position="replace">
+<!--	<template id="thiqah_placeholder_header_call_to_action" inherit_id="website.placeholder_header_call_to_action">-->
+<!--		<xpath expr="//section[@class='oe_unremovable oe_unmovable s_text_block']" position="replace">-->
+<!--&lt;!&ndash;			<section class="s_text_block" data-snippet="s_text_block" data-name="Text">&ndash;&gt;-->
 <!--			<section class="s_text_block" data-snippet="s_text_block" data-name="Text">-->
-			<section class="s_text_block" data-snippet="s_text_block" data-name="Text">
-				<div class="container">
-					<!-- <a href="/contactus" class="btn btn-primary btn_cta">Contact Us</a> -->
-				</div>
-			</section>
-		</xpath>
-	</template>
+<!--				<div class="container">-->
+<!--					&lt;!&ndash; <a href="/contactus" class="btn btn-primary btn_cta">Contact Us</a> &ndash;&gt;-->
+<!--				</div>-->
+<!--			</section>-->
+<!--		</xpath>-->
+<!--	</template>-->
 
 <!--	<template id="thiqah_navbar_nav" inherit_id="website.layout" name="Navbar Nav">-->
 	<template id="thiqah_navbar_nav" inherit_id="website.template_header_hamburger" name="Navbar Nav">
